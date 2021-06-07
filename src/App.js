@@ -4,16 +4,25 @@ import Todo from './components/Todo';
 import React, { useState } from 'react';
 
 const initialState = [
-  'Buy some bread',
-  'Do a kata',
-  'Go for a run'
+  {
+    text: 'Buy some bread',
+    complete: false
+  },
+  {
+    text: 'Do a kata',
+    complete: false
+  },
+  {
+    text: 'Go for a run',
+    complete: false
+  }
 ]
 
 function App() {
   const [todos, setTodos] = useState(initialState)
 
   const handleTodos = (todoItem) => {
-    setTodos([...todos, todoItem[0]]);
+    setTodos([...todos, { text: todoItem[0], complete: false }]);
   }
 
   return (

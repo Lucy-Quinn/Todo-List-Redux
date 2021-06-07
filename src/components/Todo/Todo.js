@@ -5,6 +5,16 @@ const Todo = ({ todos, setTodos }) => {
 
     const handleComplete = (item) => {
         const currentItem = item;
+        const newArr = todos.map((todo) => {
+            if (todo.text === currentItem.text) {
+                return {
+                    text: todo.text,
+                    complete: true
+                }
+            }
+            return todo;
+        })
+        setTodos([...newArr])
     }
 
     const handleRemoveItem = (item) => {
@@ -16,9 +26,9 @@ const Todo = ({ todos, setTodos }) => {
         <div>
             {todos.map((item) => {
                 return (
-                    <TodoItems>
+                    <TodoItems item={item}>
                         <button onClick={() => handleComplete(item)}>Done</button>
-                        {item}
+                        {item.text}
                         <button onClick={() => handleRemoveItem(item)}>Remove</button>
                     </TodoItems>
                 )

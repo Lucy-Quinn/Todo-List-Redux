@@ -22,5 +22,4 @@ const TodoForm = ({ handleTodos }) => {
     );
 }
 
-
 export default TodoForm;
