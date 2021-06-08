@@ -4,13 +4,14 @@ const TodoForm = ({ addTodoHandler }) => {
 
     const handleTodoForm = (e) => {
         e.preventDefault();
-        const todoText = e.target.todo.value
+        let todoText = e.target.todo.value
         addTodoHandler(todoText);
+        e.target.todo.value = '';
     }
 
     return (
         <form onSubmit={handleTodoForm}>
-            <input type="text" name="todo" placeholder="Buy some milk" />
+            <input type="text" name="todo" placeholder="Add task..." />
             <button type="submit">Add</button>
         </form>
     );

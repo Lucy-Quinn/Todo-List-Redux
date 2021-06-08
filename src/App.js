@@ -8,7 +8,7 @@ const INITIALSTATE = [
   {
     id: '1',
     text: 'Buy some bread',
-    complete: false
+    complete: false,
   },
   {
     id: '2',
@@ -23,7 +23,8 @@ const INITIALSTATE = [
 ]
 
 function App() {
-  const [todos, setTodos] = useState(INITIALSTATE)
+
+  const [todos, setTodos] = useState(INITIALSTATE);
 
   const addTodoHandler = (todoItem) => {
     setTodos([...todos, { id: uuidv4(), text: todoItem, complete: false }]);
