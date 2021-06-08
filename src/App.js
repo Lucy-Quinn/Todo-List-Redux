@@ -1,34 +1,38 @@
-import './App.css';
+import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import TodoForm from './components/TodoForm';
 import Todo from './components/Todo';
-import React, { useState } from 'react';
+import './App.css';
 
-const initialState = [
+const INITIALSTATE = [
   {
+    id: '1',
     text: 'Buy some bread',
     complete: false
   },
   {
+    id: '2',
     text: 'Do a kata',
     complete: false
   },
   {
+    id: '3',
     text: 'Go for a run',
     complete: false
   }
 ]
 
 function App() {
-  const [todos, setTodos] = useState(initialState)
+  const [todos, setTodos] = useState(INITIALSTATE)
 
-  const handleTodos = (todoItem) => {
-    setTodos([...todos, { text: todoItem[0], complete: false }]);
+  const addTodoHandler = (todoItem) => {
+    setTodos([...todos, { id: uuidv4(), text: todoItem, complete: false }]);
   }
 
   return (
     <div className="App">
       <h1>Todo List</h1>
-      <TodoForm handleTodos={handleTodos} />
+      <TodoForm addTodoHandler={addTodoHandler} />
       <Todo todos={todos} setTodos={setTodos} />
     </div>
   );

@@ -3,12 +3,12 @@ import TodoItems from './Todo.styled';
 
 const Todo = ({ todos, setTodos }) => {
 
-    const handleComplete = (item) => {
-        const currentItem = item;
+    const handleCompleteItem = (currentItem) => {
         const newArr = todos.map((todo) => {
-            if (todo.text === currentItem.text) {
+            if (todo.id === currentItem.id) {
                 return {
-                    text: todo.text,
+                    id: currentItem.id,
+                    text: currentItem.text,
                     complete: true
                 }
             }
@@ -17,8 +17,7 @@ const Todo = ({ todos, setTodos }) => {
         setTodos([...newArr])
     }
 
-    const handleRemoveItem = (item) => {
-        const currentItem = item;
+    const handleRemoveItem = (currentItem) => {
         setTodos(todos.filter(item => item !== currentItem));
     }
 
@@ -26,8 +25,8 @@ const Todo = ({ todos, setTodos }) => {
         <div>
             {todos.map((item) => {
                 return (
-                    <TodoItems item={item}>
-                        <button onClick={() => handleComplete(item)}>Done</button>
+                    <TodoItems item={item} key={item.id}>
+                        <button onClick={() => handleCompleteItem(item)}>Done</button>
                         {item.text}
                         <button onClick={() => handleRemoveItem(item)}>Remove</button>
                     </TodoItems>
