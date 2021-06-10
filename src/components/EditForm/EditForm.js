@@ -1,21 +1,31 @@
 import React from 'react'
 
-const EditForm = ({ isEdit, editTodoHandler }) => {
+const EditForm = ({ isEdit, setIsEdit, todos, setTodos, item }) => {
 
-    const { id, complete } = isEdit;
+    const { id, complete } = item;
 
     const handleEditTodoForm = (e) => {
         e.preventDefault();
         const editValue = e.target.editTodo.value;
-        editTodoHandler(editValue, id, complete);
+        const newArr = todos.map((todo) => {
+            if (todo.id === id) {
+                return {
+                    id: id,
+                    text: editValue,
+                    complete: complete
+                }
+            }
+            return todo;
+        })
+        setTodos([...newArr])
         e.target.editTodo.value = '';
-        isEdit.edit = '';
+        setIsEdit(false)
     }
 
     return (
         <form onSubmit={handleEditTodoForm}>
-            <input type="text" name="editTodo" placeholder={isEdit.edit ? isEdit.text : null} />
-            <button type="submit">Edit</button>
+            <input type="text" name="editTodo" placeholder={isEdit ? item.text : null} />
+            <button type="submit">Save</button>
         </form>
     );
 }

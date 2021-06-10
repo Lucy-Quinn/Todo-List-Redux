@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TodoForm from './components/TodoForm';
-import Todo from './components/Todo';
+import TodoList from './components/TodoList';
 import './App.css';
 
 const INITIALSTATE = [
@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <h1>Todo List</h1>
       <TodoForm addTodoHandler={addTodoHandler} />
-      <Todo todos={todos} setTodos={setTodos} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 }
