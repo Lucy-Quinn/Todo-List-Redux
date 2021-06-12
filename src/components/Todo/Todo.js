@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TodoWrapper from '../Todo/Todo.styled.';
+import { TodoWrapper, TodoComplete, TodoEdit, TodoDelete, ItemText } from '../Todo/Todo.styled.';
 import EditForm from '../EditForm/EditForm';
 
 const Todo = ({ todos, setTodos, item, handleCompleteItem, handleRemoveItem }) => {
@@ -11,18 +11,25 @@ const Todo = ({ todos, setTodos, item, handleCompleteItem, handleRemoveItem }) =
     }
 
     return (
-        <TodoWrapper item={item} key={item.id}>
-            <button onClick={() => handleCompleteItem(item)}>
-                {item.complete ? "Undo" : "Done"}
-            </button>
+        <TodoWrapper key={item.id}>
+            <TodoComplete onClick={() => handleCompleteItem(item)}>
+                {item.complete ?
+                    <i class="fas fa-times"></i>
+                    : <i class="fas fa-check"></i>}
+            </TodoComplete>
             {isEdit ?
                 <EditForm isEdit={isEdit} setTodos={setTodos} todos={todos} item={item} setIsEdit={setIsEdit} />
-                : item.text
+                : <ItemText item={item} value={item.text} disabled />
             }
             {isEdit ?
                 null :
-                <button onClick={handleEditItem}>Edit</button>}
-            <button onClick={() => handleRemoveItem(item)}>Remove</button>
+                <TodoEdit>
+                    <i class="fas fa-pencil-alt" onClick={handleEditItem}></i>
+                </TodoEdit>
+            }
+            <TodoDelete>
+                <i class="fas fa-dumpster" onClick={() => handleRemoveItem(item)}></i>
+            </TodoDelete>
         </TodoWrapper>
     );
 }

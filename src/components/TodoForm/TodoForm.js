@@ -1,4 +1,5 @@
 import React from 'react';
+import { TodoFormWrapper, FormInput, FormButon } from './TodoForm.styled';
 
 const TodoForm = ({ addTodoHandler }) => {
 
@@ -10,10 +11,10 @@ const TodoForm = ({ addTodoHandler }) => {
     }
 
     return (
-        <form onSubmit={handleTodoForm}>
-            <input type="text" name="todo" placeholder="Add task..." />
-            <button type="submit">Add</button>
-        </form>
+        <TodoFormWrapper onSubmit={handleTodoForm}>
+            <FormInput type="text" name="todo" placeholder="Add task..." />
+            <FormButon type="submit">Add</FormButon>
+        </TodoFormWrapper>
     );
 }
 

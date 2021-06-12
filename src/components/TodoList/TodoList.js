@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from '../Todo';
+import TodoListWrapper from './TodoList.styled'
 
 const TodoList = ({ todos, setTodos }) => {
 
@@ -22,11 +23,11 @@ const TodoList = ({ todos, setTodos }) => {
     }
 
     return (
-        <div>
+        <TodoListWrapper>
             {todos.map((item) =>
                 <Todo todos={todos} setTodos={setTodos} item={item} handleCompleteItem={handleCompleteItem} handleRemoveItem={handleRemoveItem} />)
             }
-        </div>
+        </TodoListWrapper>
     );
 }
 

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-import './App.css';
+import { TodoListAppWrapper, TodoListAppCenter, TodoAppHeader } from './App.styled';
+import GlobalStyle from './globalStyles';
 
 const INITIALSTATE = [
   {
@@ -31,11 +32,15 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Todo List</h1>
-      <TodoForm addTodoHandler={addTodoHandler} />
-      <TodoList todos={todos} setTodos={setTodos} />
-    </div>
+
+    <TodoListAppWrapper>
+      <TodoListAppCenter>
+        <GlobalStyle />
+        <TodoAppHeader>Todo List</TodoAppHeader>
+        <TodoForm addTodoHandler={addTodoHandler} />
+        <TodoList todos={todos} setTodos={setTodos} />
+      </TodoListAppCenter>
+    </TodoListAppWrapper>
   );
 }
 
