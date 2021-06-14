@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TodoWrapper, TodoComplete, TodoEdit, TodoDelete, ItemText } from '../Todo/Todo.styled.';
+import { TodoWrapper, TodoComplete, TodoEdit, TodoDelete, ItemText, TextWrapper } from '../Todo/Todo.styled.';
 import EditForm from '../EditForm/EditForm';
 
 const Todo = ({ todos, setTodos, item, handleCompleteItem, handleRemoveItem }) => {
@@ -19,7 +19,10 @@ const Todo = ({ todos, setTodos, item, handleCompleteItem, handleRemoveItem }) =
             </TodoComplete>
             {isEdit ?
                 <EditForm isEdit={isEdit} setTodos={setTodos} todos={todos} item={item} setIsEdit={setIsEdit} />
-                : <ItemText item={item} value={item.text} disabled />
+                :
+                <TextWrapper>
+                    <ItemText item={item}>{item.text}</ItemText>
+                </TextWrapper>
             }
             {isEdit ?
                 null :

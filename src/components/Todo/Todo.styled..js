@@ -35,19 +35,25 @@ const TodoDelete = styled.div`
     padding: 2px;
 `
 
-const ItemText = styled.textarea`
+const TextWrapper = styled.div`
+    height: fit-content;
+    margin: 22px 0;
+    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+    padding: 8px;
+    flex-grow: 1;
+    border: none;
+    background: #fff;
+    width: 100%;
+`
+
+const ItemText = styled.p`
     color: black;
     font-family: 'Indie Flower', cursive;
-    flex-grow: 1;
-    background: #fff;
     border-radius: 10px;
-    padding: 8px;
-    height: fit-content;
     font-size: 1.2rem;
-    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-    border: none;
-    margin: 22px 0;
     text-decoration: ${({ item }) => item.complete ? 'line-through' : ''};
+    word-break: break-all;
+    white-space: normal;
 `
 
 export {
@@ -55,5 +61,6 @@ export {
     TodoEdit,
     TodoDelete,
     TodoWrapper,
-    ItemText
+    ItemText,
+    TextWrapper
 }
