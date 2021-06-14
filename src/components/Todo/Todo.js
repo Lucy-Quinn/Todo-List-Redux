@@ -11,7 +11,7 @@ const Todo = ({ todos, setTodos, item, handleCompleteItem, handleRemoveItem }) =
     }
 
     return (
-        <TodoWrapper key={item.id}>
+        <TodoWrapper key={item.id} isEdit={isEdit}>
             <TodoComplete onClick={() => handleCompleteItem(item)}>
                 {item.complete ?
                     <i class="fas fa-times"></i>

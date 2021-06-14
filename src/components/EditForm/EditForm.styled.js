@@ -3,15 +3,23 @@ import styled from "styled-components";
 const EditFormWrapper = styled.form`
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 15px;
     font-size: 1.4rem;
     color: black;
     font-family: 'Indie Flower', cursive;
     flex-grow: 1;
     padding: 22px 0px;
+    flex-direction: column;
+    padding: 22px 0px 0px;
+    @media(min-width: 768px){
+        flex-direction: row;
+        padding: 22px 0px;
+        flex-direction: column;
+
+    }
 `;
 
-const EditFormInput = styled.input`
+const EditFormInput = styled.textarea`
     border-radius: 10px;
     border: none;
     padding: 8px;
@@ -19,6 +27,7 @@ const EditFormInput = styled.input`
     font-family: 'Indie Flower', cursive;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     flex-grow: 1;
+    min-height: 83px;
 `;
 
 const EditFormButton = styled.button`
@@ -32,6 +41,13 @@ const EditFormButton = styled.button`
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+    padding: 9px 0;
+    margin: 0 auto;
+    width: 50%;
+    @media(min-width: 768px){
+        width: 20%;
+
+    }
 `;
 
 export {
