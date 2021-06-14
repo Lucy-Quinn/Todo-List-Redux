@@ -15,7 +15,6 @@ const EditFormWrapper = styled.form`
         flex-direction: row;
         padding: 22px 0px;
         flex-direction: column;
-
     }
 `;
 
@@ -28,6 +27,9 @@ const EditFormInput = styled.textarea`
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     flex-grow: 1;
     min-height: 83px;
+    ::placeholder{
+        line-height: 80px;
+    }
 `;
 
 const EditFormButton = styled.button`
@@ -46,7 +48,6 @@ const EditFormButton = styled.button`
     width: 50%;
     @media(min-width: 768px){
         width: 20%;
-
     }
 `;
 

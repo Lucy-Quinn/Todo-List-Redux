@@ -7,14 +7,12 @@ const TodoFormWrapper = styled.form`
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     background-color: rgba(166, 216, 219, 0.411);
     padding: 20px;
-
     @media(min-width: 768px){
         flex-direction: row;
         justify-content: center;
         padding: 20px;
         width: 60%;
         margin: 0 auto;
-
         min-height: 45px;
     }
 `;
@@ -33,12 +31,10 @@ const FormButon = styled.button`
     display: block;
     margin: 0 auto;
     padding: 9px 0;
-
     @media(min-width: 768px){
         width: 30%;
         padding: 10px 0;
     }
-
     @media(min-width: 768px){
         width: 20%;
     }
@@ -54,9 +50,6 @@ const FormInput = styled.input`
     font-size: 1.2rem;
     font-family: 'Roboto', sans-serif;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-    @media(min-width: 768px){
-
-    }
 `;
 
 

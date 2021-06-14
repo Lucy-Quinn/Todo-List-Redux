@@ -12,14 +12,20 @@ const TodoWrapper = styled.div`
     border-bottom: 1px dotted rgb(122 119 119 / 58%);
     &:nth-child(1){
         border-top: 1px dotted rgb(122 119 119 / 58%);
-    }
+    };
     @media(min-width: 768px){
         flex-direction: row;
         flex-wrap: nowrap;
         padding: 10px;
-        align-items: ${({ isEdit }) => isEdit ? 'center' : 'baseline'};
+        align-items: ${({ isEdit, todos }) => {
+        if (isEdit && todos.text) {
+            return 'baseline';
+        } else if (isEdit && !todos.text) {
+            return 'center';
+        }
+    }}
     }
-`;
+`
 
 const TodoComplete = styled.div`
     font-size: 1.6rem;
@@ -31,7 +37,7 @@ const TodoComplete = styled.div`
     min-width: 26px;
     @media(min-width: 768px){
         order: 0;
-        margin: 0 0 45px;
+        margin-bottom: ${({ isEdit }) => isEdit ? '45px' : '0px'};
     }
 `
 
@@ -43,7 +49,6 @@ const TodoEdit = styled.div`
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     padding: 2px;
     order: 3;
-
 `
 
 const TodoDelete = styled.div`
@@ -53,7 +58,7 @@ const TodoDelete = styled.div`
     padding: 2px;
     order: 4;
     @media(min-width: 768px){
-        margin: 0 0 45px;
+        margin-bottom: ${({ isEdit }) => isEdit ? '45px' : '0px'};
     }
 `
 

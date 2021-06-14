@@ -25,7 +25,7 @@ const EditForm = ({ isEdit, setIsEdit, todos, setTodos, item }) => {
 
     return (
         <EditFormWrapper onSubmit={handleEditTodoForm}>
-            <EditFormInput type="text" name="editTodo" placeholder={isEdit ? item.text : null} />
+            <EditFormInput type="text" name="editTodo" placeholder={isEdit ? item.text : null}>{item.text}</EditFormInput>
             <EditFormButton type="submit">Save</EditFormButton>
         </EditFormWrapper>
     );

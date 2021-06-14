@@ -11,8 +11,8 @@ const Todo = ({ todos, setTodos, item, handleCompleteItem, handleRemoveItem }) =
     }
 
     return (
-        <TodoWrapper key={item.id} isEdit={isEdit}>
-            <TodoComplete onClick={() => handleCompleteItem(item)}>
+        <TodoWrapper key={item.id} isEdit={isEdit} todos={todos}>
+            <TodoComplete onClick={() => handleCompleteItem(item)} isEdit={isEdit} >
                 {item.complete ?
                     <i class="fas fa-times"></i>
                     : <i class="fas fa-check"></i>}
@@ -30,7 +30,7 @@ const Todo = ({ todos, setTodos, item, handleCompleteItem, handleRemoveItem }) =
                     <i class="fas fa-pencil-alt" onClick={handleEditItem}></i>
                 </TodoEdit>
             }
-            <TodoDelete>
+            <TodoDelete isEdit={isEdit} >
                 <i class="fas fa-dumpster" onClick={() => handleRemoveItem(item)}></i>
             </TodoDelete>
         </TodoWrapper>
