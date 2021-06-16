@@ -8,12 +8,12 @@ const EditFormWrapper = styled.form`
     color: black;
     font-family: 'Indie Flower', cursive;
     flex-grow: 1;
-    padding: 22px 0px;
     flex-direction: column;
     padding: 22px 0px 0px;
+    width: 100%;
     @media(min-width: 768px){
         flex-direction: row;
-        padding: 22px 0px;
+        padding: 10px 0px;
         flex-direction: column;
     }
 `;
@@ -21,12 +21,13 @@ const EditFormWrapper = styled.form`
 const EditFormInput = styled.textarea`
     border-radius: 10px;
     border: none;
-    padding: 8px;
+    padding: 0 15px;
+    line-height: 44px;
     font-size: 1.2rem;
     font-family: 'Indie Flower', cursive;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     flex-grow: 1;
-    min-height: 83px;
+    max-height: 44px;
     ::placeholder{
         line-height: 80px;
     }
@@ -34,13 +35,13 @@ const EditFormInput = styled.textarea`
 
 const EditFormButton = styled.button`
     border: none;
-    background: rgb(92, 136, 229);
     color: #fff;
     border: none;
     border-radius: 10px;
     padding: 6px 20px;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     font-size: 1rem;
+    background: ${({ theme }) => theme.button};
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     padding: 9px 0;

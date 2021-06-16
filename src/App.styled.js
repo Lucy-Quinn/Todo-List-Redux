@@ -12,15 +12,18 @@ const TodoAppHeader = styled.h1`
     margin: 0%;
     padding: 20px;
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 2.7rem;
     color: #fff;
+    @media(min-width: 785px){
+        font-size: 3.5rem;
+    }
 `;
 
 
 const TodoListAppCenter = styled.div`
     margin: 0 auto;
     display: block;
-    padding: 20px;
+    padding: 20px 20px 40px;
 `;
 
 

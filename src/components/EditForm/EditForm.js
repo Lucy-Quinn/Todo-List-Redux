@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { EditFormWrapper, EditFormInput, EditFormButton } from './EditForm.styled'
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const EditForm = ({ isEdit, setIsEdit, todos, setTodos, item }) => {
+    const { isLightTheme, themes } = useContext(ThemeContext);
+
+    const theme = isLightTheme ? themes.light : themes.dark;
 
     const { id, complete } = item;
 
@@ -25,8 +29,8 @@ const EditForm = ({ isEdit, setIsEdit, todos, setTodos, item }) => {
 
     return (
         <EditFormWrapper onSubmit={handleEditTodoForm}>
-            <EditFormInput type="text" name="editTodo" placeholder={isEdit ? item.text : null}>{item.text}</EditFormInput>
-            <EditFormButton type="submit">Save</EditFormButton>
+            <EditFormInput type="text" name="editTodo" placeholder={isEdit ? item.text : null} defaultValue={item.text}></EditFormInput>
+            <EditFormButton theme={theme} type="submit">Save</EditFormButton>
         </EditFormWrapper>
     );
 }

@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { TodoWrapper, TodoComplete, TodoEdit, TodoDelete, ItemText, TextWrapper } from '../Todo/Todo.styled.';
 import EditForm from '../EditForm/EditForm';
+import { ThemeContext } from '../../contexts/ThemeContext'
 
 const Todo = ({ todos, setTodos, item, handleCompleteItem, handleRemoveItem }) => {
 
     const [isEdit, setIsEdit] = useState(false);
+    const { themes, isLightTheme } = useContext(ThemeContext);
+    const theme = isLightTheme ? themes.light : themes.dark;
 
     const handleEditItem = () => {
         setIsEdit(!isEdit)
     }
 
     return (
-        <TodoWrapper key={item.id} isEdit={isEdit} todos={todos}>
-            <TodoComplete onClick={() => handleCompleteItem(item)} isEdit={isEdit} >
+        <TodoWrapper key={item.id} isEdit={isEdit} todos={todos} theme={theme}>
+            <TodoComplete onClick={() => handleCompleteItem(item)} isEdit={isEdit} theme={theme} item={item}>
                 {item.complete ?
-                    <i class="fas fa-times"></i>
-                    : <i class="fas fa-check"></i>}
+                    <i className="fas fa-check"></i>
+                    :
+                    null
+                }
             </TodoComplete>
             {isEdit ?
                 <EditForm isEdit={isEdit} setTodos={setTodos} todos={todos} item={item} setIsEdit={setIsEdit} />
@@ -26,12 +31,12 @@ const Todo = ({ todos, setTodos, item, handleCompleteItem, handleRemoveItem }) =
             }
             {isEdit ?
                 null :
-                <TodoEdit>
-                    <i class="fas fa-pencil-alt" onClick={handleEditItem}></i>
+                <TodoEdit theme={theme}>
+                    <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
                 </TodoEdit>
             }
-            <TodoDelete isEdit={isEdit} >
-                <i class="fas fa-dumpster" onClick={() => handleRemoveItem(item)}></i>
+            <TodoDelete isEdit={isEdit} theme={theme}>
+                <i className="fas fa-dumpster" onClick={() => handleRemoveItem(item)}></i>
             </TodoDelete>
         </TodoWrapper>
     );

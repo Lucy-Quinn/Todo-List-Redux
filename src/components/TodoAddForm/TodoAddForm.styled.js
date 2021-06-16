@@ -7,6 +7,7 @@ const TodoFormWrapper = styled.form`
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     background-color: rgba(166, 216, 219, 0.411);
     padding: 20px;
+    border-radius: 10px;
     @media(min-width: 768px){
         flex-direction: row;
         justify-content: center;
@@ -17,9 +18,8 @@ const TodoFormWrapper = styled.form`
     }
 `;
 
-
-const FormButon = styled.button`
-    background: rgb(92, 136, 229);
+const FormButton = styled.button`
+    background: ${({ theme }) => theme.button};
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -48,7 +48,7 @@ const FormInput = styled.input`
     margin: 0 auto;
     padding: 8px;
     font-size: 1.2rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Indie Flower', cursive;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
 `;
 
@@ -56,5 +56,5 @@ const FormInput = styled.input`
 export {
     TodoFormWrapper,
     FormInput,
-    FormButon
+    FormButton
 }

@@ -14,9 +14,8 @@ const GlobalStyle = createGlobalStyle`
   }
   #root{
     min-height: 100%;
-    background: linear-gradient(90deg, rgba(91,134,229,1) 0%, rgba(54,209,220,1) 100%);
+    background: linear-gradient(${({ theme }) => theme.gradientOne}, ${({ theme }) => theme.gradientTwo});
   }
-  
 `;
 
 export default GlobalStyle;
