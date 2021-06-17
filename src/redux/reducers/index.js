@@ -4,20 +4,20 @@ const INITIALSTATE = [
     {
         id: '1',
         text: 'Buy some bread',
-        complete: false,
-        edit: false
+        isComplete: false,
+        isEdit: false
     },
     {
         id: '2',
         text: 'Do a kata',
-        complete: false,
-        edit: false
+        isComplete: false,
+        isEdit: false
     },
     {
         id: '3',
         text: 'Go for a run',
-        complete: false,
-        edit: false
+        isComplete: false,
+        isEdit: false
     }
 ]
 
@@ -27,38 +27,35 @@ export default function rootReducer(state = INITIALSTATE, action) {
             return [
                 ...state,
                 {
-                    id: action.todoId,
-                    text: action.todoText,
-                    complete: false,
-                    edit: false,
+                    id: action.payload.todoId,
+                    text: action.payload.todoText,
+                    isComplete: false,
+                    isEdit: false,
                 }
             ];
         case REMOVE_TODO:
-            return state.filter(todo => todo.id !== action.id);
-        case EDIT_TODO:
-            return state.map((todo) => {
-                if (todo.id !== action.todoId) {
-                    return todo
-                }
-                return {
-                    id: action.todoId,
-                    text: action.todoText,
-                    complete: action.todoComplete,
-                    edit: true
-                }
+            return state.filter(todo => {
+                return todo.id !== action.payload
             });
+        case EDIT_TODO:
+            return state.map(todo =>
+                todo.id === action.payload.todoId ?
+                    {
+                        ...todo,
+                        text: action.payload.todoText,
+                        isEdit: action.payload.todoEdit,
+                    }
+                    : todo
+            );
         case COMPLETE_TODO:
-            return state.map((todo) => {
-                if (todo.id !== action.todoId) {
-                    return todo
-                }
-                return {
-                    id: action.todoId,
-                    text: action.todoText,
-                    complete: true,
-                    edit: action.todoEdit
-                }
-            })
+            return state.map(todo =>
+                todo.id === action.payload.todoId ?
+                    {
+                        ...todo,
+                        isComplete: !action.payload.todoComplete
+                    }
+                    : todo
+            )
         default:
             return state
     }

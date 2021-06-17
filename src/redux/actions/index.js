@@ -31,13 +31,14 @@ export function editTodo(todoId, todoText, todoComplete, todoEdit) {
     }
 };
 
-export function completeTodo(todoId, todoText, todoComplete) {
+export function completeTodo(todoId, todoText, todoComplete, todoEdit) {
     return {
         type: COMPLETE_TODO,
         payload: {
             todoId,
-            // todoText,
-            todoComplete
+            todoText,
+            todoComplete,
+            todoEdit
         }
     }
 };

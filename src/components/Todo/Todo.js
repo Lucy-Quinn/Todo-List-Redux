@@ -1,61 +1,44 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { completeTodo, removeTodo, editTodo } from '../../redux/actions';
 import { TodoWrapper, TodoComplete, TodoEdit, TodoDelete, ItemText, TextWrapper } from '../Todo/Todo.styled.';
 import EditForm from '../EditForm/EditForm';
-import { ThemeContext } from '../../contexts/ThemeContext'
+import { ThemeContext } from '../../contexts/ThemeContext';
 
-const Todo = ({ todos, setTodos, currentItem }) => {
-    const isEdit = currentItem.edit;
+const Todo = ({ currentTodo }) => {
+    const dispatch = useDispatch();
+
     const { themes, isLightTheme } = useContext(ThemeContext);
     const theme = isLightTheme ? themes.light : themes.dark;
 
+    const isEdit = currentTodo.isEdit;
+
     const handleEditItem = () => {
-        const newArr = todos.map(todo => {
-            if (todo.id === currentItem.id) {
-                return {
-                    id: currentItem.id,
-                    text: currentItem.text,
-                    complete: currentItem.complete,
-                    edit: !currentItem.edit
-                }
-            }
-            return todo
-        })
-        setTodos([...newArr])
+        dispatch(editTodo(currentTodo.id, currentTodo.text, currentTodo.isComplete, true))
     }
 
     const handleRemoveItem = () => {
-        setTodos(todos.filter(item => item !== currentItem));
+        dispatch(removeTodo(currentTodo.id))
     }
 
     const handleCompleteItem = () => {
-        const newArr = todos.map(todo => {
-            if (todo.id === currentItem.id) {
-                return {
-                    id: currentItem.id,
-                    text: currentItem.text,
-                    complete: !currentItem.complete,
-                    edit: currentItem.edit
-                }
-            }
-            return todo
-        })
-        setTodos([...newArr])
+        dispatch(completeTodo(currentTodo.id, currentTodo.text, currentTodo.isComplete, currentTodo.isEdit))
     }
 
     return (
-        <TodoWrapper key={currentItem.id} isEdit={isEdit} todos={todos} theme={theme}>
-            <TodoComplete onClick={handleCompleteItem} isEdit={isEdit} theme={theme} currentItem={currentItem}>
-                {currentItem.complete ?
+        <TodoWrapper theme={theme}>
+            <TodoComplete onClick={handleCompleteItem} theme={theme} currentTodo={currentTodo}>
+                {currentTodo.isComplete ?
                     <i className="fas fa-check"></i>
                     :
                     null
                 }
             </TodoComplete>
             {isEdit ?
-                <EditForm isEdit={isEdit} setTodos={setTodos} todos={todos} currentItem={currentItem} />
+                <EditForm isEdit={isEdit} currentTodo={currentTodo} />
                 :
                 <TextWrapper>
-                    <ItemText currentItem={currentItem}>{currentItem.text}</ItemText>
+                    <ItemText currentTodo={currentTodo}>{currentTodo.text}</ItemText>
                 </TextWrapper>
             }
             {isEdit ?
@@ -64,7 +47,7 @@ const Todo = ({ todos, setTodos, currentItem }) => {
                     <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
                 </TodoEdit>
             }
-            <TodoDelete isEdit={isEdit} theme={theme}>
+            <TodoDelete theme={theme}>
                 <i className="fas fa-dumpster" onClick={handleRemoveItem}></i>
             </TodoDelete>
         </TodoWrapper>

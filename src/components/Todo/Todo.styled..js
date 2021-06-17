@@ -36,7 +36,7 @@ const TodoComplete = styled.div`
     order: 2;
     min-width: 26px;
     border-radius: 50%;
-    background: ${({ currentItem, theme }) => currentItem.complete ? theme.button : '#fff'};
+    background: ${({ currentTodo, theme }) => currentTodo.isComplete ? theme.button : '#fff'};
     width: 30px;
     height: 30px;
     display: flex;
@@ -97,7 +97,7 @@ const ItemText = styled.p`
     color: black;
     font-family: 'Indie Flower', cursive;
     font-size: 1.2rem;
-    text-decoration: ${({ currentItem }) => currentItem.complete ? 'line-through' : ''};
+    text-decoration: ${({ currentTodo }) => currentTodo.isComplete ? 'line-through' : ''};
     word-break: break-all;
     white-space: normal;
     margin: 8px;
