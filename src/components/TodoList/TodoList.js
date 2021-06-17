@@ -8,31 +8,19 @@ const TodoList = ({ todos, setTodos }) => {
     const { isLightTheme, themes } = useContext(ThemeContext);
     const theme = isLightTheme ? themes.light : themes.dark;
 
-    const handleCompleteItem = (currentItem) => {
-        const newArr = todos.map(todo => {
-            if (todo.id === currentItem.id) {
-                return {
-                    id: currentItem.id,
-                    text: currentItem.text,
-                    complete: !currentItem.complete,
+
+    if (todos.length >= 1) {
+        return (
+            <TodoListWrapper theme={theme}>
+                {todos.map((currentItem) =>
+                    <Todo key={currentItem.id} todos={todos} setTodos={setTodos} currentItem={currentItem} />)
                 }
-            }
-            return todo
-        })
-        setTodos([...newArr])
+            </TodoListWrapper>
+        )
     }
-
-    const handleRemoveItem = (currentItem) => {
-        setTodos(todos.filter(item => item !== currentItem));
-    }
-
     return (
-        <TodoListWrapper theme={theme}>
-            {todos.map((item) =>
-                <Todo key={item.id} todos={todos} setTodos={setTodos} item={item} handleCompleteItem={handleCompleteItem} handleRemoveItem={handleRemoveItem} />)
-            }
-        </TodoListWrapper>
-    );
+        <div>{null}</div>
+    )
 }
 
 export default TodoList;
