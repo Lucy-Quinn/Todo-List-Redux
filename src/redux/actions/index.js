@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO } from './../types';
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, TOGGLE_THEME_BUTTON } from '../types';
 
 export function addTodo(todoId, todoText, todoComplete, todoEdit) {
     return {
@@ -39,6 +39,15 @@ export function completeTodo(todoId, todoText, todoComplete, todoEdit) {
             todoText,
             todoComplete,
             todoEdit
+        }
+    }
+};
+
+export function toggleThemeButton(toggleTheme) {
+    return {
+        type: TOGGLE_THEME_BUTTON,
+        payload: {
+            toggleTheme
         }
     }
 };

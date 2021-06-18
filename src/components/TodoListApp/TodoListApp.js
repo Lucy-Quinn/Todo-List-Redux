@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import React from 'react';
 import TodoAddForm from '../TodoAddForm';
 import TodoList from '../TodoList';
 import { TodoListAppWrapper, TodoListAppCenter, TodoAppHeader } from './TodoListApp.styled';
-import GlobalStyle from '../../globalStyles';
+import GlobalStyle from '../GlobalStyle';
 import ToggleButton from '../ToggleButton';
+import { useSelector } from 'react-redux';
 
 const TodoListApp = () => {
 
-    const { isLightTheme, themes } = useContext(ThemeContext);
-    const theme = isLightTheme ? themes.light : themes.dark;
+    const { toggleTheme, themes } = useSelector(state => state.themeReducer);
+    const theme = toggleTheme ? themes.light : themes.dark;
 
     return (
         <TodoListAppWrapper>

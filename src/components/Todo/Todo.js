@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { completeTodo, removeTodo, editTodo } from '../../redux/actions';
 import { TodoWrapper, TodoComplete, TodoEdit, TodoDelete, ItemText, TextWrapper } from '../Todo/Todo.styled.';
 import EditForm from '../EditForm/EditForm';
-import { ThemeContext } from '../../contexts/ThemeContext';
 
 const Todo = ({ currentTodo }) => {
+
     const dispatch = useDispatch();
+    const { toggleTheme, themes } = useSelector(state => state.themeReducer);
 
-    const { themes, isLightTheme } = useContext(ThemeContext);
-    const theme = isLightTheme ? themes.light : themes.dark;
-
+    const theme = toggleTheme ? themes.light : themes.dark;
     const isEdit = currentTodo.isEdit;
 
     const handleEditItem = () => {
@@ -26,8 +25,8 @@ const Todo = ({ currentTodo }) => {
     }
 
     return (
-        <TodoWrapper theme={theme}>
-            <TodoComplete onClick={handleCompleteItem} theme={theme} currentTodo={currentTodo}>
+        <TodoWrapper theme={theme} currentTodo={currentTodo}>
+            <TodoComplete onClick={handleCompleteItem} theme={theme} isEdit={isEdit} currentTodo={currentTodo}>
                 {currentTodo.isComplete ?
                     <i className="fas fa-check"></i>
                     :
@@ -47,7 +46,7 @@ const Todo = ({ currentTodo }) => {
                     <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
                 </TodoEdit>
             }
-            <TodoDelete theme={theme}>
+            <TodoDelete theme={theme} isEdit={isEdit}>
                 <i className="fas fa-dumpster" onClick={handleRemoveItem}></i>
             </TodoDelete>
         </TodoWrapper>

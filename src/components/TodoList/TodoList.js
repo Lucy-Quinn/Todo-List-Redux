@@ -1,18 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Todo from '../Todo';
 import TodoListWrapper from './TodoList.styled';
-import { ThemeContext } from '../../contexts/ThemeContext';
 import { useSelector } from 'react-redux';
 
 const TodoList = () => {
-    const todoListArr = useSelector(state => state);
 
-    const { isLightTheme, themes } = useContext(ThemeContext);
-    const theme = isLightTheme ? themes.light : themes.dark;
+    const todoListArr = useSelector(state => state.todoListReducer);
 
     if (todoListArr.length >= 1) {
         return (
-            <TodoListWrapper theme={theme}>
+            <TodoListWrapper>
                 {todoListArr.map((currentTodo) =>
                     <Todo key={currentTodo.id} currentTodo={currentTodo} />)
                 }

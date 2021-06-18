@@ -17,10 +17,10 @@ const TodoWrapper = styled.div`
         flex-direction: row;
         flex-wrap: nowrap;
         padding: 15px 10px 10px;
-        align-items: ${({ isEdit, todos }) => {
-        if (isEdit && todos.text) {
+        align-items: ${({ isEdit, currentTodo }) => {
+        if (isEdit && currentTodo.text) {
             return 'baseline';
-        } else if (isEdit && !todos.text) {
+        } else if (isEdit && !currentTodo.text) {
             return 'center';
         }
     }}

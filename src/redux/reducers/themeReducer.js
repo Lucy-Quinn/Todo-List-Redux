@@ -1,9 +1,7 @@
-import React, { createContext, useState } from 'react';
+import { TOGGLE_THEME_BUTTON } from '../types';
 
-const ThemeContextProvider = (props) => {
-    const [isLightTheme, setLightTheme] = useState(true);
-
-    const themes = {
+const INITIALSTATE = {
+    themes: {
         light: {
             gradientOne: '90deg, rgba(54,209,220,1) 0%',
             gradientTwo: 'rgba(91,134,229,1) 100%',
@@ -18,21 +16,16 @@ const ThemeContextProvider = (props) => {
             todoListBackgroundColor: 'gray',
             border: '#fff'
         }
-    }
-
-    const toggleTheme = () => {
-        setLightTheme(!isLightTheme);
-    }
-
-    return (
-        <ThemeContext.Provider value={{ themes, isLightTheme, toggleTheme }}>
-            {props.children}
-        </ThemeContext.Provider>
-    );
-
+    },
+    toggleTheme: { toggleTheme: false },
 }
 
-export const ThemeContext = createContext();
-export default ThemeContextProvider;
 
-
+export default function themeReducer(state = INITIALSTATE, action) {
+    switch (action.type) {
+        case TOGGLE_THEME_BUTTON:
+            return { ...state, toggleTheme: !state.toggleTheme }
+        default:
+            return state
+    }
+};

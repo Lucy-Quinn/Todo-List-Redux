@@ -1,15 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editTodo } from '../../redux/actions';
 import { EditFormWrapper, EditFormInput, EditFormButton } from './EditForm.styled'
-import { ThemeContext } from '../../contexts/ThemeContext';
 
 const EditForm = ({ currentTodo }) => {
+
     const dispatch = useDispatch();
+    const { toggleTheme, themes } = useSelector(state => state.themeReducer);
 
-    const { isLightTheme, themes } = useContext(ThemeContext);
-    const theme = isLightTheme ? themes.light : themes.dark;
-
+    const theme = toggleTheme ? themes.light : themes.dark;
     const { id, text, isComplete, isEdit } = currentTodo;
 
     const handleEditTodoForm = (e) => {

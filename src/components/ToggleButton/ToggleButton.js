@@ -1,19 +1,23 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import React from 'react';
 import { ToggleButtonWrapper, ToggleButtonIcon } from './ToggleButton.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleThemeButton } from '../../redux/actions';
 
 const ToggleButton = () => {
-    const { isLightTheme, toggleTheme, themes } = useContext(ThemeContext);
 
-    const theme = isLightTheme ? themes.light : themes.dark;
+    const dispatch = useDispatch();
+    const { toggleTheme, themes } = useSelector(state => state.themeReducer);
+
+    const theme = toggleTheme ? themes.light : themes.dark;
 
     const handleThemeToggle = () => {
-        toggleTheme();
+        dispatch(toggleThemeButton())
     }
+
     return (
         <ToggleButtonWrapper>
             <ToggleButtonIcon onClick={handleThemeToggle} theme={theme}>
-                {isLightTheme ?
+                {toggleTheme ?
                     <i className="far fa-sun"></i>
                     : <i className="far fa-moon"></i>}
             </ToggleButtonIcon>
