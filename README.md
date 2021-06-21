@@ -1,4 +1,4 @@
-# Todo List (Redux)
+# I've Got To Do This (Redux)
 
 'I've Got To Do This' is a todo list app using Redux. Users can add, edit and delete the todo items and also mark theme as complete. I have also implemented a light and dark mode; originally using context and changing this to Redux.
 
