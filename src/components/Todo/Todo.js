@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { completeTodo, removeTodo, editTodo } from '../../redux/actions';
 import { TodoWrapper, TodoComplete, TodoEdit, TodoDelete, ItemText, TextWrapper } from '../Todo/Todo.styled.';
 import EditForm from '../EditForm/EditForm';
+import { Link } from 'react-router-dom'
 
 const Todo = ({ currentTodo }) => {
 
@@ -16,9 +17,7 @@ const Todo = ({ currentTodo }) => {
         dispatch(editTodo(currentTodo.id, currentTodo.text, currentTodo.isComplete, true))
     }
 
-    const handleRemoveItem = () => {
-        dispatch(removeTodo(currentTodo.id))
-    }
+
 
     const handleCompleteItem = () => {
         dispatch(completeTodo(currentTodo.id, currentTodo.text, currentTodo.isComplete, currentTodo.isEdit))
@@ -36,9 +35,12 @@ const Todo = ({ currentTodo }) => {
             {isEdit ?
                 <EditForm isEdit={isEdit} currentTodo={currentTodo} />
                 :
-                <TextWrapper>
-                    <ItemText currentTodo={currentTodo}>{currentTodo.text}</ItemText>
-                </TextWrapper>
+                <Link to={`/todos/${currentTodo.id}`} className="button muted-button">
+                    <TextWrapper>
+                        <ItemText currentTodo={currentTodo}>{currentTodo.text}</ItemText>
+                    </TextWrapper>
+                </Link>
+
             }
             {isEdit ?
                 null :
@@ -46,9 +48,7 @@ const Todo = ({ currentTodo }) => {
                     <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
                 </TodoEdit>
             }
-            <TodoDelete theme={theme} isEdit={isEdit}>
-                <i className="fas fa-dumpster" onClick={handleRemoveItem}></i>
-            </TodoDelete>
+
         </TodoWrapper>
     );
 }
