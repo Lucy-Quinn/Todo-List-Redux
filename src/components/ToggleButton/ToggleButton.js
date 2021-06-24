@@ -1,6 +1,7 @@
 import React from 'react';
-import { ToggleButtonWrapper, ToggleButtonIcon } from './ToggleButton.styled';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { ToggleButtonWrapper, ToggleButtonIcon } from './ToggleButton.styled';
 import { toggleThemeButton } from '../../redux/actions';
 
 const ToggleButton = () => {

@@ -2,8 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { removeTodo } from '../../redux/actions';
-import { TodoDelete } from '../Todo/Todo.styled.';
-
+import { TodoDelete } from './DeleteTodo.styled';
 
 const DeleteTodo = ({ currentTodo }) => {
     const dispatch = useDispatch();

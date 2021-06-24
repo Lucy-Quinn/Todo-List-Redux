@@ -1,7 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 import Todo from '../Todo';
 import TodoListWrapper from './TodoList.styled';
-import { useSelector } from 'react-redux';
 
 const TodoList = () => {
 

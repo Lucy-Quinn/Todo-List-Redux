@@ -1,26 +1,30 @@
-import React from 'react';
-import { TodoFormWrapper, FormInput, FormButton } from './TodoAddForm.styled';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { TodoFormWrapper, FormInput, FormButton } from './TodoAddForm.styled';
 import { addTodo } from '../../redux/actions';
 
 const TodoForm = () => {
 
     const dispatch = useDispatch();
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
+    const [inputValue, setInputValue] = useState('')
 
     const theme = toggleTheme ? themes.light : themes.dark;
 
+    const handleChange = (e) => {
+        setInputValue(e.target.value);
+    }
+
     const handleAddItem = (e) => {
         e.preventDefault();
-        const todoText = e.target.todo.value;
-        dispatch(addTodo(uuidv4(), todoText, false, false))
-        e.target.todo.value = '';
+        dispatch(addTodo(inputValue))
+        setInputValue('');
     }
 
     return (
         <TodoFormWrapper onSubmit={handleAddItem}>
-            <FormInput type="text" name="todo" placeholder="Add task..." />
+            <FormInput type="text" name="todo" value={inputValue} placeholder="Add task..." onChange={handleChange} />
             <FormButton type="submit" theme={theme}>Add</FormButton>
         </TodoFormWrapper>
     );

@@ -1,12 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import TodoListApp from './components/TodoListApp/TodoListApp';
 import SingleTodoPage from './components/SingleTodoPage/index';
-import { BrowserRouter as Router } from "react-router-dom";
 import GlobalStyle from './components/GlobalStyle';
-import { useSelector } from 'react-redux';
-
-import { Route, Switch } from 'react-router-dom';
-
 
 function App() {
   const { toggleTheme, themes } = useSelector(state => state.themeReducer);
@@ -21,7 +20,6 @@ function App() {
         </Switch>
       </div>
     </Router>
-
   );
 }
 

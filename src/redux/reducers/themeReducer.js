@@ -24,7 +24,10 @@ const INITIALSTATE = {
 export default function themeReducer(state = INITIALSTATE, action) {
     switch (action.type) {
         case TOGGLE_THEME_BUTTON:
-            return { ...state, toggleTheme: !state.toggleTheme }
+            return {
+                ...state,
+                toggleTheme: !state.toggleTheme
+            }
         default:
             return state
     }

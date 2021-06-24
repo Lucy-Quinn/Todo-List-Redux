@@ -8,11 +8,11 @@ const TodoDelete = styled.div`
     order: 4;
     background: ${({ theme }) => theme.button};
     padding: 5px;
+    width: fit-content;
     @media(min-width: 768px){
         margin-bottom: ${({ isEdit }) => isEdit ? '50px' : '0px'};
     }
 `
 export {
     TodoDelete,
-
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { completeTodo, removeTodo, editTodo } from '../../redux/actions';
-import { TodoWrapper, TodoComplete, TodoEdit, TodoDelete, ItemText, TextWrapper } from '../Todo/Todo.styled.';
-import EditForm from '../EditForm/EditForm';
 import { Link } from 'react-router-dom'
+
+import { completeTodo, editTodo } from '../../redux/actions';
+import { TodoWrapper, TodoComplete, TodoEdit, ItemText, TextWrapper } from '../Todo/Todo.styled.';
+import EditForm from '../EditForm/EditForm';
 
 const Todo = ({ currentTodo }) => {
 
@@ -14,13 +15,11 @@ const Todo = ({ currentTodo }) => {
     const isEdit = currentTodo.isEdit;
 
     const handleEditItem = () => {
-        dispatch(editTodo(currentTodo.id, currentTodo.text, currentTodo.isComplete, true))
+        dispatch(editTodo(currentTodo.id, currentTodo.text))
     }
 
-
-
     const handleCompleteItem = () => {
-        dispatch(completeTodo(currentTodo.id, currentTodo.text, currentTodo.isComplete, currentTodo.isEdit))
+        dispatch(completeTodo(currentTodo.id))
     }
 
     return (
@@ -40,7 +39,6 @@ const Todo = ({ currentTodo }) => {
                         <ItemText currentTodo={currentTodo}>{currentTodo.text}</ItemText>
                     </TextWrapper>
                 </Link>
-
             }
             {isEdit ?
                 null :
@@ -48,7 +46,6 @@ const Todo = ({ currentTodo }) => {
                     <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
                 </TodoEdit>
             }
-
         </TodoWrapper>
     );
 }
