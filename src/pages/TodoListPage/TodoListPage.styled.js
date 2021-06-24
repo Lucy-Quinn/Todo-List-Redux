@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TodoListAppWrapper = styled.div`
+const TodoListWrapper = styled.div`
     margin: 0;
     padding: 0;
     width: 100%;
@@ -18,7 +18,7 @@ const TodoAppHeader = styled.h1`
     }
 `;
 
-const TodoListAppCenter = styled.div`
+const TodoListCenter = styled.div`
     margin: 0 auto;
     display: block;
     padding: 20px 20px 40px;
@@ -26,6 +26,6 @@ const TodoListAppCenter = styled.div`
 
 export {
     TodoAppHeader,
-    TodoListAppCenter,
-    TodoListAppWrapper
+    TodoListCenter,
+    TodoListWrapper
 }

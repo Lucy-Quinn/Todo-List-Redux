@@ -15,6 +15,9 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     background: linear-gradient(${({ theme }) => theme.gradientOne}, ${({ theme }) => theme.gradientTwo});
   }
+  a{
+    text-decoration: none;
+  }
 `;
 
 export default GlobalStyle;

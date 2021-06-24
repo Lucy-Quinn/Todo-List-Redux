@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 import { completeTodo, editTodo } from '../../redux/actions';
-import { TodoWrapper, TodoComplete, TodoEdit, ItemText, TextWrapper } from '../Todo/Todo.styled.';
+import { TodoWrapper, TodoComplete, TodoEdit, ItemText, TextWrapper, FavoriteIcon } from '../Todo/Todo.styled.';
 import EditForm from '../EditForm/EditForm';
 
 const Todo = ({ currentTodo }) => {
@@ -12,7 +12,7 @@ const Todo = ({ currentTodo }) => {
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
 
     const theme = toggleTheme ? themes.light : themes.dark;
-    const isEdit = currentTodo.isEdit;
+    const { isEdit, isFavorite } = currentTodo;
 
     const handleEditItem = () => {
         dispatch(editTodo(currentTodo.id, currentTodo.text))
@@ -39,6 +39,10 @@ const Todo = ({ currentTodo }) => {
                         <ItemText currentTodo={currentTodo}>{currentTodo.text}</ItemText>
                     </TextWrapper>
                 </Link>
+            }
+            {isFavorite ?
+                <FavoriteIcon className="fas fa-star" currentTodo={currentTodo} />
+                : null
             }
             {isEdit ?
                 null :

@@ -88,7 +88,13 @@ const ItemText = styled.p`
     word-break: break-all;
     white-space: normal;
     margin: 8px;
+    font-size: ${({ currentTodo }) => currentTodo.isFavorite ? '1.8rem' : '1.2rem'};
 `
+
+const FavoriteIcon = styled.i`
+    font-size: 1.6rem;
+    color: ${({ currentTodo }) => currentTodo ? "#fff" : "none"}
+`;
 
 export {
     TodoComplete,
@@ -96,4 +102,5 @@ export {
     TodoWrapper,
     ItemText,
     TextWrapper,
+    FavoriteIcon
 }
