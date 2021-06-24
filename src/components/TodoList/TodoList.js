@@ -7,11 +7,12 @@ import TodoListWrapper from './TodoList.styled';
 const TodoList = () => {
 
     const todoListArr = useSelector(state => state.todoListReducer);
+    const orderedByFavorite = todoListArr.sort((a, b) => (a.isFavorite) ? -1 : 1)
 
     if (todoListArr.length >= 1) {
         return (
             <TodoListWrapper>
-                {todoListArr.map((currentTodo) =>
+                {orderedByFavorite.map((currentTodo) =>
                     <Todo key={currentTodo.id} currentTodo={currentTodo} />)
                 }
             </TodoListWrapper>
