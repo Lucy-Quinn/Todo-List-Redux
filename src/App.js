@@ -6,8 +6,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import TodoListPage from './pages/TodoListPage/TodoListPage';
 import SingleTodoPage from './pages/SingleTodoPage/index';
 import GlobalStyle from './components/GlobalStyle';
+import Navbar from './components/Navbar';
 
 function App() {
+
   const { toggleTheme, themes } = useSelector(state => state.themeReducer);
   const theme = toggleTheme ? themes.light : themes.dark;
 
@@ -15,6 +17,7 @@ function App() {
     <Router>
       <div>
         <GlobalStyle theme={theme} />
+        <Navbar />
         <Switch>
           <Route exact path="/" component={TodoListPage} />
           <Route exact path="/todos/:todoId" component={SingleTodoPage} />

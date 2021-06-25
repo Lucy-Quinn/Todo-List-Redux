@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
-const FavoriteIconFilled = styled.i`
-    font-size: 1.6rem;
-    color: #fff;
-`;
-
-const FavoriteIconNotFilled = styled.i`
-    font-size: 1.6rem;
-    color: #fff;
+const SingleTodoHeader = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 `;
 
 export {
-    FavoriteIconFilled,
-    FavoriteIconNotFilled
+    SingleTodoHeader,
 }

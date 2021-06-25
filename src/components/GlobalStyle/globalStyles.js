@@ -17,6 +17,28 @@ const GlobalStyle = createGlobalStyle`
   }
   a{
     text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+    @media(min-width: 768px){
+      font-size: 1.3rem;
+    }
+  }
+  h1{
+    font-size: 1.8rem;
+    color: #fff;
+    @media(min-width: 768px){
+        font-size: 2.3rem;
+    }
+    @media(min-width: 1024px){
+        font-size: 3.5rem;
+    }
+  }
+  h2{
+    font-size: 2rem;
+    color: #fff;
+    @media(min-width: 768px){
+        font-size: 2.8rem;
+    }
   }
 `;
 

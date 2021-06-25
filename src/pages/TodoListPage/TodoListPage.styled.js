@@ -6,18 +6,6 @@ const TodoListWrapper = styled.div`
     width: 100%;
 `;
 
-const TodoAppHeader = styled.h1`
-    text-align: center;
-    margin: 0%;
-    padding: 20px;
-    text-align: center;
-    font-size: 2.7rem;
-    color: #fff;
-    @media(min-width: 785px){
-        font-size: 3.5rem;
-    }
-`;
-
 const TodoListCenter = styled.div`
     margin: 0 auto;
     display: block;
@@ -25,7 +13,6 @@ const TodoListCenter = styled.div`
 `;
 
 export {
-    TodoAppHeader,
     TodoListCenter,
     TodoListWrapper
 }
