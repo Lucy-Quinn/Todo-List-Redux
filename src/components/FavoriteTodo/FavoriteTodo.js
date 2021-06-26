@@ -9,7 +9,7 @@ const FavoriteTodo = ({ currentTodo }) => {
     const dispatch = useDispatch();
 
     const handleFavoriteItem = () => {
-        dispatch(favoriteTodo(currentTodo.id))
+        dispatch(favoriteTodo(currentTodo.id));
     }
 
     return (

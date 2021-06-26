@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 
 import DeleteTodo from '../../components/DeleteTodo';
 import FavoriteTodo from '../../components/FavoriteTodo';
-import { SingleTodoHeader } from './SingleTodoPage.styled'
+import { SingleTodoHeader } from './SingleTodoPage.styled';
+import AddNote from '../../components/AddNote';
 
 const SingleTodoPage = (props) => {
 
-    const { todoId } = props.match.params
+    const { todoId } = props.match.params;
 
     const currentTodo = useSelector(state =>
         state.todoListReducer.find(todo => todo.id === todoId)
@@ -18,16 +19,11 @@ const SingleTodoPage = (props) => {
         <div>
             <SingleTodoHeader>
                 <h2>
-                    {currentTodo ?
-                        currentTodo.text :
-                        <div>
-                            <h1>Your post has been deleted</h1>
-                            <h2>Return<Link to="/">Home</Link></h2>
-                        </div>
-                    }
+                    {currentTodo.text}
                 </h2>
                 <FavoriteTodo currentTodo={currentTodo} />
             </SingleTodoHeader>
+            <AddNote currentTodo={currentTodo} />
             <DeleteTodo currentTodo={currentTodo} />
         </div>
     );

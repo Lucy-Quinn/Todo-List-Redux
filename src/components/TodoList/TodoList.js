@@ -19,7 +19,9 @@ const TodoList = () => {
         )
     }
     return (
-        <div>{null}</div>
+        <div>
+            <h2>Add more todos...</h2>
+        </div>
     )
 }
 

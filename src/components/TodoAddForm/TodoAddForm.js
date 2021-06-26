@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { TodoFormWrapper, FormInput, FormButton } from './TodoAddForm.styled';
+import { TodoFormWrapper, FormInput } from './TodoAddForm.styled';
 import { addTodo } from '../../redux/actions';
 
 const TodoForm = () => {
@@ -16,16 +16,16 @@ const TodoForm = () => {
         setInputValue(e.target.value);
     }
 
-    const handleAddItem = (e) => {
+    const handleAddItemForm = (e) => {
         e.preventDefault();
-        dispatch(addTodo(inputValue))
+        dispatch(addTodo(inputValue));
         setInputValue('');
     }
 
     return (
-        <TodoFormWrapper onSubmit={handleAddItem}>
+        <TodoFormWrapper onSubmit={handleAddItemForm}>
             <FormInput type="text" name="todo" value={inputValue} placeholder="Add task..." onChange={handleChange} />
-            <FormButton type="submit" theme={theme}>Add</FormButton>
+            <button className="cta-button" type="submit" theme={theme}>Add</button>
         </TodoFormWrapper>
     );
 }
