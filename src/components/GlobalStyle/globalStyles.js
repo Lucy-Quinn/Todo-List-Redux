@@ -24,20 +24,20 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   h1{
-    font-size: 1.8rem;
-    color: #fff;
-    @media(min-width: 768px){
-        font-size: 2.3rem;
-    }
-    @media(min-width: 1024px){
-        font-size: 3.5rem;
-    }
-  }
-  h2{
     font-size: 2rem;
     color: #fff;
     @media(min-width: 768px){
-        font-size: 2.8rem;
+        font-size: 2.5rem;
+    }
+    @media(min-width: 1024px){
+        font-size: 3.6rem;
+    }
+  }
+  h2{
+    font-size: 1.7rem;
+    color: #fff;
+    @media(min-width: 768px){
+        font-size: 2.2rem;
     }
   }
 `;

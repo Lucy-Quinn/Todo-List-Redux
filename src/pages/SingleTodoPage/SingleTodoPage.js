@@ -24,7 +24,8 @@ const SingleTodoPage = (props) => {
                             <h1>Your post has been deleted</h1>
                             <h2>Return<Link to="/">Home</Link></h2>
                         </div>
-                    }</h2>
+                    }
+                </h2>
                 <FavoriteTodo currentTodo={currentTodo} />
             </SingleTodoHeader>
             <DeleteTodo currentTodo={currentTodo} />

@@ -13,9 +13,11 @@ const Navbar = () => {
                 <ToggleThemeButton />
             </ToggleThemeWrapper>
             {location.pathname === '/' ?
-                <TodoAppHeader>I've Got To Do This!</TodoAppHeader>
+                <div className='navbar-header'>
+                    <TodoAppHeader>I've Got To Do This!</TodoAppHeader>
+                </div>
                 :
-                <HeaderLinkWrapper to='/'>
+                <HeaderLinkWrapper to='/' className='navbar-header'>
                     <TodoAppHeader>I've Got To Do This!</TodoAppHeader>
                 </HeaderLinkWrapper>
             }

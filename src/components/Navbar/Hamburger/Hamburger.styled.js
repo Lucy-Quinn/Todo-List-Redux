@@ -6,7 +6,7 @@ const StyledHamburger = styled.div`
     position: absolute;
     height: 1.5rem;
     width: 0.5rem;
-    right: 25px;
+    right: 35px;
     flex-direction: column;
     justify-content: space-around;
     z-index: 1;

@@ -14,9 +14,9 @@ const DeleteTodo = ({ currentTodo }) => {
         dispatch(removeTodo(currentTodo.id))
     }
     return (
-        <TodoDelete theme={theme}>
-            <i className="fas fa-dumpster" onClick={handleRemoveItem}></i>
-        </TodoDelete>
+        <div>
+            <TodoDelete theme={theme} onClick={handleRemoveItem}>Delete Todo</TodoDelete>
+        </div>
     );
 }
 
