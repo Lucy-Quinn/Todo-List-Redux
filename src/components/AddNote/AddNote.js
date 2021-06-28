@@ -26,15 +26,18 @@ const AddNote = ({ currentTodo }) => {
         <form onSubmit={handleAddNoteForm}>
             <TextArea
                 type="submit"
-                value={textAreaValue}
+                value={textAreaValue ? textAreaValue : currentTodo.note}
                 onChange={handleChange}
-                placeholder={currentTodo !== undefined && currentTodo.note ? currentTodo.note : 'Add note'}
+                placeholder='Add note'
                 rows={10}
                 cols={30}
                 currentTodo={currentTodo}
             />
-            <input type="submit" hidden />
-            <button className='cta-button' type="submit" theme={theme}>Add note</button>
+            <button className='cta-button' type="submit" theme={theme}>
+                {currentTodo.note ?
+                    `Update note`
+                    : `Add note`}
+            </button>
         </form>
     )
 }

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
-import todoListReducer from './todoListReducer';
+import todoItemsReducer from './todoItemsReducer';
 import themeReducer from './themeReducer';
 
-const rootReducer = combineReducers({ todoListReducer, themeReducer });
+const rootReducer = combineReducers({ todoItemsReducer, themeReducer });
 
 export default rootReducer;

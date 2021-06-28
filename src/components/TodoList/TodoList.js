@@ -6,8 +6,8 @@ import TodoListWrapper from './TodoList.styled';
 
 const TodoList = () => {
 
-    const todoListArr = useSelector(state => state.todoListReducer);
-    const orderedByFavorite = todoListArr.sort((a, b) => (a.isFavorite) ? -1 : 1)
+    const todoListArr = useSelector(state => state.todoItemsReducer);
+    const orderedByFavorite = todoListArr ? todoListArr.sort((a, b) => (a.isFavorite) ? -1 : 1) : null;
 
     if (todoListArr.length >= 1) {
         return (

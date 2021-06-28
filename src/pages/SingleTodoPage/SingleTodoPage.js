@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import DeleteTodo from '../../components/DeleteTodo';
 import FavoriteTodo from '../../components/FavoriteTodo';
@@ -12,15 +11,17 @@ const SingleTodoPage = (props) => {
     const { todoId } = props.match.params;
 
     const currentTodo = useSelector(state =>
-        state.todoListReducer.find(todo => todo.id === todoId)
+        state.todoItemsReducer.find(todo => todo.id === todoId)
     )
 
     return (
         <div>
             <SingleTodoHeader>
-                <h2>
-                    {currentTodo.text}
-                </h2>
+                {currentTodo !== undefined &&
+                    <h2>
+                        {currentTodo.text}
+                    </h2>
+                }
                 <FavoriteTodo currentTodo={currentTodo} />
             </SingleTodoHeader>
             <AddNote currentTodo={currentTodo} />

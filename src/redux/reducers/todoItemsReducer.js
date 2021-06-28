@@ -1,34 +1,34 @@
 import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
-const INITIALSTATE = [
-    {
-        id: uuidv4(),
-        text: 'Buy some bread',
-        isComplete: false,
-        isEdit: false,
-        isFavorite: false,
-        note: ''
-    },
-    {
-        id: uuidv4(),
-        text: 'Do a kata',
-        isComplete: false,
-        isEdit: false,
-        isFavorite: false,
-        note: 'Everyday this week'
-    },
-    {
-        id: uuidv4(),
-        text: 'Go for a run',
-        isComplete: false,
-        isEdit: false,
-        isFavorite: false,
-        note: 'Training for a marathon'
-    }
-]
+// const INITIALSTATE = [
+//     {
+//         id: uuidv4(),
+//         text: 'Buy some bread',
+//         isComplete: false,
+//         isEdit: false,
+//         isFavorite: false,
+//         note: ''
+//     },
+//     {
+//         id: uuidv4(),
+//         text: 'Do a kata',
+//         isComplete: false,
+//         isEdit: false,
+//         isFavorite: false,
+//         note: 'Everyday this week'
+//     },
+//     {
+//         id: uuidv4(),
+//         text: 'Go for a run',
+//         isComplete: false,
+//         isEdit: false,
+//         isFavorite: false,
+//         note: 'Training for a marathon'
+//     }
+// ]
 
-export default function todoListReducer(state = INITIALSTATE, action) {
+export default function todoItemsReducer(state = [], action) {
     switch (action.type) {
         case ADD_TODO:
             return [
@@ -36,6 +36,10 @@ export default function todoListReducer(state = INITIALSTATE, action) {
                 {
                     id: uuidv4(),
                     text: action.payload.todoText,
+                    isComplete: false,
+                    isEdit: false,
+                    isFavorite: false,
+                    note: ''
                 }
             ];
         case REMOVE_TODO:
