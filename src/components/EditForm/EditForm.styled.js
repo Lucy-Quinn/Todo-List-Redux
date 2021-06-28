@@ -33,27 +33,7 @@ const EditFormInput = styled.textarea`
     }
 `;
 
-const EditFormButton = styled.button`
-    border: none;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    padding: 6px 20px;
-    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-    font-size: 1rem;
-    background: ${({ theme }) => theme.button};
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    padding: 9px 0;
-    margin: 0 auto;
-    width: 50%;
-    @media(min-width: 768px){
-        width: 20%;
-    }
-`;
-
 export {
     EditFormWrapper,
-    EditFormInput,
-    EditFormButton
+    EditFormInput
 }

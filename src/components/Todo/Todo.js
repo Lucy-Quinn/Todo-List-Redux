@@ -1,7 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { completeTodo, removeTodo, editTodo } from '../../redux/actions';
-import { TodoWrapper, TodoComplete, TodoEdit, TodoDelete, ItemText, TextWrapper } from '../Todo/Todo.styled.';
+import { Link } from 'react-router-dom'
+
+import { completeTodo, editTodo } from '../../redux/actions';
+import { TodoWrapper, TodoComplete, TodoEdit, ItemText, TextWrapper, FavoriteIcon } from '../Todo/Todo.styled.';
 import EditForm from '../EditForm/EditForm';
 
 const Todo = ({ currentTodo }) => {
@@ -10,18 +12,14 @@ const Todo = ({ currentTodo }) => {
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
 
     const theme = toggleTheme ? themes.light : themes.dark;
-    const isEdit = currentTodo.isEdit;
+    const { isEdit, isFavorite } = currentTodo;
 
     const handleEditItem = () => {
-        dispatch(editTodo(currentTodo.id, currentTodo.text, currentTodo.isComplete, true))
-    }
-
-    const handleRemoveItem = () => {
-        dispatch(removeTodo(currentTodo.id))
+        dispatch(editTodo(currentTodo.id, currentTodo.text))
     }
 
     const handleCompleteItem = () => {
-        dispatch(completeTodo(currentTodo.id, currentTodo.text, currentTodo.isComplete, currentTodo.isEdit))
+        dispatch(completeTodo(currentTodo.id))
     }
 
     return (
@@ -36,9 +34,15 @@ const Todo = ({ currentTodo }) => {
             {isEdit ?
                 <EditForm isEdit={isEdit} currentTodo={currentTodo} />
                 :
-                <TextWrapper>
-                    <ItemText currentTodo={currentTodo}>{currentTodo.text}</ItemText>
-                </TextWrapper>
+                <Link to={`/todos/${currentTodo.id}`} className="button muted-button">
+                    <TextWrapper>
+                        <ItemText currentTodo={currentTodo}>{currentTodo.text}</ItemText>
+                    </TextWrapper>
+                </Link>
+            }
+            {isFavorite ?
+                <FavoriteIcon className="fas fa-star" currentTodo={currentTodo} />
+                : null
             }
             {isEdit ?
                 null :
@@ -46,9 +50,6 @@ const Todo = ({ currentTodo }) => {
                     <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
                 </TodoEdit>
             }
-            <TodoDelete theme={theme} isEdit={isEdit}>
-                <i className="fas fa-dumpster" onClick={handleRemoveItem}></i>
-            </TodoDelete>
         </TodoWrapper>
     );
 }
