@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import TodoListPage from './pages/TodoListPage/TodoListPage';
-import SingleTodoPage from './pages/SingleTodoPage/index';
+import HomePage from './pages/HomePage/HomePage';
+import SingleTodoPage from './pages/SingleTodoPage';
+import TodoListsPage from './pages/TodoListsPage';
 import GlobalStyle from './components/GlobalStyle';
 import Navbar from './components/Navbar';
 
@@ -19,8 +20,9 @@ function App() {
         <GlobalStyle theme={theme} />
         <Navbar />
         <Switch>
-          <Route exact path="/" component={TodoListPage} />
+          <Route exact path="/" component={HomePage} />
           <Route exact path="/todos/:todoId" component={SingleTodoPage} />
+          <Route exact path="/todoLists" component={TodoListsPage} />
         </Switch>
       </div>
     </Router>

@@ -6,8 +6,8 @@ const NavList = ({ isOpen }) => {
     return (
         <NavListWrapper>
             <NavMenu isOpen={isOpen} >
-                <NavLink to='/favorites'>
-                    Favorites
+                <NavLink to='/todoLists'>
+                    Todo Lists
                 </NavLink>
                 <NavLink to='/completed'>
                     Completed

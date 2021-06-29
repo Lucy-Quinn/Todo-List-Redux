@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ToggleButtonWrapper, ToggleButtonIcon } from './ToggleThemeButton.styled';
-import { toggleThemeButton } from '../../redux/actions';
+import { toggleThemeButton } from '../../redux/actions/themeActions';
 
 const ToggleThemeButton = () => {
 

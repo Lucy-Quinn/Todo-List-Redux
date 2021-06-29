@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const TodoWrapper = styled.div`
- display: flex;
+const TodoListWrapper = styled.div`
+    display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 20px;
@@ -12,8 +12,6 @@ const TodoWrapper = styled.div`
     @media(min-width: 768px){
         width: 60%;
     }
-`
+`;
 
-export {
-    TodoWrapper
-}
+export default TodoListWrapper;

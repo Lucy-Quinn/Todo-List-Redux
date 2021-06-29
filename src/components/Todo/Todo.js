@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 
-import { completeTodo, editTodo } from '../../redux/actions';
+import { completeTodo, editTodo } from '../../redux/actions/TodoItemsActions';
 import { TodoWrapper, TodoComplete, TodoEdit, ItemText, TextWrapper, FavoriteIcon } from '../Todo/Todo.styled.';
 import EditForm from '../EditForm/EditForm';
 

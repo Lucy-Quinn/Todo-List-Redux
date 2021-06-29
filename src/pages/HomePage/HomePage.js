@@ -1,8 +1,8 @@
 import React from 'react';
 
 import TodoAddForm from '../../components/TodoAddForm';
-import TodoList from '../../components/TodoList';
-import { TodoListWrapper, TodoListCenter } from './TodoListPage.styled';
+import TodoItems from '../../components/TodoItems';
+import { TodoListWrapper, TodoListCenter } from './HomePage.styled';
 
 const TodoListPage = () => {
 
@@ -10,7 +10,7 @@ const TodoListPage = () => {
         <TodoListWrapper>
             <TodoListCenter>
                 <TodoAddForm />
-                <TodoList />
+                <TodoItems />
             </TodoListCenter>
         </TodoListWrapper>
     );

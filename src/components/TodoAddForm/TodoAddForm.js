@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { TodoFormWrapper, FormInput } from './TodoAddForm.styled';
-import { addTodo } from '../../redux/actions';
+import { addTodo } from '../../redux/actions/TodoItemsActions';
 
 const TodoForm = () => {
 

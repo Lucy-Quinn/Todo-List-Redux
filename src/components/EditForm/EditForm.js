@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { editTodo } from '../../redux/actions';
+import { editTodo } from '../../redux/actions/TodoItemsActions';
 import { EditFormWrapper, EditFormInput } from './EditForm.styled'
 
 const EditForm = ({ currentTodo }) => {

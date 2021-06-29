@@ -1,27 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
-import Todo from '../Todo';
-import TodoListWrapper from './TodoList.styled';
+import { TodoWrapper } from './TodoList.styled';
 
-const TodoList = () => {
+const TodoList = ({ currentTodoList }) => {
 
-    const todoListArr = useSelector(state => state.todoItemsReducer);
-    const orderedByFavorite = todoListArr ? todoListArr.sort((a, b) => (a.isFavorite) ? -1 : 1) : null;
+    const { title, isComplete, isIncomplete, color } = currentTodoList;
 
-    if (todoListArr.length >= 1) {
-        return (
-            <TodoListWrapper>
-                {orderedByFavorite.map((currentTodo) =>
-                    <Todo key={currentTodo.id} currentTodo={currentTodo} />)
-                }
-            </TodoListWrapper>
-        )
-    }
     return (
-        <div>
-            <h2>Add more todos...</h2>
-        </div>
+        <TodoWrapper>
+            <h1>{title}</h1>
+            <p>{isComplete} / {isIncomplete} items</p>
+        </TodoWrapper>
     )
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { FavoriteIconFilled, FavoriteIconNotFilled } from './FavoriteTodo.styled';
-import { favoriteTodo } from '../../redux/actions';
+import { favoriteTodo } from '../../redux/actions/TodoItemsActions';
 
 const FavoriteTodo = ({ currentTodo }) => {
 

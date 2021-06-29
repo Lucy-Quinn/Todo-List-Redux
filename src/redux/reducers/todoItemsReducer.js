@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE } from '../types';
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
 // const INITIALSTATE = [
@@ -39,7 +39,8 @@ export default function todoItemsReducer(state = [], action) {
                     isComplete: false,
                     isEdit: false,
                     isFavorite: false,
-                    note: ''
+                    note: '',
+                    todoList: ''
                 }
             ];
         case REMOVE_TODO:
@@ -76,6 +77,16 @@ export default function todoItemsReducer(state = [], action) {
                         {
                             ...todo,
                             note: action.payload.todoNote,
+                        }
+                        : todo);
+            });
+        case ADD_TODO_LIST_CATEGORY:
+            return state.map(todo => {
+                return (
+                    todo.id === action.payload.todoId ?
+                        {
+                            ...todo,
+                            todoList: action.payload.todoListCategory,
                         }
                         : todo);
             })

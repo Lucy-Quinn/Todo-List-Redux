@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, TOGGLE_THEME_BUTTON } from '../types';
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY } from '../types';
 
 export function addTodo(todoText) {
     return {
@@ -54,11 +54,13 @@ export function addNote(todoId, todoNote) {
     }
 };
 
-export function toggleThemeButton(toggleTheme) {
+export function addTodoListCategory(todoId, todoListCategory) {
     return {
-        type: TOGGLE_THEME_BUTTON,
+        type: ADD_TODO_LIST_CATEGORY,
         payload: {
-            toggleTheme
+            todoId,
+            todoListCategory
         }
     }
 };
+
