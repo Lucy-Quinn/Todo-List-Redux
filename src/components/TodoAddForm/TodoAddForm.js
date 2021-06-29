@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TodoFormWrapper, FormInput } from './TodoAddForm.styled';
 import { addTodo } from '../../redux/actions/TodoItemsActions';
 
-const TodoForm = () => {
+const TodoForm = ({ currentTodoList }) => {
 
-    const dispatch = useDispatch();
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
     const [inputValue, setInputValue] = useState('')
+    const dispatch = useDispatch();
 
     const theme = toggleTheme ? themes.light : themes.dark;
+    const currentList = currentTodoList ? currentTodoList.title : '';
 
     const handleChange = (e) => {
         setInputValue(e.target.value);
@@ -18,7 +19,7 @@ const TodoForm = () => {
 
     const handleAddItemForm = (e) => {
         e.preventDefault();
-        dispatch(addTodo(inputValue));
+        dispatch(addTodo(inputValue, currentList));
         setInputValue('');
     }
 

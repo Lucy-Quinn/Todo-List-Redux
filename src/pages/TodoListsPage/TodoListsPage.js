@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { addTodoList } from '../../redux/actions/todoListCategoriesActions';
 import TodoList from '../../components/TodoList';
@@ -9,9 +10,10 @@ const TodoListsPage = () => {
     const [titleValue, setTitleValue] = useState('');
     const [colorValue, setColorValue] = useState('red');
 
+    const todoListsArr = useSelector(state => state.todoListCategoriesReducer);
+
     const dispatch = useDispatch();
 
-    const todoListsArr = useSelector(state => state.todoListCategoriesReducer);
 
     const handleInputChange = (e) => {
         setTitleValue(e.target.value);
@@ -24,6 +26,7 @@ const TodoListsPage = () => {
     const handleAddTodoListCategoryForm = (e) => {
         e.preventDefault();
         dispatch(addTodoList(titleValue, colorValue));
+        setTitleValue('');
     }
 
     return (
@@ -44,10 +47,12 @@ const TodoListsPage = () => {
             </form>
             <div>
                 {todoListsArr.map((currentTodoList) =>
-                    <TodoList key={currentTodoList.id} currentTodoList={currentTodoList} />
+                    <Link to={`/todoLists/${currentTodoList.id}`} key={currentTodoList.id}>
+                        <TodoList currentTodoList={currentTodoList} />
+                    </Link>
                 )}
             </div>
-            a        </div>
+        </div>
     )
 }
 

@@ -7,9 +7,9 @@ import { SingleTodoHeader } from './SingleTodoPage.styled';
 import AddNote from '../../components/AddNote';
 import AddTodoListCategory from '../../components/AddTodoListCategory';
 
-const SingleTodoPage = (props) => {
+const SingleTodoPage = ({ match }) => {
 
-    const { todoId } = props.match.params;
+    const { todoId } = match.params;
 
     const currentTodo = useSelector(state =>
         state.todoItemsReducer.find(todo => todo.id === todoId)

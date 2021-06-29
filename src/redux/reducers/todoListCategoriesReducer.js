@@ -11,13 +11,11 @@ export default function todoListCategories(state = [], action) {
                     title: action.payload.todoListTitle,
                     isComplete: false,
                     isIncomplete: false,
-                    color: action.payload.todoListColor,
-                    todos: []
+                    color: action.payload.todoListColor
                 }
             ];
         case ADD_TODO_TO_LIST:
             return state.map(todoList => {
-                console.log('todoList', todoList.id === action.payload.todoListId);
                 return (
                     todoList.id === action.payload.todoListId ?
                         {

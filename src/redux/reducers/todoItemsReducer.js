@@ -40,11 +40,11 @@ export default function todoItemsReducer(state = [], action) {
                     isEdit: false,
                     isFavorite: false,
                     note: '',
-                    todoList: ''
+                    todoList: action.payload.todoListTitle
                 }
             ];
         case REMOVE_TODO:
-            return state.filter(todo => todo.id !== action.payload);
+            return state.filter(todo => todo.id !== action.payload.todoId);
         case EDIT_TODO:
             return state.map(todo =>
                 todo.id === action.payload.todoId ?

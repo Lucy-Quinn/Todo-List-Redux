@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import { completeTodo, editTodo } from '../../redux/actions/TodoItemsActions';
 import { TodoWrapper, TodoComplete, TodoEdit, ItemText, TextWrapper, FavoriteIcon } from '../Todo/Todo.styled.';
@@ -8,8 +8,8 @@ import EditForm from '../EditForm/EditForm';
 
 const Todo = ({ currentTodo }) => {
 
-    const dispatch = useDispatch();
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
+    const dispatch = useDispatch();
 
     const theme = toggleTheme ? themes.light : themes.dark;
     const { isEdit, isFavorite } = currentTodo;
@@ -34,7 +34,7 @@ const Todo = ({ currentTodo }) => {
             {isEdit ?
                 <EditForm isEdit={isEdit} currentTodo={currentTodo} />
                 :
-                <Link to={`/todos/${currentTodo.id}`} className="button muted-button">
+                <Link to={`/todos/${currentTodo.id}`}>
                     <TextWrapper>
                         <ItemText currentTodo={currentTodo}>{currentTodo.text}</ItemText>
                     </TextWrapper>

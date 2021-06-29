@@ -30,7 +30,6 @@ const FormInput = styled.input`
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
 `;
 
-
 export {
     TodoFormWrapper,
     FormInput

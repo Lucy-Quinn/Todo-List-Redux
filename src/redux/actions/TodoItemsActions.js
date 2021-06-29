@@ -1,10 +1,11 @@
 import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY } from '../types';
 
-export function addTodo(todoText) {
+export function addTodo(todoText, todoListTitle) {
     return {
         type: ADD_TODO,
         payload: {
             todoText,
+            todoListTitle
         }
     }
 };
@@ -12,7 +13,9 @@ export function addTodo(todoText) {
 export function removeTodo(todoId) {
     return {
         type: REMOVE_TODO,
-        payload: todoId
+        payload: {
+            todoId
+        }
     }
 };
 
