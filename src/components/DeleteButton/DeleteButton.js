@@ -25,7 +25,6 @@ const DeleteTodo = ({ currentItem }) => {
         }
     }
 
-
     return (
         <div>
             <DeleteItem className="cta-button" onClick={handleRemoveItem}>{isTodoListsPath ? 'Delete todo list' : 'Delete Todo'}</DeleteItem>

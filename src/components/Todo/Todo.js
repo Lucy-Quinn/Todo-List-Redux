@@ -2,9 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { completeTodo, editTodo } from '../../redux/actions/TodoItemsActions';
-import { TodoWrapper, TodoComplete, TodoEdit, ItemText, TextWrapper, FavoriteIcon } from '../Todo/Todo.styled.';
-import EditForm from '../EditForm/EditForm';
+import { completeTodo } from '../../redux/actions/TodoItemsActions';
+import { TodoWrapper, TodoComplete, ItemText, TextWrapper, FavoriteIcon } from '../Todo/Todo.styled.';
 
 const Todo = ({ currentTodo }) => {
 
@@ -16,9 +15,6 @@ const Todo = ({ currentTodo }) => {
 
     const dueDate = currentTodo.dueDate;
 
-    const handleEditItem = () => {
-        dispatch(editTodo(currentTodo.id, currentTodo.text))
-    }
 
     const handleCompleteItem = () => {
         dispatch(completeTodo(currentTodo.id))
@@ -27,6 +23,11 @@ const Todo = ({ currentTodo }) => {
     return (
         <TodoWrapper theme={theme} currentTodo={currentTodo}>
             {dueDate ? <p>Due {dueDate}</p> : null}
+            <Link to={`/todos/${currentTodo.id}`}>
+                <TextWrapper>
+                    <ItemText currentTodo={currentTodo}>{currentTodo.text}</ItemText>
+                </TextWrapper>
+            </Link>
             <TodoComplete onClick={handleCompleteItem} theme={theme} isEdit={isEdit} currentTodo={currentTodo}>
                 {currentTodo.isComplete ?
                     <i className="fas fa-check"></i>
@@ -34,24 +35,9 @@ const Todo = ({ currentTodo }) => {
                     null
                 }
             </TodoComplete>
-            {isEdit ?
-                <EditForm isEdit={isEdit} currentTodo={currentTodo} />
-                :
-                <Link to={`/todos/${currentTodo.id}`}>
-                    <TextWrapper>
-                        <ItemText currentTodo={currentTodo}>{currentTodo.text}</ItemText>
-                    </TextWrapper>
-                </Link>
-            }
             {isFavorite ?
                 <FavoriteIcon className="fas fa-star" currentTodo={currentTodo} />
                 : null
-            }
-            {isEdit ?
-                null :
-                <TodoEdit theme={theme}>
-                    <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
-                </TodoEdit>
             }
         </TodoWrapper>
     );

@@ -49,19 +49,23 @@ const TodoComplete = styled.div`
     }
 `
 
-const TodoEdit = styled.div`
-    font-size: 1.6rem;
-    color: #5C88E5;
-    color: #fff;
-    border-radius: 10px;
-    flex-basis: auto;
-    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-    padding: 5px;
-    order: 3;
-    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-    background: ${({ theme }) => theme.button};
-`
 
+
+const FavoriteIcon = styled.i`
+    font-size: 1.6rem;
+    color: ${({ currentTodo }) => currentTodo ? "#fff" : "none"}
+`;
+
+const ItemText = styled.p`
+    color: black;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.2rem;
+    text-decoration: ${({ currentTodo }) => currentTodo.isComplete ? 'line-through' : ''};
+    word-break: break-all;
+    white-space: normal;
+    margin: 8px;
+    font-size: ${({ currentTodo }) => currentTodo.isFavorite ? '1.8rem' : '1.2rem'};
+`
 const TextWrapper = styled.div`
     height: fit-content;
     margin: 20px 0;
@@ -80,27 +84,10 @@ const TextWrapper = styled.div`
     }
 `
 
-const ItemText = styled.p`
-    color: black;
-    font-family: 'Indie Flower', cursive;
-    font-size: 1.2rem;
-    text-decoration: ${({ currentTodo }) => currentTodo.isComplete ? 'line-through' : ''};
-    word-break: break-all;
-    white-space: normal;
-    margin: 8px;
-    font-size: ${({ currentTodo }) => currentTodo.isFavorite ? '1.8rem' : '1.2rem'};
-`
-
-const FavoriteIcon = styled.i`
-    font-size: 1.6rem;
-    color: ${({ currentTodo }) => currentTodo ? "#fff" : "none"}
-`;
-
 export {
     TodoComplete,
-    TodoEdit,
     TodoWrapper,
+    FavoriteIcon,
     ItemText,
-    TextWrapper,
-    FavoriteIcon
+    TextWrapper
 }

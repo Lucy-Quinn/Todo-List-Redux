@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
   h2{
     font-size: 1.7rem;
     color: #fff;
+    margin: 0;
     @media(min-width: 768px){
         font-size: 2.2rem;
     }
@@ -82,7 +83,7 @@ const GlobalStyle = createGlobalStyle`
   .form-input{
     border-radius: 10px;
     border: none;
-    width: 90%;
+    ${'' /* width: 90%; */}
     display: block;
     margin: 0 auto;
     padding: 8px;
