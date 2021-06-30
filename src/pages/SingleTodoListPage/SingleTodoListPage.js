@@ -2,7 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import Todo from '../../components/Todo';
-import TodoAddForm from '../../components/TodoAddForm';
+import AddTodoForm from '../../components/AddTodoForm';
+import DeleteButton from '../../components/DeleteButton';
 
 const SingleTodoListPage = ({ match }) => {
 
@@ -20,13 +21,14 @@ const SingleTodoListPage = ({ match }) => {
     return (
         <div>
             <h2>{currentTodoList.title}</h2>
-            <TodoAddForm currentTodoList={currentTodoList} />
+            <AddTodoForm currentTodoList={currentTodoList} />
             {foundTodoItems.map(todoItem => {
                 return (
                     <Todo key={todoItem.id} currentTodo={todoItem} />
                 )
             }
             )}
+            <DeleteButton currentItem={currentTodoList} />
         </div>
     )
 }

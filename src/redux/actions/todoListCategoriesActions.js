@@ -1,4 +1,4 @@
-import { ADD_TODO_LIST, DELETE_TODO_LIST, ADD_TODO_TO_LIST } from '../types';
+import { ADD_TODO_LIST, REMOVE_TODO_LIST, ADD_TODO_TO_LIST } from '../types';
 
 export function addTodoList(todoListTitle, todoListColor) {
     return {
@@ -10,12 +10,12 @@ export function addTodoList(todoListTitle, todoListColor) {
     }
 };
 
-export function deleteTodoList(todoListTitle, todoListColor) {
+export function removeTodoList(todoListId) {
+    console.log(todoListId);
     return {
-        type: DELETE_TODO_LIST,
+        type: REMOVE_TODO_LIST,
         payload: {
-            todoListTitle,
-            todoListColor
+            todoListId,
         }
     }
 };

@@ -1,4 +1,4 @@
-import { ADD_TODO_LIST, ADD_TODO_TO_LIST } from '../types';
+import { ADD_TODO_LIST, ADD_TODO_TO_LIST, REMOVE_TODO_LIST } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function todoListCategories(state = [], action) {
@@ -23,7 +23,8 @@ export default function todoListCategories(state = [], action) {
                             todos: action.payload.todo,
                         }
                         : todoList);
-            })
+            });
+        case REMOVE_TODO_LIST: return state.filter(todoList => todoList.id !== action.payload.todoListId);
         default:
             return state
     }

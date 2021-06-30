@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoAddForm from '../../components/TodoAddForm';
+import AddTodoForm from '../../components/AddTodoForm';
 import TodoItems from '../../components/TodoItems';
 import { TodoListWrapper, TodoListCenter } from './HomePage.styled';
 
@@ -9,7 +9,7 @@ const TodoListPage = () => {
     return (
         <TodoListWrapper>
             <TodoListCenter>
-                <TodoAddForm />
+                <AddTodoForm />
                 <TodoItems />
             </TodoListCenter>
         </TodoListWrapper>

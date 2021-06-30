@@ -9,19 +9,18 @@ const TodoItems = () => {
     const todoListArr = useSelector(state => state.todoItemsReducer);
     const orderedByFavorite = todoListArr ? todoListArr.sort((a, b) => (a.isFavorite) ? -1 : 1) : null;
 
-    if (todoListArr.length >= 1) {
-        return (
+    return (
+        todoListArr.length >= 1 ?
+
             <TodoListWrapper>
                 {orderedByFavorite.map((currentTodo) =>
                     <Todo key={currentTodo.id} currentTodo={currentTodo} />)
                 }
             </TodoListWrapper>
-        )
-    }
-    return (
-        <div>
-            <h2>Add more todos...</h2>
-        </div>
+            :
+            <div>
+                <h2>Add more todos...</h2>
+            </div>
     )
 }
 

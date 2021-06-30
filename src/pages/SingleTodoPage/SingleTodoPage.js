@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import DeleteTodo from '../../components/DeleteTodo';
+import DeleteButton from '../../components/DeleteButton';
 import FavoriteTodo from '../../components/FavoriteTodo';
 import { SingleTodoHeader } from './SingleTodoPage.styled';
 import AddNote from '../../components/AddNote';
@@ -27,7 +27,7 @@ const SingleTodoPage = ({ match }) => {
             </SingleTodoHeader>
             <AddTodoListCategory />
             <AddNote currentTodo={currentTodo} />
-            <DeleteTodo currentTodo={currentTodo} />
+            <DeleteButton currentItem={currentTodo} />
         </div>
     );
 }

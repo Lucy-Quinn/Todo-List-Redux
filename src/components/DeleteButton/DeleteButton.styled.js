@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TodoDelete = styled.button`
+const DeleteItem = styled.button`
     color: #fff;
     order: 4;
     background: transparent;
@@ -8,5 +8,5 @@ const TodoDelete = styled.button`
 `
 
 export {
-    TodoDelete,
+    DeleteItem
 }

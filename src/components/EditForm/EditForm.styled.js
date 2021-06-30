@@ -18,22 +18,6 @@ const EditFormWrapper = styled.form`
     }
 `;
 
-const EditFormInput = styled.textarea`
-    border-radius: 10px;
-    border: none;
-    padding: 0 15px;
-    line-height: 44px;
-    font-size: 1.2rem;
-    font-family: 'Indie Flower', cursive;
-    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-    flex-grow: 1;
-    max-height: 44px;
-    ::placeholder{
-        line-height: 80px;
-    }
-`;
-
 export {
-    EditFormWrapper,
-    EditFormInput
+    EditFormWrapper
 }
