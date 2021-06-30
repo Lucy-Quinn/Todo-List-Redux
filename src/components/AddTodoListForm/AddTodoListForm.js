@@ -34,7 +34,6 @@ const AddTodoListForm = () => {
     }
 
     const handleOptionChange = (e) => {
-        console.log(e);
         setColorValue(e.target.value);
     }
 

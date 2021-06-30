@@ -6,6 +6,7 @@ import FavoriteTodo from '../../components/FavoriteTodo';
 import { SingleTodoHeader } from './SingleTodoPage.styled';
 import AddNote from '../../components/AddNote';
 import AddTodoListCategory from '../../components/AddTodoListCategory';
+import DueDate from '../../components/DueDate';
 
 const SingleTodoPage = ({ match }) => {
 
@@ -25,6 +26,7 @@ const SingleTodoPage = ({ match }) => {
                 }
                 <FavoriteTodo currentTodo={currentTodo} />
             </SingleTodoHeader>
+            <DueDate todoId={todoId} />
             <AddTodoListCategory />
             <AddNote currentTodo={currentTodo} />
             <DeleteButton currentItem={currentTodo} />

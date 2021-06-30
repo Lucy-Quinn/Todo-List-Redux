@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { addTodoListCategory } from '../../redux/actions/TodoItemsActions';
 
@@ -26,17 +27,22 @@ const AddTodoListCategory = () => {
     }
 
     return (
-        <form onSubmit={handleTodoListCategoryForm}>
-            <label>
-                Choose your Todo list:
-                <select value={todoListsValue} onChange={handleOptionChange}>
-                    {todoListsArr.map(todoList =>
-                        <option value={todoList.title} key={todoList.id} className={todoList.id} >{todoList.title}</option>
-                    )}
-                </select>
-            </label>
-            <button className="cta-button" type="submit">Add</button>
-        </form>
+        todoListsTitlesArr.length > 0 ?
+            <form onSubmit={handleTodoListCategoryForm}>
+                <label>
+                    Choose your Todo list:
+                    <select value={todoListsValue} onChange={handleOptionChange}>
+                        {todoListsArr.map(todoList =>
+                            <option value={todoList.title} key={todoList.id} className={todoList.id} >{todoList.title}</option>
+                        )}
+                    </select>
+                </label>
+                <button className="cta-button" type="submit">Add</button>
+            </form>
+            :
+            <p>You have no todos lists! Create one
+                <Link to='/todoLists'>here</Link>
+            </p>
     )
 }
 

@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY } from '../types';
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
 // const INITIALSTATE = [
@@ -40,7 +40,8 @@ export default function todoItemsReducer(state = [], action) {
                     isEdit: false,
                     isFavorite: false,
                     note: '',
-                    todoList: action.payload.todoListTitle
+                    todoList: action.payload.todoListTitle,
+                    dueDate: ''
                 }
             ];
         case REMOVE_TODO:
@@ -71,25 +72,30 @@ export default function todoItemsReducer(state = [], action) {
                     }
                     : todo);
         case ADD_NOTE:
-            return state.map(todo => {
-                return (
-                    todo.id === action.payload.todoId ?
-                        {
-                            ...todo,
-                            note: action.payload.todoNote,
-                        }
-                        : todo);
-            });
+            return state.map(todo =>
+                todo.id === action.payload.todoId ?
+                    {
+                        ...todo,
+                        note: action.payload.todoNote,
+                    }
+                    : todo);
         case ADD_TODO_LIST_CATEGORY:
-            return state.map(todo => {
-                return (
-                    todo.id === action.payload.todoId ?
-                        {
-                            ...todo,
-                            todoList: action.payload.todoListCategory,
-                        }
-                        : todo);
-            })
+            return state.map(todo =>
+                todo.id === action.payload.todoId ?
+                    {
+                        ...todo,
+                        todoList: action.payload.todoListCategory,
+                    }
+                    : todo);
+            ;
+        case ADD_TODO_DUE_DATE:
+            return state.map(todo =>
+                todo.id === action.payload.todoId ?
+                    {
+                        ...todo,
+                        dueDate: action.payload.todoDueDate,
+                    }
+                    : todo);
         default:
             return state
     }

@@ -14,6 +14,8 @@ const Todo = ({ currentTodo }) => {
     const theme = toggleTheme ? themes.light : themes.dark;
     const { isEdit, isFavorite } = currentTodo;
 
+    const dueDate = currentTodo.dueDate;
+
     const handleEditItem = () => {
         dispatch(editTodo(currentTodo.id, currentTodo.text))
     }
@@ -24,6 +26,7 @@ const Todo = ({ currentTodo }) => {
 
     return (
         <TodoWrapper theme={theme} currentTodo={currentTodo}>
+            {dueDate ? <p>Due {dueDate}</p> : null}
             <TodoComplete onClick={handleCompleteItem} theme={theme} isEdit={isEdit} currentTodo={currentTodo}>
                 {currentTodo.isComplete ?
                     <i className="fas fa-check"></i>

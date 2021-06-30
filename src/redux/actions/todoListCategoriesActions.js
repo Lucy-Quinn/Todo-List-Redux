@@ -11,7 +11,6 @@ export function addTodoList(todoListTitle, todoListColor) {
 };
 
 export function removeTodoList(todoListId) {
-    console.log(todoListId);
     return {
         type: REMOVE_TODO_LIST,
         payload: {
