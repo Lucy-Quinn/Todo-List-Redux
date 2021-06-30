@@ -1,5 +1,5 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import DeleteButton from '../../components/DeleteButton';
 import FavoriteTodo from '../../components/FavoriteTodo';
@@ -8,13 +8,11 @@ import AddNote from '../../components/AddNote';
 import AddTodoListCategory from '../../components/AddTodoListCategory';
 import DueDate from '../../components/DueDate';
 import { TodoEdit } from './SingleTodoPage.styled';
-import { editTodo } from '../../redux/actions/TodoItemsActions';
 import EditForm from '../../components/EditForm';
 
 const SingleTodoPage = ({ match }) => {
 
     const { todoId } = match.params;
-    const dispatch = useDispatch();
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
     const theme = toggleTheme ? themes.light : themes.dark;
 
@@ -22,10 +20,10 @@ const SingleTodoPage = ({ match }) => {
         state.todoItemsReducer.find(todo => todo.id === todoId)
     );
 
-    const { isEdit } = currentTodo;
+    const [isEdit, setIsEdit] = useState(false);
 
     const handleEditItem = () => {
-        dispatch(editTodo(currentTodo.id, currentTodo.text))
+        setIsEdit(true)
     }
 
     return (

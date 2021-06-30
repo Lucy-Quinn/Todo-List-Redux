@@ -37,7 +37,6 @@ export default function todoItemsReducer(state = [], action) {
                     id: uuidv4(),
                     text: action.payload.todoText,
                     isComplete: false,
-                    isEdit: false,
                     isFavorite: false,
                     note: '',
                     todoList: action.payload.todoListTitle,
@@ -52,7 +51,6 @@ export default function todoItemsReducer(state = [], action) {
                     {
                         ...todo,
                         text: action.payload.todoText,
-                        isEdit: !todo.isEdit,
                     }
                     : todo);
         case COMPLETE_TODO:
