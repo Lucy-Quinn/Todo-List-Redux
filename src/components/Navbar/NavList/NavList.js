@@ -9,8 +9,8 @@ const NavList = ({ isOpen }) => {
                 <NavLink to='/todoLists'>
                     Todo Lists
                 </NavLink>
-                <NavLink to='/completed'>
-                    Completed
+                <NavLink to='/statistics'>
+                    Statistics
                 </NavLink>
             </NavMenu>
         </NavListWrapper>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import TodoList from '../../components/TodoList';
+import TodoListCard from '../../components/TodoListCard';
 // import { } from './TodoListsPage.styled';
 import AddTodoListForm from '../../components/AddTodoListForm';
 
@@ -20,7 +20,7 @@ const TodoListsPage = () => {
             <div>
                 {todoListsArr.map((currentTodoList) =>
                     <Link to={`/todoLists/${currentTodoList.id}`} key={currentTodoList.id}>
-                        <TodoList currentTodoList={currentTodoList} />
+                        <TodoListCard currentTodoList={currentTodoList} />
                     </Link>
                 )}
             </div>

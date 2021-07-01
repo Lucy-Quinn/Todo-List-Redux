@@ -9,6 +9,7 @@ import TodoListsPage from './pages/TodoListsPage';
 import SingleTodoListPage from './pages/SingleTodoListPage';
 import GlobalStyle from './components/GlobalStyle';
 import Navbar from './components/Navbar';
+import StatisticsPage from './pages/StatisticsPage/StatisticsPage';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/todos/:todoId" component={SingleTodoPage} />
           <Route exact path="/todoLists" component={TodoListsPage} />
           <Route exact path="/todoLists/:todoListId" component={SingleTodoListPage} />
+          <Route exact path="/statistics" component={StatisticsPage} />
         </Switch>
       </div>
     </Router>

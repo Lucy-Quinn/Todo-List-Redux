@@ -9,13 +9,16 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     box-sizing: border-box;
   }
+
   html{
     height: 100%;
   }
+
   #root{
     min-height: 100%;
     background: linear-gradient(${({ theme }) => theme.gradientOne}, ${({ theme }) => theme.gradientTwo});
   }
+
   a{
     text-decoration: none;
     font-size: 1rem;
@@ -24,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1.3rem;
     }
   }
+
   h1{
     font-size: 2rem;
     color: #fff;
@@ -34,17 +38,29 @@ const GlobalStyle = createGlobalStyle`
         font-size: 3.6rem;
     }
   }
+
   h2{
     font-size: 1.7rem;
     color: #fff;
     margin: 0;
+    text-align: center;
     @media(min-width: 768px){
         font-size: 2.2rem;
     }
   }
+
+  p{
+    font-size: 1rem;
+    margin: 0;
+    @media(min-width: 768px){
+      font-size: 1.2rem;
+    } 
+  }
+
   ::placeholder{
     color: gray;
   }
+
   .cta-button{
     background: ${({ theme }) => theme.button};
     color: #fff;
@@ -63,6 +79,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 10px 0;
     }
   }
+
   .form-wrapper{
     display: flex;
     flex-direction: column;
@@ -80,6 +97,7 @@ const GlobalStyle = createGlobalStyle`
         min-height: 45px;
     }
   }
+
   .form-input{
     border-radius: 10px;
     border: none;

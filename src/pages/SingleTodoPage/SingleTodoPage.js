@@ -31,11 +31,11 @@ const SingleTodoPage = ({ match }) => {
             <SingleTodoHeader>
                 <FavoriteTodo currentTodo={currentTodo} />
                 {isEdit ?
-                    <EditForm isEdit={isEdit} currentTodo={currentTodo} />
+                    {/* <EditForm isEdit={isEdit} currentTodo={currentTodo} /> */ }
                     :
                     <>
                         {currentTodo !== undefined &&
-                            <h2 currentTodo={currentTodo}>
+                            <h2>
                                 {currentTodo.text}
                             </h2>}
                         <TodoEdit theme={theme}>
