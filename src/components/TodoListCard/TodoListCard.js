@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { TodoListWrapper } from './TodoListCard.styled';
+import { TodoListWrapper, ItemsNumber } from './TodoListCard.styled';
 import TodoListStatistics from './TodoListStatistics';
 
 const TodoListCard = ({ currentTodoList }) => {
@@ -18,11 +18,11 @@ const TodoListCard = ({ currentTodoList }) => {
 
     return (
         <TodoListWrapper>
-            <h1>{title}</h1>
+            <h3>{title}</h3>
             {pathname === '/statistics' &&
                 <TodoListStatistics completeTodos={completeTodos} foundTodos={foundTodos} currentTodoList={currentTodoList} />
             }
-            <p>{completeTodos} / {foundTodos.length} items</p>
+            <ItemsNumber>{completeTodos} / {foundTodos.length} items</ItemsNumber>
         </TodoListWrapper>
     )
 }

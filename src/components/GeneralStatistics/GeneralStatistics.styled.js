@@ -4,7 +4,10 @@ const GeneralStaticsWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    gap: 10px;
+    @media(min-width: 768px){
+        gap: 50px;
+    }
 `;
 
 const StaticsWrapper = styled.div`
@@ -22,7 +25,8 @@ const ProgressBarContainer = styled.div`
 `;
 
 const progressAnimation = keyframes`
- 0% {  height: 0; opacity: 0.5}
+ 0% {  height: 0; opacity: 0}
+ 3% {  height: 0; opacity: 0.1}
  50% {  opacity: 0.8}
  100% {  height: ${({ findPercentage }) => findPercentage()}%; opacity: 1; }
 `;

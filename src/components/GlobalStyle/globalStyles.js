@@ -49,6 +49,16 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  h3{
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    @media(min-width: 768px){
+        font-size: 2rem;
+    }
+  }
+
   p{
     font-size: 1rem;
     margin: 0;
