@@ -2,19 +2,25 @@ import React from 'react';
 
 import { NavMenu, NavLink, NavListWrapper } from './NavList.styled';
 
-const NavList = ({ isOpen }) => {
+const NavList = ({ isOpen, closeNavbar }) => {
+
+    const handleCloseNavbarToggle = () => {
+        closeNavbar();
+    }
+
     return (
         <NavListWrapper>
             <NavMenu isOpen={isOpen} >
-                <NavLink to='/todoLists'>
+                <NavLink to='/todoLists' onClick={handleCloseNavbarToggle}>
                     Todo Lists
                 </NavLink>
-                <NavLink to='/statistics'>
+                <NavLink to='/statistics' onClick={handleCloseNavbarToggle}>
                     Statistics
                 </NavLink>
             </NavMenu>
         </NavListWrapper>
     )
 }
+
 
 export default NavList

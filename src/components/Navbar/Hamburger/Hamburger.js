@@ -11,6 +11,10 @@ const Hamburger = () => {
         setIsOpen(!isOpen);
     }
 
+    const closeNavbar = () => {
+        setIsOpen(false)
+    }
+
     return (
         <>
             <StyledHamburger isOpen={isOpen} onClick={handleToggle}>
@@ -18,7 +22,7 @@ const Hamburger = () => {
                 <div />
                 <div />
             </StyledHamburger>
-            <NavList isOpen={isOpen} />
+            <NavList isOpen={isOpen} closeNavbar={closeNavbar} />
         </>
     )
 }
