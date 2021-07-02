@@ -92,12 +92,12 @@ const GlobalStyle = createGlobalStyle`
 
   .form-wrapper{
     display: flex;
-    flex-direction: column;
     gap: 15px;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     background-color: rgba(166, 216, 219, 0.411);
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
+    margin-bottom: 15px;
     @media(min-width: 768px){
         flex-direction: row;
         justify-content: center;
@@ -111,13 +111,25 @@ const GlobalStyle = createGlobalStyle`
   .form-input{
     border-radius: 10px;
     border: none;
-    ${'' /* width: 90%; */}
     display: block;
-    margin: 0 auto;
     padding: 8px;
     font-size: 1.2rem;
     font-family: 'Indie Flower', cursive;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+  }
+
+  .cta-button-add{
+    background: ${({ theme }) => theme.button};
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    width: 43px;
+    height: 43px;
+    display: block;
   }
 `;
 

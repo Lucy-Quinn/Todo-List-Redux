@@ -26,7 +26,7 @@ const TodoForm = ({ currentTodoList }) => {
     return (
         <form className="form-wrapper" onSubmit={handleAddItemForm}>
             <input className="form-input" type="text" name="todo" value={inputValue} placeholder="Add task..." onChange={handleChange} />
-            <button className="cta-button" type="submit" theme={theme}>Add</button>
+            <button className="cta-button-add" type="submit" theme={theme}>+</button>
         </form>
     );
 }

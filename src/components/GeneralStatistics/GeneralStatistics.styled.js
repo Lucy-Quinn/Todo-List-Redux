@@ -37,7 +37,7 @@ const ProgressAmount = styled.div`
     background: #fff;
     border-radius: 10px;
     animation-name: ${progressAnimation};
-    animation-duration: 8s;
+    animation-duration: 4s;
 `;
 
 export {

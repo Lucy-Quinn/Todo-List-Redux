@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
-
 const Nav = styled.nav`
     border-bottom: 1px solid #fff;
     padding: 0 20px;
@@ -30,7 +29,6 @@ const TodoAppHeader = styled.h1`
     margin: 0;
     padding: 0;
     width: 80%;
-    margin-right: 20px;
     @media(min-width: 768px){
         width: 100%;
         margin: 0;

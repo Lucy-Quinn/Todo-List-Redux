@@ -9,7 +9,7 @@ const TodoListWrapper = styled.div`
 const TodoListCenter = styled.div`
     margin: 0 auto;
     display: block;
-    padding: 20px 20px 40px;
+    padding: 20px 15px 40px;
 `;
 
 export {

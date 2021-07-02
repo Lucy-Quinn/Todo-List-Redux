@@ -5,7 +5,7 @@ import TodoItems from '../../components/TodoItems';
 import { TodoListWrapper, TodoListCenter } from './HomePage.styled';
 import SearchBar from '../../components/SearchBar';
 
-const TodoListPage = () => {
+const HomePage = () => {
 
     return (
         <TodoListWrapper>
@@ -18,4 +18,4 @@ const TodoListPage = () => {
     );
 }
 
-export default TodoListPage;
+export default HomePage;

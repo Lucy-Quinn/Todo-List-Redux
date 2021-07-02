@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 import { GeneralStaticsWrapper, StaticsWrapper, ProgressBarContainer, ProgressAmount } from './GeneralStatistics.styled';
 
-
 const GeneralStatistics = () => {
 
     const todosArr = useSelector(state => state.todoItemsReducer.todos);

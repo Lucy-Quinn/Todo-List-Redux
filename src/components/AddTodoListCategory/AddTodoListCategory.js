@@ -33,7 +33,7 @@ const AddTodoListCategory = () => {
                     Choose your Todo list:
                     <select value={todoListsValue} onChange={handleOptionChange}>
                         {todoListsArr.map(todoList =>
-                            <option value={todoList.title} key={todoList.id} className={todoList.id} >{todoList.title}</option>
+                            <option value={todoList.title} key={todoList.id}>{todoList.title}</option>
                         )}
                     </select>
                 </label>
