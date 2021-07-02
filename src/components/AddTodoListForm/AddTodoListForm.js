@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addTodoList } from '../../redux/actions/todoListCategoriesActions';
+import { addTodoList } from '../../redux/actions/todoListsActions';
 
 const COLORS_DATA = [
     {

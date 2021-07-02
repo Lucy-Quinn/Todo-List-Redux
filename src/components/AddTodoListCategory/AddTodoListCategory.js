@@ -7,7 +7,7 @@ import { addTodoListCategory } from '../../redux/actions/TodoItemsActions';
 
 const AddTodoListCategory = () => {
 
-    const todoListsArr = useSelector(state => state.todoListCategoriesReducer);
+    const todoListsArr = useSelector(state => state.todoListsReducer);
     const todoListsTitlesArr = todoListsArr.map(todoList => todoList.title);
     const [todoListsValue, setTodoListsValue] = useState(todoListsTitlesArr[0]);
 

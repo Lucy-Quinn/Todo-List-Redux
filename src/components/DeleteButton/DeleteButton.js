@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 import { removeTodo } from '../../redux/actions/TodoItemsActions';
 import { DeleteItem } from './DeleteButton.styled';
-import { removeTodoList } from '../../redux/actions/todoListCategoriesActions';
+import { removeTodoList } from '../../redux/actions/todoListsActions';
 
 const DeleteTodo = ({ currentItem }) => {
 

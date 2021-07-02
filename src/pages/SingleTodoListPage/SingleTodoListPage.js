@@ -9,7 +9,7 @@ import SelectTodoForm from '../../components/SelectTodoForm';
 const SingleTodoListPage = ({ match }) => {
 
     const { todoListId } = match.params;
-    const todoListArr = useSelector(state => state.todoListCategoriesReducer);
+    const todoListArr = useSelector(state => state.todoListsReducer);
     const currentTodoList = todoListArr.find(todoList => todoList.id === todoListId)
 
     return (

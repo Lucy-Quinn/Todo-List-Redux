@@ -1,7 +1,7 @@
 import { ADD_TODO_LIST, ADD_TODO_TO_LIST, REMOVE_TODO_LIST } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function todoListCategories(state = [], action) {
+export default function todoListsReducer(state = [], action) {
     switch (action.type) {
         case ADD_TODO_LIST:
             return [

@@ -7,7 +7,7 @@ import { StatisticsCardWrapper } from './TodoListStatisticsCards.styled';
 
 const TodoListStatisticsCard = () => {
 
-    const todoListArr = useSelector(state => state.todoListCategoriesReducer);
+    const todoListArr = useSelector(state => state.todoListsReducer);
 
     return (
         <StatisticsCardWrapper>

@@ -6,7 +6,7 @@ import TodoListCard from '../TodoListCard';
 
 const TodoLists = () => {
 
-    const todoListsArr = useSelector(state => state.todoListCategoriesReducer);
+    const todoListsArr = useSelector(state => state.todoListsReducer);
 
     return (
         <div>
