@@ -6,7 +6,7 @@ import { GeneralStaticsWrapper, StaticsWrapper, ProgressBarContainer, ProgressAm
 
 const GeneralStatistics = () => {
 
-    const todosArr = useSelector(state => state.todoItemsReducer);
+    const todosArr = useSelector(state => state.todoItemsReducer.todos);
     const totalTodos = todosArr.length;
     const completeTodos = todosArr.filter(todo => todo.isComplete).length;
     const findPercentage = () => Math.round((completeTodos / totalTodos) * 100);

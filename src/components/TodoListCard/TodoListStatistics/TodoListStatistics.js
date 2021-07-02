@@ -25,7 +25,7 @@ const TodoListStatistics = ({ completeTodos, foundTodos, currentTodoList }) => {
             }
             {totalTodos < 1 &&
                 <p>You need some
-                    <Link to={`todoLists/${currentTodoList.id}`}>todos</Link>todos</p>
+                    <Link to={`todoLists/${currentTodoList.id}`}> todos</Link></p>
             }
         </TodoListStatisticsWrapper>
     )

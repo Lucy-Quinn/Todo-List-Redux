@@ -10,13 +10,11 @@ const SingleTodoListPage = ({ match }) => {
     const { todoListId } = match.params;
 
     const todoListArr = useSelector(state => state.todoListCategoriesReducer);
-    const todosArr = useSelector(state => state.todoItemsReducer);
+    const todosArr = useSelector(state => state.todoItemsReducer.todos);
 
     const currentTodoList = todoListArr.find(todoList => todoList.id === todoListId)
 
-    const foundTodoItems = todosArr.filter(todo => {
-        return (todo.todoList === currentTodoList.title)
-    });
+    const foundTodoItems = todosArr.filter(todo => todo.todoList === currentTodoList.title);
 
     return (
         <div>

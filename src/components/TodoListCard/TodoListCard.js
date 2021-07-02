@@ -9,9 +9,10 @@ const TodoListCard = ({ currentTodoList }) => {
 
     const { title } = currentTodoList;
 
-    const foundTodos = useSelector(state => state.todoItemsReducer.filter(todo =>
+    const foundTodos = useSelector(state => state.todoItemsReducer.todos.filter(todo =>
         todo.todoList === title
     ));
+
     const location = useLocation();
     const { pathname } = location;
     const completeTodos = foundTodos.filter(todo => todo.isComplete).length;

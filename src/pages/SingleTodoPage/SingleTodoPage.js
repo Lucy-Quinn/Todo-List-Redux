@@ -13,14 +13,13 @@ import EditForm from '../../components/EditForm';
 const SingleTodoPage = ({ match }) => {
 
     const { todoId } = match.params;
+    const [isEdit, setIsEdit] = useState(false);
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
     const theme = toggleTheme ? themes.light : themes.dark;
 
     const currentTodo = useSelector(state =>
-        state.todoItemsReducer.find(todo => todo.id === todoId)
+        state.todoItemsReducer.todos.find(todo => todo.id === todoId)
     );
-
-    const [isEdit, setIsEdit] = useState(false);
 
     const handleEditItem = () => {
         setIsEdit(true)
@@ -31,7 +30,7 @@ const SingleTodoPage = ({ match }) => {
             <SingleTodoHeader>
                 <FavoriteTodo currentTodo={currentTodo} />
                 {isEdit ?
-                    {/* <EditForm isEdit={isEdit} currentTodo={currentTodo} /> */ }
+                    <EditForm isEdit={isEdit} currentTodo={currentTodo} setIsEdit={setIsEdit} />
                     :
                     <>
                         {currentTodo !== undefined &&

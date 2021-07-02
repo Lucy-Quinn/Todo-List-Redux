@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE } from '../types';
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE, FILTER_TODOS } from '../types';
 
 export function addTodo(todoText, todoListTitle) {
     return {
@@ -73,6 +73,16 @@ export function addTodoDueDate(todoId, todoDueDate) {
         payload: {
             todoId,
             todoDueDate
+        }
+    }
+};
+
+
+export function filterTodos(searchInput) {
+    return {
+        type: FILTER_TODOS,
+        payload: {
+            searchInput
         }
     }
 };

@@ -40,7 +40,6 @@ const ProgressAmount = styled.div`
     animation-duration: 8s;
 `;
 
-
 export {
     GeneralStaticsWrapper,
     StaticsWrapper,

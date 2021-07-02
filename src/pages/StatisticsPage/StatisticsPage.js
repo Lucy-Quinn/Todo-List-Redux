@@ -1,7 +1,7 @@
 import React from 'react';
 
 import GeneralStatistics from '../../components/GeneralStatistics';
-import TodoListStatisticsCard from '../../components/TodoListStatisticsCard';
+import TodoListStatisticsCards from '../../components/TodoListStatisticsCards';
 import { StatisticsPageWrapper } from './StatisticsPage.styled';
 
 const StatisticsPage = () => {
@@ -10,7 +10,7 @@ const StatisticsPage = () => {
         <StatisticsPageWrapper>
             <h2>Your Progress</h2>
             <GeneralStatistics />
-            <TodoListStatisticsCard />
+            <TodoListStatisticsCards />
         </StatisticsPageWrapper>
     )
 }
