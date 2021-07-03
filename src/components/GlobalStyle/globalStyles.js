@@ -103,7 +103,7 @@ const GlobalStyle = createGlobalStyle`
         justify-content: center;
         padding: 20px;
         width: 60%;
-        margin: 0 auto;
+        margin: 0 auto 15px;
         min-height: 45px;
     }
   }
@@ -116,6 +116,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.2rem;
     font-family: 'Indie Flower', cursive;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+    width: 100%;
   }
 
   .cta-button-add{

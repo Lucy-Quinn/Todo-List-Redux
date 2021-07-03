@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { completeTodo } from '../../redux/actions/TodoItemsActions';
-import { TodoWrapper, TodoComplete, ItemText, TextWrapper, FavoriteIcon } from '../Todo/Todo.styled.';
+import { TodoWrapper, TodoComplete, ItemText, TextWrapper, FavoriteIcon } from './TodoCard.styled';
 
-const Todo = ({ currentTodo }) => {
+const TodoCard = ({ currentTodo }) => {
 
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
     const dispatch = useDispatch();
@@ -43,4 +43,4 @@ const Todo = ({ currentTodo }) => {
     );
 }
 
-export default Todo;
+export default TodoCard;

@@ -10,7 +10,6 @@ const GeneralStatistics = () => {
     const todoListsArr = useSelector(state => state.todoListsReducer);
     const totalTodoLists = todoListsArr.length;
     const totalTodos = todosArr.length;
-    console.log(totalTodoLists < 1);
     const completeTodos = todosArr.filter(todo => todo.isComplete).length;
     const findPercentage = () => Math.round((completeTodos / totalTodos) * 100);
 

@@ -1,24 +1,23 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import Todo from '../Todo';
+import TodoCard from '../TodoCard';
 import TodoListWrapper from './TodoItems.styled';
 
 const TodoItems = () => {
 
-    const { todos, filtered, searchInput } = useSelector(state => state.todoItemsReducer);
-    const orderedByFavorite = todos ? todos.sort((a, b) => (a.isFavorite) ? -1 : 1) : null;
+    const { todos, filtered, inputValue } = useSelector(state => state.todoItemsReducer);
 
     return (
         <div>
             {todos.length >= 1 ?
                 <TodoListWrapper>
-                    {searchInput.length >= 1 ?
+                    {inputValue.length >= 1 ?
                         filtered.map((currentFilteredTodo) =>
-                            <Todo key={currentFilteredTodo.id} currentTodo={currentFilteredTodo} />)
+                            <TodoCard key={currentFilteredTodo.id} currentTodo={currentFilteredTodo} />)
                         :
-                        orderedByFavorite.map((currentTodo) =>
-                            <Todo key={currentTodo.id} currentTodo={currentTodo} />)
+                        todos.map((currentTodo) =>
+                            <TodoCard key={currentTodo.id} currentTodo={currentTodo} />)
                     }
                 </TodoListWrapper>
                 :

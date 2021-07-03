@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE, FILTER_TODOS } from '../types';
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE, FILTER_TODOS, ORDER_TODOS_BY_DATE_CREATED, ORDER_TODOS_ALPHABETICALLY, ORDER_TODOS_BY_FAVORITES } from '../types';
 
 export function addTodo(todoText, todoListTitle) {
     return {
@@ -87,3 +87,31 @@ export function filterTodos(searchInput) {
     }
 };
 
+export function orderTodosByDateCreated(sortActionDate) {
+    return {
+        type: ORDER_TODOS_BY_DATE_CREATED,
+        payload: {
+            sortActionDate
+        }
+    }
+};
+
+
+export function orderTodosByFavorites(sortActionFavorites) {
+    return {
+        type: ORDER_TODOS_BY_FAVORITES,
+        payload: {
+            sortActionFavorites
+        }
+    }
+};
+
+
+export function orderTodosAlphabetically(sortActionAlphabetically) {
+    return {
+        type: ORDER_TODOS_ALPHABETICALLY,
+        payload: {
+            sortActionAlphabetically
+        }
+    }
+};

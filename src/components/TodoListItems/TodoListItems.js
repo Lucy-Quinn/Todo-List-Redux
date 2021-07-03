@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import Todo from '../../components/Todo';
+import TodoCard from '../../components/TodoCard';
 
 const TodoListItems = ({ currentTodoList }) => {
 
@@ -12,7 +12,7 @@ const TodoListItems = ({ currentTodoList }) => {
         <div>
             {foundTodoItems.map(todoItem => {
                 return (
-                    <Todo key={todoItem.id} currentTodo={todoItem} />
+                    <TodoCard key={todoItem.id} currentTodo={todoItem} />
                 )
             }
             )}

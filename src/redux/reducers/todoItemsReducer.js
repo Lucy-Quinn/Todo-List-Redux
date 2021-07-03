@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE, FILTER_TODOS } from '../types';
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE, FILTER_TODOS, ORDER_TODOS_BY_DATE_CREATED, ORDER_TODOS_ALPHABETICALLY, ORDER_TODOS_BY_FAVORITES } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
 // const INITIALSTATE = [
@@ -28,7 +28,7 @@ import { v4 as uuidv4 } from 'uuid';
 //     }
 // ]
 
-export default function todoItemsReducer(state = { todos: [], filtered: [], searchInput: '' }, action) {
+export default function todoItemsReducer(state = { todos: [], filtered: [], inputValue: '' }, action) {
     switch (action.type) {
         case ADD_TODO:
             return {
@@ -42,7 +42,8 @@ export default function todoItemsReducer(state = { todos: [], filtered: [], sear
                         isFavorite: false,
                         note: '',
                         todoList: action.payload.todoListTitle,
-                        dueDate: ''
+                        dueDate: '',
+                        dateCreated: ''
                     }
                 ]
             };
@@ -125,9 +126,37 @@ export default function todoItemsReducer(state = { todos: [], filtered: [], sear
             return {
                 ...state,
                 filtered: foundItem,
-                searchInput
+                inputValue: searchInput
+            };
+        case ORDER_TODOS_BY_DATE_CREATED:
+            state.filtered = [...state.todos];
+            const { sortActionDate } = action.payload;
+            const todosByDateCreated = state.filtered.sort((a, b) => b.date - a.date)
+            return {
+                ...state,
+                filtered: todosByDateCreated,
+                inputValue: sortActionDate
+            };
+        case ORDER_TODOS_BY_FAVORITES:
+            state.filtered = [...state.todos];
+            const { sortActionFavorites } = action.payload;
+            const todosByFavorites = state.filtered.sort((a, b) => a.isFavorite ? -1 : 1)
+            return {
+                ...state,
+                filtered: todosByFavorites,
+                inputValue: sortActionFavorites
+            };
+        case ORDER_TODOS_ALPHABETICALLY:
+            state.filtered = [...state.todos];
+            const { sortActionAlphabetically } = action.payload;
+            const todosAlphabetically = state.filtered.sort((a, b) => a.text.localeCompare(b.text))
+            return {
+                ...state,
+                filtered: todosAlphabetically,
+                inputValue: sortActionAlphabetically
             };
         default:
             return state
     }
 };
+
