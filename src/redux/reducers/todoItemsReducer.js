@@ -43,9 +43,10 @@ export default function todoItemsReducer(state = { todos: [], filtered: [], inpu
                         note: '',
                         todoList: action.payload.todoListTitle,
                         dueDate: '',
-                        dateCreated: ''
+                        dateCreated: action.payload.todoDateCreated
                     }
-                ]
+                ],
+                inputValue: ''
             };
         case REMOVE_TODO:
             const filteredTodos = state.todos.filter(todo => todo.id !== action.payload.todoId)
@@ -131,7 +132,7 @@ export default function todoItemsReducer(state = { todos: [], filtered: [], inpu
         case ORDER_TODOS_BY_DATE_CREATED:
             state.filtered = [...state.todos];
             const { sortActionDate } = action.payload;
-            const todosByDateCreated = state.filtered.sort((a, b) => b.date - a.date)
+            const todosByDateCreated = state.filtered.sort((a, b) => b.dateCreated - a.dateCreated)
             return {
                 ...state,
                 filtered: todosByDateCreated,

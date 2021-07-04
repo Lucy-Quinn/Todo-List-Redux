@@ -10,6 +10,8 @@ const TodoForm = ({ currentTodoList }) => {
     const [inputValue, setInputValue] = useState('')
     const dispatch = useDispatch();
 
+    const todaysDate = new Date();
+
     const theme = toggleTheme ? themes.light : themes.dark;
     const currentList = currentTodoList ? currentTodoList.title : '';
 
@@ -19,7 +21,7 @@ const TodoForm = ({ currentTodoList }) => {
 
     const handleAddItemForm = (e) => {
         e.preventDefault();
-        dispatch(addTodo(inputValue, currentList));
+        dispatch(addTodo(inputValue, currentList, todaysDate));
         setInputValue('');
     }
 

@@ -1,11 +1,12 @@
 import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE, FILTER_TODOS, ORDER_TODOS_BY_DATE_CREATED, ORDER_TODOS_ALPHABETICALLY, ORDER_TODOS_BY_FAVORITES } from '../types';
 
-export function addTodo(todoText, todoListTitle) {
+export function addTodo(todoText, todoListTitle, todoDateCreated) {
     return {
         type: ADD_TODO,
         payload: {
             todoText,
-            todoListTitle
+            todoListTitle,
+            todoDateCreated
         }
     }
 };
