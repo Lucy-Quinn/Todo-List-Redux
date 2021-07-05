@@ -33,7 +33,7 @@ const SelectTodoForm = ({ currentTodoList }) => {
             <label>
                 Your todos:
                 <select defaultValue={todoValue} onChange={handleOptionChange}>
-                    <option value=''>Please Select</option>
+                    <option value='' disabled>Please Select</option>
                     {todosArr.map((todo, index) =>
                         <option value={todo.text} key={todo.id} className={todo.id} ref={refArray.current[index]}>{todo.text}</option>
                     )}

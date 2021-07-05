@@ -7,7 +7,7 @@ import { addTodoDueDate } from '../../redux/actions/todoItemsActions';
 
 const DueDate = ({ todoId }) => {
 
-    const [dueDate, setDueDate] = useState(new Date());
+    const [dueDate, setDueDate] = useState(null);
     const dispatch = useDispatch();
 
     const handleDueDate = () => {

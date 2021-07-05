@@ -39,16 +39,19 @@ const AddTodoListForm = () => {
 
     const handleAddTodoListCategoryForm = (e) => {
         e.preventDefault();
-        dispatch(addTodoList(titleValue, colorValue));
-        setTitleValue('');
+        if (colorValue.length >= 1) {
+            dispatch(addTodoList(titleValue, colorValue));
+            setTitleValue('');
+        }
+        return
     }
 
     return (
         <form className="form-wrapper" onSubmit={handleAddTodoListCategoryForm}>
             <input className="form-input" type="text" name="todo" value={titleValue} placeholder="Add todo list..." onChange={handleInputChange} />
             <label>
-                Choose your theme color:
                 <select value={colorValue} onChange={handleOptionChange}>
+                    <option value='' disabled>Select your theme color</option>
                     {COLORS_DATA.map(colorItem =>
                         <option value={colorItem.color} key={colorItem.id}>{colorItem.color}</option>
                     )}
