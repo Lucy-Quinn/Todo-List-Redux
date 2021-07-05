@@ -136,8 +136,8 @@ export default function todoItemsReducer(state = { todos: [], filtered: [], inpu
         case ORDER_TODOS_BY_DATE_CREATED:
             state.filtered = [...state.todos];
             const { sortActionDate } = action.payload;
-            const newestTodos = _.orderBy(state.filtered, [(obj) => new Date(obj.dateCreated)], ['asc'])
-            const oldestTodos = _.orderBy(state.filtered, [(obj) => new Date(obj.dateCreated)], ['desc'])
+            const newestTodos = _.orderBy(state.filtered, [(obj) => new Date(obj.dateCreated)], ['desc'])
+            const oldestTodos = _.orderBy(state.filtered, [(obj) => new Date(obj.dateCreated)], ['asc'])
             const todosByDateCreated = sortActionDate === 'newest' ? newestTodos : oldestTodos;
             return {
                 ...state,

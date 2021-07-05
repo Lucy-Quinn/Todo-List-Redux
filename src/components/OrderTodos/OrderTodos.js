@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { orderTodosByDateCreated, orderTodosAlphabetically, orderTodosByFavorites } from '../../redux/actions/TodoItemsActions';
+import { orderTodosByDateCreated, orderTodosAlphabetically, orderTodosByFavorites } from '../../redux/actions/todoItemsActions';
 
 const ORDER_TODO_DATA = [
     {

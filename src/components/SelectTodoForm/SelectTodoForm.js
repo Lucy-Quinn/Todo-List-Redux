@@ -1,14 +1,13 @@
 import React, { useState, useRef, createRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addTodoListCategory } from '../../redux/actions/TodoItemsActions';
+import { addTodoListCategory } from '../../redux/actions/todoItemsActions';
 
 const SelectTodoForm = ({ currentTodoList }) => {
 
     const todosArr = useSelector(state => state.todoItemsReducer.todos);
-    const todosTextArr = todosArr.map(todo => todo.text);
 
-    const [todoValue, setTodoValue] = useState(todosTextArr[0]);
+    const [todoValue, setTodoValue] = useState('');
     const [todoIdValue, setTodoIdValue] = useState('');
 
     const dispatch = useDispatch();
@@ -18,24 +17,25 @@ const SelectTodoForm = ({ currentTodoList }) => {
 
     const handleOptionChange = (e) => {
         const currentIndex = e.target.options.selectedIndex;
-        const todoId = refArray?.current[currentIndex].current?.className;
+        const todoId = refArray?.current[currentIndex - 1].current?.className;
+
         setTodoIdValue(todoId)
         setTodoValue(e.target.value);
     }
 
     const handleTodoSelectForm = (e) => {
         e.preventDefault();
-        dispatch(addTodoListCategory(todoIdValue, currentListTitle));
+        dispatch(addTodoListCategory(todoIdValue, currentListTitle))
     }
 
     return (
         <form onSubmit={handleTodoSelectForm}>
             <label>
                 Your todos:
-                <select value={todoValue} onChange={handleOptionChange}>
+                <select defaultValue={todoValue} onChange={handleOptionChange}>
+                    <option value=''>Please Select</option>
                     {todosArr.map((todo, index) =>
-                        <option value={todo.text} key={todo.id} className={todo.id} ref={refArray.current[index]}
-                        >{todo.text}</option>
+                        <option value={todo.text} key={todo.id} className={todo.id} ref={refArray.current[index]}>{todo.text}</option>
                     )}
                 </select>
             </label>
