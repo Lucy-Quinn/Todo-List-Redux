@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE, FILTER_TODOS, ORDER_TODOS_BY_DATE_CREATED, ORDER_TODOS_ALPHABETICALLY, ORDER_TODOS_BY_FAVORITES } from '../types';
+import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, REMOVE_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE, FILTER_TODOS, ORDER_TODOS_BY_DATE_CREATED, ORDER_TODOS_ALPHABETICALLY, ORDER_TODOS_BY_FAVORITES } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 import _ from 'lodash';
 
@@ -113,6 +113,24 @@ export default function todoItemsReducer(state = { todos: [], filtered: [], inpu
                     )
                 })
             };
+        case REMOVE_TODO_LIST_CATEGORY:
+            const removedTodos = state.todos.filter(todo => {
+                console.log('todo', todo);
+                return (action.payload.todoId.includes(todo.id))
+            })
+            return {
+                ...state,
+                todos: state.todos.map(todo => {
+                    return (
+                        // todo.id === action.payload.todoId ?
+                        {
+                            ...todo,
+                            todoList: removedTodos,
+                        }
+                    )
+                })
+            };
+
         case ADD_TODO_DUE_DATE:
             return {
                 ...state,
