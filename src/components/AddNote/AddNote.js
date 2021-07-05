@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { TextArea } from './AddNote.styled';
-import { addNote } from '../../redux/actions/TodoItemsActions';
+import { addNote } from '../../redux/actions/todoItemsActions';
 
 const AddNote = ({ currentTodo }) => {
 

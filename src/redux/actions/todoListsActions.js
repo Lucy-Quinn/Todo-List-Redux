@@ -1,4 +1,4 @@
-import { ADD_TODO_LIST, REMOVE_TODO_LIST, ADD_TODO_TO_LIST } from '../types';
+import { ADD_TODO_LIST, REMOVE_TODO_LIST, ADD_TODO_TO_LIST, EDIT_TODO_LIST } from '../types';
 
 export function addTodoList(todoListTitle, todoListColor) {
     return {
@@ -29,3 +29,12 @@ export function addTodoToList(todoListId, todo) {
     }
 };
 
+export function editTodoList(todoListId, todoListText) {
+    return {
+        type: EDIT_TODO_LIST,
+        payload: {
+            todoListId,
+            todoListText
+        }
+    }
+};

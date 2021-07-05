@@ -102,13 +102,16 @@ export default function todoItemsReducer(state = { todos: [], filtered: [], inpu
         case ADD_TODO_LIST_CATEGORY:
             return {
                 ...state,
-                todos: state.todos.map(todo =>
-                    todo.id === action.payload.todoId ?
-                        {
-                            ...todo,
-                            todoList: action.payload.todoListCategory,
-                        }
-                        : todo)
+                todos: state.todos.map(todo => {
+                    return (
+                        todo.id === action.payload.todoId ?
+                            {
+                                ...todo,
+                                todoList: [...todo.todoList, todo.todoList.includes(action.payload.todoListCategory) ? null : action.payload.todoListCategory],
+                            }
+                            : todo
+                    )
+                })
             };
         case ADD_TODO_DUE_DATE:
             return {

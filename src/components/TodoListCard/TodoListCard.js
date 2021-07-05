@@ -10,7 +10,7 @@ const TodoListCard = ({ currentTodoList }) => {
     const { title } = currentTodoList;
 
     const foundTodos = useSelector(state => state.todoItemsReducer.todos.filter(todo =>
-        todo.todoList === title
+        todo.todoList.includes(title)
     ));
 
     const location = useLocation();

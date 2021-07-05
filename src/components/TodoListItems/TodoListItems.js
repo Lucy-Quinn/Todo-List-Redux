@@ -6,7 +6,8 @@ import TodoCard from '../../components/TodoCard';
 const TodoListItems = ({ currentTodoList }) => {
 
     const todosArr = useSelector(state => state.todoItemsReducer.todos);
-    const foundTodoItems = todosArr.filter(todo => todo.todoList === currentTodoList.title);
+
+    const foundTodoItems = todosArr.filter(todo => todo.todoList.includes(currentTodoList.title))
 
     return (
         <div>

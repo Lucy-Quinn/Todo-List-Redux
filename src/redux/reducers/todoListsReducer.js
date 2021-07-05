@@ -1,4 +1,4 @@
-import { ADD_TODO_LIST, ADD_TODO_TO_LIST, REMOVE_TODO_LIST } from '../types';
+import { ADD_TODO_LIST, ADD_TODO_TO_LIST, EDIT_TODO_LIST, REMOVE_TODO_LIST } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function todoListsReducer(state = [], action) {
@@ -11,7 +11,7 @@ export default function todoListsReducer(state = [], action) {
                     title: action.payload.todoListTitle,
                     isComplete: false,
                     isIncomplete: false,
-                    color: action.payload.todoListColor
+                    color: action.payload.todoListColor,
                 }
             ];
         case ADD_TODO_TO_LIST:
@@ -24,9 +24,21 @@ export default function todoListsReducer(state = [], action) {
                         }
                         : todoList);
             });
-        case REMOVE_TODO_LIST: return state.filter(todoList => todoList.id !== action.payload.todoListId);
+        case EDIT_TODO_LIST:
+            return state.map(todoList => {
+                return (
+                    todoList.id === action.payload.todoListId ?
+                        {
+                            ...todoList,
+                            title: action.payload.todoListText,
+                        }
+                        : todoList);
+            });
+        case REMOVE_TODO_LIST:
+            return state.filter(todoList =>
+                todoList.id !== action.payload.todoListId
+            );
         default:
             return state
     }
 };
-

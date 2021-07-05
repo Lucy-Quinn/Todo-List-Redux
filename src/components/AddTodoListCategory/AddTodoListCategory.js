@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-import { addTodoListCategory } from '../../redux/actions/TodoItemsActions';
+import { addTodoListCategory } from '../../redux/actions/todoItemsActions';
 
 const AddTodoListCategory = () => {
 

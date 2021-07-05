@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 
-import { removeTodo } from '../../redux/actions/TodoItemsActions';
+import { removeTodo } from '../../redux/actions/todoItemsActions';
 import { DeleteItem } from './DeleteButton.styled';
 import { removeTodoList } from '../../redux/actions/todoListsActions';
 

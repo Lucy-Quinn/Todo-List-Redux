@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import { useDispatch } from 'react-redux';
 import "react-datepicker/dist/react-datepicker.css";
 
-import { addTodoDueDate } from '../../redux/actions/TodoItemsActions';
+import { addTodoDueDate } from '../../redux/actions/todoItemsActions';
 
 const DueDate = ({ todoId }) => {
 

@@ -30,13 +30,11 @@ const SingleTodoPage = ({ match }) => {
             <SingleTodoHeader>
                 <FavoriteTodo currentTodo={currentTodo} />
                 {isEdit ?
-                    <EditForm isEdit={isEdit} currentTodo={currentTodo} setIsEdit={setIsEdit} />
+                    <EditForm isEdit={isEdit} currentItem={currentTodo} setIsEdit={setIsEdit} />
                     :
                     <>
                         {currentTodo !== undefined &&
-                            <h2>
-                                {currentTodo.text}
-                            </h2>}
+                            <h2>{currentTodo.text}</h2>}
                         <TodoEdit theme={theme}>
                             <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
                         </TodoEdit>
