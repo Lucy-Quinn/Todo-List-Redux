@@ -49,9 +49,8 @@ const OrderTodos = () => {
     return (
         <div className="form-wrapper">
             <label>
-                Order your todos by:
                 <select value={sortAction} onChange={handleOptionChange}>
-                    <option value=''>Please Select</option>
+                    <option value=''>Order your todos by...</option>
                     {ORDER_TODO_DATA.map((element) =>
                         <option value={element.action} key={element.id}>{element.action}</option>
                     )}

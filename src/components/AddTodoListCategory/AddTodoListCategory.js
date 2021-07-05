@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom';
 
 import { addTodoListCategory } from '../../redux/actions/todoItemsActions';
 
-const AddTodoListCategory = () => {
-
+const AddTodoListCategory = ({ currentTodo }) => {
     const todoListsArr = useSelector(state => state.todoListsReducer);
     const todoListsTitlesArr = todoListsArr.map(todoList => todoList.title);
-    const [todoListsValue, setTodoListsValue] = useState(todoListsTitlesArr[0]);
+    const [todoListsValue, setTodoListsValue] = useState('');
 
     const dispatch = useDispatch();
 
@@ -30,8 +29,8 @@ const AddTodoListCategory = () => {
         todoListsTitlesArr.length > 0 ?
             <form onSubmit={handleTodoListCategoryForm}>
                 <label>
-                    Choose your Todo list:
                     <select value={todoListsValue} onChange={handleOptionChange}>
+                        <option value='' disabled>Add {currentTodo.text} to...</option>
                         {todoListsArr.map(todoList =>
                             <option value={todoList.title} key={todoList.id}>{todoList.title}</option>
                         )}

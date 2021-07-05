@@ -42,7 +42,7 @@ const SingleTodoPage = ({ match }) => {
                 }
             </SingleTodoHeader>
             <DueDate todoId={todoId} />
-            <AddTodoListCategory />
+            <AddTodoListCategory currentTodo={currentTodo} />
             <AddNote currentTodo={currentTodo} />
             <DeleteButton currentItem={currentTodo} />
         </div>

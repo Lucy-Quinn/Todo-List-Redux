@@ -31,9 +31,8 @@ const SelectTodoForm = ({ currentTodoList }) => {
     return (
         <form onSubmit={handleTodoSelectForm}>
             <label>
-                Your todos:
                 <select defaultValue={todoValue} onChange={handleOptionChange}>
-                    <option value='' disabled>Please Select</option>
+                    <option value='' disabled>Pick from your todos...</option>
                     {todosArr.map((todo, index) =>
                         <option value={todo.text} key={todo.id} className={todo.id} ref={refArray.current[index]}>{todo.text}</option>
                     )}
