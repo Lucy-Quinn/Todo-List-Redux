@@ -9,10 +9,14 @@ const ORDER_TODO_DATA = [
     },
     {
         id: 2,
-        action: 'date created'
+        action: 'newest'
     },
     {
         id: 3,
+        action: 'oldest'
+    },
+    {
+        id: 4,
         action: 'alphabetically'
     }
 ]
@@ -33,7 +37,9 @@ const OrderTodos = () => {
                 return (dispatch(orderTodosByFavorites(sortAction)))
             case 'alphabetically':
                 return (dispatch(orderTodosAlphabetically(sortAction)))
-            case 'date created':
+            case 'newest':
+                return (dispatch(orderTodosByDateCreated(sortAction)))
+            case 'oldest':
                 return (dispatch(orderTodosByDateCreated(sortAction)))
             default:
                 return ''

@@ -7,7 +7,6 @@ import TodoListWrapper from './TodoItems.styled';
 const TodoItems = () => {
 
     const { todos, filtered, inputValue } = useSelector(state => state.todoItemsReducer);
-
     return (
         <div>
             {todos.length >= 1 ?

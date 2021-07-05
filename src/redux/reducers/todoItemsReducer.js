@@ -1,5 +1,6 @@
 import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE, FILTER_TODOS, ORDER_TODOS_BY_DATE_CREATED, ORDER_TODOS_ALPHABETICALLY, ORDER_TODOS_BY_FAVORITES } from '../types';
 import { v4 as uuidv4 } from 'uuid';
+import _ from 'lodash';
 
 // const INITIALSTATE = [
 //     {
@@ -132,7 +133,9 @@ export default function todoItemsReducer(state = { todos: [], filtered: [], inpu
         case ORDER_TODOS_BY_DATE_CREATED:
             state.filtered = [...state.todos];
             const { sortActionDate } = action.payload;
-            const todosByDateCreated = state.filtered.sort((a, b) => b.dateCreated - a.dateCreated)
+            const newestTodos = _.orderBy(state.filtered, [(obj) => new Date(obj.dateCreated)], ['asc'])
+            const oldestTodos = _.orderBy(state.filtered, [(obj) => new Date(obj.dateCreated)], ['desc'])
+            const todosByDateCreated = sortActionDate === 'newest' ? newestTodos : oldestTodos;
             return {
                 ...state,
                 filtered: todosByDateCreated,
