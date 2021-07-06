@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { TextArea } from './AddNote.styled';
+import { AddNoteWrapper, TextArea } from './AddNote.styled';
 import { addNote } from '../../redux/actions/todoItemsActions';
 
 const AddNote = ({ currentTodo }) => {
@@ -23,7 +23,7 @@ const AddNote = ({ currentTodo }) => {
     }
 
     return (
-        <form onSubmit={handleAddNoteForm}>
+        <AddNoteWrapper onSubmit={handleAddNoteForm} className="form-wrapper">
             <TextArea
                 type="submit"
                 value={textAreaValue ? textAreaValue : currentTodo.note}
@@ -38,8 +38,10 @@ const AddNote = ({ currentTodo }) => {
                     `Update note`
                     : `Add note`}
             </button>
-        </form>
+        </AddNoteWrapper>
     )
 }
+// width: 93%;
+
 
 export default AddNote;

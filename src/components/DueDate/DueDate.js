@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import "react-datepicker/dist/react-datepicker.css";
 
 import { addTodoDueDate } from '../../redux/actions/todoItemsActions';
+import { DueDateWrapper } from './DueDate.styled';
 
 const DueDate = ({ todoId }) => {
 
@@ -11,19 +12,20 @@ const DueDate = ({ todoId }) => {
     const dispatch = useDispatch();
 
     const handleDueDate = () => {
-        const modifiedDate = dueDate.toDateString().slice(0, 10);
+        const modifiedDate = dueDate && dueDate.toDateString().slice(0, 10);
         dispatch(addTodoDueDate(todoId, modifiedDate))
     };
 
     return (
-        <div>
+        <DueDateWrapper className="form-wrapper">
             <DatePicker
                 selected={dueDate}
                 onChange={(date) => setDueDate(date)}
-                placeholderText="Set a due date"
+                placeholderText="Add a due date"
+                className="form-input"
             />
-            <button className='cta-button' onClick={handleDueDate}>set</button>
-        </div>
+            <button className='cta-button-add' onClick={handleDueDate}>+</button>
+        </DueDateWrapper>
     );
 }
 

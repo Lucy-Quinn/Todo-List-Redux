@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import { addTodoListCategory } from '../../redux/actions/todoItemsActions';
+import { TodoListCategoryOption, TodoListCategoryLabel } from './AddTodoListCategory.styled';
 
 const AddTodoListCategory = ({ currentTodo }) => {
     const todoListsArr = useSelector(state => state.todoListsReducer);
@@ -27,16 +28,16 @@ const AddTodoListCategory = ({ currentTodo }) => {
 
     return (
         todoListsTitlesArr.length > 0 ?
-            <form onSubmit={handleTodoListCategoryForm}>
-                <label>
-                    <select value={todoListsValue} onChange={handleOptionChange}>
+            <form onSubmit={handleTodoListCategoryForm} className="form-wrapper">
+                <TodoListCategoryLabel>
+                    <select className="form-input" value={todoListsValue} onChange={handleOptionChange}>
                         <option value='' disabled>Add {currentTodo.text} to...</option>
                         {todoListsArr.map(todoList =>
-                            <option value={todoList.title} key={todoList.id}>{todoList.title}</option>
+                            <TodoListCategoryOption value={todoList.title} key={todoList.id}>{todoList.title}</TodoListCategoryOption>
                         )}
                     </select>
-                </label>
-                <button className="cta-button" type="submit">Add</button>
+                </TodoListCategoryLabel>
+                <button className="cta-button-add" type="submit">+</button>
             </form>
             :
             <p>You have no todos lists! Create one

@@ -132,6 +132,12 @@ const GlobalStyle = createGlobalStyle`
     height: 45px;
     display: block;
   }
+  .form-select{
+        border-radius: 10px;
+        padding: 5px;
+        border: none;
+        box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+    }
 `;
 
 export default GlobalStyle;

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const SingleTodoPageWrapper = styled.div`
+    padding: 20px 15px 30px;
+`;
+
 const SingleTodoHeader = styled.div`
     display: flex;
     justify-content: center;
@@ -7,7 +11,7 @@ const SingleTodoHeader = styled.div`
     gap: 10px;
     width: 50%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px 20px 20px;
 `;
 
 const TodoEdit = styled.div`
@@ -23,6 +27,7 @@ const TodoEdit = styled.div`
 `
 
 export {
+    SingleTodoPageWrapper,
     SingleTodoHeader,
     TodoEdit
 }

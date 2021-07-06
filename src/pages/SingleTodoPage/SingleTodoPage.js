@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import DeleteButton from '../../components/DeleteButton';
 import FavoriteTodo from '../../components/FavoriteTodo';
-import { SingleTodoHeader } from './SingleTodoPage.styled';
+import { SingleTodoPageWrapper, SingleTodoHeader } from './SingleTodoPage.styled';
 import AddNote from '../../components/AddNote';
 import AddTodoListCategory from '../../components/AddTodoListCategory';
 import DueDate from '../../components/DueDate';
@@ -26,7 +26,7 @@ const SingleTodoPage = ({ match }) => {
     }
 
     return (
-        <div>
+        <SingleTodoPageWrapper>
             <SingleTodoHeader>
                 <FavoriteTodo currentTodo={currentTodo} />
                 {isEdit ?
@@ -45,7 +45,7 @@ const SingleTodoPage = ({ match }) => {
             <AddTodoListCategory currentTodo={currentTodo} />
             <AddNote currentTodo={currentTodo} />
             <DeleteButton currentItem={currentTodo} />
-        </div>
+        </SingleTodoPageWrapper>
     );
 }
 
