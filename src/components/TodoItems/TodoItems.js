@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import TodoCard from '../TodoCard';
 import TodoListWrapper from './TodoItems.styled';
+import OrderTodos from '../OrderTodos';
 
 const TodoItems = () => {
 
@@ -11,6 +12,7 @@ const TodoItems = () => {
         <div>
             {todos.length >= 1 ?
                 <TodoListWrapper>
+                    <OrderTodos />
                     {inputValue.length >= 1 ?
                         filtered.map((currentFilteredTodo) =>
                             <TodoCard key={currentFilteredTodo.id} currentTodo={currentFilteredTodo} />)
@@ -21,7 +23,7 @@ const TodoItems = () => {
                 </TodoListWrapper>
                 :
                 <div>
-                    <h2>Add more todos...</h2>
+                    <h2>Add some todos...</h2>
                 </div>
             }
         </div>

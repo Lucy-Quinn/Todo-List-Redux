@@ -69,7 +69,6 @@ export function addTodoListCategory(todoId, todoListCategory) {
 };
 
 export function removeTodoListCategory(todoId, todoListCategory) {
-    console.log(todoId);
     return {
         type: REMOVE_TODO_LIST_CATEGORY,
         payload: {

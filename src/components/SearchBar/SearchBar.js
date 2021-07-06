@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 
-import { filterTodos } from '../../redux/actions/TodoItemsActions';
+import { filterTodos } from '../../redux/actions/todoItemsActions';
 
 const SearchBar = () => {
 

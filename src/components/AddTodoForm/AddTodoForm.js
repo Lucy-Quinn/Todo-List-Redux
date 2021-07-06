@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // import {  } from './AddTodoForm.styled';
-import { addTodo } from '../../redux/actions/TodoItemsActions';
+import { addTodo } from '../../redux/actions/todoItemsActions';
 
 const TodoForm = ({ currentTodoList }) => {
 
@@ -13,7 +13,7 @@ const TodoForm = ({ currentTodoList }) => {
     const todaysDate = new Date();
 
     const theme = toggleTheme ? themes.light : themes.dark;
-    const currentList = currentTodoList ? currentTodoList.title : '';
+    const currentList = currentTodoList ? new Array(currentTodoList.title) : '';
 
     const handleChange = (e) => {
         setInputValue(e.target.value);

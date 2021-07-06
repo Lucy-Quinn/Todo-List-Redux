@@ -1,12 +1,18 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
+
+
+const TodoColorContainer = styled.div`
+    box-shadow: 10px 0 3px -2px ${({ todoListColors }) => todoListColors ? todoListColors : 'transparent'};
+`;
+
 
 const TodoWrapper = styled.div`
-    padding: 10px 0 20px;
+    padding: 20px 0 20px;
     display: flex;
     justify-content: flex-start;
+    flex-direction: column;
     align-items: center;
-    gap: 18px;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     border-bottom: 1px dotted ${({ theme }) => theme.border};
@@ -14,8 +20,6 @@ const TodoWrapper = styled.div`
      border-top: 1px dotted ${({ theme }) => theme.border};
     };
     @media(min-width: 768px){
-        flex-direction: row;
-        flex-wrap: nowrap;
         padding: 15px 10px 10px;
         align-items: ${({ isEdit, currentTodo }) => {
         if (isEdit && currentTodo.text) {
@@ -23,9 +27,24 @@ const TodoWrapper = styled.div`
         } else if (isEdit && !currentTodo.text) {
             return 'center';
         }
-    }}
+    }
+    }
     }
 `
+
+const TodoTopSection = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+`;
+
+const TodoBottomSection = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+`;
 
 const TodoComplete = styled.div`
     font-size: 1.6rem;
@@ -33,7 +52,6 @@ const TodoComplete = styled.div`
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     padding: 5px;
     width: fit-content;
-    order: 2;
     min-width: 26px;
     border-radius: 50%;
     background: ${({ currentTodo, theme }) => currentTodo.isComplete ? theme.button : '#fff'};
@@ -49,11 +67,10 @@ const TodoComplete = styled.div`
     }
 `
 
-
-
 const FavoriteIcon = styled.i`
     font-size: 1.6rem;
-    color: ${({ currentTodo }) => currentTodo ? "#fff" : "none"}
+    color: ${({ currentTodo }) => currentTodo ? "#fff" : "none"};
+    margin-right: 10px;
 `;
 
 const ItemText = styled.p`
@@ -70,24 +87,37 @@ const TextWrapper = styled.div`
     height: fit-content;
     margin: 20px 0;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-    padding: 0 8px;
-    flex-grow: 1;
     border: none;
     background: #fff;
     width: 100%;
     border-radius: 10px;
-    margin: 20px 0 0;
     order: 1;
     min-height: 44px;
     @media(min-width: 768px){
         margin: 20px 0;
     }
 `
+const TextLink = styled(Link)`
+    width: 75%;
+    margin-right: 10px;
+`;
+
+
+const TodoListColor = styled.div`
+    background: red;
+    height: 100px;
+    width: 100px;
+`;
 
 export {
     TodoComplete,
+    TodoColorContainer,
+    TodoTopSection,
+    TodoBottomSection,
     TodoWrapper,
     FavoriteIcon,
+    TextLink,
     ItemText,
-    TextWrapper
+    TextWrapper,
+    TodoListColor
 }

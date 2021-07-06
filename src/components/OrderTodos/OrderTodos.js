@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { OrderTodosWrapper } from './OrderTodos.styled';
 import { orderTodosByDateCreated, orderTodosAlphabetically, orderTodosByFavorites } from '../../redux/actions/todoItemsActions';
 
 const ORDER_TODO_DATA = [
@@ -24,6 +26,8 @@ const ORDER_TODO_DATA = [
 const OrderTodos = () => {
 
     const [sortAction, setSortAction] = useState('');
+    const { toggleTheme, themes } = useSelector(state => state.themeReducer);
+    const theme = toggleTheme ? themes.light : themes.dark;
 
     const dispatch = useDispatch();
 
@@ -47,16 +51,14 @@ const OrderTodos = () => {
     }, [dispatch, sortAction]);
 
     return (
-        <div className="form-wrapper">
-            <label>
-                <select value={sortAction} onChange={handleOptionChange}>
-                    <option value=''>Order your todos by...</option>
-                    {ORDER_TODO_DATA.map((element) =>
-                        <option value={element.action} key={element.id}>{element.action}</option>
-                    )}
-                </select>
-            </label>
-        </div>
+        <OrderTodosWrapper theme={theme}>
+            <select value={sortAction} onChange={handleOptionChange}>
+                <option value=''>Order your todos by...</option>
+                {ORDER_TODO_DATA.map((element) =>
+                    <option value={element.action} key={element.id}>{element.action}</option>
+                )}
+            </select>
+        </OrderTodosWrapper>
     )
 }
 

@@ -92,7 +92,7 @@ const GlobalStyle = createGlobalStyle`
 
   .form-wrapper{
     display: flex;
-    gap: 15px;
+    gap: 10px;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     background-color: rgba(166, 216, 219, 0.411);
     padding: 15px;
@@ -128,8 +128,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    width: 43px;
-    height: 43px;
+    width: 50px;
+    height: 45px;
     display: block;
   }
 `;

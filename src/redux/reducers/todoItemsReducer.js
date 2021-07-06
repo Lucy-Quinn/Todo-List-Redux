@@ -115,14 +115,12 @@ export default function todoItemsReducer(state = { todos: [], filtered: [], inpu
             };
         case REMOVE_TODO_LIST_CATEGORY:
             const removedTodos = state.todos.filter(todo => {
-                console.log('todo', todo);
                 return (action.payload.todoId.includes(todo.id))
             })
             return {
                 ...state,
                 todos: state.todos.map(todo => {
                     return (
-                        // todo.id === action.payload.todoId ?
                         {
                             ...todo,
                             todoList: removedTodos,

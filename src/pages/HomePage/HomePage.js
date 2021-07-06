@@ -13,7 +13,6 @@ const HomePage = () => {
             <TodoListCenter>
                 <SearchBar />
                 <AddTodoForm />
-                <OrderTodos />
                 <TodoItems />
             </TodoListCenter>
         </TodoListWrapper>
