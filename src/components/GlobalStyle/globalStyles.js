@@ -40,8 +40,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2{
-    font-size: 1.7rem;
-    color: #fff;
+    font-size: 2rem;
+    ${'' /* color: #fff; */}
     margin: 0;
     text-align: center;
     @media(min-width: 768px){

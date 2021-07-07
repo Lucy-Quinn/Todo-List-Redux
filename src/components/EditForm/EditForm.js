@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { editTodoList } from '../../redux/actions/todoListsActions';
@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 
 const EditForm = ({ currentItem, isEdit, setIsEdit }) => {
 
-
+    const [inputValue, setInputValue] = useState('')
     const dispatch = useDispatch();
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
 
@@ -18,33 +18,38 @@ const EditForm = ({ currentItem, isEdit, setIsEdit }) => {
     const { pathname } = location;
     const isTodoListsPath = pathname.includes('todoLists')
 
+
+    const handleChange = (e) => {
+        setInputValue(e.target.value);
+    }
+
+
     const handleEditItemForm = (e) => {
 
         e.preventDefault();
         if (isTodoListsPath) {
-            const editValue = e.target.editItem.value === '' ? title : e.target.editItem.value;
-            dispatch(editTodoList(id, editValue));
+            dispatch(editTodoList(id, inputValue));
 
         } else {
-            const editValue = e.target.editItem.value === '' ? text : e.target.editItem.value;
-            dispatch(editTodo(id, editValue));
+            dispatch(editTodo(id, inputValue));
         }
         setIsEdit(false);
 
-    }
+    };
 
+    const adjustWidth = () => {
+        const inputEl = document.getElementById("editValue");
+        inputEl.style.width = 0;
+        inputEl.style.width = inputEl.scrollWidth + 'px';
+    };
 
-    // const handleEditTodoForm = (e) => {
-    //     e.preventDefault();
-
-    //     const editValue = e.target.editTodo.value === '' ? text : e.target.editTodo.value;
-    //     dispatch(editTodo(id, editValue));
-    //     setIsEdit(false);
-    // };
+    useEffect(() => {
+        adjustWidth()
+    }, [inputValue]);
 
     return (
         <EditFormWrapper onSubmit={handleEditItemForm}>
-            <input className="form-input" type="text" name="editItem" placeholder={isEdit && isTodoListsPath ? title : text} defaultValue={isEdit && isTodoListsPath ? title : text} />
+            <input className="form-input" type="text" name="editItem" placeholder={isEdit && isTodoListsPath ? title : text} defaultValue={isEdit && isTodoListsPath ? title : text} id="editValue" onChange={handleChange} />
             <button className="cta-button" theme={theme} type="submit">Save</button>
         </EditFormWrapper>
     );

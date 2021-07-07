@@ -41,7 +41,5 @@ const AddNote = ({ currentTodo }) => {
         </AddNoteWrapper>
     )
 }
-// width: 93%;
-
 
 export default AddNote;

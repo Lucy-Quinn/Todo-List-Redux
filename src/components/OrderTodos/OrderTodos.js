@@ -53,7 +53,7 @@ const OrderTodos = () => {
     return (
         <OrderTodosWrapper theme={theme}>
             <select className="form-select" value={sortAction} onChange={handleOptionChange}>
-                <option value=''>Order your todos by...</option>
+                <option value='' hidden>Order your todos by...</option>
                 {ORDER_TODO_DATA.map((element) =>
                     <option value={element.action} key={element.id}>{element.action}</option>
                 )}

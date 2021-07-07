@@ -9,7 +9,7 @@ const StyledHamburger = styled.div`
     right: 35px;
     flex-direction: column;
     justify-content: space-around;
-    z-index: 1;
+    z-index: 3;
     @media (min-width: 768px) {
         height: 2rem;
         width: 2rem;

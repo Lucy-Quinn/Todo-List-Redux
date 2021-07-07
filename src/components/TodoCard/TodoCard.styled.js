@@ -73,7 +73,7 @@ const FavoriteIcon = styled.i`
     margin-right: 10px;
 `;
 
-const ItemText = styled.p`
+const ItemText = styled.div`
     color: black;
     font-family: 'Indie Flower', cursive;
     font-size: 1.2rem;

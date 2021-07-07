@@ -11,7 +11,7 @@ const SingleTodoHeader = styled.div`
     gap: 10px;
     width: 50%;
     margin: 0 auto;
-    padding: 10px 20px 20px;
+    padding: 0 20px 20px;
 `;
 
 const TodoEdit = styled.div`

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addTodoList } from '../../redux/actions/todoListsActions';
+import { AddTodoListFormWrapper, ColorSelect, TopSection } from './AddTodoListForm.styled';
 
 const COLORS_DATA = [
     {
@@ -47,18 +48,23 @@ const AddTodoListForm = () => {
     }
 
     return (
-        <form className="form-wrapper" onSubmit={handleAddTodoListCategoryForm}>
-            <input className="form-input" type="text" name="todo" value={titleValue} placeholder="Add todo list..." onChange={handleInputChange} />
+        <AddTodoListFormWrapper className="form-wrapper" onSubmit={handleAddTodoListCategoryForm}>
+            <TopSection>
+                <input className="form-input" type="text" name="todo" value={titleValue} placeholder="Add todo list..." onChange={handleInputChange} />
+                <button className="cta-button-add" type="submit">+</button>
+            </TopSection>
             <label>
-                <select value={colorValue} onChange={handleOptionChange}>
-                    <option value='' disabled>Select your theme color</option>
-                    {COLORS_DATA.map(colorItem =>
-                        <option value={colorItem.color} key={colorItem.id}>{colorItem.color}</option>
+                <ColorSelect className="form-select" value={colorValue} onChange={handleOptionChange}>
+                    <option value='' hidden>Select theme color</option>
+                    {COLORS_DATA.map(colorItem => {
+                        return (
+                            <option value={colorItem.color} key={colorItem.id}>{colorItem.color}</option>
+                        )
+                    }
                     )}
-                </select>
+                </ColorSelect>
             </label>
-            <button className="cta-button" type="submit">Add</button>
-        </form>
+        </AddTodoListFormWrapper>
     )
 }
 

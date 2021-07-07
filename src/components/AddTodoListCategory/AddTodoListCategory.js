@@ -31,7 +31,7 @@ const AddTodoListCategory = ({ currentTodo }) => {
             <form onSubmit={handleTodoListCategoryForm} className="form-wrapper">
                 <TodoListCategoryLabel>
                     <select className="form-input" value={todoListsValue} onChange={handleOptionChange}>
-                        <option value='' disabled>Add {currentTodo.text} to...</option>
+                        <option value='' hidden>Add {currentTodo.text} to...</option>
                         {todoListsArr.map(todoList =>
                             <TodoListCategoryOption value={todoList.title} key={todoList.id}>{todoList.title}</TodoListCategoryOption>
                         )}

@@ -9,6 +9,7 @@ import AddTodoListCategory from '../../components/AddTodoListCategory';
 import DueDate from '../../components/DueDate';
 import { TodoEdit } from './SingleTodoPage.styled';
 import EditForm from '../../components/EditForm';
+import useTruncateText from '../../hooks';
 
 const SingleTodoPage = ({ match }) => {
 
@@ -17,13 +18,12 @@ const SingleTodoPage = ({ match }) => {
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
     const theme = toggleTheme ? themes.light : themes.dark;
 
-    const currentTodo = useSelector(state =>
-        state.todoItemsReducer.todos.find(todo => todo.id === todoId)
-    );
-
+    const currentTodo = useSelector(state => state.todoItemsReducer.todos.find(todo => todo.id === todoId));
+    const currentTodoText = currentTodo.text;
+    const trucateText = useTruncateText(currentTodoText, 12);
     const handleEditItem = () => {
         setIsEdit(true)
-    }
+    };
 
     return (
         <SingleTodoPageWrapper>
@@ -34,7 +34,7 @@ const SingleTodoPage = ({ match }) => {
                     :
                     <>
                         {currentTodo !== undefined &&
-                            <h2>{currentTodo.text}</h2>}
+                            trucateText}
                         <TodoEdit theme={theme}>
                             <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
                         </TodoEdit>

@@ -19,10 +19,10 @@ const NavMenu = styled.ul`
     top: 0;
     right: 0;
     height: 100vh;
-    /* width: 300px; */
     width: 100vw;
     margin: 0;
     padding-top: 2rem;
+    z-index: 1;
     transition: transform 0.3s ease-in-out;
     @media (min-width: 768px) {
         width: 300px;
