@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import AddTodoForm from '../../components/AddTodoForm';
@@ -7,7 +7,7 @@ import TodoListItems from '../../components/TodoListItems/TodoListItems';
 import SelectTodoForm from '../../components/SelectTodoForm';
 import { SingleTodoListPageWrapper, TodoListEdit, SingleTodoListHeader } from './SingleTodoListPage.styled';
 import EditForm from '../../components/EditForm';
-import truncateUtils from '../../utils/truncateUtils';
+import useTruncateText from '../../hooks';
 
 const SingleTodoListPage = ({ match }) => {
 
@@ -20,16 +20,12 @@ const SingleTodoListPage = ({ match }) => {
     const { todoListId } = match.params;
     const currentTodoList = todoListArr.find(todoList => todoList.id === todoListId);
 
-    const currentTodoListTitle = currentTodoList.title;
-    const [title, setTitle] = useState(currentTodoListTitle);
+    const { title } = currentTodoList;
+    const trucateText = useTruncateText(title, 12, 'header');
 
     const handleEditItem = () => {
         setIsEdit(true)
     };
-
-    useEffect(() => {
-        truncateUtils(currentTodoListTitle, 14, setTitle)
-    }, [title, currentTodoListTitle]);
 
     return (
         <SingleTodoListPageWrapper>
@@ -38,7 +34,7 @@ const SingleTodoListPage = ({ match }) => {
                 :
                 <SingleTodoListHeader>
                     {currentTodoList !== undefined &&
-                        <h2>{title}</h2>}
+                        trucateText}
                     <TodoListEdit theme={theme}>
                         <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
                     </TodoListEdit>

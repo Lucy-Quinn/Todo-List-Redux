@@ -6,12 +6,14 @@ const TodoListCategoryOption = styled.option`
 
 const TodoListCategoryLabel = styled.label`
     width: 100%;
-    select{
-        color: gray;
-    }
 `;
+
+const DefaultOption = styled.select`
+        color: ${({ firstOption }) => firstOption ? 'black' : 'grey'}
+`
 
 export {
     TodoListCategoryOption,
-    TodoListCategoryLabel
+    TodoListCategoryLabel,
+    DefaultOption
 }

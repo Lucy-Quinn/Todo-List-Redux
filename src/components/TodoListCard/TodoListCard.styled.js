@@ -21,6 +21,9 @@ const TodoListWrapper = styled.div`
     }
     p{
         width: 100%;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 10px 5px;
     }
     @media(min-width: 768px){
         width: 70%;

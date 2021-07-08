@@ -15,9 +15,7 @@ const TopSection = styled.div`
 `;
 
 const ColorSelect = styled.select`
-
 `;
-
 
 export {
     AddTodoListFormWrapper,

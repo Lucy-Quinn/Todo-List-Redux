@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { completeTodo } from '../../redux/actions/todoItemsActions';
 import { TodoColorContainer, TodoWrapper, TodoTopSection, TodoBottomSection, TodoComplete, TextLink, ItemText, TextWrapper, FavoriteIcon } from './TodoCard.styled';
-// import truncateUtils from '../../utils/truncateUtils';
 import useTruncateText from '../../hooks';
 
 const TodoCard = ({ currentTodo }) => {
 
-    const currentTodoText = currentTodo.text;
-    const trucateText = useTruncateText(currentTodoText, 12);
-    console.log(trucateText);
+    const { text } = currentTodo;
+    const trucateText = useTruncateText(text, 12, 'text');
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
     const todoListsArr = useSelector(state => state.todoListsReducer);
 
@@ -47,8 +45,8 @@ const TodoCard = ({ currentTodo }) => {
                         }
                     </TodoComplete>
                     <TextLink to={`/todos/${currentTodo.id}`}>
-                        <TextWrapper>
-                            <ItemText currentTodo={currentTodo}>{trucateText}</ItemText>
+                        <TextWrapper currentTodo={currentTodo}>
+                            {trucateText}
                         </TextWrapper>
                     </TextLink>
                 </TodoBottomSection>

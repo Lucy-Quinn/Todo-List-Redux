@@ -18,7 +18,6 @@ const SelectTodoForm = ({ currentTodoList }) => {
     const handleOptionChange = (e) => {
         const currentIndex = e.target.options.selectedIndex;
         const todoId = refArray?.current[currentIndex - 1].current?.className;
-
         setTodoIdValue(todoId)
         setTodoValue(e.target.value);
     }

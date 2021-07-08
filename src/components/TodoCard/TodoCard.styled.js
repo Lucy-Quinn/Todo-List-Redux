@@ -1,11 +1,9 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
-
 const TodoColorContainer = styled.div`
     box-shadow: 10px 0 3px -2px ${({ todoListColors }) => todoListColors ? todoListColors : 'transparent'};
 `;
-
 
 const TodoWrapper = styled.div`
     padding: 20px 0 20px;
@@ -73,16 +71,6 @@ const FavoriteIcon = styled.i`
     margin-right: 10px;
 `;
 
-const ItemText = styled.div`
-    color: black;
-    font-family: 'Indie Flower', cursive;
-    font-size: 1.2rem;
-    text-decoration: ${({ currentTodo }) => currentTodo.isComplete ? 'line-through' : ''};
-    word-break: break-all;
-    white-space: normal;
-    margin: 8px;
-    font-size: ${({ currentTodo }) => currentTodo.isFavorite ? '1.8rem' : '1.2rem'};
-`
 const TextWrapper = styled.div`
     height: fit-content;
     margin: 20px 0;
@@ -95,6 +83,16 @@ const TextWrapper = styled.div`
     min-height: 44px;
     @media(min-width: 768px){
         margin: 20px 0;
+    }
+    p{
+        color: black;
+        font-family: 'Indie Flower', cursive;
+        font-size: 1.2rem;
+        text-decoration: ${({ currentTodo }) => currentTodo.isComplete ? 'line-through' : ''};
+        word-break: break-all;
+        white-space: normal;
+        margin: 8px;
+        font-size: ${({ currentTodo }) => currentTodo.isFavorite ? '1.8rem' : '1.2rem'}; 
     }
 `
 const TextLink = styled(Link)`
@@ -117,7 +115,6 @@ export {
     TodoWrapper,
     FavoriteIcon,
     TextLink,
-    ItemText,
     TextWrapper,
     TodoListColor
 }

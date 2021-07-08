@@ -5,6 +5,7 @@ import { editTodoList } from '../../redux/actions/todoListsActions';
 import { editTodo } from '../../redux/actions/todoItemsActions';
 import { EditFormWrapper } from './EditForm.styled'
 import { useLocation } from 'react-router-dom';
+import EditFormInput from './EditFormInput/EditFormInput';
 
 const EditForm = ({ currentItem, isEdit, setIsEdit }) => {
 
@@ -13,43 +14,24 @@ const EditForm = ({ currentItem, isEdit, setIsEdit }) => {
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
 
     const theme = toggleTheme ? themes.light : themes.dark;
-    const { id, text, title } = currentItem;
+    const { id } = currentItem;
     const location = useLocation();
     const { pathname } = location;
-    const isTodoListsPath = pathname.includes('todoLists')
-
-
-    const handleChange = (e) => {
-        setInputValue(e.target.value);
-    }
-
+    const isTodoListsPath = pathname.includes('todoLists');
 
     const handleEditItemForm = (e) => {
-
         e.preventDefault();
         if (isTodoListsPath) {
             dispatch(editTodoList(id, inputValue));
-
         } else {
             dispatch(editTodo(id, inputValue));
         }
         setIsEdit(false);
-
     };
-
-    const adjustWidth = () => {
-        const inputEl = document.getElementById("editValue");
-        inputEl.style.width = 0;
-        inputEl.style.width = inputEl.scrollWidth + 'px';
-    };
-
-    useEffect(() => {
-        adjustWidth()
-    }, [inputValue]);
 
     return (
         <EditFormWrapper onSubmit={handleEditItemForm}>
-            <input className="form-input" type="text" name="editItem" placeholder={isEdit && isTodoListsPath ? title : text} defaultValue={isEdit && isTodoListsPath ? title : text} id="editValue" onChange={handleChange} />
+            <EditFormInput inputValue={inputValue} setInputValue={setInputValue} isTodoListsPath={isTodoListsPath} currentItem={currentItem} isEdit={isEdit} />
             <button className="cta-button" theme={theme} type="submit">Save</button>
         </EditFormWrapper>
     );

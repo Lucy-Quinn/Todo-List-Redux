@@ -20,7 +20,8 @@ const SingleTodoPage = ({ match }) => {
 
     const currentTodo = useSelector(state => state.todoItemsReducer.todos.find(todo => todo.id === todoId));
     const currentTodoText = currentTodo.text;
-    const trucateText = useTruncateText(currentTodoText, 12);
+    const trucateText = useTruncateText(currentTodoText, 12, 'header');
+
     const handleEditItem = () => {
         setIsEdit(true)
     };

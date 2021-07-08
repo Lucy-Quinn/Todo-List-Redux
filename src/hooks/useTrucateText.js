@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function useTrucateText(str, lengthOfStr) {
+function useTrucateText(str, lengthOfStr, typeOfText) {
 
     const currentText = str;
     const [text, setText] = useState(currentText);
@@ -17,7 +17,10 @@ function useTrucateText(str, lengthOfStr) {
     }, [text, currentText, str, lengthOfStr]);
 
     return (
-        <h2>{text}</h2>
+        typeOfText === 'header' ?
+            <h2>{text}</h2>
+            :
+            <p>{text}</p>
     )
 };
 
