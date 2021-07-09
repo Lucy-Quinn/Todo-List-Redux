@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import { addTodoListCategory } from '../../redux/actions/todoItemsActions';
-import { TodoListCategoryOption, TodoListCategoryLabel, DefaultOption } from './AddTodoListCategory.styled';
+import { TodoListCategoryOption, TodoListCategoryLabel, TodoListCategorySelect } from './AddTodoListCategory.styled';
 
 const AddTodoListCategory = ({ currentTodo }) => {
 
@@ -13,9 +13,6 @@ const AddTodoListCategory = ({ currentTodo }) => {
     const [todoListsValue, setTodoListsValue] = useState('');
 
     const dispatch = useDispatch();
-
-    const optionRef = useRef(null);
-    const firstOption = optionRef.current?.childNodes[0]
 
     const location = useLocation();
     const { pathname } = location;
@@ -34,20 +31,20 @@ const AddTodoListCategory = ({ currentTodo }) => {
         todoListsTitlesArr.length > 0 ?
             <form onSubmit={handleTodoListCategoryForm} className="form-wrapper">
                 <TodoListCategoryLabel>
-                    <DefaultOption className="form-input" value={todoListsValue} onChange={handleOptionChange} ref={optionRef} firstOption={firstOption}>
+                    <TodoListCategorySelect className="form-input" value={todoListsValue} onChange={handleOptionChange}>
                         <option value='' hidden>Add {currentTodo.text} to...</option>
                         {todoListsArr.map(todoList =>
                             <TodoListCategoryOption value={todoList.title} key={todoList.id}>
                                 {todoList.title}
                             </TodoListCategoryOption>
                         )}
-                    </DefaultOption>
+                    </TodoListCategorySelect>
                 </TodoListCategoryLabel>
                 <button className="cta-button-add" type="submit">+</button>
             </form>
             :
             <p>You have no todos lists! Create one
-                <Link to='/todoLists'>here</Link>
+                <Link to='/todoLists'> here</Link>
             </p>
     )
 }

@@ -29,7 +29,7 @@ const TodoCard = ({ currentTodo }) => {
     return (
         <TodoColorContainer todoListColors={todoListColors}>
             <TodoWrapper theme={theme} currentTodo={currentTodo} >
-                <TodoTopSection>
+                <TodoTopSection currentTodo={currentTodo}>
                     {dueDate ? <p>Due {dueDate}</p> : null}
                     {isFavorite ?
                         <FavoriteIcon className="fas fa-star" currentTodo={currentTodo} />

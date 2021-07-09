@@ -35,6 +35,8 @@ const TodoTopSection = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    justify-content: ${({ currentTodo }) => currentTodo.dueDate.length < 1 && 'flex-end'};
+    min-height: 25px;
 `;
 
 const TodoBottomSection = styled.div`
@@ -93,6 +95,7 @@ const TextWrapper = styled.div`
         white-space: normal;
         margin: 8px;
         font-size: ${({ currentTodo }) => currentTodo.isFavorite ? '1.8rem' : '1.2rem'}; 
+        min-height: 60px;
     }
 `
 const TextLink = styled(Link)`

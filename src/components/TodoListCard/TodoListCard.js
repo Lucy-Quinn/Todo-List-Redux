@@ -22,11 +22,13 @@ const TodoListCard = ({ currentTodoList }) => {
 
     return (
         <TodoListWrapper>
-            {trucateText}
+            <div>
+                {trucateText}
+                <ItemsNumber>{completeTodos} / {foundTodos.length} items</ItemsNumber>
+            </div>
             {pathname === '/statistics' &&
                 <TodoListStatistics completeTodos={completeTodos} foundTodos={foundTodos} currentTodoList={currentTodoList} />
             }
-            <ItemsNumber>{completeTodos} / {foundTodos.length} items</ItemsNumber>
         </TodoListWrapper>
     )
 }

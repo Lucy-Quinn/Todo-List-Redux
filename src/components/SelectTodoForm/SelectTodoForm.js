@@ -2,6 +2,7 @@ import React, { useState, useRef, createRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { addTodoListCategory } from '../../redux/actions/todoItemsActions';
+import { SelectTodoFormWrapper, Select } from './SelectTodoForm.styled';
 
 const SelectTodoForm = ({ currentTodoList }) => {
 
@@ -28,17 +29,17 @@ const SelectTodoForm = ({ currentTodoList }) => {
     }
 
     return (
-        <form onSubmit={handleTodoSelectForm}>
+        <SelectTodoFormWrapper className="form-wrapper" onSubmit={handleTodoSelectForm} >
             <label>
-                <select defaultValue={todoValue} onChange={handleOptionChange}>
-                    <option value='' hidden>Pick from your todos...</option>
+                <Select className="form-input" defaultValue={todoValue} onChange={handleOptionChange}>
+                    <option value='' hidden>Choose from your todos</option>
                     {todosArr.map((todo, index) =>
                         <option value={todo.text} key={todo.id} className={todo.id} ref={refArray.current[index]}>{todo.text}</option>
                     )}
-                </select>
+                </Select>
             </label>
-            <button className="cta-button" type="submit">Add</button>
-        </form>
+            <button className="cta-button-add" type="submit">+</button>
+        </SelectTodoFormWrapper>
     )
 }
 

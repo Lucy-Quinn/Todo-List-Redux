@@ -13,6 +13,10 @@ const GeneralStaticsWrapper = styled.div`
 const StaticsWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    p{
+        font-size: 1.2rem;
+    }
 `;
 
 const ProgressBarContainer = styled.div`

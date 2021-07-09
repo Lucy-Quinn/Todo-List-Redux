@@ -50,7 +50,7 @@ const AddTodoListForm = () => {
     return (
         <AddTodoListFormWrapper className="form-wrapper" onSubmit={handleAddTodoListCategoryForm}>
             <TopSection>
-                <input className="form-input" type="text" name="todo" value={titleValue} placeholder="Add todo list..." onChange={handleInputChange} />
+                <input className="form-input" type="text" name="todo" value={titleValue} placeholder="Add todo list" onChange={handleInputChange} />
                 <button className="cta-button-add" type="submit">+</button>
             </TopSection>
             <label>

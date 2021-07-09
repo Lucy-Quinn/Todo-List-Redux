@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const AddTodoListFormWrapper = styled.form`
-      flex-direction: column;
-      input{
-          width: inherit;
-      }
+    flex-direction: column;
+    input{
+        width: inherit; 
+    }
 `;
 
 const TopSection = styled.div`
@@ -15,6 +15,9 @@ const TopSection = styled.div`
 `;
 
 const ColorSelect = styled.select`
+    &:focus-visible {
+        outline: none;
+    }
 `;
 
 export {

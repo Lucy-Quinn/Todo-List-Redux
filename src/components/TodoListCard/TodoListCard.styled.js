@@ -8,7 +8,8 @@ const TodoListWrapper = styled.div`
     padding: 15px;
     margin: 10px auto 10px auto;
     box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-    background-color: rgba(166, 216, 219, 0.411);
+    /* background-color: rgba(166, 216, 219, 0.411); */
+    background: #fff;
     border-radius: 10px;
     h3{
         width: 100%;
@@ -21,7 +22,7 @@ const TodoListWrapper = styled.div`
     }
     p{
         width: 100%;
-        color: #fff;
+        color: #181A18;
         font-size: 1.2rem;
         padding: 10px 5px;
     }
