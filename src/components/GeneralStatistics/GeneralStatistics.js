@@ -11,6 +11,7 @@ const GeneralStatistics = () => {
     const totalTodoLists = todoListsArr.length;
     const totalTodos = todosArr.length;
     const completeTodos = todosArr.filter(todo => todo.isComplete).length;
+    const remainingTodo = totalTodos - completeTodos;
     const findPercentage = () => Math.round((completeTodos / totalTodos) * 100);
 
     return (
@@ -26,8 +27,9 @@ const GeneralStatistics = () => {
                     <ProgressBarContainer><ProgressAmount findPercentage={findPercentage}></ProgressAmount></ProgressBarContainer>
                     <StaticsWrapper>
                         <p>{findPercentage()}% overall progress</p>
+                        <p>{totalTodos} todos in total</p>
                         <p>{completeTodos} completed todos</p>
-                        <p>{totalTodos} remaining todos to go...</p>
+                        <p>{remainingTodo} remaining {remainingTodo > 1 ? 'todos' : 'todo'}...</p>
                     </StaticsWrapper>
                 </GeneralStaticsWrapper>
             }
