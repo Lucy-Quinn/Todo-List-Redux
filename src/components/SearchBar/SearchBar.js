@@ -14,7 +14,7 @@ const SearchBar = () => {
     };
 
     useEffect(() => {
-        dispatch(filterTodos(searchInput));
+        dispatch(filterTodos({ searchInput }));
     }, [dispatch, searchInput]);
 
     return (

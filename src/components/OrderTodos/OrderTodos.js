@@ -38,13 +38,13 @@ const OrderTodos = () => {
     useEffect(() => {
         switch (sortAction) {
             case 'favorites':
-                return (dispatch(orderTodosByFavorites(sortAction)))
+                return (dispatch(orderTodosByFavorites({ sortAction })));
             case 'alphabetically':
-                return (dispatch(orderTodosAlphabetically(sortAction)))
+                return (dispatch(orderTodosAlphabetically({ sortAction })));
             case 'newest':
-                return (dispatch(orderTodosByDateCreated(sortAction)))
+                return (dispatch(orderTodosByDateCreated({ sortAction })));
             case 'oldest':
-                return (dispatch(orderTodosByDateCreated(sortAction)))
+                return (dispatch(orderTodosByDateCreated({ sortAction })));
             default:
                 return ''
         }
@@ -59,7 +59,7 @@ const OrderTodos = () => {
                 )}
             </select>
         </OrderTodosWrapper>
-    )
-}
+    );
+};
 
-export default OrderTodos
+export default OrderTodos;

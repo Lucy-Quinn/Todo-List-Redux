@@ -6,7 +6,7 @@ import { addTodo } from '../../redux/actions/todoItemsActions';
 const TodoForm = ({ currentTodoList }) => {
 
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
-    const [inputValue, setInputValue] = useState('')
+    const [inputValue, setInputValue] = useState('');
     const dispatch = useDispatch();
 
     const todaysDate = new Date();
@@ -20,7 +20,7 @@ const TodoForm = ({ currentTodoList }) => {
 
     const handleAddItemForm = (e) => {
         e.preventDefault();
-        dispatch(addTodo(inputValue, currentList, todaysDate));
+        dispatch(addTodo({ inputValue, currentList, todaysDate }));
         setInputValue('');
     }
 
@@ -30,6 +30,6 @@ const TodoForm = ({ currentTodoList }) => {
             <button className="cta-button-add" type="submit" theme={theme}>+</button>
         </form>
     );
-}
+};
 
 export default TodoForm;

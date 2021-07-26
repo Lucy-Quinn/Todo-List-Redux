@@ -1,44 +1,37 @@
-import { ADD_TODO_LIST, ADD_TODO_TO_LIST, EDIT_TODO_LIST, REMOVE_TODO_LIST } from '../types';
+import {
+    ADD_TODO_LIST,
+    EDIT_TODO_LIST,
+    REMOVE_TODO_LIST
+} from '../types';
 import { v4 as uuidv4 } from 'uuid';
+import { filter, map } from 'lodash';
 
 export default function todoListsReducer(state = [], action) {
     switch (action.type) {
         case ADD_TODO_LIST:
+            const { todoListTitle, todoListColor } = action.payload;
             return [
                 ...state,
                 {
                     id: uuidv4(),
-                    title: action.payload.todoListTitle,
+                    title: todoListTitle,
                     isComplete: false,
                     isIncomplete: false,
-                    color: action.payload.todoListColor,
+                    color: todoListColor,
                 }
             ];
-        case ADD_TODO_TO_LIST:
-            return state.map(todoList => {
-                return (
-                    todoList.id === action.payload.todoListId ?
-                        {
-                            ...todoList,
-                            todos: action.payload.todo,
-                        }
-                        : todoList);
-            });
         case EDIT_TODO_LIST:
-            return state.map(todoList => {
-                return (
-                    todoList.id === action.payload.todoListId ?
-                        {
-                            ...todoList,
-                            title: action.payload.todoListText,
-                        }
-                        : todoList);
-            });
+            const { id: todoListId, inputValue: todoListText } = action.payload;
+            return map(state, (todoList =>
+                todoList.id === todoListId ?
+                    {
+                        ...todoList,
+                        title: todoListText,
+                    }
+                    : todoList));
         case REMOVE_TODO_LIST:
-            return state.filter(todoList =>
-                todoList.id !== action.payload.todoListId
-            );
+            return filter(state, (todoList => todoList.id !== action.payload.id));
         default:
-            return state
-    }
+            return state;
+    };
 };

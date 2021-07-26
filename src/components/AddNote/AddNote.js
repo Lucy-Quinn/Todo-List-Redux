@@ -6,6 +6,7 @@ import { addNote } from '../../redux/actions/todoItemsActions';
 
 const AddNote = ({ currentTodo }) => {
 
+    const { id: todoId } = currentTodo;
     const [textAreaValue, setTextAreaValue] = useState('');
     const dispatch = useDispatch();
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
@@ -18,7 +19,7 @@ const AddNote = ({ currentTodo }) => {
 
     const handleAddNoteForm = (e) => {
         e.preventDefault();
-        dispatch(addNote(currentTodo.id, textAreaValue));
+        dispatch(addNote({ todoId, textAreaValue }));
         setTextAreaValue('');
     }
 

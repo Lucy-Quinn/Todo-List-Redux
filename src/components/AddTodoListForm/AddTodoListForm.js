@@ -25,36 +25,36 @@ const COLORS_DATA = [
 
 const AddTodoListForm = () => {
 
-    const [titleValue, setTitleValue] = useState('');
-    const [colorValue, setColorValue] = useState('');
+    const [todoListTitle, setTodoListTitle] = useState('');
+    const [todoListColor, setTodoListColor] = useState('');
 
     const dispatch = useDispatch();
 
     const handleInputChange = (e) => {
-        setTitleValue(e.target.value);
-    }
+        setTodoListTitle(e.target.value);
+    };
 
     const handleOptionChange = (e) => {
-        setColorValue(e.target.value);
-    }
+        setTodoListColor(e.target.value);
+    };
 
     const handleAddTodoListCategoryForm = (e) => {
         e.preventDefault();
-        if (colorValue.length >= 1) {
-            dispatch(addTodoList(titleValue, colorValue));
-            setTitleValue('');
+        if (todoListColor.length >= 1) {
+            dispatch(addTodoList({ todoListTitle, todoListColor }));
+            setTodoListTitle('');
         }
         return
-    }
+    };
 
     return (
         <AddTodoListFormWrapper className="form-wrapper" onSubmit={handleAddTodoListCategoryForm}>
             <TopSection>
-                <input className="form-input" type="text" name="todo" value={titleValue} placeholder="Add todo list" onChange={handleInputChange} />
+                <input className="form-input" type="text" name="todo" value={todoListTitle} placeholder="Add todo list" onChange={handleInputChange} />
                 <button className="cta-button-add" type="submit">+</button>
             </TopSection>
             <label>
-                <ColorSelect className="form-select" value={colorValue} onChange={handleOptionChange}>
+                <ColorSelect className="form-select" value={todoListColor} onChange={handleOptionChange}>
                     <option value='' hidden>Select theme color</option>
                     {COLORS_DATA.map(colorItem => {
                         return (
@@ -66,6 +66,6 @@ const AddTodoListForm = () => {
             </label>
         </AddTodoListFormWrapper>
     )
-}
+};
 
-export default AddTodoListForm
+export default AddTodoListForm;

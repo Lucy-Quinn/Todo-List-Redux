@@ -1,40 +1,26 @@
-import { ADD_TODO_LIST, REMOVE_TODO_LIST, ADD_TODO_TO_LIST, EDIT_TODO_LIST } from '../types';
+import {
+    ADD_TODO_LIST,
+    REMOVE_TODO_LIST,
+    EDIT_TODO_LIST
+} from '../types';
 
-export function addTodoList(todoListTitle, todoListColor) {
+export function addTodoList(payload) {
     return {
         type: ADD_TODO_LIST,
-        payload: {
-            todoListTitle,
-            todoListColor
-        }
-    }
+        payload
+    };
 };
 
-export function removeTodoList(todoListId) {
+export function removeTodoList(payload) {
     return {
         type: REMOVE_TODO_LIST,
-        payload: {
-            todoListId,
-        }
-    }
+        payload
+    };
 };
 
-export function addTodoToList(todoListId, todo) {
-    return {
-        type: ADD_TODO_TO_LIST,
-        payload: {
-            todoListId,
-            todo
-        }
-    }
-};
-
-export function editTodoList(todoListId, todoListText) {
+export function editTodoList(payload) {
     return {
         type: EDIT_TODO_LIST,
-        payload: {
-            todoListId,
-            todoListText
-        }
-    }
+        payload
+    };
 };

@@ -9,25 +9,23 @@ import { removeTodoList } from '../../redux/actions/todoListsActions';
 
 const DeleteTodo = ({ currentItem }) => {
 
-    const todosArr = useSelector(state => state.todoItemsReducer.todos);
-    const foundTodoItems = todosArr.filter(todo => todo.todoList.includes(currentItem.title))
-
+    const { id, title } = currentItem;
     const dispatch = useDispatch();
-    const history = useHistory()
+    const history = useHistory();
     const location = useLocation();
     const { pathname } = location;
-    const isTodoListsPath = pathname.includes('todoLists')
+    const isTodoListsPath = pathname.includes('todoLists');
 
     const handleRemoveItem = () => {
         if (isTodoListsPath) {
-            dispatch(removeTodoList(currentItem.id));
-            dispatch(removeTodoListCategory(foundTodoItems, currentItem.title))
+            dispatch(removeTodoList({ id }));
+            dispatch(removeTodoListCategory({ title }))
             history.push('/todoLists');
         } else {
-            dispatch(removeTodo(currentItem.id));
+            dispatch(removeTodo({ id }));
             history.push('/');
         }
-    }
+    };
 
     return (
         <div>

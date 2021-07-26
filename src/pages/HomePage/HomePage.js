@@ -16,6 +16,6 @@ const HomePage = () => {
             </TodoListCenter>
         </TodoListWrapper>
     );
-}
+};
 
 export default HomePage;

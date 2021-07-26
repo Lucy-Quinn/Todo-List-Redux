@@ -2,12 +2,21 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { completeTodo } from '../../redux/actions/todoItemsActions';
-import { TodoColorContainer, TodoWrapper, TodoTopSection, TodoBottomSection, TodoComplete, TextLink, ItemText, TextWrapper, FavoriteIcon } from './TodoCard.styled';
+import {
+    TodoColorContainer,
+    TodoWrapper,
+    TodoTopSection,
+    TodoBottomSection,
+    TodoComplete,
+    TextLink,
+    TextWrapper,
+    FavoriteIcon
+} from './TodoCard.styled';
 import useTruncateText from '../../hooks';
 
 const TodoCard = ({ currentTodo }) => {
 
-    const { text } = currentTodo;
+    const { text, id: todoId } = currentTodo;
     const trucateText = useTruncateText(text, 12, 'text');
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
     const todoListsArr = useSelector(state => state.todoListsReducer);
@@ -18,12 +27,12 @@ const TodoCard = ({ currentTodo }) => {
     const { isEdit, isFavorite } = currentTodo;
 
     const dueDate = currentTodo.dueDate;
-    const todoListCategoriesArr = (typeof currentTodo.todoList === 'string' ? new Array(currentTodo.todoList) : currentTodo.todoList).filter(list => list)
+    const todoListCategoriesArr = (typeof currentTodo.todoList === 'string' ? new Array(currentTodo.todoList) : currentTodo.todoList).filter(list => list);
     const foundTodoLists = todoListsArr.filter(todoList => todoListCategoriesArr.includes(todoList.title));
     const todoListColors = foundTodoLists.map(todoList => todoList.color)[0];
 
     const handleCompleteItem = () => {
-        dispatch(completeTodo(currentTodo.id))
+        dispatch(completeTodo({ todoId }));
     };
 
     return (
@@ -53,6 +62,6 @@ const TodoCard = ({ currentTodo }) => {
             </TodoWrapper>
         </TodoColorContainer>
     );
-}
+};
 
 export default TodoCard;

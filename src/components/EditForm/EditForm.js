@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { editTodoList } from '../../redux/actions/todoListsActions';
@@ -22,9 +22,9 @@ const EditForm = ({ currentItem, isEdit, setIsEdit }) => {
     const handleEditItemForm = (e) => {
         e.preventDefault();
         if (isTodoListsPath) {
-            dispatch(editTodoList(id, inputValue));
+            dispatch(editTodoList({ id, inputValue }));
         } else {
-            dispatch(editTodo(id, inputValue));
+            dispatch(editTodo({ id, inputValue }));
         }
         setIsEdit(false);
     };
@@ -35,6 +35,6 @@ const EditForm = ({ currentItem, isEdit, setIsEdit }) => {
             <button className="cta-button" theme={theme} type="submit">Save</button>
         </EditFormWrapper>
     );
-}
+};
 
 export default EditForm;

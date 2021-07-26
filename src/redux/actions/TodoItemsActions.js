@@ -1,128 +1,109 @@
-import { ADD_TODO, REMOVE_TODO, EDIT_TODO, COMPLETE_TODO, FAVORITE_TODO, ADD_NOTE, ADD_TODO_LIST_CATEGORY, REMOVE_TODO_LIST_CATEGORY, ADD_TODO_DUE_DATE, FILTER_TODOS, ORDER_TODOS_BY_DATE_CREATED, ORDER_TODOS_ALPHABETICALLY, ORDER_TODOS_BY_FAVORITES } from '../types';
+import {
+    ADD_TODO,
+    REMOVE_TODO,
+    EDIT_TODO,
+    COMPLETE_TODO,
+    FAVORITE_TODO,
+    ADD_NOTE,
+    ADD_TODO_LIST_CATEGORY,
+    REMOVE_TODO_LIST_CATEGORY,
+    ADD_TODO_DUE_DATE,
+    FILTER_TODOS,
+    ORDER_TODOS_BY_DATE_CREATED,
+    ORDER_TODOS_ALPHABETICALLY,
+    ORDER_TODOS_BY_FAVORITES
+} from '../types';
 
-export function addTodo(todoText, todoListTitle, todoDateCreated) {
+export function addTodo(payload) {
     return {
         type: ADD_TODO,
-        payload: {
-            todoText,
-            todoListTitle,
-            todoDateCreated
-        }
-    }
+        payload
+    };
 };
 
-export function removeTodo(todoId) {
+export function removeTodo(payload) {
     return {
         type: REMOVE_TODO,
-        payload: {
-            todoId
-        }
-    }
+        payload
+    };
 };
 
-export function editTodo(todoId, todoText) {
+export function editTodo(payload) {
     return {
         type: EDIT_TODO,
-        payload: {
-            todoId,
-            todoText
-        }
-    }
+        payload
+    };
 };
 
-export function completeTodo(todoId) {
+export function completeTodo(payload) {
     return {
         type: COMPLETE_TODO,
-        payload: {
-            todoId,
-        }
-    }
+        payload
+    };
 };
 
-export function favoriteTodo(todoId) {
+export function favoriteTodo(payload) {
     return {
         type: FAVORITE_TODO,
-        payload: {
-            todoId,
-        }
-    }
+        payload
+    };
 };
 
-export function addNote(todoId, todoNote) {
+export function addNote(payload) {
     return {
         type: ADD_NOTE,
-        payload: {
-            todoId,
-            todoNote
-        }
-    }
+        payload
+    };
 };
 
-export function addTodoListCategory(todoId, todoListCategory) {
+export function addTodoListCategory(payload) {
     return {
         type: ADD_TODO_LIST_CATEGORY,
-        payload: {
-            todoId,
-            todoListCategory
-        }
-    }
+        payload
+    };
 };
 
-export function removeTodoListCategory(todoId, todoListCategory) {
+export function removeTodoListCategory(payload) {
     return {
         type: REMOVE_TODO_LIST_CATEGORY,
-        payload: {
-            todoId,
-            todoListCategory
-        }
-    }
+        payload
+    };
 };
 
-export function addTodoDueDate(todoId, todoDueDate) {
+export function addTodoDueDate(payload) {
     return {
         type: ADD_TODO_DUE_DATE,
-        payload: {
-            todoId,
-            todoDueDate
-        }
-    }
+        payload
+    };
 };
 
 
-export function filterTodos(searchInput) {
+export function filterTodos(payload) {
     return {
         type: FILTER_TODOS,
-        payload: {
-            searchInput
-        }
-    }
+        payload
+    };
 };
 
-export function orderTodosByDateCreated(sortActionDate) {
+export function orderTodosByDateCreated(payload) {
     return {
         type: ORDER_TODOS_BY_DATE_CREATED,
-        payload: {
-            sortActionDate
-        }
-    }
+        payload
+    };
 };
 
 
-export function orderTodosByFavorites(sortActionFavorites) {
+export function orderTodosByFavorites(payload) {
     return {
         type: ORDER_TODOS_BY_FAVORITES,
-        payload: {
-            sortActionFavorites
-        }
-    }
+        payload
+    };
 };
 
 
-export function orderTodosAlphabetically(sortActionAlphabetically) {
+export function orderTodosAlphabetically(payload) {
     return {
         type: ORDER_TODOS_ALPHABETICALLY,
-        payload: {
-            sortActionAlphabetically
-        }
-    }
+        payload
+    };
 };

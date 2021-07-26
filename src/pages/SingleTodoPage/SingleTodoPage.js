@@ -23,7 +23,7 @@ const SingleTodoPage = ({ match }) => {
     const trucateText = useTruncateText(currentTodoText, 12, 'header');
 
     const handleEditItem = () => {
-        setIsEdit(true)
+        setIsEdit(true);
     };
 
     return (
@@ -48,6 +48,6 @@ const SingleTodoPage = ({ match }) => {
             <DeleteButton currentItem={currentTodo} />
         </SingleTodoPageWrapper>
     );
-}
+};
 
 export default SingleTodoPage;

@@ -13,7 +13,7 @@ const DueDate = ({ todoId }) => {
 
     const handleDueDate = () => {
         const modifiedDate = dueDate && dueDate.toDateString().slice(0, 10);
-        dispatch(addTodoDueDate(todoId, modifiedDate))
+        dispatch(addTodoDueDate({ todoId, modifiedDate }))
     };
 
     return (

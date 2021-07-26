@@ -5,11 +5,11 @@ import { FavoriteIconFilled, FavoriteIconNotFilled } from './FavoriteTodo.styled
 import { favoriteTodo } from '../../redux/actions/todoItemsActions';
 
 const FavoriteTodo = ({ currentTodo }) => {
-
+    const { id: todoId } = currentTodo;
     const dispatch = useDispatch();
 
     const handleFavoriteItem = () => {
-        dispatch(favoriteTodo(currentTodo.id));
+        dispatch(favoriteTodo({ todoId }));
     }
 
     return (

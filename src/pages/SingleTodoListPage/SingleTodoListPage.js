@@ -24,7 +24,7 @@ const SingleTodoListPage = ({ match }) => {
     const trucateText = useTruncateText(title, 12, 'header');
 
     const handleEditItem = () => {
-        setIsEdit(true)
+        setIsEdit(true);
     };
 
     return (
@@ -45,7 +45,7 @@ const SingleTodoListPage = ({ match }) => {
             <TodoListItems currentTodoList={currentTodoList} />
             <DeleteButton currentItem={currentTodoList} />
         </SingleTodoListPageWrapper>
-    )
-}
+    );
+};
 
 export default SingleTodoListPage;

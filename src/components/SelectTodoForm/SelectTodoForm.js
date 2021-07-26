@@ -9,23 +9,23 @@ const SelectTodoForm = ({ currentTodoList }) => {
     const todosArr = useSelector(state => state.todoItemsReducer.todos);
 
     const [todoValue, setTodoValue] = useState('');
-    const [todoIdValue, setTodoIdValue] = useState('');
+    const [todoId, setTodoId] = useState('');
 
     const dispatch = useDispatch();
     const refArray = useRef(todosArr.map(() => createRef()));
 
-    const currentListTitle = currentTodoList ? currentTodoList.title : '';
+    const todolistTitle = currentTodoList ? currentTodoList.title : '';
 
     const handleOptionChange = (e) => {
         const currentIndex = e.target.options.selectedIndex;
         const todoId = refArray?.current[currentIndex - 1].current?.className;
-        setTodoIdValue(todoId)
+        setTodoId(todoId)
         setTodoValue(e.target.value);
     }
 
     const handleTodoSelectForm = (e) => {
         e.preventDefault();
-        dispatch(addTodoListCategory(todoIdValue, currentListTitle))
+        dispatch(addTodoListCategory({ todoId, todolistTitle }))
     }
 
     return (

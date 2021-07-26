@@ -10,7 +10,7 @@ const AddTodoListCategory = ({ currentTodo }) => {
 
     const todoListsArr = useSelector(state => state.todoListsReducer);
     const todoListsTitlesArr = todoListsArr.map(todoList => todoList.title);
-    const [todoListsValue, setTodoListsValue] = useState('');
+    const [todolistTitle, setTodolistTitle] = useState('');
 
     const dispatch = useDispatch();
 
@@ -19,19 +19,19 @@ const AddTodoListCategory = ({ currentTodo }) => {
     const todoId = pathname.slice(pathname.lastIndexOf('/') + 1);
 
     const handleOptionChange = (e) => {
-        setTodoListsValue(e.target.value);
+        setTodolistTitle(e.target.value);
     };
 
     const handleTodoListCategoryForm = (e) => {
         e.preventDefault();
-        dispatch(addTodoListCategory(todoId, todoListsValue));
+        dispatch(addTodoListCategory({ todoId, todolistTitle }));
     };
 
     return (
         todoListsTitlesArr.length > 0 ?
             <form onSubmit={handleTodoListCategoryForm} className="form-wrapper">
                 <TodoListCategoryLabel>
-                    <TodoListCategorySelect className="form-input" value={todoListsValue} onChange={handleOptionChange}>
+                    <TodoListCategorySelect className="form-input" value={todolistTitle} onChange={handleOptionChange}>
                         <option value='' hidden>Add {currentTodo.text} to...</option>
                         {todoListsArr.map(todoList =>
                             <TodoListCategoryOption value={todoList.title} key={todoList.id}>
