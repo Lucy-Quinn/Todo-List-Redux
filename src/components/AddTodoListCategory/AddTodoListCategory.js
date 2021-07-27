@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-import { addTodoListCategory } from '../../redux/actions/todoItemsActions';
+import { addTodoListCategory } from '../../redux/actions/todoItems';
 import { TodoListCategoryOption, TodoListCategoryLabel, TodoListCategorySelect } from './AddTodoListCategory.styled';
 
 const AddTodoListCategory = ({ currentTodo }) => {
 
+    const [todolistTitle, setTodolistTitle] = useState('');
     const todoListsArr = useSelector(state => state.todoListsReducer);
     const todoListsTitlesArr = todoListsArr.map(todoList => todoList.title);
-    const [todolistTitle, setTodolistTitle] = useState('');
 
     const dispatch = useDispatch();
 

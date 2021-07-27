@@ -1,15 +1,14 @@
 import React, { useState, useRef, createRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addTodoListCategory } from '../../redux/actions/todoItemsActions';
+import { addTodoListCategory } from '../../redux/actions/todoItems';
 import { SelectTodoFormWrapper, Select } from './SelectTodoForm.styled';
 
 const SelectTodoForm = ({ currentTodoList }) => {
 
-    const todosArr = useSelector(state => state.todoItemsReducer.todos);
-
     const [todoValue, setTodoValue] = useState('');
     const [todoId, setTodoId] = useState('');
+    const todosArr = useSelector(state => state.todoItemsReducer.todos);
 
     const dispatch = useDispatch();
     const refArray = useRef(todosArr.map(() => createRef()));
@@ -40,7 +39,7 @@ const SelectTodoForm = ({ currentTodoList }) => {
             </label>
             <button className="cta-button-add" type="submit">+</button>
         </SelectTodoFormWrapper>
-    )
-}
+    );
+};
 
-export default SelectTodoForm
+export default SelectTodoForm;

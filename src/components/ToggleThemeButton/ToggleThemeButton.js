@@ -2,17 +2,17 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ToggleButtonWrapper, ToggleButtonIcon } from './ToggleThemeButton.styled';
-import { toggleThemeButton } from '../../redux/actions/themeActions';
+import { toggleThemeButton } from '../../redux/actions/theme';
 
 const ToggleThemeButton = () => {
 
-    const dispatch = useDispatch();
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
-
     const theme = toggleTheme ? themes.light : themes.dark;
 
+    const dispatch = useDispatch();
+
     const handleThemeToggle = () => {
-        dispatch(toggleThemeButton())
+        dispatch(toggleThemeButton());
     }
 
     return (
@@ -24,6 +24,6 @@ const ToggleThemeButton = () => {
             </ToggleButtonIcon>
         </ToggleButtonWrapper>
     );
-}
+};
 
 export default ToggleThemeButton;

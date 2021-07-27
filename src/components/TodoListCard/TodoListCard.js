@@ -30,7 +30,7 @@ const TodoListCard = ({ currentTodoList }) => {
                 <TodoListStatistics completeTodos={completeTodos} foundTodos={foundTodos} currentTodoList={currentTodoList} />
             }
         </TodoListWrapper>
-    )
-}
+    );
+};
 
 export default TodoListCard;

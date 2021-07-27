@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 
 const EditFormInput = ({ inputValue, setInputValue, currentItem, isTodoListsPath, isEdit }) => {
 
-    const { text, title } = currentItem;
     const inputRef = useRef(null);
+    const { text, title } = currentItem;
 
     const handleChange = (e) => {
         setInputValue(e.target.value);

@@ -2,24 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { OrderTodosWrapper } from './OrderTodos.styled';
-import { orderTodosByDateCreated, orderTodosAlphabetically, orderTodosByFavorites } from '../../redux/actions/todoItemsActions';
+import { orderTodosByDateCreated, orderTodosAlphabetically, orderTodosByFavorites } from '../../redux/actions/todoItems';
+import { TODO_FAVOURITES, TODO_ALPHABETICALLY, TODO_NEWEST, TODO_OLDEST } from './constants';
 
 const ORDER_TODO_DATA = [
     {
         id: 1,
-        action: 'favorites'
+        action: TODO_FAVOURITES
     },
     {
         id: 2,
-        action: 'newest'
+        action: TODO_NEWEST
     },
     {
         id: 3,
-        action: 'oldest'
+        action: TODO_OLDEST
     },
     {
         id: 4,
-        action: 'alphabetically'
+        action: TODO_ALPHABETICALLY
     }
 ]
 
@@ -37,13 +38,13 @@ const OrderTodos = () => {
 
     useEffect(() => {
         switch (sortAction) {
-            case 'favorites':
+            case TODO_FAVOURITES:
                 return (dispatch(orderTodosByFavorites({ sortAction })));
-            case 'alphabetically':
+            case TODO_ALPHABETICALLY:
                 return (dispatch(orderTodosAlphabetically({ sortAction })));
-            case 'newest':
+            case TODO_NEWEST:
                 return (dispatch(orderTodosByDateCreated({ sortAction })));
-            case 'oldest':
+            case TODO_OLDEST:
                 return (dispatch(orderTodosByDateCreated({ sortAction })));
             default:
                 return ''

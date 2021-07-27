@@ -6,7 +6,7 @@ const NavList = ({ isOpen, closeNavbar }) => {
 
     const handleCloseNavbarToggle = () => {
         closeNavbar();
-    }
+    };
 
     return (
         <NavListWrapper>
@@ -19,8 +19,8 @@ const NavList = ({ isOpen, closeNavbar }) => {
                 </NavLink>
             </NavMenu>
         </NavListWrapper>
-    )
-}
+    );
+};
 
 
-export default NavList
+export default NavList;

@@ -28,7 +28,7 @@ const TodoListStatistics = ({ completeTodos, foundTodos, currentTodoList }) => {
                     <Link to={`todoLists/${currentTodoList.id}`}> todos</Link></p>
             }
         </TodoListStatisticsWrapper>
-    )
-}
+    );
+};
 
-export default TodoListStatistics
+export default TodoListStatistics;

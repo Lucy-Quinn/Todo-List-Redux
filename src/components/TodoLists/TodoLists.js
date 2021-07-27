@@ -16,7 +16,7 @@ const TodoLists = () => {
                 </Link>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default TodoLists
+export default TodoLists;

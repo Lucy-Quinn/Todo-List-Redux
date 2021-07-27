@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import { useDispatch } from 'react-redux';
 import "react-datepicker/dist/react-datepicker.css";
 
-import { addTodoDueDate } from '../../redux/actions/todoItemsActions';
+import { addTodoDueDate } from '../../redux/actions/todoItems';
 import { DueDateWrapper } from './DueDate.styled';
 
 const DueDate = ({ todoId }) => {
@@ -16,11 +16,15 @@ const DueDate = ({ todoId }) => {
         dispatch(addTodoDueDate({ todoId, modifiedDate }))
     };
 
+    function onDueDateChange(date) {
+        setDueDate(date)
+    }
+
     return (
         <DueDateWrapper className="form-wrapper">
             <DatePicker
                 selected={dueDate}
-                onChange={(date) => setDueDate(date)}
+                onChange={onDueDateChange}
                 placeholderText="Add a due date"
                 className="form-input"
             />

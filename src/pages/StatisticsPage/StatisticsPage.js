@@ -12,7 +12,7 @@ const StatisticsPage = () => {
             <GeneralStatistics />
             <TodoListStatisticsCards />
         </StatisticsPageWrapper>
-    )
-}
+    );
+};
 
 export default StatisticsPage;

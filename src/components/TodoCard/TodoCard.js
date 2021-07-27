@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { completeTodo } from '../../redux/actions/todoItemsActions';
+import { completeTodo } from '../../redux/actions/todoItems';
 import {
     TodoColorContainer,
     TodoWrapper,
@@ -16,17 +16,17 @@ import useTruncateText from '../../hooks';
 
 const TodoCard = ({ currentTodo }) => {
 
-    const { text, id: todoId } = currentTodo;
-    const trucateText = useTruncateText(text, 12, 'text');
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
     const todoListsArr = useSelector(state => state.todoListsReducer);
+
+    const { text, id: todoId } = currentTodo;
+    const trucateText = useTruncateText(text, 12, 'text');
 
     const dispatch = useDispatch();
 
     const theme = toggleTheme ? themes.light : themes.dark;
-    const { isEdit, isFavorite } = currentTodo;
+    const { isEdit, isFavorite, dueDate } = currentTodo;
 
-    const dueDate = currentTodo.dueDate;
     const todoListCategoriesArr = (typeof currentTodo.todoList === 'string' ? new Array(currentTodo.todoList) : currentTodo.todoList).filter(list => list);
     const foundTodoLists = todoListsArr.filter(todoList => todoListCategoriesArr.includes(todoList.title));
     const todoListColors = foundTodoLists.map(todoList => todoList.color)[0];

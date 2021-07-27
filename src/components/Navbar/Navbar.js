@@ -6,7 +6,9 @@ import ToggleThemeButton from '../ToggleThemeButton';
 import Hamburger from './Hamburger';
 
 const Navbar = () => {
+
     let location = useLocation();
+
     return (
         <Nav>
             <ToggleThemeWrapper>
@@ -23,7 +25,7 @@ const Navbar = () => {
             }
             <Hamburger />
         </Nav>
-    )
-}
+    );
+};
 
 export default Navbar;

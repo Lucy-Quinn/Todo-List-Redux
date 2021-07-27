@@ -1,20 +1,21 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from "react-router-dom";
-import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useHistory, useLocation } from "react-router-dom";
 
-import { removeTodo, removeTodoListCategory } from '../../redux/actions/todoItemsActions';
+import { removeTodo, removeTodoListCategory } from '../../redux/actions/todoItems';
 import { DeleteItem } from './DeleteButton.styled';
-import { removeTodoList } from '../../redux/actions/todoListsActions';
+import { removeTodoList } from '../../redux/actions/todoLists';
 
 const DeleteTodo = ({ currentItem }) => {
 
-    const { id, title } = currentItem;
     const dispatch = useDispatch();
     const history = useHistory();
+
     const location = useLocation();
     const { pathname } = location;
     const isTodoListsPath = pathname.includes('todoLists');
+
+    const { id, title } = currentItem;
 
     const handleRemoveItem = () => {
         if (isTodoListsPath) {

@@ -17,7 +17,7 @@ const TodoListStatisticsCard = () => {
                 </Link>
             )}
         </StatisticsCardWrapper>
-    )
-}
+    );
+};
 
-export default TodoListStatisticsCard
+export default TodoListStatisticsCard;

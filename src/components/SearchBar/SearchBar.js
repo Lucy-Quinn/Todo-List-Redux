@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 
-import { filterTodos } from '../../redux/actions/todoItemsActions';
+import { filterTodos } from '../../redux/actions/todoItems';
 
 const SearchBar = () => {
 
@@ -21,7 +21,7 @@ const SearchBar = () => {
         <div className="form-wrapper">
             <input className="form-input" type="text" name="search" placeholder="Search for your todo..." value={searchInput} onChange={handleSearchInput} />
         </div>
-    )
-}
+    );
+};
 
-export default SearchBar
+export default SearchBar;

@@ -2,11 +2,12 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { FavoriteIconFilled, FavoriteIconNotFilled } from './FavoriteTodo.styled';
-import { favoriteTodo } from '../../redux/actions/todoItemsActions';
+import { favoriteTodo } from '../../redux/actions/todoItems';
 
 const FavoriteTodo = ({ currentTodo }) => {
-    const { id: todoId } = currentTodo;
+
     const dispatch = useDispatch();
+    const { id: todoId } = currentTodo;
 
     const handleFavoriteItem = () => {
         dispatch(favoriteTodo({ todoId }));

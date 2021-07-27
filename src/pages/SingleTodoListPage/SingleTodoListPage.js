@@ -12,13 +12,12 @@ import useTruncateText from '../../hooks';
 const SingleTodoListPage = ({ match }) => {
 
     const [isEdit, setIsEdit] = useState(false);
-
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
     const theme = toggleTheme ? themes.light : themes.dark;
-
     const todoListArr = useSelector(state => state.todoListsReducer);
+
     const { todoListId } = match.params;
-    const currentTodoList = todoListArr.find(todoList => todoList.id === todoListId);
+    const currentTodoList = todoListArr.find(({ id }) => id === todoListId);
 
     const { title } = currentTodoList;
     const trucateText = useTruncateText(title, 12, 'header');

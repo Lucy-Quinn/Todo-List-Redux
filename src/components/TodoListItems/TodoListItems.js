@@ -7,7 +7,9 @@ const TodoListItems = ({ currentTodoList }) => {
 
     const todosArr = useSelector(state => state.todoItemsReducer.todos);
 
-    const foundTodoItems = todosArr.filter(todo => todo.todoList.includes(currentTodoList.title))
+    const foundTodoItems = todosArr.filter(todo => {
+        return todo.todoList.includes(currentTodoList.title)
+    })
 
     return (
         <div>
@@ -18,7 +20,7 @@ const TodoListItems = ({ currentTodoList }) => {
             }
             )}
         </div>
-    )
-}
+    );
+};
 
-export default TodoListItems
+export default TodoListItems;

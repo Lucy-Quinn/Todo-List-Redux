@@ -9,11 +9,11 @@ const Hamburger = () => {
 
     const handleToggle = () => {
         setIsOpen(!isOpen);
-    }
+    };
 
     const closeNavbar = () => {
-        setIsOpen(false)
-    }
+        setIsOpen(false);
+    };
 
     return (
         <>
@@ -24,7 +24,7 @@ const Hamburger = () => {
             </StyledHamburger>
             <NavList isOpen={isOpen} closeNavbar={closeNavbar} />
         </>
-    )
-}
+    );
+};
 
-export default Hamburger
+export default Hamburger;

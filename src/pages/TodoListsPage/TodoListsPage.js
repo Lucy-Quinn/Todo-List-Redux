@@ -12,7 +12,7 @@ const TodoListsPage = () => {
             <AddTodoListForm />
             <TodoLists />
         </TodoListsPageWrapper>
-    )
-}
+    );
+};
 
 export default TodoListsPage;
