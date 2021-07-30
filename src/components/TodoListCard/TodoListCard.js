@@ -1,7 +1,7 @@
 import React from 'react';
-
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { TodoListWrapper, ItemsNumber } from './TodoListCard.styled';
 import TodoListStatistics from './TodoListStatistics';
@@ -31,6 +31,10 @@ const TodoListCard = ({ currentTodoList }) => {
             }
         </TodoListWrapper>
     );
+};
+
+TodoListCard.propTypes = {
+    currentTodoList: PropTypes.object.isRequired,
 };
 
 export default TodoListCard;

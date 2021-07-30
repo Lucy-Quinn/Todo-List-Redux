@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from "prop-types";
 
 function useTrucateText(str, lengthOfStr, typeOfText) {
 
@@ -22,6 +23,12 @@ function useTrucateText(str, lengthOfStr, typeOfText) {
             :
             <p>{text}</p>
     )
+};
+
+useTrucateText.propTypes = {
+    str: PropTypes.string.isRequired,
+    lengthOfStr: PropTypes.number.isRequired,
+    typeOfText: PropTypes.string.isRequired
 };
 
 export default useTrucateText;

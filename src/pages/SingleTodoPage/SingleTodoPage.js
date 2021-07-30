@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import DeleteButton from '../../components/DeleteButton';
 import FavoriteTodo from '../../components/FavoriteTodo';
@@ -48,6 +49,10 @@ const SingleTodoPage = ({ match }) => {
             <DeleteButton currentItem={currentTodo} />
         </SingleTodoPageWrapper>
     );
+};
+
+SingleTodoPage.propTypes = {
+    match: PropTypes.object,
 };
 
 export default SingleTodoPage;

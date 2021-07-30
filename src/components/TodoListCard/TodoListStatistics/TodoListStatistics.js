@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { TodoListStatisticsWrapper, IndividualProgressBarContainer, IndividualProgressAmount } from './TodoListStatistics.styled';
 
@@ -29,6 +30,12 @@ const TodoListStatistics = ({ completeTodos, foundTodos, currentTodoList }) => {
             }
         </TodoListStatisticsWrapper>
     );
+};
+
+TodoListStatistics.propTypes = {
+    completeTodos: PropTypes.number.isRequired,
+    foundTodos: PropTypes.array.isRequired,
+    currentTodoList: PropTypes.object.isRequired
 };
 
 export default TodoListStatistics;

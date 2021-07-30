@@ -51,7 +51,11 @@ import {
 export default function todoItemsReducer(state = { todos: [], filtered: [], inputValue: '' }, action) {
     switch (action.type) {
         case ADD_TODO:
-            const { inputValue: todoText, currentList: todoListTitle, todaysDate: todoDateCreated } = action.payload;
+            const {
+                inputValue: todoText,
+                currentList: todoListTitle,
+                todaysDate: todoDateCreated
+            } = action.payload;
             return {
                 ...state,
                 todos: [

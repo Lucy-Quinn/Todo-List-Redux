@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from "prop-types";
 
 const EditFormInput = ({ inputValue, setInputValue, currentItem, isTodoListsPath, isEdit }) => {
 
@@ -22,7 +23,16 @@ const EditFormInput = ({ inputValue, setInputValue, currentItem, isTodoListsPath
         <div>
             <input className="form-input" type="text" name="editItem" placeholder={isEdit && isTodoListsPath ? title : text} defaultValue={isEdit && isTodoListsPath ? title : text} onChange={handleChange} ref={inputRef} />
         </div>
-    )
-}
+    );
+};
+
+EditFormInput.propTypes = {
+    inputValue: PropTypes.string.isRequired,
+    isEdit: PropTypes.bool.isRequired,
+    setInputValue: PropTypes.func.isRequired,
+    currentItem: PropTypes.object.isRequired,
+    isTodoListsPath: PropTypes.bool.isRequired
+};
+
 
 export default EditFormInput;

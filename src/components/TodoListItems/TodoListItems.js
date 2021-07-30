@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import TodoCard from '../../components/TodoCard';
 
@@ -21,6 +22,10 @@ const TodoListItems = ({ currentTodoList }) => {
             )}
         </div>
     );
+};
+
+TodoListItems.propTypes = {
+    currentTodoList: PropTypes.object.isRequired,
 };
 
 export default TodoListItems;

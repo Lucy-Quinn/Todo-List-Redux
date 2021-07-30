@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { completeTodo } from '../../redux/actions/todoItems';
 import {
@@ -62,6 +63,10 @@ const TodoCard = ({ currentTodo }) => {
             </TodoWrapper>
         </TodoColorContainer>
     );
+};
+
+TodoCard.propTypes = {
+    currentTodo: PropTypes.object.isRequired,
 };
 
 export default TodoCard;

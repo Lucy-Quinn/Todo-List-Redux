@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { FavoriteIconFilled, FavoriteIconNotFilled } from './FavoriteTodo.styled';
 import { favoriteTodo } from '../../redux/actions/todoItems';
@@ -22,6 +23,10 @@ const FavoriteTodo = ({ currentTodo }) => {
             }
         </div>
     );
-}
+};
+
+FavoriteTodo.propTypes = {
+    currentTodo: PropTypes.object.isRequired,
+};
 
 export default FavoriteTodo;

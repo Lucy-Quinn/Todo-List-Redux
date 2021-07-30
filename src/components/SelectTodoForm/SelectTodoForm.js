@@ -1,5 +1,6 @@
 import React, { useState, useRef, createRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { addTodoListCategory } from '../../redux/actions/todoItems';
 import { SelectTodoFormWrapper, Select } from './SelectTodoForm.styled';
@@ -40,6 +41,10 @@ const SelectTodoForm = ({ currentTodoList }) => {
             <button className="cta-button-add" type="submit">+</button>
         </SelectTodoFormWrapper>
     );
+};
+
+SelectTodoForm.propTypes = {
+    currentTodoList: PropTypes.object.isRequired,
 };
 
 export default SelectTodoForm;

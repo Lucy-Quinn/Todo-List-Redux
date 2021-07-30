@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import AddTodoForm from '../../components/AddTodoForm';
 import DeleteButton from '../../components/DeleteButton';
@@ -10,7 +11,6 @@ import EditForm from '../../components/EditForm';
 import useTruncateText from '../../hooks';
 
 const SingleTodoListPage = ({ match }) => {
-
     const [isEdit, setIsEdit] = useState(false);
     const { toggleTheme, themes } = useSelector(state => state.themeReducer);
     const theme = toggleTheme ? themes.light : themes.dark;
@@ -29,7 +29,7 @@ const SingleTodoListPage = ({ match }) => {
     return (
         <SingleTodoListPageWrapper>
             {isEdit ?
-                <EditForm isEdit={isEdit} currentItem={currentTodoList} setIsEdit={setIsEdit} />
+                <EditForm isEdit={isEdit} currentItem={currentTodoList} setIsEdit={setIsEdit} theme={theme} />
                 :
                 <SingleTodoListHeader>
                     {currentTodoList !== undefined &&
@@ -39,12 +39,16 @@ const SingleTodoListPage = ({ match }) => {
                     </TodoListEdit>
                 </SingleTodoListHeader>
             }
-            <AddTodoForm currentTodoList={currentTodoList} />
+            <AddTodoForm currentTodoList={currentTodoList} theme={theme} />
             <SelectTodoForm currentTodoList={currentTodoList} />
             <TodoListItems currentTodoList={currentTodoList} />
             <DeleteButton currentItem={currentTodoList} />
         </SingleTodoListPageWrapper>
     );
+};
+
+AddTodoForm.propTypes = {
+    match: PropTypes.object,
 };
 
 export default SingleTodoListPage;
