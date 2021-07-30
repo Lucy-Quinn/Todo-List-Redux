@@ -26,4 +26,27 @@ const SingleTodoListHeader = styled.div`
   margin: 0 0 20px;
 `;
 
-export { SingleTodoListPageWrapper, TodoListEdit, SingleTodoListHeader };
+const TextWrapper = styled.div`
+  .hover-text {
+    visibility: hidden;
+    width: fit-content;
+    color: white;
+    background: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  &:hover .hover-text {
+    visibility: visible;
+  }
+`;
+
+export {
+  SingleTodoListPageWrapper,
+  TodoListEdit,
+  SingleTodoListHeader,
+  TextWrapper,
+};

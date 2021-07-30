@@ -7,13 +7,14 @@ import FavoriteTodo from '../../components/FavoriteTodo';
 import {
   SingleTodoPageWrapper,
   SingleTodoHeader,
+  TextWrapper,
 } from './SingleTodoPage.styled';
 import AddNote from '../../components/AddNote';
 import AddTodoListCategory from '../../components/AddTodoListCategory';
 import DueDate from '../../components/DueDate';
 import { TodoEdit } from './SingleTodoPage.styled';
 import EditForm from '../../components/EditForm';
-import useTruncateText from '../../hooks';
+import { useTruncateText, useWindowSize } from '../../hooks';
 
 const SingleTodoPage = ({ match }) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -25,7 +26,8 @@ const SingleTodoPage = ({ match }) => {
     state.todoItemsReducer.todos.find((todo) => todo.id === todoId)
   );
   const currentTodoText = currentTodo.text;
-  const trucateText = useTruncateText(currentTodoText, 12, 'header');
+  const truncateText = useTruncateText(currentTodoText, 12, 'header');
+  const { width } = useWindowSize();
 
   const handleEditItem = () => {
     setIsEdit(true);
@@ -43,7 +45,12 @@ const SingleTodoPage = ({ match }) => {
           />
         ) : (
           <>
-            {currentTodo !== undefined && trucateText}
+            <TextWrapper>
+              {currentTodo !== undefined && truncateText}
+              {width >= 768 ? null : (
+                <span className="hover-text">{currentTodoText}</span>
+              )}
+            </TextWrapper>
             <TodoEdit theme={theme}>
               <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
             </TodoEdit>

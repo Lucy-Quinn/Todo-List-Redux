@@ -1,3 +1,4 @@
-import useTrucateText from './useTrucateText';
+import useTruncateText from './useTruncateText';
+import useWindowSize from './useWindowSize';
 
-export default useTrucateText;
+export { useWindowSize, useTruncateText };

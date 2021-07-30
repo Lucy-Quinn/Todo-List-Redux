@@ -26,4 +26,23 @@ const TodoEdit = styled.div`
   background: ${({ theme }) => theme.button};
 `;
 
-export { SingleTodoPageWrapper, SingleTodoHeader, TodoEdit };
+const TextWrapper = styled.div`
+  .hover-text {
+    visibility: hidden;
+    width: fit-content;
+    color: white;
+    background: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    position: absolute;
+    font-size: 1.4rem;
+    z-index: 1;
+  }
+
+  &:hover .hover-text {
+    visibility: visible;
+  }
+`;
+
+export { SingleTodoPageWrapper, SingleTodoHeader, TodoEdit, TextWrapper };

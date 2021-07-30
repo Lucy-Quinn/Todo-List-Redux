@@ -33,10 +33,28 @@ const TodoListWrapper = styled.div`
   }
 `;
 
+const TextWrapper = styled.div`
+  .hover-text {
+    visibility: hidden;
+    width: fit-content;
+    color: white;
+    background: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  &:hover .hover-text {
+    visibility: visible;
+  }
+`;
+
 const ItemsNumber = styled.p`
   @media (min-width: 768px) {
     text-align: right;
   }
 `;
 
-export { TodoListWrapper, ItemsNumber };
+export { TodoListWrapper, ItemsNumber, TextWrapper };

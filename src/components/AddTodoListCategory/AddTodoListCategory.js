@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 import { addTodoListCategory } from '../../redux/actions/todoItems';
 import {
@@ -16,6 +17,7 @@ const AddTodoListCategory = ({ currentTodo }) => {
   const todoListsTitlesArr = todoListsArr.map((todoList) => todoList.title);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const location = useLocation();
   const { pathname } = location;
@@ -28,6 +30,7 @@ const AddTodoListCategory = ({ currentTodo }) => {
   const handleTodoListCategoryForm = (e) => {
     e.preventDefault();
     dispatch(addTodoListCategory({ todoId, todolistTitle }));
+    history.push('/');
   };
 
   return todoListsTitlesArr.length > 0 ? (

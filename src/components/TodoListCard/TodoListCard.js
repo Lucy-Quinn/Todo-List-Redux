@@ -3,13 +3,18 @@ import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { TodoListWrapper, ItemsNumber } from './TodoListCard.styled';
+import {
+  TodoListWrapper,
+  ItemsNumber,
+  TextWrapper,
+} from './TodoListCard.styled';
 import TodoListStatistics from './TodoListStatistics';
-import useTruncateText from '../../hooks';
+import { useTruncateText, useWindowSize } from '../../hooks';
 
 const TodoListCard = ({ currentTodoList }) => {
   const { title } = currentTodoList;
-  const trucateText = useTruncateText(title, 12, 'text');
+  const truncateText = useTruncateText(title, 12, 'text');
+  const { width } = useWindowSize();
 
   const foundTodos = useSelector((state) =>
     state.todoItemsReducer.todos.filter((todo) => todo.todoList.includes(title))
@@ -21,12 +26,13 @@ const TodoListCard = ({ currentTodoList }) => {
 
   return (
     <TodoListWrapper>
-      <div>
-        {trucateText}
+      <TextWrapper>
+        {truncateText}
+        {width >= 768 ? null : <span className="hover-text">{title}</span>}
         <ItemsNumber>
           {completeTodos} / {foundTodos.length} items
         </ItemsNumber>
-      </div>
+      </TextWrapper>
       {pathname === '/statistics' && (
         <TodoListStatistics
           completeTodos={completeTodos}

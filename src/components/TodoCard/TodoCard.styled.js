@@ -31,7 +31,7 @@ const TodoWrapper = styled.div`
 
 const TodoTopSection = styled.div`
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   width: 100%;
   justify-content: ${({ currentTodo }) =>
@@ -68,8 +68,21 @@ const TodoComplete = styled.div`
   }
 `;
 
+const IconsWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+  align-items: flex-start;
+`;
+
 const FavoriteIcon = styled.i`
   font-size: 1.6rem;
+  color: ${({ currentTodo }) => (currentTodo ? '#fff' : 'none')};
+  margin-right: 10px;
+`;
+
+const NoteIcon = styled.div`
+  font-size: 1.9rem;
   color: ${({ currentTodo }) => (currentTodo ? '#fff' : 'none')};
   margin-right: 10px;
 `;
@@ -100,6 +113,21 @@ const TextWrapper = styled.div`
       currentTodo.isFavorite ? '1.8rem' : '1.2rem'};
     min-height: 60px;
   }
+  .hover-text {
+    visibility: hidden;
+    width: fit-content;
+    color: white;
+    background: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  &:hover .hover-text {
+    visibility: visible;
+  }
 `;
 const TextLink = styled(Link)`
   width: 75%;
@@ -122,4 +150,6 @@ export {
   TextLink,
   TextWrapper,
   TodoListColor,
+  NoteIcon,
+  IconsWrapper,
 };

@@ -7,6 +7,7 @@ const TodoListCategoryLabel = styled.label`
 `;
 
 const TodoListCategorySelect = styled.select`
+  background-color: #ffffff;
   &:focus-visible {
     outline: none;
   }

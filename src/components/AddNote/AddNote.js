@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 import { AddNoteWrapper, TextArea } from './AddNote.styled';
 import { addNote } from '../../redux/actions/todoItems';
@@ -12,6 +13,7 @@ const AddNote = ({ currentTodo }) => {
   const { id: todoId } = currentTodo;
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleChange = (e) => {
     setTextAreaValue(e.target.value);
@@ -20,6 +22,7 @@ const AddNote = ({ currentTodo }) => {
   const handleAddNoteForm = (e) => {
     e.preventDefault();
     dispatch(addNote({ todoId, textAreaValue }));
+    history.push('/');
     setTextAreaValue('');
   };
 

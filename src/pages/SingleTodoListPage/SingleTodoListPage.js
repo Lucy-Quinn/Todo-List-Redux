@@ -10,21 +10,23 @@ import {
   SingleTodoListPageWrapper,
   TodoListEdit,
   SingleTodoListHeader,
+  TextWrapper,
 } from './SingleTodoListPage.styled';
 import EditForm from '../../components/EditForm';
-import useTruncateText from '../../hooks';
+import { useTruncateText, useWindowSize } from '../../hooks';
 
 const SingleTodoListPage = ({ match }) => {
   const [isEdit, setIsEdit] = useState(false);
   const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
   const theme = toggleTheme ? themes.light : themes.dark;
   const todoListArr = useSelector((state) => state.todoListsReducer);
+  const { width } = useWindowSize();
 
   const { todoListId } = match.params;
   const currentTodoList = todoListArr.find(({ id }) => id === todoListId);
 
   const { title } = currentTodoList;
-  const trucateText = useTruncateText(title, 12, 'header');
+  const truncateText = useTruncateText(title, 12, 'header');
 
   const handleEditItem = () => {
     setIsEdit(true);
@@ -41,7 +43,10 @@ const SingleTodoListPage = ({ match }) => {
         />
       ) : (
         <SingleTodoListHeader>
-          {currentTodoList !== undefined && trucateText}
+          <TextWrapper>
+            {currentTodoList !== undefined && truncateText}
+            {width >= 768 ? null : <span className="hover-text">{title}</span>}
+          </TextWrapper>
           <TodoListEdit theme={theme}>
             <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
           </TodoListEdit>

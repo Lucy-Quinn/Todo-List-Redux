@@ -12,20 +12,22 @@ import {
   TextLink,
   TextWrapper,
   FavoriteIcon,
+  NoteIcon,
+  IconsWrapper,
 } from './TodoCard.styled';
-import useTruncateText from '../../hooks';
+import { useTruncateText, useWindowSize } from '../../hooks';
 
 const TodoCard = ({ currentTodo }) => {
   const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
   const todoListsArr = useSelector((state) => state.todoListsReducer);
 
-  const { text, id: todoId } = currentTodo;
-  const trucateText = useTruncateText(text, 12, 'text');
+  const { text, id: todoId, isEdit, isFavorite, dueDate, note } = currentTodo;
 
+  const truncateText = useTruncateText(text, 12, 'text');
   const dispatch = useDispatch();
+  const { width } = useWindowSize();
 
   const theme = toggleTheme ? themes.light : themes.dark;
-  const { isEdit, isFavorite, dueDate } = currentTodo;
 
   const todoListCategoriesArr = (
     typeof currentTodo.todoList === 'string'
@@ -40,15 +42,22 @@ const TodoCard = ({ currentTodo }) => {
   const handleCompleteItem = () => {
     dispatch(completeTodo({ todoId }));
   };
-
   return (
     <TodoColorContainer todoListColors={todoListColors}>
       <TodoWrapper theme={theme} currentTodo={currentTodo}>
         <TodoTopSection currentTodo={currentTodo}>
           {dueDate ? <p>Due {dueDate}</p> : null}
-          {isFavorite ? (
-            <FavoriteIcon className="fas fa-star" currentTodo={currentTodo} />
-          ) : null}
+          <IconsWrapper>
+            {isFavorite ? (
+              <FavoriteIcon className="fas fa-star" currentTodo={currentTodo} />
+            ) : null}
+            {note.length ? (
+              <NoteIcon
+                className="fas fa-pen-square"
+                currentTodo={currentTodo}
+              />
+            ) : null}
+          </IconsWrapper>
         </TodoTopSection>
         <TodoBottomSection>
           <TodoComplete
@@ -60,7 +69,10 @@ const TodoCard = ({ currentTodo }) => {
             {currentTodo.isComplete ? <i className="fas fa-check"></i> : null}
           </TodoComplete>
           <TextLink to={`/todos/${currentTodo.id}`}>
-            <TextWrapper currentTodo={currentTodo}>{trucateText}</TextWrapper>
+            <TextWrapper currentTodo={currentTodo} width={width}>
+              {truncateText}
+              {width >= 768 ? null : <span className="hover-text">{text}</span>}
+            </TextWrapper>
           </TextLink>
         </TodoBottomSection>
       </TodoWrapper>
