@@ -1,32 +1,30 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const EditFormWrapper = styled.form`
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-size: 1.4rem;
-    color: black;
-    font-family: 'Indie Flower', cursive;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  color: black;
+  font-family: 'Indie Flower', cursive;
+  flex-direction: column;
+  padding: 0px 0px 20px;
+  display: -webkit-inline-box;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 10px 0px;
     flex-direction: column;
-    padding: 0px 0px 20px;
-    display: -webkit-inline-box;
-    @media(min-width: 768px){
-        flex-direction: row;
-        padding: 10px 0px;
-        flex-direction: column;
+  }
+  input {
+    width: inherit;
+    max-width: 210px;
+    &:focus-visible {
+      outline: none;
     }
-    input{
-        width: inherit;
-        max-width: 210px;
-        &:focus-visible {
-            outline: none;
-        }
-    }
-    button{
-        width: inherit
-    }
+  }
+  button {
+    width: inherit;
+  }
 `;
 
-export {
-    EditFormWrapper
-}
+export { EditFormWrapper };

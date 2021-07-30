@@ -1,0 +1,8 @@
+# The following will use Prettier for all languages except Javascript.
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": null
+  },
+  "printWidth": 100
+}

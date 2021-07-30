@@ -12,8 +12,7 @@ import Navbar from './components/Navbar';
 import StatisticsPage from './pages/StatisticsPage/StatisticsPage';
 
 function App() {
-
-  const { toggleTheme, themes } = useSelector(state => state.themeReducer);
+  const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
   const theme = toggleTheme ? themes.light : themes.dark;
 
   return (
@@ -25,7 +24,11 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/todos/:todoId" component={SingleTodoPage} />
           <Route exact path="/todoLists" component={TodoListsPage} />
-          <Route exact path="/todoLists/:todoListId" component={SingleTodoListPage} />
+          <Route
+            exact
+            path="/todoLists/:todoListId"
+            component={SingleTodoListPage}
+          />
           <Route exact path="/statistics" component={StatisticsPage} />
         </Switch>
       </div>

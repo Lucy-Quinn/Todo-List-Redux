@@ -1,21 +1,19 @@
 import styled from 'styled-components';
 
-const TodoListCategoryOption = styled.option`
-
-`;
+const TodoListCategoryOption = styled.option``;
 
 const TodoListCategoryLabel = styled.label`
-    width: 100%;
+  width: 100%;
 `;
 
 const TodoListCategorySelect = styled.select`
-        &:focus-visible {
-            outline: none;
-        }
-`
+  &:focus-visible {
+    outline: none;
+  }
+`;
 
 export {
-    TodoListCategoryOption,
-    TodoListCategoryLabel,
-    TodoListCategorySelect
-}
+  TodoListCategoryOption,
+  TodoListCategoryLabel,
+  TodoListCategorySelect,
+};

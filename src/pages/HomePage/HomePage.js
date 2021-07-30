@@ -7,17 +7,17 @@ import { TodoListWrapper, TodoListCenter } from './HomePage.styled';
 import SearchBar from '../../components/SearchBar';
 
 const HomePage = () => {
-    const { toggleTheme, themes } = useSelector(state => state.themeReducer);
-    const theme = toggleTheme ? themes.light : themes.dark;
-    return (
-        <TodoListWrapper>
-            <TodoListCenter>
-                <SearchBar />
-                <AddTodoForm theme={theme} />
-                <TodoItems />
-            </TodoListCenter>
-        </TodoListWrapper>
-    );
+  const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
+  const theme = toggleTheme ? themes.light : themes.dark;
+  return (
+    <TodoListWrapper>
+      <TodoListCenter>
+        <SearchBar />
+        <AddTodoForm theme={theme} />
+        <TodoItems />
+      </TodoListCenter>
+    </TodoListWrapper>
+  );
 };
 
 export default HomePage;

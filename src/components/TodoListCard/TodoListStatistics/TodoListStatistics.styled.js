@@ -1,30 +1,30 @@
 import styled, { keyframes } from 'styled-components';
 
 const TodoListStatisticsWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  p {
     text-align: center;
-    p{
-        text-align: center;
-    }
-    a{
-        color: black;
-        font-size: 1.2rem;
-    }
+  }
+  a {
+    color: black;
+    font-size: 1.2rem;
+  }
 `;
 
 const IndividualProgressBarContainer = styled.div`
-    width: 110px;
-    height: 30px;
-    border: 1px solid black;
-    border-radius: 10px;
-    display: flex;
-    align-self: flex-end;
-    width: 100%;
-    @media(min-width: 768px){
-        width: 250px;
-        height: 50px;
-    }
+  width: 110px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-self: flex-end;
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 250px;
+    height: 50px;
+  }
 `;
 
 const progressAnimation = keyframes`
@@ -35,19 +35,19 @@ const progressAnimation = keyframes`
 `;
 
 const IndividualProgressAmount = styled.div`
-    height: 30px;
-    border-radius: 10px;
-    width: ${({ findPercentage }) => findPercentage()}%;
-    background: grey;
-    animation-name: ${progressAnimation};
-    animation-duration: 4s;
-    @media(min-width: 768px){
-        height: 50px;
-    }
+  height: 30px;
+  border-radius: 10px;
+  width: ${({ findPercentage }) => findPercentage()}%;
+  background: grey;
+  animation-name: ${progressAnimation};
+  animation-duration: 4s;
+  @media (min-width: 768px) {
+    height: 50px;
+  }
 `;
 
 export {
-    TodoListStatisticsWrapper,
-    IndividualProgressBarContainer,
-    IndividualProgressAmount
-}
+  TodoListStatisticsWrapper,
+  IndividualProgressBarContainer,
+  IndividualProgressAmount,
+};

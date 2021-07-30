@@ -8,33 +8,38 @@ import TodoListStatistics from './TodoListStatistics';
 import useTruncateText from '../../hooks';
 
 const TodoListCard = ({ currentTodoList }) => {
+  const { title } = currentTodoList;
+  const trucateText = useTruncateText(title, 12, 'text');
 
-    const { title } = currentTodoList;
-    const trucateText = useTruncateText(title, 12, 'text');
+  const foundTodos = useSelector((state) =>
+    state.todoItemsReducer.todos.filter((todo) => todo.todoList.includes(title))
+  );
 
-    const foundTodos = useSelector(state => state.todoItemsReducer.todos.filter(todo =>
-        todo.todoList.includes(title)
-    ));
+  const location = useLocation();
+  const { pathname } = location;
+  const completeTodos = foundTodos.filter((todo) => todo.isComplete).length;
 
-    const location = useLocation();
-    const { pathname } = location;
-    const completeTodos = foundTodos.filter(todo => todo.isComplete).length;
-
-    return (
-        <TodoListWrapper>
-            <div>
-                {trucateText}
-                <ItemsNumber>{completeTodos} / {foundTodos.length} items</ItemsNumber>
-            </div>
-            {pathname === '/statistics' &&
-                <TodoListStatistics completeTodos={completeTodos} foundTodos={foundTodos} currentTodoList={currentTodoList} />
-            }
-        </TodoListWrapper>
-    );
+  return (
+    <TodoListWrapper>
+      <div>
+        {trucateText}
+        <ItemsNumber>
+          {completeTodos} / {foundTodos.length} items
+        </ItemsNumber>
+      </div>
+      {pathname === '/statistics' && (
+        <TodoListStatistics
+          completeTodos={completeTodos}
+          foundTodos={foundTodos}
+          currentTodoList={currentTodoList}
+        />
+      )}
+    </TodoListWrapper>
+  );
 };
 
 TodoListCard.propTypes = {
-    currentTodoList: PropTypes.object.isRequired,
+  currentTodoList: PropTypes.object.isRequired,
 };
 
 export default TodoListCard;
