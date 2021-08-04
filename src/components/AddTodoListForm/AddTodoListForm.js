@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { addTodoList } from '../../redux/actions/todoLists';
 import {
@@ -27,11 +28,19 @@ const COLORS_DATA = [
   },
 ];
 
-const AddTodoListForm = () => {
+const AddTodoListForm = ({ todoListArr }) => {
   const [todoListTitle, setTodoListTitle] = useState('');
   const [todoListColor, setTodoListColor] = useState('');
+  const [isDuplicate, setIsDuplicate] = useState('');
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    isDuplicate &&
+      setTimeout(function () {
+        setIsDuplicate(false);
+      }, 2000);
+  });
 
   const handleInputChange = (e) => {
     setTodoListTitle(e.target.value);
@@ -43,13 +52,21 @@ const AddTodoListForm = () => {
 
   const handleAddTodoListCategoryForm = (e) => {
     e.preventDefault();
-    if (todoListColor.length >= 1) {
+    if (todoListArr.length >= 1) {
+      const duplicateTodoLists = todoListArr.filter(
+        (list) => list.title === todoListTitle
+      );
+      duplicateTodoLists.length > 0
+        ? setIsDuplicate(true)
+        : dispatch(addTodoList({ todoListTitle, todoListColor }));
+      setTodoListTitle('');
+    } else {
       dispatch(addTodoList({ todoListTitle, todoListColor }));
       setTodoListTitle('');
     }
-    return;
   };
 
+  console.log('isDuplicate', isDuplicate);
   return (
     <AddTodoListFormWrapper
       className="form-wrapper"
@@ -87,8 +104,15 @@ const AddTodoListForm = () => {
           })}
         </ColorSelect>
       </label>
+      <div>
+        {isDuplicate && <p>This Todo List already exists choose another one</p>}
+      </div>
     </AddTodoListFormWrapper>
   );
+};
+
+AddTodoListForm.propTypes = {
+  todoListArr: PropTypes.array.isRequired,
 };
 
 export default AddTodoListForm;
