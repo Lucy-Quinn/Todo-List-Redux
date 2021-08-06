@@ -36,10 +36,14 @@ const AddTodoListForm = ({ todoListArr }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    isDuplicate &&
+    const duplicatedTimeout =
+      isDuplicate &&
       setTimeout(function () {
         setIsDuplicate(false);
       }, 2000);
+    return () => {
+      clearTimeout(duplicatedTimeout);
+    };
   });
 
   const handleInputChange = (e) => {
@@ -66,7 +70,6 @@ const AddTodoListForm = ({ todoListArr }) => {
     }
   };
 
-  console.log('isDuplicate', isDuplicate);
   return (
     <AddTodoListFormWrapper
       className="form-wrapper"

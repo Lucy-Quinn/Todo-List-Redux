@@ -53,7 +53,7 @@ const TodoCard = ({ currentTodo }) => {
             ) : null}
             {note.length ? (
               <NoteIcon
-                className="fas fa-pen-square"
+                className="fas fa-sticky-note"
                 currentTodo={currentTodo}
               />
             ) : null}

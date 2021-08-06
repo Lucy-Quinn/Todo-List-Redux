@@ -11,8 +11,8 @@ const EditFormInput = ({
   const inputRef = useRef(null);
   const { text, title } = currentItem;
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
   };
 
   const adjustWidth = () => {
