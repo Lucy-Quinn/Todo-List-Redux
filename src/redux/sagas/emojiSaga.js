@@ -4,8 +4,8 @@ import getApi from './getApi';
 function* fetchEmojis() {
   try {
     const { data } = yield call(getApi);
-    const emojis = data.splice(0, 20);
-    yield put({ type: 'GET_EMOJIS_SUCCESS', emojis: emojis });
+    // const emojis = data.splice(0, 20);
+    yield put({ type: 'GET_EMOJIS_SUCCESS', emojis: data });
   } catch (error) {
     yield put({ type: 'GET_EMOJIS_FAILED', message: error.message });
   }

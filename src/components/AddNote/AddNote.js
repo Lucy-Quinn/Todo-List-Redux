@@ -6,13 +6,10 @@ import { useHistory } from 'react-router-dom';
 import { FormWrapper, AddNoteWrapper, TextArea } from './AddNote.styled';
 import { addNote } from '../../redux/actions/todoItems';
 import Emojis from '../Emojis/Emojis';
-import { setDefaultLocale } from 'react-datepicker';
 
-const AddNote = ({ currentTodo }) => {
+const AddNote = ({ currentTodo, theme }) => {
   const [singleEmoji, setSingleEmoji] = useState('');
   const [textAreaValue, setTextAreaValue] = useState('');
-  const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
-  const theme = toggleTheme ? themes.light : themes.dark;
   const { id: todoId } = currentTodo;
 
   const textAreaRef = useRef(null);
@@ -47,6 +44,8 @@ const AddNote = ({ currentTodo }) => {
           setSingleEmoji={setSingleEmoji}
           setTextAreaValue={setTextAreaValue}
           textAreaRef={textAreaRef}
+          theme={theme}
+          singleEmoji={singleEmoji}
         />
         <button className="cta-button" theme={theme}>
           {currentTodo.note ? `Update note` : `Add note`}
@@ -58,6 +57,7 @@ const AddNote = ({ currentTodo }) => {
 
 AddNote.propTypes = {
   currentTodo: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default AddNote;

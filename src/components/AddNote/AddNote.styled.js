@@ -25,7 +25,7 @@ const AddNoteWrapper = styled.form`
 
 const TextArea = styled.textarea`
   border: none;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 10px auto;
   display: block;
   width: 100%;
   border-radius: 10px;
