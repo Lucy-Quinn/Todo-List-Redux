@@ -8,7 +8,6 @@ import { addNote } from '../../redux/actions/todoItems';
 import Emojis from '../Emojis/Emojis';
 
 const AddNote = ({ currentTodo, theme }) => {
-  const [singleEmoji, setSingleEmoji] = useState('');
   const [textAreaValue, setTextAreaValue] = useState('');
   const { id: todoId } = currentTodo;
 
@@ -41,11 +40,9 @@ const AddNote = ({ currentTodo, theme }) => {
           ref={textAreaRef}
         />
         <Emojis
-          setSingleEmoji={setSingleEmoji}
           setTextAreaValue={setTextAreaValue}
           textAreaRef={textAreaRef}
           theme={theme}
-          singleEmoji={singleEmoji}
         />
         <button className="cta-button" theme={theme}>
           {currentTodo.note ? `Update note` : `Add note`}
