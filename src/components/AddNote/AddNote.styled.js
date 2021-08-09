@@ -4,11 +4,11 @@ const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-  background-color: rgba(166, 216, 219, 0.411);
-  padding: 15px;
+  box-shadow: ${({ theme }) => theme.boxShadow};
+  background: ${({ theme }) => theme.surface};
+  padding: 10px;
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin: 10px 0 15px;
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
@@ -22,6 +22,7 @@ const FormWrapper = styled.div`
 const AddNoteWrapper = styled.form`
   flex-direction: column;
   .cta-button {
+    color: ${({ theme }) => theme.buttonFont};
     padding: 12px;
     margin-right: 10px;
     width: 75%;
@@ -34,10 +35,10 @@ const TextArea = styled.textarea`
   margin: 0 auto 10px auto;
   display: block;
   width: 100%;
-  border-radius: 10px;
   padding: 10px;
   box-sizing: border-box;
   font-size: 0.9rem;
+  border-bottom: 2px dotted ${({ theme }) => theme.border};
   &::placeholder {
     color: ${({ currentTodo }) =>
       currentTodo !== undefined && currentTodo.note && '#222223'};

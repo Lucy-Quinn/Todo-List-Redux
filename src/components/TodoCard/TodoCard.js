@@ -17,8 +17,7 @@ import {
 } from './TodoCard.styled';
 import { useTruncateText, useWindowSize } from '../../hooks';
 
-const TodoCard = ({ currentTodo }) => {
-  const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
+const TodoCard = ({ currentTodo, theme }) => {
   const todoListsArr = useSelector((state) => state.todoListsReducer);
 
   const { text, id: todoId, isEdit, isFavorite, dueDate, note } = currentTodo;
@@ -26,8 +25,6 @@ const TodoCard = ({ currentTodo }) => {
   const truncateText = useTruncateText(text, 12, 'text');
   const dispatch = useDispatch();
   const { width } = useWindowSize();
-
-  const theme = toggleTheme ? themes.light : themes.dark;
 
   const todoListCategoriesArr = (
     typeof currentTodo.todoList === 'string'
@@ -49,12 +46,17 @@ const TodoCard = ({ currentTodo }) => {
           {dueDate ? <p>Due {dueDate}</p> : null}
           <IconsWrapper>
             {isFavorite ? (
-              <FavoriteIcon className="fas fa-star" currentTodo={currentTodo} />
+              <FavoriteIcon
+                className="fas fa-star"
+                currentTodo={currentTodo}
+                theme={theme}
+              />
             ) : null}
             {note.length ? (
               <NoteIcon
                 className="fas fa-sticky-note"
                 currentTodo={currentTodo}
+                theme={theme}
               />
             ) : null}
           </IconsWrapper>
@@ -82,6 +84,7 @@ const TodoCard = ({ currentTodo }) => {
 
 TodoCard.propTypes = {
   currentTodo: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default TodoCard;

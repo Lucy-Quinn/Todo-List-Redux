@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { addTodo } from '../../redux/actions/todoItems';
+import { AddTodoFormWrapper } from './AddTodoForm.styled';
 
 const AddTodoForm = ({ currentTodoList, theme }) => {
   const [inputValue, setInputValue] = useState('');
-
   const dispatch = useDispatch();
 
   const todaysDate = new Date();
@@ -23,19 +23,23 @@ const AddTodoForm = ({ currentTodoList, theme }) => {
   };
 
   return (
-    <form className="form-wrapper" onSubmit={handleAddItemForm}>
+    <AddTodoFormWrapper
+      className="form-wrapper"
+      onSubmit={handleAddItemForm}
+      theme={theme}
+    >
       <input
         className="form-input"
         type="text"
         name="todo"
         value={inputValue}
-        placeholder="Add task..."
+        placeholder="Add todo..."
         onChange={handleChange}
       />
-      <button className="cta-button-add" type="submit" theme={theme}>
+      <button className="cta-button-add" type="submit">
         +
       </button>
-    </form>
+    </AddTodoFormWrapper>
   );
 };
 

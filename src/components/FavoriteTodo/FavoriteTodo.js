@@ -8,7 +8,7 @@ import {
 } from './FavoriteTodo.styled';
 import { favoriteTodo } from '../../redux/actions/todoItems';
 
-const FavoriteTodo = ({ currentTodo }) => {
+const FavoriteTodo = ({ currentTodo, theme }) => {
   const dispatch = useDispatch();
   const { id: todoId } = currentTodo;
 
@@ -19,7 +19,11 @@ const FavoriteTodo = ({ currentTodo }) => {
   return (
     <div onClick={handleFavoriteItem}>
       {currentTodo !== undefined && currentTodo.isFavorite ? (
-        <FavoriteIconFilled className="fas fa-star" currentTodo={currentTodo} />
+        <FavoriteIconFilled
+          className="fas fa-star"
+          currentTodo={currentTodo}
+          theme={theme}
+        />
       ) : (
         <FavoriteIconNotFilled
           className="far fa-star"
@@ -32,6 +36,7 @@ const FavoriteTodo = ({ currentTodo }) => {
 
 FavoriteTodo.propTypes = {
   currentTodo: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default FavoriteTodo;

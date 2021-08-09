@@ -12,9 +12,9 @@ const HomePage = () => {
   return (
     <TodoListWrapper>
       <TodoListCenter>
-        <SearchBar />
+        <SearchBar theme={theme} />
         <AddTodoForm theme={theme} />
-        <TodoItems />
+        <TodoItems theme={theme} />
       </TodoListCenter>
     </TodoListWrapper>
   );

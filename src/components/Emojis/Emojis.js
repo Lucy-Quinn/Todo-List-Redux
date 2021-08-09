@@ -59,6 +59,7 @@ const Emojis = ({ setTextAreaValue, textAreaRef, theme }) => {
             setEmojisByCategory={setEmojisByCategory}
             emojis={emojis}
             isActive={isActive}
+            theme={theme}
           />
         </>
       )}

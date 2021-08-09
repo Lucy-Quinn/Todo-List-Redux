@@ -18,8 +18,8 @@ function App() {
   return (
     <Router>
       <div>
-        <GlobalStyle theme={theme} />
-        <Navbar />
+        <GlobalStyle theme={theme} toggleTheme={toggleTheme} />
+        <Navbar theme={theme} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/todos/:todoId" component={SingleTodoPage} />

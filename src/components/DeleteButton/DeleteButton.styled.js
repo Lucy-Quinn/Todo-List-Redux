@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 const DeleteItem = styled.button`
-  color: #fff;
+  color: ${({ theme }) => theme.buttonFont};
   order: 4;
   background: transparent;
   border: 2px solid #f49381;
   border-radius: 10px;
-  box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+  box-shadow: ${({ theme }) => theme.boxShadow};
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;

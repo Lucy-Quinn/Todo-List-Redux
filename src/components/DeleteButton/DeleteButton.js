@@ -10,7 +10,7 @@ import {
 import { DeleteItem } from './DeleteButton.styled';
 import { removeTodoList } from '../../redux/actions/todoLists';
 
-const DeleteTodo = ({ currentItem }) => {
+const DeleteTodo = ({ currentItem, theme }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -33,7 +33,7 @@ const DeleteTodo = ({ currentItem }) => {
 
   return (
     <div>
-      <DeleteItem onClick={handleRemoveItem}>
+      <DeleteItem onClick={handleRemoveItem} theme={theme}>
         {isTodoListsPath ? 'Delete todo list' : 'Delete Todo'}
       </DeleteItem>
     </div>
@@ -42,6 +42,7 @@ const DeleteTodo = ({ currentItem }) => {
 
 DeleteTodo.propTypes = {
   currentItem: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default DeleteTodo;

@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
   a{
     text-decoration: none;
     font-size: 1rem;
-    color: #fff;
+    color: black;
     @media(min-width: 768px){
       font-size: 1.3rem;
     }
@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1{
     font-size: 2rem;
-    color: #fff;
+    color: black;
     @media(min-width: 768px){
         font-size: 2.5rem;
     }
@@ -43,8 +43,8 @@ const GlobalStyle = createGlobalStyle`
 
   h2{
     font-size: 2rem;
-    color: #fff;
     margin: 0;
+    color: black;
     text-align: center;
     @media(min-width: 768px){
         font-size: 2.2rem;
@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
 
   h3{
     font-size: 1.5rem;
-    color: #fff;
+    color: black;
     margin: 0;
     text-align: center;
     @media(min-width: 768px){
@@ -75,10 +75,10 @@ const GlobalStyle = createGlobalStyle`
 
   .cta-button{
     background: ${({ theme }) => theme.button};
-    color: #fff;
+    color: black;
     border: none;
     border-radius: 10px;
-    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+    box-shadow: ${({ theme }) => theme.boxShadow};
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -95,11 +95,11 @@ const GlobalStyle = createGlobalStyle`
   .form-wrapper{
     display: flex;
     gap: 10px;
-    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-    background-color: rgba(166, 216, 219, 0.411);
-    padding: 15px;
+    box-shadow: ${({ theme }) => theme.boxShadow};
+    padding: 8px;
     border-radius: 10px;
     margin-bottom: 15px;
+    align-items: baseline;
     @media(min-width: 768px){
         flex-direction: row;
         justify-content: center;
@@ -114,10 +114,9 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 10px;
     border: none;
     display: block;
-    padding: 8px;
-    font-size: 1.2rem;
+    padding: ${({ toggleTheme }) => (toggleTheme ? '0' : '10px')};
+    font-size: 1.3rem;
     font-family: 'Indie Flower', cursive;
-    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
     width: 100%;
   }
 
@@ -126,7 +125,8 @@ const GlobalStyle = createGlobalStyle`
     color: #fff;
     border: none;
     border-radius: 50%;
-    box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+    box-shadow: ${({ theme }) => theme.boxShadow};
+
     font-size: 1.5rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -135,11 +135,12 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
   .form-select{
-        border-radius: 10px;
-        padding: 5px;
-        border: none;
-        box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-    }
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+    font-size: 1rem;
+    box-shadow: ${({ theme }) => theme.boxShadow};
+  }
 `;
 
 export default GlobalStyle;

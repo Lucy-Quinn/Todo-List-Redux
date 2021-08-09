@@ -10,7 +10,7 @@ const TodoListWrapper = styled.div`
   box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
   background: #fff;
   border-radius: 10px;
-  border: 3px solid ${({ color }) => (color ? color : null)};
+  border: 2px solid ${({ color }) => (color ? color : null)};
   h3 {
     width: 100%;
     align-items: flex;

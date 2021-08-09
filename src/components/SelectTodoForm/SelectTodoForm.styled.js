@@ -9,7 +9,7 @@ const SelectTodoFormWrapper = styled.form`
     &:focus-visible {
       outline: none;
     }
-    font-size: 1rem;
+    font-size: 1.2rem;
     width: 100%;
   }
 `;

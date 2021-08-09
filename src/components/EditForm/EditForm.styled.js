@@ -10,6 +10,7 @@ const EditFormWrapper = styled.form`
   flex-direction: column;
   padding: 0px 0px 20px;
   display: -webkit-inline-box;
+  align-items: baseline;
   @media (min-width: 768px) {
     flex-direction: row;
     padding: 10px 0px;

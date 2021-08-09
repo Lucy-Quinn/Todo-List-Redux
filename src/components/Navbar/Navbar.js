@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import {
   Nav,
@@ -10,11 +11,11 @@ import {
 import ToggleThemeButton from '../ToggleThemeButton';
 import Hamburger from './Hamburger';
 
-const Navbar = () => {
+const Navbar = ({ theme }) => {
   let location = useLocation();
 
   return (
-    <Nav>
+    <Nav theme={theme}>
       <ToggleThemeWrapper>
         <ToggleThemeButton />
       </ToggleThemeWrapper>
@@ -31,5 +32,7 @@ const Navbar = () => {
     </Nav>
   );
 };
-
+Navbar.propTypes = {
+  theme: PropTypes.object.isRequired,
+};
 export default Navbar;

@@ -9,6 +9,11 @@ const CategoryListWrapper = styled.div`
   gap: 14px;
   padding: 4px;
   margin-bottom: ${({ isActive }) => (isActive ? '10px' : '0')};
+  padding-top: ${({ isActive }) => (isActive ? '20px' : '0')};
+  border-top: 1px dotted ${({ theme }) => theme.border};
+  i {
+    color: #3b32b3;
+  }
 `;
 
 export { CategoryListWrapper };

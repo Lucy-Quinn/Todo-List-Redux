@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Nav = styled.nav`
-  border-bottom: 1px solid #fff;
+  /* border-bottom: 1px solid #fff; */
+  /* background: rgba(166, 216, 219, 0.411); */
+  background: ${({ theme }) => theme.primary};
   padding: 0 20px;
   display: flex;
   align-items: baseline;

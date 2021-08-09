@@ -55,7 +55,7 @@ const SingleTodoListPage = ({ match }) => {
       <AddTodoForm currentTodoList={currentTodoList} theme={theme} />
       <SelectTodoForm currentTodoList={currentTodoList} />
       <TodoListItems currentTodoList={currentTodoList} />
-      <DeleteButton currentItem={currentTodoList} />
+      <DeleteButton currentItem={currentTodoList} theme={theme} />
     </SingleTodoListPageWrapper>
   );
 };

@@ -38,7 +38,7 @@ const IndividualProgressAmount = styled.div`
   height: 30px;
   border-radius: 10px;
   width: ${({ findPercentage }) => findPercentage()}%;
-  background: grey;
+  background: #60dac6;
   animation-name: ${progressAnimation};
   animation-duration: 4s;
   @media (min-width: 768px) {

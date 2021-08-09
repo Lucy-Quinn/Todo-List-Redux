@@ -13,10 +13,7 @@ const TodoWrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  border-bottom: 1px dotted ${({ theme }) => theme.border};
-  &:nth-child(1) {
-    border-top: 1px dotted ${({ theme }) => theme.border};
-  }
+  border-bottom: 2px dotted ${({ theme }) => theme.border};
   @media (min-width: 768px) {
     padding: 15px 10px 10px;
     align-items: ${({ isEdit, currentTodo }) => {
@@ -76,14 +73,14 @@ const IconsWrapper = styled.div`
 `;
 
 const FavoriteIcon = styled.i`
-  font-size: 1.6rem;
-  color: ${({ currentTodo }) => (currentTodo ? '#fff' : 'none')};
+  font-size: 1.8rem;
+  color: ${({ theme }) => theme.button};
   margin-right: 10px;
 `;
 
 const NoteIcon = styled.div`
   font-size: 1.9rem;
-  color: ${({ currentTodo }) => (currentTodo ? '#fff' : 'none')};
+  color: ${({ theme }) => theme.button};
   margin-right: 10px;
 `;
 

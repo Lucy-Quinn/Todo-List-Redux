@@ -27,6 +27,9 @@ const TodoEdit = styled.div`
 `;
 
 const TextWrapper = styled.div`
+  h2 {
+    color: ${({ theme }) => theme.headerFont};
+  }
   .hover-text {
     visibility: hidden;
     width: fit-content;

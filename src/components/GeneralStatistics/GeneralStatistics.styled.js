@@ -38,8 +38,9 @@ const progressAnimation = keyframes`
 const ProgressAmount = styled.div`
   width: 100px;
   height: ${({ findPercentage }) => findPercentage()}%;
-  background: #fff;
-  border-radius: 10px;
+  background: #60dac6;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   animation-name: ${progressAnimation};
   animation-duration: 4s;
 `;

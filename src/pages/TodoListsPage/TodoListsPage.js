@@ -6,12 +6,13 @@ import TodoLists from '../../components/TodoLists/TodoLists';
 import { TodoListsPageWrapper } from './TodoListsPage.styled';
 
 const TodoListsPage = () => {
+  const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
+  const theme = toggleTheme ? themes.light : themes.dark;
   const todoListArr = useSelector((state) => state.todoListsReducer);
-
   return (
     <TodoListsPageWrapper>
       <h2>Your Todo Lists</h2>
-      <AddTodoListForm todoListArr={todoListArr} />
+      <AddTodoListForm todoListArr={todoListArr} theme={theme} />
       <TodoLists />
     </TodoListsPageWrapper>
   );

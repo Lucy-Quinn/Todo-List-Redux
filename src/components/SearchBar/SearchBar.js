@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { filterTodos } from '../../redux/actions/todoItems';
+import { SearchBarWrapper } from './SearchBar.styled';
 
-const SearchBar = () => {
+const SearchBar = ({ theme }) => {
   const [searchInput, setSearchInput] = useState('');
   const dispatch = useDispatch();
 
@@ -15,9 +17,8 @@ const SearchBar = () => {
   useEffect(() => {
     dispatch(filterTodos({ searchInput }));
   }, [dispatch, searchInput]);
-
   return (
-    <div className="form-wrapper">
+    <SearchBarWrapper className="form-wrapper" theme={theme}>
       <input
         className="form-input"
         type="text"
@@ -26,8 +27,10 @@ const SearchBar = () => {
         value={searchInput}
         onChange={handleSearchInput}
       />
-    </div>
+    </SearchBarWrapper>
   );
 };
-
+SearchBar.propTypes = {
+  theme: PropTypes.object.isRequired,
+};
 export default SearchBar;

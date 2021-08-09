@@ -30,8 +30,8 @@ const AddNote = ({ currentTodo, theme }) => {
     setTextAreaValue('');
   };
   return (
-    <FormWrapper>
-      <AddNoteWrapper onSubmit={handleAddNoteForm}>
+    <FormWrapper theme={theme}>
+      <AddNoteWrapper onSubmit={handleAddNoteForm} theme={theme}>
         <TextArea
           type="submit"
           value={textAreaValue}
@@ -41,6 +41,7 @@ const AddNote = ({ currentTodo, theme }) => {
           cols={30}
           currentTodo={currentTodo}
           ref={textAreaRef}
+          theme={theme}
         />
 
         <button className="cta-button" theme={theme}>

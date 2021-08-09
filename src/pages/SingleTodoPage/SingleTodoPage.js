@@ -36,7 +36,7 @@ const SingleTodoPage = ({ match }) => {
   return (
     <SingleTodoPageWrapper>
       <SingleTodoHeader>
-        <FavoriteTodo currentTodo={currentTodo} />
+        <FavoriteTodo currentTodo={currentTodo} theme={theme} />
         {isEdit ? (
           <EditForm
             isEdit={isEdit}
@@ -45,7 +45,7 @@ const SingleTodoPage = ({ match }) => {
           />
         ) : (
           <>
-            <TextWrapper>
+            <TextWrapper theme={theme}>
               {currentTodo !== undefined && truncateText}
               {width >= 768 ? null : (
                 <span className="hover-text">{currentTodoText}</span>
@@ -57,10 +57,10 @@ const SingleTodoPage = ({ match }) => {
           </>
         )}
       </SingleTodoHeader>
-      <DueDate todoId={todoId} />
+      <DueDate todoId={todoId} theme={theme} />
       <AddTodoListCategory currentTodo={currentTodo} />
       <AddNote currentTodo={currentTodo} theme={theme} />
-      <DeleteButton currentItem={currentTodo} />
+      <DeleteButton currentItem={currentTodo} theme={theme} />
     </SingleTodoPageWrapper>
   );
 };

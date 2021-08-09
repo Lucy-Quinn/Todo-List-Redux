@@ -44,7 +44,7 @@ const COLORS_DATA = [
   },
 ];
 
-const AddTodoListForm = ({ todoListArr }) => {
+const AddTodoListForm = ({ todoListArr, theme }) => {
   const [todoListTitle, setTodoListTitle] = useState('');
   const [todoListColor, setTodoListColor] = useState('');
   const [isDuplicate, setIsDuplicate] = useState('');
@@ -91,7 +91,7 @@ const AddTodoListForm = ({ todoListArr }) => {
       className="form-wrapper"
       onSubmit={handleAddTodoListCategoryForm}
     >
-      <TopSection>
+      <TopSection theme={theme}>
         <input
           className="form-input"
           type="text"
@@ -132,6 +132,7 @@ const AddTodoListForm = ({ todoListArr }) => {
 
 AddTodoListForm.propTypes = {
   todoListArr: PropTypes.array.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default AddTodoListForm;
