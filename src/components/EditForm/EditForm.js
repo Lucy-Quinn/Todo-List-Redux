@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { editTodoList } from '../../redux/actions/todoLists';
-import { editTodo } from '../../redux/actions/todoItems';
+import { editTodo, editTodoListCategory } from '../../redux/actions/todoItems';
 import { EditFormWrapper } from './EditForm.styled';
 import { useLocation } from 'react-router-dom';
 import EditFormInput from './EditFormInput/EditFormInput';
 
 const EditForm = ({ currentItem, isEdit, setIsEdit, theme }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState();
 
   const dispatch = useDispatch();
 
@@ -19,10 +19,18 @@ const EditForm = ({ currentItem, isEdit, setIsEdit, theme }) => {
 
   const { id } = currentItem;
 
+  useEffect(() => {
+    isTodoListsPath
+      ? setInputValue(currentItem.title)
+      : setInputValue(currentItem.text);
+  }, []);
+
   const handleEditTodoForm = (event) => {
     event.preventDefault();
     if (isTodoListsPath) {
+      const { title } = currentItem;
       dispatch(editTodoList({ id, inputValue }));
+      dispatch(editTodoListCategory({ title, inputValue }));
     } else {
       dispatch(editTodo({ id, inputValue }));
     }

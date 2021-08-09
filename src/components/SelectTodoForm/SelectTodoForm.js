@@ -41,7 +41,7 @@ const SelectTodoForm = ({ currentTodoList }) => {
           <option value="" hidden>
             Choose from your todos
           </option>
-          {todosArr.map((todo, index) => (
+          {todosArr?.map((todo, index) => (
             <option
               value={todo.text}
               key={todo.id}

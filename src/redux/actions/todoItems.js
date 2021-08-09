@@ -7,6 +7,7 @@ import {
   ADD_NOTE,
   ADD_TODO_LIST_CATEGORY,
   REMOVE_TODO_LIST_CATEGORY,
+  EDIT_TODO_LIST_CATEGORY,
   ADD_TODO_DUE_DATE,
   FILTER_TODOS,
   ORDER_TODOS_BY_DATE_CREATED,
@@ -66,6 +67,13 @@ export function addTodoListCategory(payload) {
 export function removeTodoListCategory(payload) {
   return {
     type: REMOVE_TODO_LIST_CATEGORY,
+    payload,
+  };
+}
+
+export function editTodoListCategory(payload) {
+  return {
+    type: EDIT_TODO_LIST_CATEGORY,
     payload,
   };
 }

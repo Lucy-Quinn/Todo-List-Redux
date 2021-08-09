@@ -40,7 +40,7 @@ const EditFormInput = ({
 };
 
 EditFormInput.propTypes = {
-  inputValue: PropTypes.string.isRequired,
+  inputValue: PropTypes.string,
   isEdit: PropTypes.bool.isRequired,
   setInputValue: PropTypes.func.isRequired,
   currentItem: PropTypes.object.isRequired,

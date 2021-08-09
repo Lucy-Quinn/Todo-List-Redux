@@ -7,6 +7,7 @@ import {
   ADD_NOTE,
   ADD_TODO_LIST_CATEGORY,
   REMOVE_TODO_LIST_CATEGORY,
+  EDIT_TODO_LIST_CATEGORY,
   ADD_TODO_DUE_DATE,
   FILTER_TODOS,
   ORDER_TODOS_BY_DATE_CREATED,
@@ -165,6 +166,26 @@ export default function todoItemsReducer(
             : todo
         ),
       };
+    case EDIT_TODO_LIST_CATEGORY:
+      let newTodoList = '';
+      const { title, inputValue } = action.payload;
+      return {
+        ...state,
+        todos: map(state.todos, (todo) => {
+          if (todo.todoList.includes(title)) {
+            const todoListAsStr = todo.todoList.join(',');
+            newTodoList = todoListAsStr.replace(title, inputValue).split(',');
+          } else {
+            newTodoList = '';
+          }
+          return newTodoList.length > 0
+            ? {
+                ...todo,
+                todoList: newTodoList,
+              }
+            : todo;
+        }),
+      };
     case ADD_TODO_DUE_DATE:
       const { modifiedDate: todoDueDate } = action.payload;
       return {
@@ -189,7 +210,6 @@ export default function todoItemsReducer(
         filtered: foundItem,
         inputValue: searchInput,
       };
-
     case ORDER_TODOS_BY_DATE_CREATED:
       state.filtered = [...state.todos];
       const { sortAction: sortActionDates } = action.payload;
