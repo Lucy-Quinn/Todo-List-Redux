@@ -9,18 +9,16 @@ const Button = styled.button`
   font-size: 0.8rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  width: 20%;
+  padding: 8px 15px;
+  display: inline-block;
   margin-bottom: 10px;
-  align-self: flex-end;
-  padding: 10px;
   span {
     font-size: 1rem;
   }
 `;
 
 const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
+  display: inline-block;
 `;
 
 export { Button, ButtonWrapper };

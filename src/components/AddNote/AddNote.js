@@ -42,14 +42,15 @@ const AddNote = ({ currentTodo, theme }) => {
           currentTodo={currentTodo}
           ref={textAreaRef}
         />
+
+        <button className="cta-button" theme={theme}>
+          {currentTodo.note ? `Update note` : `Add note`}
+        </button>
         <Emojis
           setTextAreaValue={setTextAreaValue}
           textAreaRef={textAreaRef}
           theme={theme}
         />
-        <button className="cta-button" theme={theme}>
-          {currentTodo.note ? `Update note` : `Add note`}
-        </button>
       </AddNoteWrapper>
     </FormWrapper>
   );
