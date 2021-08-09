@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 
 const NavListWrapper = styled.div`
+  margin-right: 24px;
   @media (min-width: 768px) {
     display: flex;
     justify-content: flex-end;

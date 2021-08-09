@@ -37,6 +37,7 @@ const TextArea = styled.textarea`
   border-radius: 10px;
   padding: 10px;
   box-sizing: border-box;
+  font-size: 0.9rem;
   &::placeholder {
     color: ${({ currentTodo }) =>
       currentTodo !== undefined && currentTodo.note && '#222223'};

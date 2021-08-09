@@ -13,7 +13,7 @@ import { useTruncateText, useWindowSize } from '../../hooks';
 
 const TodoListCard = ({ currentTodoList }) => {
   const { title, color } = currentTodoList;
-  const truncateText = useTruncateText(title, 12, 'text');
+  const truncateText = useTruncateText(title, 14, 'text');
   const { width } = useWindowSize();
 
   const foundTodos = useSelector((state) =>
@@ -26,7 +26,7 @@ const TodoListCard = ({ currentTodoList }) => {
 
   return (
     <TodoListWrapper color={color}>
-      <TextWrapper>
+      <TextWrapper pathname={pathname}>
         {truncateText}
         {width >= 768 ? null : <span className="hover-text">{title}</span>}
         <ItemsNumber>

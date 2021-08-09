@@ -24,6 +24,7 @@ const EditFormWrapper = styled.form`
   }
   button {
     width: inherit;
+    margin: 0;
   }
 `;
 

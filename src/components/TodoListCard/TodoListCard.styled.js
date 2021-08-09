@@ -34,6 +34,8 @@ const TodoListWrapper = styled.div`
 `;
 
 const TextWrapper = styled.div`
+  display: ${({ pathname }) => (pathname === '/todoLists' ? 'flex' : 'block')};
+  width: ${({ pathname }) => (pathname === '/todoLists' ? '100%' : '50%')};
   .hover-text {
     visibility: hidden;
     width: fit-content;

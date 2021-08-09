@@ -6,13 +6,8 @@ const Nav = styled.nav`
   padding: 0 20px;
   display: flex;
   align-items: baseline;
-  justify-content: center;
   padding: 15px;
   .navbar-header {
-    @media (max-width: 768px) {
-      width: fit-content;
-      margin: 0 0 0 25px;
-    }
     @media (min-width: 768px) {
       width: 100%;
     }
@@ -28,7 +23,15 @@ const TodoAppHeader = styled.h1`
   color: #fff;
   margin: 0;
   padding: 0;
-  width: 80%;
+  width: 193px;
+  margin-left: 20px;
+  @media (min-width: 375px) {
+    margin-left: 46px;
+  }
+  @media (min-width: 425px) {
+    width: 297px;
+    margin-left: 20px;
+  }
   @media (min-width: 768px) {
     width: 100%;
     margin: 0;
@@ -36,6 +39,7 @@ const TodoAppHeader = styled.h1`
 `;
 
 const HeaderLinkWrapper = styled(Link)`
+  width: 193px;
   @media (min-width: 768px) {
     width: 100%;
   }
@@ -48,7 +52,7 @@ const ToggleThemeWrapper = styled.div`
     align-self: inherit;
     display: flex;
     justify-content: flex-start;
-    width: 50%;
+    width: 60%;
   }
 `;
 
