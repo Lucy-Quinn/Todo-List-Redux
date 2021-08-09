@@ -12,7 +12,7 @@ import TodoListStatistics from './TodoListStatistics';
 import { useTruncateText, useWindowSize } from '../../hooks';
 
 const TodoListCard = ({ currentTodoList }) => {
-  const { title } = currentTodoList;
+  const { title, color } = currentTodoList;
   const truncateText = useTruncateText(title, 12, 'text');
   const { width } = useWindowSize();
 
@@ -25,7 +25,7 @@ const TodoListCard = ({ currentTodoList }) => {
   const completeTodos = foundTodos.filter((todo) => todo.isComplete).length;
 
   return (
-    <TodoListWrapper>
+    <TodoListWrapper color={color}>
       <TextWrapper>
         {truncateText}
         {width >= 768 ? null : <span className="hover-text">{title}</span>}

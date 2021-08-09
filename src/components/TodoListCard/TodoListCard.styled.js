@@ -8,9 +8,9 @@ const TodoListWrapper = styled.div`
   padding: 15px;
   margin: 10px auto 10px auto;
   box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-  /* background-color: rgba(166, 216, 219, 0.411); */
   background: #fff;
   border-radius: 10px;
+  border: 3px solid ${({ color }) => (color ? color : null)};
   h3 {
     width: 100%;
     align-items: flex;

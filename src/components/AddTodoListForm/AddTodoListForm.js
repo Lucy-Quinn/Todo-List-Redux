@@ -26,6 +26,22 @@ const COLORS_DATA = [
     id: 4,
     color: 'purple',
   },
+  {
+    id: 5,
+    color: 'yellow',
+  },
+  {
+    id: 6,
+    color: 'orange',
+  },
+  {
+    id: 7,
+    color: 'violet',
+  },
+  {
+    id: 8,
+    color: 'aqua',
+  },
 ];
 
 const AddTodoListForm = ({ todoListArr }) => {
