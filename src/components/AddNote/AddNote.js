@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useRef, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 
@@ -9,11 +9,15 @@ import Emojis from '../Emojis/Emojis';
 
 const AddNote = ({ currentTodo, theme }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
-  const { id: todoId } = currentTodo;
+  const { id: todoId, note } = currentTodo;
 
   const textAreaRef = useRef(null);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  useEffect(() => {
+    setTextAreaValue(note);
+  }, []);
 
   const handleChange = (event) => {
     setTextAreaValue(event.target.value);
@@ -25,13 +29,12 @@ const AddNote = ({ currentTodo, theme }) => {
     history.push('/');
     setTextAreaValue('');
   };
-
   return (
     <FormWrapper>
       <AddNoteWrapper onSubmit={handleAddNoteForm}>
         <TextArea
           type="submit"
-          value={textAreaValue ? textAreaValue : currentTodo.note}
+          value={textAreaValue}
           onChange={handleChange}
           placeholder="Add note"
           rows={10}
