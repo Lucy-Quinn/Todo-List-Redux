@@ -115,7 +115,6 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     display: block;
     padding:10px;
-    ${'' /* padding: ${({ toggleTheme }) => (toggleTheme ? '0' : '10px')}; */}
     font-size: 1.4rem;
     font-family: 'Indie Flower', cursive;
     width: 100%;
@@ -143,9 +142,11 @@ const GlobalStyle = createGlobalStyle`
     box-shadow: ${({ theme }) => theme.boxShadow};
   }
 
-  input:focus, textarea:focus, select:focus{
+  *:focus{
     outline: none;
   }
+
+  
 `;
 
 export default GlobalStyle;

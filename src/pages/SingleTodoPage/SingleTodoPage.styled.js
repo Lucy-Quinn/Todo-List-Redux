@@ -16,25 +16,21 @@ const SingleTodoHeader = styled.div`
 
 const TodoEdit = styled.div`
   font-size: 1.6rem;
-  color: #5c88e5;
-  color: #fff;
+  color: ${({ theme }) => theme.onSecondary};
   border-radius: 10px;
   flex-basis: auto;
   box-shadow: ${({ theme }) => theme.boxShadow};
   padding: 5px;
-  box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
   background: ${({ theme }) => theme.secondary};
 `;
 
 const TextWrapper = styled.div`
-  h2 {
-    color: ${({ theme }) => theme.onBackground};
-  }
+  position: relative;
   .hover-text {
     visibility: hidden;
     width: fit-content;
-    color: white;
-    background: black;
+    color: ${({ theme }) => theme.onBackground};
+    background: ${({ theme }) => theme.background};
     text-align: center;
     border-radius: 6px;
     padding: 5px 5px;
@@ -42,9 +38,11 @@ const TextWrapper = styled.div`
     font-size: 1.4rem;
     z-index: 1;
   }
-
   &:hover .hover-text {
     visibility: visible;
+  }
+  h2 {
+    color: ${({ theme }) => theme.onBackground};
   }
 `;
 

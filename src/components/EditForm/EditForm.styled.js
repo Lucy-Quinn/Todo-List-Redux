@@ -14,7 +14,6 @@ const EditFormWrapper = styled.form`
   @media (min-width: 768px) {
     flex-direction: row;
     padding: 10px 0px;
-    flex-direction: column;
   }
   input {
     width: inherit;

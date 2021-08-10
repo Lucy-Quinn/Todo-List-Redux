@@ -61,7 +61,7 @@ const AddNote = ({ currentTodo, theme, toggleTheme }) => {
 AddNote.propTypes = {
   currentTodo: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  toggleTheme: PropTypes.bool.isRequired,
+  toggleTheme: PropTypes.object.isRequired,
 };
 
 export default AddNote;

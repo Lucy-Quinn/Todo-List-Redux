@@ -26,7 +26,7 @@ const SingleTodoListPage = ({ match }) => {
   const currentTodoList = todoListArr.find(({ id }) => id === todoListId);
 
   const { title } = currentTodoList;
-  const truncateText = useTruncateText(title, 14, 'header');
+  const truncateText = useTruncateText(title, 12, 'header');
 
   const handleEditItem = () => {
     setIsEdit(true);
@@ -43,7 +43,7 @@ const SingleTodoListPage = ({ match }) => {
         />
       ) : (
         <SingleTodoListHeader>
-          <TextWrapper>
+          <TextWrapper theme={theme}>
             {currentTodoList !== undefined && truncateText}
             {width >= 768 ? null : <span className="hover-text">{title}</span>}
           </TextWrapper>

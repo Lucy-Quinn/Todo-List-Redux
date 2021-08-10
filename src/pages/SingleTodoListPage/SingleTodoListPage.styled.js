@@ -8,13 +8,11 @@ const SingleTodoListPageWrapper = styled.div`
 
 const TodoListEdit = styled.div`
   font-size: 1.6rem;
-  color: #5c88e5;
-  color: #fff;
+  color: ${({ theme }) => theme.onSecondary};
   border-radius: 10px;
   flex-basis: auto;
-  box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
   padding: 5px;
-  box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+  box-shadow: ${({ theme }) => theme.boxShadow};
   background: ${({ theme }) => theme.secondary};
 `;
 
@@ -27,15 +25,17 @@ const SingleTodoListHeader = styled.div`
 `;
 
 const TextWrapper = styled.div`
+  position: relative;
   .hover-text {
     visibility: hidden;
     width: fit-content;
-    color: white;
-    background: black;
+    color: ${({ theme }) => theme.onBackground};
+    background: ${({ theme }) => theme.background};
     text-align: center;
     border-radius: 6px;
     padding: 5px 5px;
     position: absolute;
+    font-size: 1.4rem;
     z-index: 1;
   }
 

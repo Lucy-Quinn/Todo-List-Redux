@@ -176,7 +176,7 @@ export default function todoItemsReducer(
             const todoListAsStr = todo.todoList.join(',');
             newTodoList = todoListAsStr.replace(title, inputValue).split(',');
           } else {
-            newTodoList = '';
+            newTodoList = todo.todoList;
           }
           return newTodoList.length > 0
             ? {
