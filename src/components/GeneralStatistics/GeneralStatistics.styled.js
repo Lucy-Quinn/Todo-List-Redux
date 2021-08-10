@@ -62,9 +62,22 @@ const ProgressAmount = styled.div`
   animation-duration: 4s;
 `;
 
+const NoGeneralStatics = styled.div`
+  font-size: 1.5rem;
+  padding: 15px 18px;
+  font-family: 'Indie Flower', cursive;
+  color: ${({ theme }) => theme.onBackground};
+  text-align: center;
+  a {
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.secondary};
+  }
+`;
+
 export {
   GeneralStaticsWrapper,
   StaticsWrapper,
   ProgressBarContainer,
   ProgressAmount,
+  NoGeneralStatics,
 };

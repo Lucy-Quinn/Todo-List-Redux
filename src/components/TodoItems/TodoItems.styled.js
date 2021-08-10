@@ -15,7 +15,10 @@ const TodoListWrapper = styled.div`
 `;
 
 const NoTodos = styled.div`
-  padding: 15px;
+  padding: 15px 3px;
+  h3 {
+    font-size: 1.5rem;
+  }
 `;
 
 export { TodoListWrapper, NoTodos };

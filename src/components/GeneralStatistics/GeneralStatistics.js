@@ -8,6 +8,7 @@ import {
   StaticsWrapper,
   ProgressBarContainer,
   ProgressAmount,
+  NoGeneralStatics,
 } from './GeneralStatistics.styled';
 
 const GeneralStatistics = ({ theme }) => {
@@ -23,12 +24,12 @@ const GeneralStatistics = ({ theme }) => {
   return (
     <div>
       {totalTodos < 1 || totalTodoLists < 1 ? (
-        <p>
+        <NoGeneralStatics theme={theme}>
           You need to add a<Link to="/todoLists"> todo list </Link>
           and/or some
           <Link to="/"> todos </Link>
-          before you check your progress
-        </p>
+          before you can check your progress
+        </NoGeneralStatics>
       ) : (
         <GeneralStaticsWrapper>
           <ProgressBarContainer theme={theme}>
