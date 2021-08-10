@@ -9,9 +9,10 @@ import {
   TodoListCategoryOption,
   TodoListCategoryLabel,
   TodoListCategorySelect,
+  NoTodoLists,
 } from './AddTodoListCategory.styled';
 
-const AddTodoListCategory = ({ currentTodo }) => {
+const AddTodoListCategory = ({ currentTodo, theme }) => {
   const [todolistTitle, setTodolistTitle] = useState('');
   const todoListsArr = useSelector((state) => state.todoListsReducer);
   const todoListsTitlesArr = todoListsArr.map((todoList) => todoList.title);
@@ -56,15 +57,16 @@ const AddTodoListCategory = ({ currentTodo }) => {
       </button>
     </form>
   ) : (
-    <p>
+    <NoTodoLists theme={theme}>
       You have no todos lists! Create one
       <Link to="/todoLists"> here</Link>
-    </p>
+    </NoTodoLists>
   );
 };
 
 AddTodoListCategory.propTypes = {
   currentTodo: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default AddTodoListCategory;

@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const TodoColorContainer = styled.div`
-  box-shadow: 10px 0 3px -2px ${({ todoListColors }) => (todoListColors ? todoListColors : 'transparent')};
+const TodoColor = styled.div`
+  box-shadow: 10px 0 2px -2px ${({ todoListColors }) => (todoListColors ? todoListColors : 'transparent')};
+  &:first-child {
+    border-top: 2px dotted ${({ theme }) => theme.border};
+  }
 `;
 
 const TodoWrapper = styled.div`
-  padding: 20px 0 20px;
+  padding: 20px 0 65px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+
   border-bottom: 2px dotted ${({ theme }) => theme.border};
   @media (min-width: 768px) {
     padding: 15px 10px 10px;
@@ -31,9 +35,13 @@ const TodoTopSection = styled.div`
   align-items: baseline;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 20px;
   justify-content: ${({ currentTodo }) =>
     currentTodo.dueDate.length < 1 && 'flex-end'};
   min-height: 25px;
+  p {
+    color: ${({ theme }) => theme.onSurface};
+  }
 `;
 
 const TodoBottomSection = styled.div`
@@ -46,13 +54,13 @@ const TodoBottomSection = styled.div`
 const TodoComplete = styled.div`
   font-size: 1.6rem;
   color: #fff;
-  box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+  box-shadow: ${({ theme }) => theme.boxShadow};
   padding: 5px;
   width: fit-content;
   min-width: 26px;
   border-radius: 50%;
   background: ${({ currentTodo, theme }) =>
-    currentTodo.isComplete ? theme.button : '#fff'};
+    currentTodo.isComplete ? theme.secondary : '#fff'};
   width: 30px;
   height: 30px;
   display: flex;
@@ -74,41 +82,37 @@ const IconsWrapper = styled.div`
 
 const FavoriteIcon = styled.i`
   font-size: 1.8rem;
-  color: ${({ theme }) => theme.button};
+  color: ${({ theme }) => theme.secondary};
   margin-right: 10px;
 `;
 
 const NoteIcon = styled.div`
   font-size: 1.9rem;
-  color: ${({ theme }) => theme.button};
+  color: ${({ theme }) => theme.secondary};
   margin-right: 10px;
 `;
 
 const TextWrapper = styled.div`
   height: fit-content;
-  margin: 20px 0;
-  box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+  box-shadow: ${({ theme }) => theme.boxShadow};
   border: none;
   background: #fff;
   width: 100%;
   border-radius: 10px;
   order: 1;
-  min-height: 44px;
   @media (min-width: 768px) {
     margin: 20px 0;
   }
   p {
     color: black;
+    padding: 10px;
     font-family: 'Indie Flower', cursive;
-    font-size: 1.2rem;
     text-decoration: ${({ currentTodo }) =>
       currentTodo.isComplete ? 'line-through' : ''};
     word-break: break-all;
     white-space: normal;
-    margin: 8px;
     font-size: ${({ currentTodo }) =>
-      currentTodo.isFavorite ? '1.8rem' : '1.2rem'};
-    min-height: 60px;
+      currentTodo.isFavorite ? '2.4rem' : '1.6rem'};
   }
   .hover-text {
     visibility: hidden;
@@ -139,7 +143,7 @@ const TodoListColor = styled.div`
 
 export {
   TodoComplete,
-  TodoColorContainer,
+  TodoColor,
   TodoTopSection,
   TodoBottomSection,
   TodoWrapper,

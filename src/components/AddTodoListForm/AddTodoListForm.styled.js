@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const AddTodoListFormWrapper = styled.form`
   flex-direction: column;
+  background: ${({ theme }) => theme.surface};
 `;
 
 const TopSection = styled.div`
@@ -15,10 +16,6 @@ const TopSection = styled.div`
   margin-bottom: 8px;
 `;
 
-const ColorSelect = styled.select`
-  &:focus-visible {
-    outline: none;
-  }
-`;
+const ColorSelect = styled.select``;
 
 export { AddTodoListFormWrapper, ColorSelect, TopSection };

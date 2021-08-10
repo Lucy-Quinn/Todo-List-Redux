@@ -28,7 +28,7 @@ const Navbar = ({ theme }) => {
           <TodoAppHeader>I've Got To Do This!</TodoAppHeader>
         </HeaderLinkWrapper>
       )}
-      <Hamburger />
+      <Hamburger theme={theme} />
     </Nav>
   );
 };

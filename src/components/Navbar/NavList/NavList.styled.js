@@ -14,7 +14,7 @@ const NavMenu = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: ${({ theme }) => theme.background};
   position: fixed;
   transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
   top: 0;

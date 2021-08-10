@@ -11,7 +11,7 @@ import {
 import TodoListStatistics from './TodoListStatistics';
 import { useTruncateText, useWindowSize } from '../../hooks';
 
-const TodoListCard = ({ currentTodoList }) => {
+const TodoListCard = ({ currentTodoList, theme, toggleTheme }) => {
   const { title, color } = currentTodoList;
   const truncateText = useTruncateText(title, 14, 'text');
   const { width } = useWindowSize();
@@ -25,7 +25,7 @@ const TodoListCard = ({ currentTodoList }) => {
   const completeTodos = foundTodos.filter((todo) => todo.isComplete).length;
 
   return (
-    <TodoListWrapper color={color}>
+    <TodoListWrapper color={color} theme={theme} toggleTheme={toggleTheme}>
       <TextWrapper pathname={pathname}>
         {truncateText}
         {width >= 768 ? null : <span className="hover-text">{title}</span>}
@@ -38,6 +38,7 @@ const TodoListCard = ({ currentTodoList }) => {
           completeTodos={completeTodos}
           foundTodos={foundTodos}
           currentTodoList={currentTodoList}
+          theme={theme}
         />
       )}
     </TodoListWrapper>
@@ -46,6 +47,8 @@ const TodoListCard = ({ currentTodoList }) => {
 
 TodoListCard.propTypes = {
   currentTodoList: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
+  toggleTheme: PropTypes.bool.isRequired,
 };
 
 export default TodoListCard;

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import { NavMenu, NavLink, NavListWrapper } from './NavList.styled';
 
-const NavList = ({ isOpen, closeNavbar }) => {
+const NavList = ({ isOpen, closeNavbar, theme }) => {
   const handleCloseNavbarToggle = () => {
     closeNavbar();
   };
 
   return (
     <NavListWrapper>
-      <NavMenu isOpen={isOpen}>
+      <NavMenu isOpen={isOpen} theme={theme}>
         <NavLink to="/todoLists" onClick={handleCloseNavbarToggle}>
           Todo Lists
         </NavLink>
@@ -25,6 +25,7 @@ const NavList = ({ isOpen, closeNavbar }) => {
 NavList.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   closeNavbar: PropTypes.func.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default NavList;

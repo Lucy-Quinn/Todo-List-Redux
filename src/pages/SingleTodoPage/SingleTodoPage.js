@@ -8,11 +8,11 @@ import {
   SingleTodoPageWrapper,
   SingleTodoHeader,
   TextWrapper,
+  TodoEdit,
 } from './SingleTodoPage.styled';
 import AddNote from '../../components/AddNote';
 import AddTodoListCategory from '../../components/AddTodoListCategory';
 import DueDate from '../../components/DueDate';
-import { TodoEdit } from './SingleTodoPage.styled';
 import EditForm from '../../components/EditForm';
 import { useTruncateText, useWindowSize } from '../../hooks';
 
@@ -26,7 +26,7 @@ const SingleTodoPage = ({ match }) => {
     state.todoItemsReducer.todos.find((todo) => todo.id === todoId)
   );
   const currentTodoText = currentTodo.text;
-  const truncateText = useTruncateText(currentTodoText, 12, 'header');
+  const truncateText = useTruncateText(currentTodoText, 10, 'header');
   const { width } = useWindowSize();
 
   const handleEditItem = () => {
@@ -58,8 +58,12 @@ const SingleTodoPage = ({ match }) => {
         )}
       </SingleTodoHeader>
       <DueDate todoId={todoId} theme={theme} />
-      <AddTodoListCategory currentTodo={currentTodo} />
-      <AddNote currentTodo={currentTodo} theme={theme} />
+      <AddTodoListCategory currentTodo={currentTodo} theme={theme} />
+      <AddNote
+        currentTodo={currentTodo}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
       <DeleteButton currentItem={currentTodo} theme={theme} />
     </SingleTodoPageWrapper>
   );

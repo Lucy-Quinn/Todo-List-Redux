@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { addTodoListCategory } from '../../redux/actions/todoItems';
 import { SelectTodoFormWrapper, Select } from './SelectTodoForm.styled';
 
-const SelectTodoForm = ({ currentTodoList }) => {
+const SelectTodoForm = ({ currentTodoList, theme }) => {
   const [todoValue, setTodoValue] = useState('');
   const [todoId, setTodoId] = useState('');
   const todosArr = useSelector((state) => state.todoItemsReducer.todos);
@@ -31,6 +31,7 @@ const SelectTodoForm = ({ currentTodoList }) => {
     <SelectTodoFormWrapper
       className="form-wrapper"
       onSubmit={handleTodoSelectForm}
+      theme={theme}
     >
       <label>
         <Select
@@ -38,9 +39,7 @@ const SelectTodoForm = ({ currentTodoList }) => {
           defaultValue={todoValue}
           onChange={handleOptionChange}
         >
-          <option value="" hidden>
-            Choose from your todos
-          </option>
+          <option hidden>Your todos</option>
           {todosArr?.map((todo, index) => (
             <option
               value={todo.text}
@@ -62,6 +61,7 @@ const SelectTodoForm = ({ currentTodoList }) => {
 
 SelectTodoForm.propTypes = {
   currentTodoList: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default SelectTodoForm;

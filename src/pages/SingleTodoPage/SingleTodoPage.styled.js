@@ -20,15 +20,15 @@ const TodoEdit = styled.div`
   color: #fff;
   border-radius: 10px;
   flex-basis: auto;
-  box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
+  box-shadow: ${({ theme }) => theme.boxShadow};
   padding: 5px;
   box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-  background: ${({ theme }) => theme.button};
+  background: ${({ theme }) => theme.secondary};
 `;
 
 const TextWrapper = styled.div`
   h2 {
-    color: ${({ theme }) => theme.headerFont};
+    color: ${({ theme }) => theme.onBackground};
   }
   .hover-text {
     visibility: hidden;

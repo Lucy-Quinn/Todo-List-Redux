@@ -20,8 +20,8 @@ const StyledHamburger = styled.div`
   div {
     width: 1.5rem;
     height: 0.2rem;
-    background: ${({ isOpen }) => (isOpen ? '#3B32B3' : '#fff')};
-    /* '#598AE4' */
+    background: ${({ isOpen, theme }) =>
+      isOpen ? theme.onBackground : theme.onPrimary};
     border-radius: 10px;
     transform-origin: 0.3px;
     transition: all 0.2s linear;

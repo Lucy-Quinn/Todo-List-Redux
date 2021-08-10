@@ -7,22 +7,16 @@ const TodoListWrapper = styled.div`
   gap: 10px;
   padding: 15px;
   margin: 10px auto 10px auto;
-  box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-  background: #fff;
+  box-shadow: ${({ theme }) => theme.boxShadow};
+  background: ${({ theme, toggleTheme }) =>
+    toggleTheme ? theme.background : theme.primary};
   border-radius: 10px;
   border: 2px solid ${({ color }) => (color ? color : null)};
-  h3 {
-    width: 100%;
-    align-items: flex;
-    text-align: left;
-    @media (min-width: 768px) {
-      text-align: left;
-      width: 100%;
-    }
-  }
   p {
     width: 100%;
-    color: #181a18;
+    color: ${({ theme, toggleTheme }) =>
+      toggleTheme ? theme.onBackground : theme.onPrimary};
+
     font-size: 1.2rem;
     padding: 10px 5px;
   }
@@ -35,7 +29,7 @@ const TodoListWrapper = styled.div`
 
 const TextWrapper = styled.div`
   display: ${({ pathname }) => (pathname === '/todoLists' ? 'flex' : 'block')};
-  width: ${({ pathname }) => (pathname === '/todoLists' ? '100%' : '50%')};
+  width: ${({ pathname }) => (pathname === '/todoLists' ? '100%' : '48%')};
   .hover-text {
     visibility: hidden;
     width: fit-content;

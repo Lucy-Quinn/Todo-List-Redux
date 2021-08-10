@@ -16,15 +16,13 @@ const GlobalStyle = createGlobalStyle`
 
   #root{
     min-height: 100%;
-    background: linear-gradient(${({ theme }) => theme.gradientOne}, ${({
-  theme,
-}) => theme.gradientTwo});
+    background: ${({ theme }) => theme.background};
   }
 
   a{
     text-decoration: none;
     font-size: 1rem;
-    color: black;
+    color: ${({ theme }) => theme.onBackground};
     @media(min-width: 768px){
       font-size: 1.3rem;
     }
@@ -42,9 +40,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2{
-    font-size: 2rem;
+    font-size: 2.4rem;
     margin: 0;
-    color: black;
+    font-family: 'Indie Flower', cursive;
+    color: ${({ theme }) => theme.onBackground};
     text-align: center;
     @media(min-width: 768px){
         font-size: 2.2rem;
@@ -52,8 +51,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h3{
-    font-size: 1.5rem;
-    color: black;
+    font-size: 1.6rem;
+    color: ${({ theme }) => theme.onBackground};
+    font-family: 'Indie Flower', cursive;
     margin: 0;
     text-align: center;
     @media(min-width: 768px){
@@ -74,7 +74,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .cta-button{
-    background: ${({ theme }) => theme.button};
+    background: ${({ theme }) => theme.secondary};
     color: black;
     border: none;
     border-radius: 10px;
@@ -96,7 +96,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     gap: 10px;
     box-shadow: ${({ theme }) => theme.boxShadow};
-    padding: 8px;
+    padding: 15px;
     border-radius: 10px;
     margin-bottom: 15px;
     align-items: baseline;
@@ -114,14 +114,15 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 10px;
     border: none;
     display: block;
-    padding: ${({ toggleTheme }) => (toggleTheme ? '0' : '10px')};
-    font-size: 1.3rem;
+    padding:10px;
+    ${'' /* padding: ${({ toggleTheme }) => (toggleTheme ? '0' : '10px')}; */}
+    font-size: 1.4rem;
     font-family: 'Indie Flower', cursive;
     width: 100%;
   }
 
   .cta-button-add{
-    background: ${({ theme }) => theme.button};
+    background: ${({ theme }) => theme.secondary};
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -140,6 +141,10 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     font-size: 1rem;
     box-shadow: ${({ theme }) => theme.boxShadow};
+  }
+
+  input:focus, textarea:focus, select:focus{
+    outline: none;
   }
 `;
 

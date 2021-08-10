@@ -15,7 +15,7 @@ const TodoListEdit = styled.div`
   box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
   padding: 5px;
   box-shadow: 2px 2px 6px rgb(122 119 119 / 58%);
-  background: ${({ theme }) => theme.button};
+  background: ${({ theme }) => theme.secondary};
 `;
 
 const SingleTodoListHeader = styled.div`

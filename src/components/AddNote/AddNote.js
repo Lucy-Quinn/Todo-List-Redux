@@ -7,7 +7,7 @@ import { FormWrapper, AddNoteWrapper, TextArea } from './AddNote.styled';
 import { addNote } from '../../redux/actions/todoItems';
 import Emojis from '../Emojis/Emojis';
 
-const AddNote = ({ currentTodo, theme }) => {
+const AddNote = ({ currentTodo, theme, toggleTheme }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const { id: todoId, note } = currentTodo;
 
@@ -51,6 +51,7 @@ const AddNote = ({ currentTodo, theme }) => {
           setTextAreaValue={setTextAreaValue}
           textAreaRef={textAreaRef}
           theme={theme}
+          toggleTheme={toggleTheme}
         />
       </AddNoteWrapper>
     </FormWrapper>
@@ -60,6 +61,7 @@ const AddNote = ({ currentTodo, theme }) => {
 AddNote.propTypes = {
   currentTodo: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  toggleTheme: PropTypes.bool.isRequired,
 };
 
 export default AddNote;

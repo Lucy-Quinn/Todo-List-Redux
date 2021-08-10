@@ -19,7 +19,7 @@ const CATEGORY_DATA = [
   { id: 9, className: 'far fa-flag', category: 'flags' },
 ];
 
-const Emojis = ({ setTextAreaValue, textAreaRef, theme }) => {
+const Emojis = ({ setTextAreaValue, textAreaRef, theme, toggleTheme }) => {
   const [isActive, setIsActive] = useState(false);
   const [emojisByCategory, setEmojisByCategory] = useState([]);
   const { emojis, error, isLoading } = useSelector(
@@ -60,6 +60,7 @@ const Emojis = ({ setTextAreaValue, textAreaRef, theme }) => {
             emojis={emojis}
             isActive={isActive}
             theme={theme}
+            toggleTheme={toggleTheme}
           />
         </>
       )}
@@ -70,5 +71,6 @@ Emojis.propTypes = {
   setTextAreaValue: PropTypes.func.isRequired,
   textAreaRef: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  toggleTheme: PropTypes.bool.isRequired,
 };
 export default Emojis;

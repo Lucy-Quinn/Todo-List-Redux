@@ -90,6 +90,7 @@ const AddTodoListForm = ({ todoListArr, theme }) => {
     <AddTodoListFormWrapper
       className="form-wrapper"
       onSubmit={handleAddTodoListCategoryForm}
+      theme={theme}
     >
       <TopSection theme={theme}>
         <input

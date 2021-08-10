@@ -19,9 +19,6 @@ const EditFormWrapper = styled.form`
   input {
     width: inherit;
     max-width: 210px;
-    &:focus-visible {
-      outline: none;
-    }
   }
   button {
     width: inherit;

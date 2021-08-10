@@ -10,19 +10,36 @@ const GeneralStaticsWrapper = styled.div`
   }
 `;
 
+const drawBorder = keyframes`
+   from {
+    max-width: 0%;
+  }
+  to {
+    max-width: 100%;
+  }
+
+`;
+
 const StaticsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  .underline {
+    height: 2px;
+    max-width: 0%;
+    background-color: ${({ theme }) => theme.onBackground};
+    animation: ${drawBorder} 2s ease forwards;
+  }
   p {
     font-size: 1.2rem;
+    color: ${({ theme }) => theme.onBackground};
   }
 `;
 
 const ProgressBarContainer = styled.div`
   width: 100px;
   height: 250px;
-  border: 1px solid black;
+  border: 1px solid ${({ theme }) => theme.onBackground};
   display: flex;
   border-radius: 10px;
   align-items: flex-end;
@@ -38,7 +55,7 @@ const progressAnimation = keyframes`
 const ProgressAmount = styled.div`
   width: 100px;
   height: ${({ findPercentage }) => findPercentage()}%;
-  background: #60dac6;
+  background: ${({ theme }) => theme.secondary};
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   animation-name: ${progressAnimation};

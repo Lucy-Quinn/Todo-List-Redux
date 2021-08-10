@@ -28,6 +28,7 @@ const FavoriteTodo = ({ currentTodo, theme }) => {
         <FavoriteIconNotFilled
           className="far fa-star"
           currentTodo={currentTodo}
+          theme={theme}
         />
       )}
     </div>

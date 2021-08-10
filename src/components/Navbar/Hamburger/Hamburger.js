@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { StyledHamburger } from './Hamburger.styled';
 import NavList from '../NavList';
 
-const Hamburger = () => {
+const Hamburger = ({ theme }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
@@ -16,14 +17,16 @@ const Hamburger = () => {
 
   return (
     <>
-      <StyledHamburger isOpen={isOpen} onClick={handleToggle}>
+      <StyledHamburger isOpen={isOpen} onClick={handleToggle} theme={theme}>
         <div />
         <div />
         <div />
       </StyledHamburger>
-      <NavList isOpen={isOpen} closeNavbar={closeNavbar} />
+      <NavList isOpen={isOpen} closeNavbar={closeNavbar} theme={theme} />
     </>
   );
 };
-
+Hamburger.propTypes = {
+  theme: PropTypes.object.isRequired,
+};
 export default Hamburger;

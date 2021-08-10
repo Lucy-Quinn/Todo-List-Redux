@@ -14,4 +14,8 @@ const TodoListWrapper = styled.div`
   }
 `;
 
-export default TodoListWrapper;
+const NoTodos = styled.div`
+  padding: 15px;
+`;
+
+export { TodoListWrapper, NoTodos };

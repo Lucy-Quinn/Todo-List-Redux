@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const DeleteItem = styled.button`
-  color: ${({ theme }) => theme.buttonFont};
+  color: ${({ theme }) => theme.onError};
   order: 4;
   background: transparent;
-  border: 2px solid #f49381;
+  border: 2px solid ${({ theme }) => theme.error};
   border-radius: 10px;
   box-shadow: ${({ theme }) => theme.boxShadow};
   font-size: 1rem;

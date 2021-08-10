@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
 const SelectTodoFormWrapper = styled.form`
+  background: ${({ theme }) => theme.surface};
   align-items: center;
   label {
     width: 100%;
   }
   select {
-    &:focus-visible {
-      outline: none;
-    }
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
     width: 100%;
   }
 `;

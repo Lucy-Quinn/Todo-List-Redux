@@ -7,12 +7,12 @@ const CategoryListWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 14px;
-  padding: 4px;
-  margin-bottom: ${({ isActive }) => (isActive ? '10px' : '0')};
+  padding: 15px;
   padding-top: ${({ isActive }) => (isActive ? '20px' : '0')};
-  border-top: 1px dotted ${({ theme }) => theme.border};
+  border-top: 1px dotted
+    ${({ theme, toggleTheme }) => (toggleTheme ? theme.border : theme.primary)};
   i {
-    color: #3b32b3;
+    color: ${({ theme }) => theme.primary};
   }
 `;
 

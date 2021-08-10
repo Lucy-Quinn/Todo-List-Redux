@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import TodoCard from '../TodoCard';
-import TodoListWrapper from './TodoItems.styled';
+import { TodoListWrapper, NoTodos } from './TodoItems.styled';
 import OrderTodos from '../OrderTodos';
 
 const TodoItems = ({ theme }) => {
@@ -21,6 +21,7 @@ const TodoItems = ({ theme }) => {
                 <TodoCard
                   key={currentFilteredTodo.id}
                   currentTodo={currentFilteredTodo}
+                  theme={theme}
                 />
               ))
             : todos.map((currentTodo) => (
@@ -32,9 +33,9 @@ const TodoItems = ({ theme }) => {
               ))}
         </TodoListWrapper>
       ) : (
-        <div>
-          <h2>Add some todos...</h2>
-        </div>
+        <NoTodos>
+          <h3>You do not have any todos...</h3>
+        </NoTodos>
       )}
     </div>
   );

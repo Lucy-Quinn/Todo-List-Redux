@@ -13,7 +13,7 @@ const TodoListsPage = () => {
     <TodoListsPageWrapper>
       <h2>Your Todo Lists</h2>
       <AddTodoListForm todoListArr={todoListArr} theme={theme} />
-      <TodoLists />
+      <TodoLists theme={theme} toggleTheme={toggleTheme} />
     </TodoListsPageWrapper>
   );
 };

@@ -4,6 +4,7 @@ const EmojiListWrapper = styled.div`
   height: fit-content;
   width: auto;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   background: #fff;
   height: ${({ isActive }) => (isActive ? '300px' : '0')};

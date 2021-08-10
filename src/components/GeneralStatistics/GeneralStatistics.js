@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import {
   GeneralStaticsWrapper,
@@ -9,7 +10,7 @@ import {
   ProgressAmount,
 } from './GeneralStatistics.styled';
 
-const GeneralStatistics = () => {
+const GeneralStatistics = ({ theme }) => {
   const todosArr = useSelector((state) => state.todoItemsReducer.todos);
   const todoListsArr = useSelector((state) => state.todoListsReducer);
   const totalTodoLists = todoListsArr.length;
@@ -30,11 +31,15 @@ const GeneralStatistics = () => {
         </p>
       ) : (
         <GeneralStaticsWrapper>
-          <ProgressBarContainer>
-            <ProgressAmount findPercentage={findPercentage}></ProgressAmount>
+          <ProgressBarContainer theme={theme}>
+            <ProgressAmount
+              findPercentage={findPercentage}
+              theme={theme}
+            ></ProgressAmount>
           </ProgressBarContainer>
-          <StaticsWrapper>
+          <StaticsWrapper theme={theme}>
             <p>{findPercentage()}% overall progress</p>
+            <div className="underline"></div>
             <p>{totalTodos} todos in total</p>
             <p>{completeTodos} completed todos</p>
             <p>
@@ -46,6 +51,10 @@ const GeneralStatistics = () => {
       )}
     </div>
   );
+};
+
+GeneralStatistics.propTypes = {
+  theme: PropTypes.object.isRequired,
 };
 
 export default GeneralStatistics;

@@ -8,8 +8,13 @@ const TodoListCategoryLabel = styled.label`
 
 const TodoListCategorySelect = styled.select`
   background-color: #ffffff;
-  &:focus-visible {
-    outline: none;
+`;
+
+const NoTodoLists = styled.p`
+  padding: 20px 2px;
+  color: ${({ theme }) => theme.onBackground};
+  a {
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 
@@ -17,4 +22,5 @@ export {
   TodoListCategoryOption,
   TodoListCategoryLabel,
   TodoListCategorySelect,
+  NoTodoLists,
 };

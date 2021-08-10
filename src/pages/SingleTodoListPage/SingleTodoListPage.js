@@ -26,7 +26,7 @@ const SingleTodoListPage = ({ match }) => {
   const currentTodoList = todoListArr.find(({ id }) => id === todoListId);
 
   const { title } = currentTodoList;
-  const truncateText = useTruncateText(title, 18, 'header');
+  const truncateText = useTruncateText(title, 14, 'header');
 
   const handleEditItem = () => {
     setIsEdit(true);
@@ -53,8 +53,12 @@ const SingleTodoListPage = ({ match }) => {
         </SingleTodoListHeader>
       )}
       <AddTodoForm currentTodoList={currentTodoList} theme={theme} />
-      <SelectTodoForm currentTodoList={currentTodoList} />
-      <TodoListItems currentTodoList={currentTodoList} />
+      <SelectTodoForm currentTodoList={currentTodoList} theme={theme} />
+      <TodoListItems
+        currentTodoList={currentTodoList}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
       <DeleteButton currentItem={currentTodoList} theme={theme} />
     </SingleTodoListPageWrapper>
   );

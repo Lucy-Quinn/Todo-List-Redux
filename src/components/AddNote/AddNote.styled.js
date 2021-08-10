@@ -22,7 +22,7 @@ const FormWrapper = styled.div`
 const AddNoteWrapper = styled.form`
   flex-direction: column;
   .cta-button {
-    color: ${({ theme }) => theme.buttonFont};
+    color: ${({ theme }) => theme.onSecondary};
     padding: 12px;
     margin-right: 10px;
     width: 75%;

@@ -8,7 +8,12 @@ import {
   IndividualProgressAmount,
 } from './TodoListStatistics.styled';
 
-const TodoListStatistics = ({ completeTodos, foundTodos, currentTodoList }) => {
+const TodoListStatistics = ({
+  completeTodos,
+  foundTodos,
+  currentTodoList,
+  theme,
+}) => {
   const totalTodos = foundTodos.length;
   const findPercentage = () => Math.round((completeTodos / totalTodos) * 100);
 
@@ -22,6 +27,7 @@ const TodoListStatistics = ({ completeTodos, foundTodos, currentTodoList }) => {
       <IndividualProgressBarContainer>
         <IndividualProgressAmount
           findPercentage={findPercentage}
+          theme={theme}
         ></IndividualProgressAmount>
       </IndividualProgressBarContainer>
       {findPercentage() === 100 && <p>Amazing work!</p>}
@@ -40,6 +46,7 @@ TodoListStatistics.propTypes = {
   completeTodos: PropTypes.number.isRequired,
   foundTodos: PropTypes.array.isRequired,
   currentTodoList: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default TodoListStatistics;
