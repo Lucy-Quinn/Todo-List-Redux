@@ -2,8 +2,17 @@ import styled from 'styled-components';
 
 const TodoListCategoryOption = styled.option``;
 
+const AddTodoListCategoryWrapper = styled.form`
+  background: ${({ theme }) => theme.surface};
+`;
+
 const TodoListCategoryLabel = styled.label`
   width: 100%;
+  .form-input {
+    @media (min-width: 1024px) {
+      font-size: 1.4rem;
+    }
+  }
 `;
 
 const TodoListCategorySelect = styled.select`
@@ -20,6 +29,7 @@ const NoTodoLists = styled.p`
 `;
 
 export {
+  AddTodoListCategoryWrapper,
   TodoListCategoryOption,
   TodoListCategoryLabel,
   TodoListCategorySelect,

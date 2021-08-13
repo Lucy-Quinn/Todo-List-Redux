@@ -33,12 +33,21 @@ const TextArea = styled.textarea`
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
-  font-size: 0.9rem;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.2rem;
   border-bottom: 2px dotted ${({ theme }) => theme.border};
-  font-family: 'Roboto', sans-serif;
+  max-height: 250px;
+  height: fit-content;
   &::placeholder {
     color: ${({ currentTodo }) =>
       currentTodo !== undefined && currentTodo.note && '#222223'};
+    font-family: 'Indie Flower', cursive;
+  }
+  @media (min-width: 768px) {
+    font-size: 1.4rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
   }
 `;
 

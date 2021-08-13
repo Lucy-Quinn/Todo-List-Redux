@@ -75,6 +75,12 @@ const TodoComplete = styled.div`
   @media (min-width: 768px) {
     order: 0;
     margin-bottom: ${({ isEdit }) => (isEdit ? '50px' : '0px')};
+    width: 35px;
+    height: 35px;
+  }
+  @media (min-width: 1024px) {
+    width: 50px;
+    height: 50px;
   }
 `;
 
@@ -83,25 +89,21 @@ const IconsWrapper = styled.div`
   justify-content: space-around;
   gap: 5px;
   align-items: flex-start;
-  margin-bottom: 10px;
-  .icons {
-    color: ${({ theme }) => theme.secondary};
-    margin-right: 10px;
-  }
+  margin: 0 10px 10px;
 `;
 
 const FavoriteIcon = styled.i`
-  font-size: 1.8rem;
+  /* font-size: 1.8rem;
   @media (min-width: 768px) {
     font-size: 2.4rem;
-  }
+  } */
 `;
 
 const NoteIcon = styled.i`
-  font-size: 1.9rem;
+  /* font-size: 1.9rem;
   @media (min-width: 768px) {
     font-size: 2.6rem;
-  }
+  } */
 `;
 
 const TextWrapper = styled.div`

@@ -7,8 +7,9 @@ import { TodoListWrapper, TodoListCenter } from './HomePage.styled';
 import SearchBar from '../../components/SearchBar';
 
 const HomePage = () => {
-  const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
-  const theme = toggleTheme ? themes.light : themes.dark;
+  const { isLightTheme, themes } = useSelector((state) => state.themeReducer);
+  const theme = isLightTheme ? themes.light : themes.dark;
+
   return (
     <TodoListWrapper>
       <TodoListCenter>

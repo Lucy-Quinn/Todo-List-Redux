@@ -11,7 +11,7 @@ const ButtonsAndEmojis = ({
   theme,
   setTextAreaValue,
   textAreaRef,
-  toggleTheme,
+  isLightTheme,
   currentTodo,
 }) => {
   const [isActive, setIsActive] = useState(false);
@@ -29,9 +29,9 @@ const ButtonsAndEmojis = ({
   if (error) 'Error!';
 
   return (
-    <ButtonWrapper>
-      <NoteAndEmojiButton>
-        <button className="cta-button" theme={theme}>
+    <ButtonWrapper theme={theme}>
+      <NoteAndEmojiButton isActive={isActive}>
+        <button className="cta-button">
           {currentTodo.note ? `Update note` : `Add note`}
         </button>
         <EmojiButton
@@ -46,7 +46,7 @@ const ButtonsAndEmojis = ({
         setTextAreaValue={setTextAreaValue}
         textAreaRef={textAreaRef}
         theme={theme}
-        toggleTheme={toggleTheme}
+        isLightTheme={isLightTheme}
         isActive={isActive}
         emojisByCategory={emojisByCategory}
         setEmojisByCategory={setEmojisByCategory}
@@ -59,7 +59,7 @@ ButtonsAndEmojis.propTypes = {
   currentTodo: PropTypes.object.isRequired,
   setTextAreaValue: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
-  toggleTheme: PropTypes.object.isRequired,
+  isLightTheme: PropTypes.bool.isRequired,
   textAreaRef: PropTypes.object.isRequired,
 };
 export default ButtonsAndEmojis;

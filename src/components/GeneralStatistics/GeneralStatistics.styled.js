@@ -5,6 +5,7 @@ const GeneralStaticsWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
+  margin-bottom: 20px;
   @media (min-width: 768px) {
     gap: 50px;
   }
@@ -17,7 +18,6 @@ const drawBorder = keyframes`
   to {
     max-width: 100%;
   }
-
 `;
 
 const StaticsWrapper = styled.div`
@@ -33,6 +33,12 @@ const StaticsWrapper = styled.div`
   p {
     font-size: 1.2rem;
     color: ${({ theme }) => theme.onBackground};
+    @media (min-width: 768px) {
+      font-size: 1.3rem;
+    }
+    @media (min-width: 1024px) {
+      font-size: 2rem;
+    }
   }
 `;
 
@@ -43,6 +49,10 @@ const ProgressBarContainer = styled.div`
   display: flex;
   border-radius: 10px;
   align-items: flex-end;
+  @media (min-width: 1024px) {
+    width: 160px;
+    height: 350px;
+  }
 `;
 
 const progressAnimation = keyframes`
@@ -60,6 +70,10 @@ const ProgressAmount = styled.div`
   border-bottom-right-radius: 10px;
   animation-name: ${progressAnimation};
   animation-duration: 4s;
+  border-radius: 10px;
+  @media (min-width: 1024px) {
+    width: 160px;
+  }
 `;
 
 const NoGeneralStatics = styled.div`

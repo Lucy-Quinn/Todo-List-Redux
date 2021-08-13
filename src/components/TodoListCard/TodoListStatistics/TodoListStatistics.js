@@ -18,7 +18,7 @@ const TodoListStatistics = ({
   const findPercentage = () => Math.round((completeTodos / totalTodos) * 100);
 
   return (
-    <TodoListStatisticsWrapper>
+    <TodoListStatisticsWrapper theme={theme}>
       {completeTodos === 0 ? (
         <p>0% complete</p>
       ) : (

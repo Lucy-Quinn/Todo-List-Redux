@@ -8,28 +8,45 @@ const TodoListWrapper = styled.div`
   padding: 15px;
   margin: 10px auto 10px auto;
   box-shadow: ${({ theme }) => theme.boxShadow};
-  background: ${({ theme, toggleTheme }) =>
-    toggleTheme ? theme.background : theme.primary};
+  background: ${({ theme, isLightTheme }) =>
+    isLightTheme ? theme.background : theme.primary};
   border-radius: 10px;
   border: 2px solid ${({ color }) => (color ? color : null)};
   p {
     width: 100%;
-    color: ${({ theme, toggleTheme }) =>
-      toggleTheme ? theme.onBackground : theme.onPrimary};
-
+    color: ${({ theme, isLightTheme }) =>
+      isLightTheme ? theme.onBackground : theme.onPrimary};
     font-size: 1.2rem;
     padding: 10px 5px;
+    &:first-child {
+      @media (min-width: 1024px) {
+        font-size: 2rem;
+      }
+    }
+    &:last-child {
+      align-self: flex-end;
+      @media (min-width: 768px) {
+        align-self: ${({ pathname }) =>
+          pathname === '/statistics' && 'flex-start'};
+        text-align: ${({ pathname }) => pathname === '/todoLists' && 'right'};
+      }
+      @media (min-width: 1024px) {
+        font-size: 1.5rem;
+      }
+    }
   }
   @media (min-width: 768px) {
-    width: 70%;
+    width: 60%;
     gap: 20px;
     padding: 20px;
   }
 `;
 
 const TextWrapper = styled.div`
-  display: ${({ pathname }) => (pathname === '/todoLists' ? 'flex' : 'block')};
+  display: flex;
   width: ${({ pathname }) => (pathname === '/todoLists' ? '100%' : '48%')};
+  flex-direction: ${({ pathname }) =>
+    pathname === '/todoLists' ? 'row' : 'column'};
   .hover-text {
     visibility: hidden;
     width: fit-content;
@@ -41,16 +58,9 @@ const TextWrapper = styled.div`
     position: absolute;
     z-index: 1;
   }
-
   &:hover .hover-text {
     visibility: visible;
   }
 `;
 
-const ItemsNumber = styled.p`
-  @media (min-width: 768px) {
-    text-align: right;
-  }
-`;
-
-export { TodoListWrapper, ItemsNumber, TextWrapper };
+export { TodoListWrapper, TextWrapper };

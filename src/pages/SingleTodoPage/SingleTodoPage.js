@@ -18,8 +18,8 @@ import { useTruncateText, useWindowSize } from '../../hooks';
 
 const SingleTodoPage = ({ match }) => {
   const [isEdit, setIsEdit] = useState(false);
-  const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
-  const theme = toggleTheme ? themes.light : themes.dark;
+  const { isLightTheme, themes } = useSelector((state) => state.themeReducer);
+  const theme = isLightTheme ? themes.light : themes.dark;
 
   const { todoId } = match.params;
   const currentTodo = useSelector((state) =>
@@ -52,7 +52,10 @@ const SingleTodoPage = ({ match }) => {
               )}
             </TextWrapper>
             <TodoEdit theme={theme}>
-              <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
+              <i
+                className="fas fa-pencil-alt edit-icon"
+                onClick={handleEditItem}
+              ></i>
             </TodoEdit>
           </>
         )}
@@ -62,7 +65,7 @@ const SingleTodoPage = ({ match }) => {
       <AddNote
         currentTodo={currentTodo}
         theme={theme}
-        toggleTheme={toggleTheme}
+        isLightTheme={isLightTheme}
       />
       <DeleteButton currentItem={currentTodo} theme={theme} />
     </SingleTodoPageWrapper>

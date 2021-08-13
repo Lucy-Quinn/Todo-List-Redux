@@ -12,13 +12,13 @@ import Navbar from './components/Navbar';
 import StatisticsPage from './pages/StatisticsPage/StatisticsPage';
 
 function App() {
-  const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
-  const theme = toggleTheme ? themes.light : themes.dark;
+  const { isLightTheme, themes } = useSelector((state) => state.themeReducer);
+  const theme = isLightTheme ? themes.light : themes.dark;
 
   return (
     <Router>
       <div>
-        <GlobalStyle theme={theme} toggleTheme={toggleTheme} />
+        <GlobalStyle theme={theme} isLightTheme={isLightTheme} />
         <Navbar theme={theme} />
         <Switch>
           <Route exact path="/" component={HomePage} />

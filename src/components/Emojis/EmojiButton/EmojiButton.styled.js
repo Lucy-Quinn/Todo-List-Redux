@@ -11,6 +11,9 @@ const Button = styled.button`
   box-shadow: ${({ theme }) => theme.boxShadow};
   span {
     font-size: 1rem;
+    @media (min-width: 1024px) {
+      font-size: 1.6rem;
+    }
   }
 `;
 

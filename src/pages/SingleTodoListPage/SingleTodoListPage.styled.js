@@ -7,7 +7,6 @@ const SingleTodoListPageWrapper = styled.div`
 `;
 
 const TodoListEdit = styled.div`
-  font-size: 1.6rem;
   color: ${({ theme }) => theme.onSecondary};
   border-radius: 10px;
   flex-basis: auto;

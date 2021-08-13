@@ -1,14 +1,10 @@
 import styled from 'styled-components';
 
 const ButtonWrapper = styled.div`
-  margin-bottom: 10px;
+  margin-top: 20px;
   .cta-button {
-    color: ${({ theme }) => theme.onSecondary};
-    padding: 12px;
-    width: 75%;
     @media (min-width: 768px) {
       width: 50%;
-      margin: 0;
     }
     @media (min-width: 1024px) {
       width: 30%;
@@ -21,7 +17,7 @@ const NoteAndEmojiButton = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: ${({ isActive }) => (isActive ? '30px' : '20px')};
 `;
 
 export { ButtonWrapper, NoteAndEmojiButton };

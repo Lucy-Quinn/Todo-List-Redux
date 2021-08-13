@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import TodoListCard from '../TodoListCard';
 import { StatisticsCardWrapper } from './TodoListStatisticsCards.styled';
 
-const TodoListStatisticsCard = ({ theme, toggleTheme }) => {
+const TodoListStatisticsCard = ({ theme, isLightTheme }) => {
   const todoListArr = useSelector((state) => state.todoListsReducer);
 
   return (
@@ -16,7 +16,7 @@ const TodoListStatisticsCard = ({ theme, toggleTheme }) => {
           <TodoListCard
             currentTodoList={todoList}
             theme={theme}
-            toggleTheme={toggleTheme}
+            isLightTheme={isLightTheme}
           />
         </Link>
       ))}
@@ -26,7 +26,7 @@ const TodoListStatisticsCard = ({ theme, toggleTheme }) => {
 
 TodoListStatisticsCard.propTypes = {
   theme: PropTypes.object.isRequired,
-  toggleTheme: PropTypes.object.isRequired,
+  isLightTheme: PropTypes.bool.isRequired,
 };
 
 export default TodoListStatisticsCard;

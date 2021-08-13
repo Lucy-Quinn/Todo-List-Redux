@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { addTodoListCategory } from '../../redux/actions/todoItems';
-import { SelectTodoFormWrapper, Select } from './SelectTodoForm.styled';
+import { SelectTodoFormWrapper } from './SelectTodoForm.styled';
 
 const SelectTodoForm = ({ currentTodoList, theme }) => {
   const [todoValue, setTodoValue] = useState('');
@@ -34,7 +34,7 @@ const SelectTodoForm = ({ currentTodoList, theme }) => {
       theme={theme}
     >
       <label>
-        <Select
+        <select
           className="form-input"
           defaultValue={todoValue}
           onChange={handleOptionChange}
@@ -50,7 +50,7 @@ const SelectTodoForm = ({ currentTodoList, theme }) => {
               {todo.text}
             </option>
           ))}
-        </Select>
+        </select>
       </label>
       <button className="cta-button-add" type="submit">
         +

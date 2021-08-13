@@ -15,8 +15,6 @@ const INITIALSTATE = {
       onError: 'black',
       boxShadow: '2px 2px 6px rgb(122 119 119 / 58%)',
       border: '#3b32b3',
-      // buttonFont: 'black',
-      // genericFont: 'black',
     },
     dark: {
       primary: '#292929',
@@ -31,11 +29,9 @@ const INITIALSTATE = {
       onError: '#fff',
       boxShadow: 'none',
       border: '#fff',
-      // buttonFont: '#fff',
-      // genericFont: '#fff',
     },
   },
-  toggleTheme: { toggleTheme: false },
+  isLightTheme: true,
 };
 
 export default function themeReducer(state = INITIALSTATE, action) {
@@ -43,7 +39,7 @@ export default function themeReducer(state = INITIALSTATE, action) {
     case TOGGLE_THEME_BUTTON:
       return {
         ...state,
-        toggleTheme: !state.toggleTheme,
+        isLightTheme: !state.isLightTheme,
       };
     default:
       return state;

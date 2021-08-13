@@ -41,8 +41,17 @@ const GeneralStatistics = ({ theme }) => {
           <StaticsWrapper theme={theme}>
             <p>{findPercentage()}% overall progress</p>
             <div className="underline"></div>
-            <p>{totalTodos} todos in total</p>
-            <p>{completeTodos} completed todos</p>
+            {totalTodos.length > 1 ? (
+              <>
+                <p>{totalTodos} todo in total</p>
+                <p>{completeTodos} completed todo</p>
+              </>
+            ) : (
+              <>
+                <p>{totalTodos} todos in total</p>
+                <p>{completeTodos} completed todos</p>
+              </>
+            )}
             <p>
               {remainingTodo} remaining {remainingTodo > 1 ? 'todos' : 'todo'}
               ...

@@ -16,11 +16,11 @@ const SingleTodoHeader = styled.div`
     min-height: 100px;
     margin: 0;
     width: inherit;
+    align-items: center;
   }
 `;
 
 const TodoEdit = styled.div`
-  font-size: 1.6rem;
   color: ${({ theme }) => theme.onSecondary};
   border-radius: 10px;
   flex-basis: auto;
@@ -48,9 +48,6 @@ const TextWrapper = styled.div`
   }
   h2 {
     color: ${({ theme }) => theme.onBackground};
-    @media (min-width: 768px) {
-      font-size: 2.8rem;
-    }
   }
 `;
 

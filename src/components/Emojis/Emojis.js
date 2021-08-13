@@ -12,7 +12,7 @@ const Emojis = ({
   emojisByCategory,
   setEmojisByCategory,
   theme,
-  toggleTheme,
+  isLightTheme,
   isActive,
 }) => {
   const { emojis, error, isLoading } = useSelector(
@@ -43,7 +43,7 @@ const Emojis = ({
             emojis={emojis}
             isActive={isActive}
             theme={theme}
-            toggleTheme={toggleTheme}
+            isLightTheme={isLightTheme}
           />
         </>
       )}
@@ -54,7 +54,7 @@ Emojis.propTypes = {
   setTextAreaValue: PropTypes.func.isRequired,
   textAreaRef: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  toggleTheme: PropTypes.object.isRequired,
+  isLightTheme: PropTypes.bool.isRequired,
   emojisByCategory: PropTypes.array.isRequired,
   setEmojisByCategory: PropTypes.func.isRequired,
   isActive: PropTypes.bool.isRequired,

@@ -10,6 +10,7 @@ import {
   TodoListCategoryLabel,
   TodoListCategorySelect,
   NoTodoLists,
+  AddTodoListCategoryWrapper,
 } from './AddTodoListCategory.styled';
 
 const AddTodoListCategory = ({ currentTodo, theme }) => {
@@ -35,7 +36,11 @@ const AddTodoListCategory = ({ currentTodo, theme }) => {
   };
 
   return todoListsTitlesArr.length > 0 ? (
-    <form onSubmit={handleTodoListCategoryForm} className="form-wrapper">
+    <AddTodoListCategoryWrapper
+      onSubmit={handleTodoListCategoryForm}
+      className="form-wrapper"
+      theme={theme}
+    >
       <TodoListCategoryLabel>
         <TodoListCategorySelect
           className="form-input"
@@ -55,7 +60,7 @@ const AddTodoListCategory = ({ currentTodo, theme }) => {
       <button className="cta-button-add" type="submit">
         +
       </button>
-    </form>
+    </AddTodoListCategoryWrapper>
   ) : (
     <NoTodoLists theme={theme}>
       You have no todos lists! Create one

@@ -7,11 +7,13 @@ const SelectTodoFormWrapper = styled.form`
     width: 100%;
   }
   select {
-    /* font-size: 1.2rem; */
     width: 100%;
+  }
+  .form-input {
+    @media (min-width: 1024px) {
+      font-size: 1.4rem;
+    }
   }
 `;
 
-const Select = styled.select``;
-
-export { SelectTodoFormWrapper, Select };
+export { SelectTodoFormWrapper };

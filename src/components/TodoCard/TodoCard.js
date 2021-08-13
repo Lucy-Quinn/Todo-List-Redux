@@ -47,13 +47,13 @@ const TodoCard = ({ currentTodo, theme }) => {
           <IconsWrapper theme={theme}>
             {isFavorite ? (
               <FavoriteIcon
-                className="fas fa-star icons"
+                className="fas fa-star icons favorite-icon"
                 currentTodo={currentTodo}
               />
             ) : null}
             {note.length ? (
               <NoteIcon
-                className="fas fa-sticky-note icons"
+                className="fas fa-sticky-note note-icon"
                 currentTodo={currentTodo}
               />
             ) : null}

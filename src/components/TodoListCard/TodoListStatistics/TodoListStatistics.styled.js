@@ -8,8 +8,11 @@ const TodoListStatisticsWrapper = styled.div`
     text-align: center;
   }
   a {
-    color: black;
+    color: ${({ theme }) => theme.secondary};
     font-size: 1.2rem;
+    @media (min-width: 1024px) {
+      font-size: 1.5rem;
+    }
   }
 `;
 

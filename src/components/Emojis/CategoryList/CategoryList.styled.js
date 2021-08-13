@@ -10,7 +10,8 @@ const CategoryListWrapper = styled.div`
   padding: 15px;
   padding-top: ${({ isActive }) => (isActive ? '20px' : '0')};
   border-top: 1px dotted
-    ${({ theme, toggleTheme }) => (toggleTheme ? theme.border : theme.primary)};
+    ${({ theme, isLightTheme }) =>
+      isLightTheme ? theme.border : theme.primary};
   i {
     color: ${({ theme }) => theme.secondary};
   }

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {
+  FavoriteTodoWrapper,
   FavoriteIconFilled,
   FavoriteIconNotFilled,
 } from './FavoriteTodo.styled';
@@ -17,21 +18,21 @@ const FavoriteTodo = ({ currentTodo, theme }) => {
   };
 
   return (
-    <div onClick={handleFavoriteItem}>
+    <FavoriteTodoWrapper onClick={handleFavoriteItem}>
       {currentTodo !== undefined && currentTodo.isFavorite ? (
         <FavoriteIconFilled
-          className="fas fa-star"
+          className="fas fa-star favorite-icon"
           currentTodo={currentTodo}
           theme={theme}
         />
       ) : (
         <FavoriteIconNotFilled
-          className="far fa-star"
+          className="far fa-star favorite-icon"
           currentTodo={currentTodo}
           theme={theme}
         />
       )}
-    </div>
+    </FavoriteTodoWrapper>
   );
 };
 

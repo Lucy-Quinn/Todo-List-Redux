@@ -9,7 +9,7 @@ const CategoryList = ({
   emojis,
   isActive,
   theme,
-  toggleTheme,
+  isLightTheme,
 }) => {
   const handleCategory = (event) => {
     const filteredEmojis = emojis.filter((emojiObj) => {
@@ -23,7 +23,7 @@ const CategoryList = ({
       <CategoryListWrapper
         isActive={isActive}
         theme={theme}
-        toggleTheme={toggleTheme}
+        isLightTheme={isLightTheme}
       >
         {CATEGORY_DATA.map((category) => {
           return (
@@ -43,6 +43,6 @@ CategoryList.propTypes = {
   emojis: PropTypes.array.isRequired,
   isActive: PropTypes.bool.isRequired,
   theme: PropTypes.object.isRequired,
-  toggleTheme: PropTypes.object.isRequired,
+  isLightTheme: PropTypes.bool.isRequired,
 };
 export default CategoryList;

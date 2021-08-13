@@ -8,8 +8,8 @@ import {
 import { toggleThemeButton } from '../../redux/actions/theme';
 
 const ToggleThemeButton = () => {
-  const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
-  const theme = toggleTheme ? themes.light : themes.dark;
+  const { isLightTheme, themes } = useSelector((state) => state.themeReducer);
+  const theme = isLightTheme ? themes.light : themes.dark;
 
   const dispatch = useDispatch();
 
@@ -20,10 +20,10 @@ const ToggleThemeButton = () => {
   return (
     <ToggleButtonWrapper>
       <ToggleButtonIcon onClick={handleThemeToggle} theme={theme}>
-        {toggleTheme ? (
-          <i className="far fa-sun"></i>
+        {isLightTheme ? (
+          <i className="far fa-sun light-dark-icon"></i>
         ) : (
-          <i className="far fa-moon"></i>
+          <i className="far fa-moon light-dark-icon"></i>
         )}
       </ToggleButtonIcon>
     </ToggleButtonWrapper>

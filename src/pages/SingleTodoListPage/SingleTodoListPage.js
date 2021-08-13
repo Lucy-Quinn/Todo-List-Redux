@@ -17,8 +17,8 @@ import { useTruncateText, useWindowSize } from '../../hooks';
 
 const SingleTodoListPage = ({ match }) => {
   const [isEdit, setIsEdit] = useState(false);
-  const { toggleTheme, themes } = useSelector((state) => state.themeReducer);
-  const theme = toggleTheme ? themes.light : themes.dark;
+  const { isLightTheme, themes } = useSelector((state) => state.themeReducer);
+  const theme = isLightTheme ? themes.light : themes.dark;
   const todoListArr = useSelector((state) => state.todoListsReducer);
   const { width } = useWindowSize();
 
@@ -48,7 +48,10 @@ const SingleTodoListPage = ({ match }) => {
             {width >= 768 ? null : <span className="hover-text">{title}</span>}
           </TextWrapper>
           <TodoListEdit theme={theme}>
-            <i className="fas fa-pencil-alt" onClick={handleEditItem}></i>
+            <i
+              className="fas fa-pencil-alt edit-icon"
+              onClick={handleEditItem}
+            ></i>
           </TodoListEdit>
         </SingleTodoListHeader>
       )}
@@ -57,7 +60,7 @@ const SingleTodoListPage = ({ match }) => {
       <TodoListItems
         currentTodoList={currentTodoList}
         theme={theme}
-        toggleTheme={toggleTheme}
+        isLightTheme={isLightTheme}
       />
       <DeleteButton currentItem={currentTodoList} theme={theme} />
     </SingleTodoListPageWrapper>

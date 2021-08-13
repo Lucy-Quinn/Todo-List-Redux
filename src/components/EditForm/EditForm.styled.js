@@ -21,13 +21,19 @@ const EditFormWrapper = styled.form`
   input {
     width: inherit;
     max-width: 210px;
+    font-family: 'Indie Flower', cursive;
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+    }
+    @media (min-width: 1024px) {
+      font-size: 3.2rem;
+    }
   }
   @media (min-width: 768px) {
     flex-direction: row;
     padding: 10px 0px;
     align-items: center;
     input {
-      font-size: 2.8rem;
       max-width: 400px;
     }
   }

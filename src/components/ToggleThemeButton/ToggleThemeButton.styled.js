@@ -16,6 +16,9 @@ const ToggleButtonIcon = styled.button`
     font-size: 1.2rem;
     padding: 10px;
   }
+  @media (min-width: 1024px) {
+    font-size: 1.8rem;
+  }
 `;
 
 export { ToggleButtonIcon, ToggleButtonWrapper };

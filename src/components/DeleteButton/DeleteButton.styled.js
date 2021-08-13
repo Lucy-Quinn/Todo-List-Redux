@@ -16,8 +16,11 @@ const DeleteItem = styled.button`
   padding: 10px;
   margin-top: 30px;
   @media (min-width: 768px) {
-    width: 30%;
     padding: 15px;
+    width: 25%;
+  }
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
   }
 `;
 

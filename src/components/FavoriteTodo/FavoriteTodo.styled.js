@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
+const FavoriteTodoWrapper = styled.div``;
+
 const FavoriteIconFilled = styled.i`
-  font-size: 2rem;
-  color: ${({ theme }) => theme.secondary};
+  /* color: ${({ theme }) => theme.secondary}; */
 `;
 
 const FavoriteIconNotFilled = styled.i`
-  color: ${({ theme }) => theme.onBackground};
-  font-size: 2rem;
+  /* color: ${({ theme }) => theme.onBackground}; */
 `;
 
-export { FavoriteIconFilled, FavoriteIconNotFilled };
+export { FavoriteTodoWrapper, FavoriteIconFilled, FavoriteIconNotFilled };

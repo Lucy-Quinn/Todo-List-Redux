@@ -43,13 +43,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2{
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     margin: 0;
     font-family: 'Indie Flower', cursive;
     color: ${({ theme }) => theme.onBackground};
     text-align: center;
     @media(min-width: 768px){
-        font-size: 2.2rem;
+        font-size: 2.5rem;
+    }
+    @media(min-width: 1024px){
+      font-size: 3.2rem;
     }
   }
 
@@ -61,6 +64,9 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     @media(min-width: 768px){
         font-size: 2rem;
+    }
+    @media(min-width: 1024px){
+        font-size: 2.2rem;
     }
   }
 
@@ -79,24 +85,6 @@ const GlobalStyle = createGlobalStyle`
     color: gray;
   }
 
-  .cta-button{
-    background: ${({ theme }) => theme.secondary};
-    color: ${({ theme }) => theme.onSecondary};
-    border: none;
-    border-radius: 10px;
-    box-shadow: ${({ theme }) => theme.boxShadow};
-    font-size: 1rem;
-    font-weight: 500;
-    width: 80%;
-    display: block;
-    margin: 0 auto 0 auto;
-    padding: 10px;
-    @media(min-width: 768px){
-        width: 30%;
-        padding: 10px 0;
-    }
-  }
-
   .form-wrapper{
     display: flex;
     gap: 10px;
@@ -106,7 +94,6 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: 15px;
     align-items: baseline;
     @media(min-width: 768px){
-        flex-direction: row;
         justify-content: center;
         padding: 20px;
         width: 60%;
@@ -125,6 +112,26 @@ const GlobalStyle = createGlobalStyle`
     @media(min-width: 1024px){
       font-size: 1.8rem;
     }
+
+  }
+
+  .cta-button{
+    background: ${({ theme }) => theme.secondary};
+    color: ${({ theme }) => theme.onSecondary};
+    border: none;
+    border-radius: 10px;
+    box-shadow: ${({ theme }) => theme.boxShadow};
+    font-size: 1rem;
+    font-weight: 500;
+    width: 80%;
+    display: block;
+    padding: 12px;
+    @media(min-width: 768px){
+        width: 50%;
+    }
+    @media(min-width: 1024px){
+        font-size: 1.5rem;
+    }
   }
 
   .cta-button-add{
@@ -138,20 +145,59 @@ const GlobalStyle = createGlobalStyle`
     width: 50px;
     height: 45px;
     display: block;
+    @media (min-width: 1024px) {
+      font-size: 2.5rem;
+      height: 65px;
+      width: 65px;
+    }
   }
+
   .form-select{
     border-radius: 10px;
     padding: 5px;
     border: none;
     font-size: 1rem;
     box-shadow: ${({ theme }) => theme.boxShadow};
+    @media(min-width: 1024px){
+      font-size: 1.2rem;
+    }
   }
 
   *:focus{
     outline: none;
   }
 
-  
+  .favorite-icon, .note-icon{
+    color: ${({ theme }) => theme.secondary};
+  }
+
+  .favorite-icon{
+    font-size: 2rem;
+    @media (min-width: 768px) {
+      font-size: 2.4rem;
+    }
+    @media (min-width: 1024px) {
+      font-size: 3rem;
+    }
+  }
+  .note-icon {
+    font-size: 2rem;
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+    }
+    @media (min-width: 1024px) {
+      font-size: 3.1rem;
+    }
+  }
+  .edit-icon{
+    font-size: 2rem;
+    @media (min-width: 768px) {
+      font-size: 2.1rem;
+    }
+    @media (min-width: 1024px) {
+      font-size: 2.5rem;
+    }
+  }
 `;
 
 export default GlobalStyle;
