@@ -15,6 +15,10 @@ const DeleteItem = styled.button`
   margin: 0 auto 0 auto;
   padding: 10px;
   margin-top: 30px;
+  @media (min-width: 768px) {
+    width: 30%;
+    padding: 15px;
+  }
 `;
 
 export { DeleteItem };

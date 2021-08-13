@@ -8,15 +8,10 @@ const Button = styled.button`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   padding: 8px 15px;
-  display: inline-block;
-  margin-bottom: ${({ isActive }) => (isActive ? '15px' : '0')};
+  box-shadow: ${({ theme }) => theme.boxShadow};
   span {
     font-size: 1rem;
   }
 `;
 
-const ButtonWrapper = styled.div`
-  display: inline-block;
-`;
-
-export { Button, ButtonWrapper };
+export { Button };

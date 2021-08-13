@@ -11,17 +11,25 @@ const EditFormWrapper = styled.form`
   padding: 0px 0px 20px;
   display: -webkit-inline-box;
   align-items: baseline;
-  @media (min-width: 768px) {
-    flex-direction: row;
-    padding: 10px 0px;
+  button {
+    width: inherit;
+    margin: 0;
+    @media (min-width: 768px) {
+      width: 100px;
+    }
   }
   input {
     width: inherit;
     max-width: 210px;
   }
-  button {
-    width: inherit;
-    margin: 0;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 10px 0px;
+    align-items: center;
+    input {
+      font-size: 2.8rem;
+      max-width: 400px;
+    }
   }
 `;
 

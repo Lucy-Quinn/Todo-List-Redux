@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ButtonWrapper, Button } from './EmojiButton.styled';
+import { Button } from './EmojiButton.styled';
+import CATEGORY_DATA from '../../AddNote/ButtonsAndEmojis/CATEGORY_DATA';
 
 const EmojiButton = ({
   isActive,
   setIsActive,
-  CATEGORY_DATA,
   setEmojisByCategory,
   theme,
   emojis,
@@ -20,7 +20,7 @@ const EmojiButton = ({
   };
 
   return (
-    <ButtonWrapper>
+    <>
       <Button
         onClick={handleOnclickButton}
         type="button"
@@ -29,12 +29,11 @@ const EmojiButton = ({
       >
         {<span>{emojis[0]?.character}</span>}
       </Button>
-    </ButtonWrapper>
+    </>
   );
 };
 
 EmojiButton.propTypes = {
-  CATEGORY_DATA: PropTypes.array.isRequired,
   isActive: PropTypes.bool.isRequired,
   setIsActive: PropTypes.func.isRequired,
   emojis: PropTypes.array.isRequired,

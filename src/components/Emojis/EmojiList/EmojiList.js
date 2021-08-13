@@ -1,4 +1,4 @@
-import React, { useState, useRef, createRef } from 'react';
+import React, { useRef, createRef } from 'react';
 import { EmojiListWrapper } from './EmojiList.styled';
 import PropTypes from 'prop-types';
 

@@ -12,7 +12,7 @@ const TodoItems = ({ theme }) => {
   );
 
   return (
-    <div>
+    <>
       {todos.length >= 1 ? (
         <TodoListWrapper theme={theme}>
           <OrderTodos />
@@ -37,7 +37,7 @@ const TodoItems = ({ theme }) => {
           <h3>You do not have any todos...</h3>
         </NoTodos>
       )}
-    </div>
+    </>
   );
 };
 TodoItems.propTypes = {

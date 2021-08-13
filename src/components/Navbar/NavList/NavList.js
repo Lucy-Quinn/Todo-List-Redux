@@ -11,10 +11,18 @@ const NavList = ({ isOpen, closeNavbar, theme }) => {
   return (
     <NavListWrapper>
       <NavMenu isOpen={isOpen} theme={theme}>
-        <NavLink to="/todoLists" onClick={handleCloseNavbarToggle}>
+        <NavLink
+          to="/todoLists"
+          onClick={handleCloseNavbarToggle}
+          theme={theme}
+        >
           Todo Lists
         </NavLink>
-        <NavLink to="/statistics" onClick={handleCloseNavbarToggle}>
+        <NavLink
+          to="/statistics"
+          onClick={handleCloseNavbarToggle}
+          theme={theme}
+        >
           Statistics
         </NavLink>
       </NavMenu>

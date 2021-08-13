@@ -26,7 +26,7 @@ const TodoListStatisticsCard = ({ theme, toggleTheme }) => {
 
 TodoListStatisticsCard.propTypes = {
   theme: PropTypes.object.isRequired,
-  toggleTheme: PropTypes.bool.isRequired,
+  toggleTheme: PropTypes.object.isRequired,
 };
 
 export default TodoListStatisticsCard;

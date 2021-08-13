@@ -32,11 +32,11 @@ const DeleteTodo = ({ currentItem, theme }) => {
   };
 
   return (
-    <div>
+    <>
       <DeleteItem onClick={handleRemoveItem} theme={theme}>
         {isTodoListsPath ? 'Delete todo list' : 'Delete Todo'}
       </DeleteItem>
-    </div>
+    </>
   );
 };
 

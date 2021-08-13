@@ -26,6 +26,9 @@ const GlobalStyle = createGlobalStyle`
     @media(min-width: 768px){
       font-size: 1.3rem;
     }
+    @media(min-width: 1024px){
+      font-size: 1.6rem;
+    }
   }
 
   h1{
@@ -67,6 +70,9 @@ const GlobalStyle = createGlobalStyle`
     @media(min-width: 768px){
       font-size: 1.2rem;
     } 
+    @media(min-width: 1024px){
+      font-size: 1.6rem;
+    }
   }
 
   ::placeholder{
@@ -75,12 +81,11 @@ const GlobalStyle = createGlobalStyle`
 
   .cta-button{
     background: ${({ theme }) => theme.secondary};
-    color: black;
+    color: ${({ theme }) => theme.onSecondary};
     border: none;
     border-radius: 10px;
     box-shadow: ${({ theme }) => theme.boxShadow};
     font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     width: 80%;
     display: block;
@@ -116,8 +121,10 @@ const GlobalStyle = createGlobalStyle`
     display: block;
     padding:10px;
     font-size: 1.4rem;
-    font-family: 'Indie Flower', cursive;
     width: 100%;
+    @media(min-width: 1024px){
+      font-size: 1.8rem;
+    }
   }
 
   .cta-button-add{
@@ -126,9 +133,7 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     border-radius: 50%;
     box-shadow: ${({ theme }) => theme.boxShadow};
-
     font-size: 1.5rem;
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     width: 50px;
     height: 45px;

@@ -38,7 +38,7 @@ const EditForm = ({ currentItem, isEdit, setIsEdit, theme }) => {
   };
 
   return (
-    <EditFormWrapper onSubmit={handleEditTodoForm}>
+    <EditFormWrapper onSubmit={handleEditTodoForm} theme={theme}>
       <EditFormInput
         inputValue={inputValue}
         setInputValue={setInputValue}
@@ -46,7 +46,7 @@ const EditForm = ({ currentItem, isEdit, setIsEdit, theme }) => {
         currentItem={currentItem}
         isEdit={isEdit}
       />
-      <button className="cta-button" theme={theme} type="submit">
+      <button className="cta-button" type="submit">
         Save
       </button>
     </EditFormWrapper>

@@ -12,7 +12,7 @@ const CategoryListWrapper = styled.div`
   border-top: 1px dotted
     ${({ theme, toggleTheme }) => (toggleTheme ? theme.border : theme.primary)};
   i {
-    color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.secondary};
   }
 `;
 

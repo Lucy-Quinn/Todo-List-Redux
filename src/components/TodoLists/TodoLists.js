@@ -8,9 +8,8 @@ import { NoTodoLists } from './TodoLists.styled';
 
 const TodoLists = ({ theme, toggleTheme }) => {
   const todoListsArr = useSelector((state) => state.todoListsReducer);
-
   return (
-    <div>
+    <>
       {todoListsArr.length > 0 ? (
         todoListsArr.map((currentTodoList) => (
           <Link
@@ -29,7 +28,7 @@ const TodoLists = ({ theme, toggleTheme }) => {
           <h3>You do not have any todo lists...</h3>
         </NoTodoLists>
       )}
-    </div>
+    </>
   );
 };
 

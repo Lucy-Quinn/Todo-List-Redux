@@ -5,16 +5,14 @@ import { useHistory } from 'react-router-dom';
 
 import { FormWrapper, AddNoteWrapper, TextArea } from './AddNote.styled';
 import { addNote } from '../../redux/actions/todoItems';
-import Emojis from '../Emojis/Emojis';
+import ButtonsAndEmojis from './ButtonsAndEmojis';
 
 const AddNote = ({ currentTodo, theme, toggleTheme }) => {
   const [textAreaValue, setTextAreaValue] = useState('');
   const { id: todoId, note } = currentTodo;
-
   const textAreaRef = useRef(null);
   const dispatch = useDispatch();
   const history = useHistory();
-
   useEffect(() => {
     setTextAreaValue(note);
   }, []);
@@ -43,15 +41,12 @@ const AddNote = ({ currentTodo, theme, toggleTheme }) => {
           ref={textAreaRef}
           theme={theme}
         />
-
-        <button className="cta-button" theme={theme}>
-          {currentTodo.note ? `Update note` : `Add note`}
-        </button>
-        <Emojis
+        <ButtonsAndEmojis
+          theme={theme}
           setTextAreaValue={setTextAreaValue}
           textAreaRef={textAreaRef}
-          theme={theme}
           toggleTheme={toggleTheme}
+          currentTodo={currentTodo}
         />
       </AddNoteWrapper>
     </FormWrapper>

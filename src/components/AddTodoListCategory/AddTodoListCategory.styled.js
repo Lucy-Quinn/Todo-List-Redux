@@ -12,6 +12,7 @@ const TodoListCategorySelect = styled.select`
 
 const NoTodoLists = styled.p`
   padding: 20px 2px;
+  text-align: center;
   color: ${({ theme }) => theme.onBackground};
   a {
     color: ${({ theme }) => theme.secondary};

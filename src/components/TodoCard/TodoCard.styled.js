@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 
 const TodoColor = styled.div`
   box-shadow: 10px 0 2px -2px ${({ todoListColors }) => (todoListColors ? todoListColors : 'transparent')};
+  border-bottom: 2px dotted ${({ theme }) => theme.border};
   &:first-child {
     border-top: 2px dotted ${({ theme }) => theme.border};
+  }
+  @media (min-width: 768px) {
+    padding: 10px;
   }
 `;
 
@@ -16,10 +20,9 @@ const TodoWrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-
-  border-bottom: 2px dotted ${({ theme }) => theme.border};
   @media (min-width: 768px) {
-    padding: 15px 10px 10px;
+    min-height: 100px;
+    padding: 0 0 30px;
     align-items: ${({ isEdit, currentTodo }) => {
       if (isEdit && currentTodo.text) {
         return 'baseline';
@@ -35,12 +38,14 @@ const TodoTopSection = styled.div`
   align-items: baseline;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 20px;
   justify-content: ${({ currentTodo }) =>
     currentTodo.dueDate.length < 1 && 'flex-end'};
   min-height: 25px;
   p {
     color: ${({ theme }) => theme.onSurface};
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 0;
   }
 `;
 
@@ -78,18 +83,25 @@ const IconsWrapper = styled.div`
   justify-content: space-around;
   gap: 5px;
   align-items: flex-start;
+  margin-bottom: 10px;
+  .icons {
+    color: ${({ theme }) => theme.secondary};
+    margin-right: 10px;
+  }
 `;
 
 const FavoriteIcon = styled.i`
   font-size: 1.8rem;
-  color: ${({ theme }) => theme.secondary};
-  margin-right: 10px;
+  @media (min-width: 768px) {
+    font-size: 2.4rem;
+  }
 `;
 
-const NoteIcon = styled.div`
+const NoteIcon = styled.i`
   font-size: 1.9rem;
-  color: ${({ theme }) => theme.secondary};
-  margin-right: 10px;
+  @media (min-width: 768px) {
+    font-size: 2.6rem;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -101,7 +113,7 @@ const TextWrapper = styled.div`
   border-radius: 10px;
   order: 1;
   @media (min-width: 768px) {
-    margin: 20px 0;
+    margin: 0;
   }
   p {
     color: black;
@@ -113,6 +125,10 @@ const TextWrapper = styled.div`
     white-space: normal;
     font-size: ${({ currentTodo }) =>
       currentTodo.isFavorite ? '2.4rem' : '1.6rem'};
+    @media (min-width: 1024px) {
+      font-size: ${({ currentTodo }) =>
+        currentTodo.isFavorite ? '3rem' : '2rem'};
+    }
   }
   .hover-text {
     visibility: hidden;

@@ -22,7 +22,7 @@ const GeneralStatistics = ({ theme }) => {
   const findPercentage = () => Math.round((completeTodos / totalTodos) * 100);
 
   return (
-    <div>
+    <>
       {totalTodos < 1 || totalTodoLists < 1 ? (
         <NoGeneralStatics theme={theme}>
           You need to add a<Link to="/todoLists"> todo list </Link>
@@ -50,7 +50,7 @@ const GeneralStatistics = ({ theme }) => {
           </StaticsWrapper>
         </GeneralStaticsWrapper>
       )}
-    </div>
+    </>
   );
 };
 

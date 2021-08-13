@@ -8,6 +8,9 @@ const NavListWrapper = styled.div`
     justify-content: flex-end;
     width: 50%;
   }
+  @media (min-width: 1024px) {
+    margin: 0;
+  }
 `;
 
 const NavMenu = styled.ul`
@@ -43,9 +46,11 @@ const NavMenu = styled.ul`
 const NavLink = styled(Link)`
   padding: 18px 10px;
   width: 50%;
+  color: ${({ theme }) => theme.onBackground};
   @media (min-width: 1024px) {
     width: fit-content;
     padding: 0;
+    color: ${({ theme }) => theme.onPrimary};
   }
 `;
 

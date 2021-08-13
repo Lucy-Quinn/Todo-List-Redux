@@ -124,9 +124,9 @@ const AddTodoListForm = ({ todoListArr, theme }) => {
           })}
         </ColorSelect>
       </label>
-      <div>
+      <>
         {isDuplicate && <p>This Todo List already exists choose another one</p>}
-      </div>
+      </>
     </AddTodoListFormWrapper>
   );
 };

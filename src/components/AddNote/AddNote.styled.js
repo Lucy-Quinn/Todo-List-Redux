@@ -12,21 +12,17 @@ const FormWrapper = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
-    padding: 20px;
     width: 60%;
-    margin: 0 auto 15px;
+    margin: 0 auto;
     min-height: 45px;
+    padding: 20px 20px 0;
   }
 `;
 
 const AddNoteWrapper = styled.form`
   flex-direction: column;
-  .cta-button {
-    color: ${({ theme }) => theme.onSecondary};
-    padding: 12px;
-    margin-right: 10px;
-    width: 75%;
-    display: inline-block;
+  @media (min-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -39,6 +35,7 @@ const TextArea = styled.textarea`
   box-sizing: border-box;
   font-size: 0.9rem;
   border-bottom: 2px dotted ${({ theme }) => theme.border};
+  font-family: 'Roboto', sans-serif;
   &::placeholder {
     color: ${({ currentTodo }) =>
       currentTodo !== undefined && currentTodo.note && '#222223'};

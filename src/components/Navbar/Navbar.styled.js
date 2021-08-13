@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Nav = styled.nav`
-  /* border-bottom: 1px solid #fff; */
-  /* background: rgba(166, 216, 219, 0.411); */
   background: ${({ theme }) => theme.primary};
   padding: 0 20px;
   display: flex;
@@ -38,6 +36,9 @@ const TodoAppHeader = styled.h1`
     width: 100%;
     margin: 0;
   }
+  @media (min-width: 1024px) {
+    font-size: 3.3rem;
+  }
 `;
 
 const HeaderLinkWrapper = styled(Link)`
@@ -55,6 +56,9 @@ const ToggleThemeWrapper = styled.div`
     display: flex;
     justify-content: flex-start;
     width: 60%;
+  }
+  @media (min-width: 1024px) {
+    width: 47%;
   }
 `;
 

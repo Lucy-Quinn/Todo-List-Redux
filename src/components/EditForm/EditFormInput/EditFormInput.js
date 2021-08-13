@@ -25,7 +25,7 @@ const EditFormInput = ({
   }, [inputValue]);
 
   return (
-    <div>
+    <>
       <input
         className="form-input"
         type="text"
@@ -35,7 +35,7 @@ const EditFormInput = ({
         onChange={handleChange}
         ref={inputRef}
       />
-    </div>
+    </>
   );
 };
 

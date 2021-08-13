@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { CategoryListWrapper } from './CategoryList.styled';
+import CATEGORY_DATA from '../../AddNote/ButtonsAndEmojis/CATEGORY_DATA';
 
 const CategoryList = ({
-  CATEGORY_DATA,
   setEmojisByCategory,
   emojis,
   isActive,
@@ -19,7 +19,7 @@ const CategoryList = ({
   };
 
   return (
-    <div>
+    <>
       <CategoryListWrapper
         isActive={isActive}
         theme={theme}
@@ -35,15 +35,14 @@ const CategoryList = ({
           );
         })}
       </CategoryListWrapper>
-    </div>
+    </>
   );
 };
 CategoryList.propTypes = {
-  CATEGORY_DATA: PropTypes.array.isRequired,
   setEmojisByCategory: PropTypes.func.isRequired,
   emojis: PropTypes.array.isRequired,
   isActive: PropTypes.bool.isRequired,
   theme: PropTypes.object.isRequired,
-  toggleTheme: PropTypes.bool.isRequired,
+  toggleTheme: PropTypes.object.isRequired,
 };
 export default CategoryList;

@@ -8,10 +8,15 @@ const SingleTodoHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: baseline;
-  gap: 10px;
+  gap: 20px;
   width: 50%;
   margin: 0 auto;
   padding: 0 20px 20px;
+  @media (min-width: 768px) {
+    min-height: 100px;
+    margin: 0;
+    width: inherit;
+  }
 `;
 
 const TodoEdit = styled.div`
@@ -43,6 +48,9 @@ const TextWrapper = styled.div`
   }
   h2 {
     color: ${({ theme }) => theme.onBackground};
+    @media (min-width: 768px) {
+      font-size: 2.8rem;
+    }
   }
 `;
 

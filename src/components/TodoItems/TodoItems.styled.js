@@ -11,6 +11,7 @@ const TodoListWrapper = styled.div`
   border-radius: 10px;
   @media (min-width: 768px) {
     width: 60%;
+    padding: 20px 20px 61px;
   }
 `;
 

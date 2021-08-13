@@ -19,7 +19,6 @@ import { useTruncateText, useWindowSize } from '../../hooks';
 
 const TodoCard = ({ currentTodo, theme }) => {
   const todoListsArr = useSelector((state) => state.todoListsReducer);
-
   const { text, id: todoId, isEdit, isFavorite, dueDate, note } = currentTodo;
   const dispatch = useDispatch();
   const { width } = useWindowSize();
@@ -45,19 +44,17 @@ const TodoCard = ({ currentTodo, theme }) => {
       <TodoWrapper theme={theme} currentTodo={currentTodo}>
         <TodoTopSection currentTodo={currentTodo} theme={theme}>
           {dueDate ? <p>Due {dueDate}</p> : null}
-          <IconsWrapper>
+          <IconsWrapper theme={theme}>
             {isFavorite ? (
               <FavoriteIcon
-                className="fas fa-star"
+                className="fas fa-star icons"
                 currentTodo={currentTodo}
-                theme={theme}
               />
             ) : null}
             {note.length ? (
               <NoteIcon
-                className="fas fa-sticky-note"
+                className="fas fa-sticky-note icons"
                 currentTodo={currentTodo}
-                theme={theme}
               />
             ) : null}
           </IconsWrapper>
