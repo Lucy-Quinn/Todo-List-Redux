@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { map } from 'lodash';
 
 import { OrderTodosWrapper } from './OrderTodos.styled';
 import {
@@ -69,7 +70,7 @@ const OrderTodos = () => {
         <option value="" hidden>
           Order your todos by...
         </option>
-        {ORDER_TODO_DATA.map((element) => (
+        {map(ORDER_TODO_DATA, (element) => (
           <option value={element.action} key={element.id}>
             {element.action}
           </option>

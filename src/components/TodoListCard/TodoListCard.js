@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { filter } from 'lodash';
 
 import { TodoListWrapper, TextWrapper } from './TodoListCard.styled';
 import TodoListStatistics from './TodoListStatistics';
@@ -13,12 +14,14 @@ const TodoListCard = ({ currentTodoList, theme, isLightTheme }) => {
   const { width } = useWindowSize();
 
   const foundTodos = useSelector((state) =>
-    state.todoItemsReducer.todos.filter((todo) => todo.todoList.includes(title))
+    filter(state.todoItemsReducer.todos, (todo) =>
+      todo.todoList.includes(title)
+    )
   );
 
   const location = useLocation();
   const { pathname } = location;
-  const completeTodos = foundTodos.filter((todo) => todo.isComplete).length;
+  const completeTodos = filter(foundTodos, (todo) => todo.isComplete).length;
 
   return (
     <TodoListWrapper

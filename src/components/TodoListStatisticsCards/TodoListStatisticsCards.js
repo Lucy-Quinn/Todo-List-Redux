@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { map } from 'lodash';
 
 import TodoListCard from '../TodoListCard';
 import { StatisticsCardWrapper } from './TodoListStatisticsCards.styled';
@@ -11,7 +12,7 @@ const TodoListStatisticsCard = ({ theme, isLightTheme }) => {
 
   return (
     <StatisticsCardWrapper>
-      {todoListArr.map((todoList) => (
+      {map(todoListArr, (todoList) => (
         <Link to={`todoLists/${todoList.id}`} key={todoList.id}>
           <TodoListCard
             currentTodoList={todoList}

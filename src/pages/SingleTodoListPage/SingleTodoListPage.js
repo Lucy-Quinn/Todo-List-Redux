@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { find } from 'lodash';
 
 import AddTodoForm from '../../components/AddTodoForm';
 import DeleteButton from '../../components/DeleteButton';
@@ -23,8 +24,7 @@ const SingleTodoListPage = ({ match }) => {
   const { width } = useWindowSize();
 
   const { todoListId } = match.params;
-  const currentTodoList = todoListArr.find(({ id }) => id === todoListId);
-
+  const currentTodoList = find(todoListArr, ({ id }) => id === todoListId);
   const { title } = currentTodoList;
   const truncateText = useTruncateText(title, 12, 'header');
 

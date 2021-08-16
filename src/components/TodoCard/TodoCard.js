@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { map, filter } from 'lodash';
 
 import { completeTodo } from '../../redux/actions/todoItems';
 import {
@@ -11,8 +12,6 @@ import {
   TodoComplete,
   TextLink,
   TextWrapper,
-  FavoriteIcon,
-  NoteIcon,
   IconsWrapper,
 } from './TodoCard.styled';
 import { useTruncateText, useWindowSize } from '../../hooks';
@@ -22,18 +21,20 @@ const TodoCard = ({ currentTodo, theme }) => {
   const { text, id: todoId, isEdit, isFavorite, dueDate, note } = currentTodo;
   const dispatch = useDispatch();
   const { width } = useWindowSize();
+
   const truncateText = useTruncateText(text, 12, 'text');
 
-  const todoListCategoriesArr = (
+  const todoListCategoriesArr = filter(
     typeof currentTodo.todoList === 'string'
       ? new Array(currentTodo.todoList)
-      : currentTodo.todoList
-  ).filter((list) => list);
+      : currentTodo.todoList,
+    (list) => list
+  );
 
-  const foundTodoLists = todoListsArr.filter((todoList) =>
+  const foundTodoLists = filter(todoListsArr, (todoList) =>
     todoListCategoriesArr.includes(todoList.title)
   );
-  const todoListColors = foundTodoLists.map((todoList) => todoList.color)[0];
+  const todoListColors = map(foundTodoLists, (todoList) => todoList.color)[0];
 
   const handleCompleteItem = () => {
     dispatch(completeTodo({ todoId }));
@@ -46,16 +47,10 @@ const TodoCard = ({ currentTodo, theme }) => {
           {dueDate ? <p>Due {dueDate}</p> : null}
           <IconsWrapper theme={theme}>
             {isFavorite ? (
-              <FavoriteIcon
-                className="fas fa-star icons favorite-icon"
-                currentTodo={currentTodo}
-              />
+              <i className="fas fa-star icons favorite-icon" />
             ) : null}
             {note.length ? (
-              <NoteIcon
-                className="fas fa-sticky-note note-icon"
-                currentTodo={currentTodo}
-              />
+              <i className="fas fa-sticky-note note-icon" />
             ) : null}
           </IconsWrapper>
         </TodoTopSection>

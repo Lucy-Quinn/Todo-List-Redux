@@ -50,6 +50,7 @@ const Emojis = ({
     </>
   );
 };
+
 Emojis.propTypes = {
   setTextAreaValue: PropTypes.func.isRequired,
   textAreaRef: PropTypes.object.isRequired,
@@ -59,4 +60,5 @@ Emojis.propTypes = {
   setEmojisByCategory: PropTypes.func.isRequired,
   isActive: PropTypes.bool.isRequired,
 };
+
 export default Emojis;

@@ -92,20 +92,6 @@ const IconsWrapper = styled.div`
   margin: 0 10px 10px;
 `;
 
-const FavoriteIcon = styled.i`
-  /* font-size: 1.8rem;
-  @media (min-width: 768px) {
-    font-size: 2.4rem;
-  } */
-`;
-
-const NoteIcon = styled.i`
-  /* font-size: 1.9rem;
-  @media (min-width: 768px) {
-    font-size: 2.6rem;
-  } */
-`;
-
 const TextWrapper = styled.div`
   height: fit-content;
   box-shadow: ${({ theme }) => theme.boxShadow};
@@ -165,10 +151,8 @@ export {
   TodoTopSection,
   TodoBottomSection,
   TodoWrapper,
-  FavoriteIcon,
   TextLink,
   TextWrapper,
   TodoListColor,
-  NoteIcon,
   IconsWrapper,
 };

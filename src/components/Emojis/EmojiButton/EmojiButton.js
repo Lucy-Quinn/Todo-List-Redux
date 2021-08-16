@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { filter } from 'lodash';
 
 import { Button } from './EmojiButton.styled';
 import CATEGORY_DATA from '../../AddNote/ButtonsAndEmojis/CATEGORY_DATA';
@@ -13,7 +14,7 @@ const EmojiButton = ({
 }) => {
   const handleOnclickButton = () => {
     setIsActive(!isActive);
-    const defaultEmojiCategory = emojis.filter((emojiObj) => {
+    const defaultEmojiCategory = filter(emojis, (emojiObj) => {
       return emojiObj.group === CATEGORY_DATA[0].category;
     });
     setEmojisByCategory(defaultEmojiCategory);

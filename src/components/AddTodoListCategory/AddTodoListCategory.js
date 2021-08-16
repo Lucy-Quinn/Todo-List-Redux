@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
+import { map } from 'lodash';
 
 import { addTodoListCategory } from '../../redux/actions/todoItems';
 import {
@@ -16,7 +17,7 @@ import {
 const AddTodoListCategory = ({ currentTodo, theme }) => {
   const [todolistTitle, setTodolistTitle] = useState('');
   const todoListsArr = useSelector((state) => state.todoListsReducer);
-  const todoListsTitlesArr = todoListsArr.map((todoList) => todoList.title);
+  const todoListsTitlesArr = map(todoListsArr, (todoList) => todoList.title);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -25,12 +26,12 @@ const AddTodoListCategory = ({ currentTodo, theme }) => {
   const { pathname } = location;
   const todoId = pathname.slice(pathname.lastIndexOf('/') + 1);
 
-  const handleOptionChange = (e) => {
-    setTodolistTitle(e.target.value);
+  const handleOptionChange = (event) => {
+    setTodolistTitle(event.target.value);
   };
 
-  const handleTodoListCategoryForm = (e) => {
-    e.preventDefault();
+  const handleTodoListCategoryForm = (event) => {
+    event.preventDefault();
     dispatch(addTodoListCategory({ todoId, todolistTitle }));
     history.push('/');
   };
@@ -50,7 +51,7 @@ const AddTodoListCategory = ({ currentTodo, theme }) => {
           <option value="" hidden>
             Add {currentTodo.text} to...
           </option>
-          {todoListsArr.map((todoList) => (
+          {map(todoListsArr, (todoList) => (
             <TodoListCategoryOption value={todoList.title} key={todoList.id}>
               {todoList.title}
             </TodoListCategoryOption>

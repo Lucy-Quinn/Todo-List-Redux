@@ -85,6 +85,10 @@ const GlobalStyle = createGlobalStyle`
     color: gray;
   }
 
+  *:focus{
+    outline: none;
+  }
+
   .form-wrapper{
     display: flex;
     gap: 10px;
@@ -158,15 +162,13 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     font-size: 1rem;
     box-shadow: ${({ theme }) => theme.boxShadow};
+    background: ${({ theme }) => theme.onPrimary};
     @media(min-width: 1024px){
       font-size: 1.2rem;
     }
   }
 
-  *:focus{
-    outline: none;
-  }
-
+ 
   .favorite-icon, .note-icon{
     color: ${({ theme }) => theme.secondary};
   }

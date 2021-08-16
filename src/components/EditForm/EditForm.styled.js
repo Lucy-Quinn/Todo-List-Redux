@@ -22,6 +22,7 @@ const EditFormWrapper = styled.form`
     width: inherit;
     max-width: 210px;
     font-family: 'Indie Flower', cursive;
+    font-size: 2.2rem;
     @media (min-width: 768px) {
       font-size: 2.5rem;
     }

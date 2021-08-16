@@ -11,8 +11,6 @@ export default function todoListsReducer(state = [], action) {
         {
           id: uuidv4(),
           title: todoListTitle,
-          isComplete: false,
-          isIncomplete: false,
           color: todoListColor,
         },
       ];

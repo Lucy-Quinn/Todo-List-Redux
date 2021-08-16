@@ -1,38 +1,28 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
-import {
-  FavoriteTodoWrapper,
-  FavoriteIconFilled,
-  FavoriteIconNotFilled,
-} from './FavoriteTodo.styled';
 import { favoriteTodo } from '../../redux/actions/todoItems';
 
 const FavoriteTodo = ({ currentTodo, theme }) => {
   const dispatch = useDispatch();
   const { id: todoId } = currentTodo;
+  const history = useHistory();
 
   const handleFavoriteItem = () => {
     dispatch(favoriteTodo({ todoId }));
+    history.push('/');
   };
 
   return (
-    <FavoriteTodoWrapper onClick={handleFavoriteItem}>
+    <div onClick={handleFavoriteItem}>
       {currentTodo !== undefined && currentTodo.isFavorite ? (
-        <FavoriteIconFilled
-          className="fas fa-star favorite-icon"
-          currentTodo={currentTodo}
-          theme={theme}
-        />
+        <i className="fas fa-star favorite-icon" />
       ) : (
-        <FavoriteIconNotFilled
-          className="far fa-star favorite-icon"
-          currentTodo={currentTodo}
-          theme={theme}
-        />
+        <i className="far fa-star favorite-icon" />
       )}
-    </FavoriteTodoWrapper>
+    </div>
   );
 };
 

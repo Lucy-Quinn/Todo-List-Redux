@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { filter } from 'lodash';
 
 import {
   GeneralStaticsWrapper,
@@ -16,7 +17,7 @@ const GeneralStatistics = ({ theme }) => {
   const todoListsArr = useSelector((state) => state.todoListsReducer);
   const totalTodoLists = todoListsArr.length;
   const totalTodos = todosArr.length;
-  const completeTodos = todosArr.filter((todo) => todo.isComplete).length;
+  const completeTodos = filter(todosArr, (todo) => todo.isComplete).length;
   const remainingTodo = totalTodos - completeTodos;
 
   const findPercentage = () => Math.round((completeTodos / totalTodos) * 100);

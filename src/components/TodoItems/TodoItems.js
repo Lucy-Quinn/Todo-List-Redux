@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { map } from 'lodash';
 
 import TodoCard from '../TodoCard';
 import { TodoListWrapper, NoTodos } from './TodoItems.styled';
@@ -17,14 +18,14 @@ const TodoItems = ({ theme }) => {
         <TodoListWrapper theme={theme}>
           <OrderTodos />
           {inputValue.length >= 1
-            ? filtered.map((currentFilteredTodo) => (
+            ? map(filtered, (currentFilteredTodo) => (
                 <TodoCard
                   key={currentFilteredTodo.id}
                   currentTodo={currentFilteredTodo}
                   theme={theme}
                 />
               ))
-            : todos.map((currentTodo) => (
+            : map(todos, (currentTodo) => (
                 <TodoCard
                   key={currentTodo.id}
                   currentTodo={currentTodo}
@@ -40,7 +41,9 @@ const TodoItems = ({ theme }) => {
     </>
   );
 };
+
 TodoItems.propTypes = {
   theme: PropTypes.object.isRequired,
 };
+
 export default TodoItems;

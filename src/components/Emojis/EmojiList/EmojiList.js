@@ -1,6 +1,7 @@
 import React, { useRef, createRef } from 'react';
 import { EmojiListWrapper } from './EmojiList.styled';
 import PropTypes from 'prop-types';
+import { map } from 'lodash';
 
 const EmojiList = ({
   setTextAreaValue,
@@ -9,7 +10,7 @@ const EmojiList = ({
   emojis,
   isActive,
 }) => {
-  const refArray = useRef(emojis && emojis.map(() => createRef()));
+  const refArray = useRef(emojis && map(emojis, () => createRef()));
 
   const handleEmoji = (ref) => {
     setTextAreaValue((prestate) => prestate + ref.target.className);
@@ -18,7 +19,7 @@ const EmojiList = ({
 
   return (
     <EmojiListWrapper isActive={isActive}>
-      {emojisByCategory.map((emojiObj, index) => {
+      {map(emojisByCategory, (emojiObj, index) => {
         return (
           <span
             key={emojiObj.unicodeName}

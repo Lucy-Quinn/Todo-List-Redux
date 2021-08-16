@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { map } from 'lodash';
 import { CategoryListWrapper } from './CategoryList.styled';
 import CATEGORY_DATA from '../../AddNote/ButtonsAndEmojis/CATEGORY_DATA';
 
@@ -25,7 +25,7 @@ const CategoryList = ({
         theme={theme}
         isLightTheme={isLightTheme}
       >
-        {CATEGORY_DATA.map((category) => {
+        {map(CATEGORY_DATA, (category) => {
           return (
             <i
               key={category.id}
@@ -38,6 +38,7 @@ const CategoryList = ({
     </>
   );
 };
+
 CategoryList.propTypes = {
   setEmojisByCategory: PropTypes.func.isRequired,
   emojis: PropTypes.array.isRequired,
@@ -45,4 +46,5 @@ CategoryList.propTypes = {
   theme: PropTypes.object.isRequired,
   isLightTheme: PropTypes.bool.isRequired,
 };
+
 export default CategoryList;

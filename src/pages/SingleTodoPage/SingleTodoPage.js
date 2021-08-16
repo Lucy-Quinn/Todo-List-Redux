@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { find } from 'lodash';
 
 import DeleteButton from '../../components/DeleteButton';
 import FavoriteTodo from '../../components/FavoriteTodo';
@@ -23,7 +24,7 @@ const SingleTodoPage = ({ match }) => {
 
   const { todoId } = match.params;
   const currentTodo = useSelector((state) =>
-    state.todoItemsReducer.todos.find((todo) => todo.id === todoId)
+    find(state.todoItemsReducer.todos, (todo) => todo.id === todoId)
   );
   const currentTodoText = currentTodo.text;
   const truncateText = useTruncateText(currentTodoText, 10, 'header');

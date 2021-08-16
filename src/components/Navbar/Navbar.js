@@ -32,7 +32,9 @@ const Navbar = ({ theme }) => {
     </Nav>
   );
 };
+
 Navbar.propTypes = {
   theme: PropTypes.object.isRequired,
 };
+
 export default Navbar;

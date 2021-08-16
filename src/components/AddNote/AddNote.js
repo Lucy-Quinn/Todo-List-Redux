@@ -27,6 +27,7 @@ const AddNote = ({ currentTodo, theme, isLightTheme }) => {
     history.push('/');
     setTextAreaValue('');
   };
+
   return (
     <FormWrapper theme={theme}>
       <AddNoteWrapper onSubmit={handleAddNoteForm} theme={theme}>

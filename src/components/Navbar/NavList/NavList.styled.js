@@ -28,6 +28,7 @@ const NavMenu = styled.ul`
   padding-top: 2rem;
   z-index: 1;
   transition: transform 0.3s ease-in-out;
+  font-weight: 200;
   @media (min-width: 768px) {
     width: 300px;
   }

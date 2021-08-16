@@ -30,7 +30,9 @@ const SearchBar = ({ theme }) => {
     </SearchBarWrapper>
   );
 };
+
 SearchBar.propTypes = {
   theme: PropTypes.object.isRequired,
 };
+
 export default SearchBar;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { map } from 'lodash';
 
 import { addTodoList } from '../../redux/actions/todoLists';
 import {
@@ -8,41 +9,7 @@ import {
   ColorSelect,
   TopSection,
 } from './AddTodoListForm.styled';
-
-const COLORS_DATA = [
-  {
-    id: 1,
-    color: 'red',
-  },
-  {
-    id: 2,
-    color: 'green',
-  },
-  {
-    id: 3,
-    color: 'blue',
-  },
-  {
-    id: 4,
-    color: 'purple',
-  },
-  {
-    id: 5,
-    color: 'yellow',
-  },
-  {
-    id: 6,
-    color: 'orange',
-  },
-  {
-    id: 7,
-    color: 'violet',
-  },
-  {
-    id: 8,
-    color: 'aqua',
-  },
-];
+import COLORS_DATA from './COLORS_DATA';
 
 const AddTodoListForm = ({ todoListArr, theme }) => {
   const [todoListTitle, setTodoListTitle] = useState('');
@@ -115,7 +82,7 @@ const AddTodoListForm = ({ todoListArr, theme }) => {
           <option value="" hidden>
             Select theme color
           </option>
-          {COLORS_DATA.map((colorItem) => {
+          {map(COLORS_DATA, (colorItem) => {
             return (
               <option value={colorItem.color} key={colorItem.id}>
                 {colorItem.color}

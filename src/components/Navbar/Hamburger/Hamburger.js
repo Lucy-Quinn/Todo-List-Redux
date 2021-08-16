@@ -26,7 +26,9 @@ const Hamburger = ({ theme }) => {
     </>
   );
 };
+
 Hamburger.propTypes = {
   theme: PropTypes.object.isRequired,
 };
+
 export default Hamburger;
