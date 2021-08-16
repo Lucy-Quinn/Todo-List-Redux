@@ -38,7 +38,11 @@ const EditForm = ({ currentItem, isEdit, setIsEdit, theme }) => {
   };
 
   return (
-    <EditFormWrapper onSubmit={handleEditTodoForm} theme={theme}>
+    <EditFormWrapper
+      onSubmit={handleEditTodoForm}
+      theme={theme}
+      isTodoListsPath={isTodoListsPath}
+    >
       <EditFormInput
         inputValue={inputValue}
         setInputValue={setInputValue}

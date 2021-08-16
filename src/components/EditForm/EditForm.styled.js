@@ -20,7 +20,8 @@ const EditFormWrapper = styled.form`
   }
   input {
     width: inherit;
-    max-width: 210px;
+    max-width: ${({ isTodoListsPath }) =>
+      isTodoListsPath ? '200px' : '149px'};
     font-family: 'Indie Flower', cursive;
     font-size: 2.2rem;
     @media (min-width: 768px) {
