@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { map } from 'lodash';
+import PropTypes from 'prop-types';
 
 import { OrderTodosWrapper } from './OrderTodos.styled';
 import {
@@ -34,10 +35,8 @@ const ORDER_TODO_DATA = [
   },
 ];
 
-const OrderTodos = () => {
+const OrderTodos = ({ theme }) => {
   const [sortAction, setSortAction] = useState('');
-  const { isLightTheme, themes } = useSelector((state) => state.themeReducer);
-  const theme = isLightTheme ? themes.light : themes.dark;
 
   const dispatch = useDispatch();
 
@@ -68,7 +67,7 @@ const OrderTodos = () => {
         onChange={handleOptionChange}
       >
         <option value="" hidden>
-          Order your todos by...
+          Order by
         </option>
         {map(ORDER_TODO_DATA, (element) => (
           <option value={element.action} key={element.id}>
@@ -78,6 +77,10 @@ const OrderTodos = () => {
       </select>
     </OrderTodosWrapper>
   );
+};
+
+OrderTodos.propTypes = {
+  theme: PropTypes.object.isRequired,
 };
 
 export default OrderTodos;

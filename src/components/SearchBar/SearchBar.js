@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -9,6 +9,8 @@ const SearchBar = ({ theme }) => {
   const [searchInput, setSearchInput] = useState('');
   const dispatch = useDispatch();
 
+  let inputRef = useRef(null);
+
   const handleSearchInput = (e) => {
     const { value } = e.target;
     setSearchInput(value);
@@ -16,16 +18,19 @@ const SearchBar = ({ theme }) => {
 
   useEffect(() => {
     dispatch(filterTodos({ searchInput }));
-  }, [dispatch, searchInput]);
+    inputRef = inputRef.current.focus();
+  }, [dispatch, searchInput, inputRef]);
+
   return (
-    <SearchBarWrapper className="form-wrapper" theme={theme}>
+    <SearchBarWrapper theme={theme}>
       <input
-        className="form-input"
+        className="form-input mainLoginInput"
         type="text"
         name="search"
-        placeholder="Search for your todo..."
+        placeholder="&#xf002;"
         value={searchInput}
         onChange={handleSearchInput}
+        ref={inputRef}
       />
     </SearchBarWrapper>
   );

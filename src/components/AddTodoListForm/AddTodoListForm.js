@@ -78,6 +78,7 @@ const AddTodoListForm = ({ todoListArr, theme }) => {
           value={todoListColor}
           onChange={handleOptionChange}
           required
+          theme={theme}
         >
           <option value="" hidden>
             Select theme color

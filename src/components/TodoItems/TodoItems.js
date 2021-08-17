@@ -1,22 +1,23 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { map } from 'lodash';
+import { map, orderBy } from 'lodash';
 
 import TodoCard from '../TodoCard';
 import { TodoListWrapper, NoTodos } from './TodoItems.styled';
-import OrderTodos from '../OrderTodos';
+// import OrderTodos from '../OrderTodos';
 
 const TodoItems = ({ theme }) => {
   const { todos, filtered, inputValue } = useSelector(
     (state) => state.todoItemsReducer
   );
+  const todosOrderedByMostRecent = orderBy(todos, ['dateCreated'], ['desc']);
 
   return (
     <>
       {todos.length >= 1 ? (
         <TodoListWrapper theme={theme}>
-          <OrderTodos />
+          {/* <OrderTodos /> */}
           {inputValue.length >= 1
             ? map(filtered, (currentFilteredTodo) => (
                 <TodoCard
@@ -25,7 +26,7 @@ const TodoItems = ({ theme }) => {
                   theme={theme}
                 />
               ))
-            : map(todos, (currentTodo) => (
+            : map(todosOrderedByMostRecent, (currentTodo) => (
                 <TodoCard
                   key={currentTodo.id}
                   currentTodo={currentTodo}

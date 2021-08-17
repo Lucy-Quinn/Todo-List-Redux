@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 const OrderTodosWrapper = styled.div`
-  border-bottom: 2px dotted ${({ theme }) => theme.border};
   padding-bottom: 20px;
   text-align: right;
+  width: fit-content;
+  select {
+    background: ${({ theme }) => theme.onPrimary};
+  }
 `;
 
 export { OrderTodosWrapper };

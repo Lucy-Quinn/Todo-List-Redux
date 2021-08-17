@@ -112,6 +112,7 @@ const GlobalStyle = createGlobalStyle`
     display: block;
     padding:10px;
     font-size: 1.4rem;
+    font-family: 'Roboto', sans-serif;
     width: 100%;
     @media(min-width: 1024px){
       font-size: 1.8rem;
@@ -157,12 +158,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .form-select{
-    border-radius: 10px;
-    padding: 5px;
     border: none;
     font-size: 1rem;
+    padding: 15px;
+    border-radius: 30px;
+    min-width: 135px;
+    font-family: 'Roboto', sans-serif;
     box-shadow: ${({ theme }) => theme.boxShadow};
-    background: ${({ theme }) => theme.onPrimary};
     @media(min-width: 1024px){
       font-size: 1.2rem;
     }

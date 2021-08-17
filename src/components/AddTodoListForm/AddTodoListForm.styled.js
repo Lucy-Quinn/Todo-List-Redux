@@ -16,6 +16,8 @@ const TopSection = styled.div`
   margin-bottom: 8px;
 `;
 
-const ColorSelect = styled.select``;
+const ColorSelect = styled.select`
+  background: ${({ theme }) => theme.onPrimary};
+`;
 
 export { AddTodoListFormWrapper, ColorSelect, TopSection };

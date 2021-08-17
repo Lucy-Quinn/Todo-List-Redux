@@ -35,6 +35,7 @@ const AddTodoForm = ({ currentTodoList, theme }) => {
         value={inputValue}
         placeholder="Add todo..."
         onChange={handleChange}
+        required
       />
       <button className="cta-button-add" type="submit">
         +

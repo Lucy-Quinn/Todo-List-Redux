@@ -12,4 +12,10 @@ const TodoListCenter = styled.div`
   padding: 20px 15px 40px;
 `;
 
-export { TodoListCenter, TodoListWrapper };
+const Buttons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+export { TodoListCenter, TodoListWrapper, Buttons };
