@@ -37,7 +37,7 @@ const HomePage = () => {
           <OrderTodos theme={theme} />
         </Buttons>
         {isSearchActive && <SearchBar theme={theme} />}
-        <TodoItems theme={theme} />
+        <TodoItems theme={theme} isLightTheme={isLightTheme} />
       </TodoListCenter>
     </TodoListWrapper>
   );

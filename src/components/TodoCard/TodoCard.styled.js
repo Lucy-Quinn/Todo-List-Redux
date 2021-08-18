@@ -1,28 +1,20 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const TodoColor = styled.div`
-  box-shadow: 10px 0 2px -2px ${({ todoListColors }) => (todoListColors ? todoListColors : 'transparent')};
-  border-bottom: 2px dotted ${({ theme }) => theme.border};
-  &:first-child {
-    border-top: 2px dotted ${({ theme }) => theme.border};
-  }
-  @media (min-width: 768px) {
-    padding: 10px;
-  }
-`;
-
 const TodoWrapper = styled.div`
-  padding: 20px 0 65px;
+  box-shadow: 10px 0 2px -2px ${({ todoListColors }) => (todoListColors ? todoListColors : 'transparent')};
   display: flex;
-  justify-content: flex-start;
+  margin-bottom: 10px;
+  padding: 15px 15px 25px;
+  box-shadow: ${({ theme }) => theme.boxShadow};
+  background: ${({ theme }) => theme.surface};
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  border-radius: 3px;
   @media (min-width: 768px) {
     min-height: 100px;
-    padding: 0 0 30px;
     align-items: ${({ isEdit, currentTodo }) => {
       if (isEdit && currentTodo.text) {
         return 'baseline';
@@ -40,7 +32,6 @@ const TodoTopSection = styled.div`
   width: 100%;
   justify-content: ${({ currentTodo }) =>
     currentTodo.dueDate.length < 1 && 'flex-end'};
-  min-height: 25px;
   p {
     color: ${({ theme }) => theme.onSurface};
   }
@@ -54,6 +45,7 @@ const TodoBottomSection = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  gap: 10px;
 `;
 
 const TodoComplete = styled.div`
@@ -89,7 +81,7 @@ const IconsWrapper = styled.div`
   justify-content: space-around;
   gap: 5px;
   align-items: flex-start;
-  margin: 0 10px 10px;
+  margin: 0 0 10px;
 `;
 
 const TextWrapper = styled.div`
@@ -97,14 +89,14 @@ const TextWrapper = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
   border: none;
   background: #fff;
-  width: 100%;
   border-radius: 10px;
-  order: 1;
+  width: 75%;
   @media (min-width: 768px) {
     margin: 0;
   }
   p {
-    color: black;
+    color: ${({ currentTodo }) =>
+      currentTodo.isComplete ? '#868686' : 'black'};
     padding: 10px;
     font-family: 'Indie Flower', cursive;
     text-decoration: ${({ currentTodo }) =>
@@ -112,7 +104,7 @@ const TextWrapper = styled.div`
     word-break: break-all;
     white-space: normal;
     font-size: ${({ currentTodo }) =>
-      currentTodo.isFavorite ? '2.4rem' : '1.6rem'};
+      currentTodo.isFavorite ? '2.4rem' : '1.4rem'};
     @media (min-width: 1024px) {
       font-size: ${({ currentTodo }) =>
         currentTodo.isFavorite ? '3rem' : '2rem'};
@@ -129,14 +121,25 @@ const TextWrapper = styled.div`
     position: absolute;
     z-index: 1;
   }
-
   &:hover .hover-text {
     visibility: visible;
   }
 `;
-const TextLink = styled(Link)`
-  width: 75%;
+
+const Arrow = styled.div`
   margin-right: 10px;
+  font-size: 1.4rem;
+  color: ${({ isLightTheme }) => (isLightTheme ? '#868686' : '#fff')};
+`;
+
+const TextLink = styled(Link)`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  @media (min-width: 768px) {
+    justify-content: space-between;
+  }
 `;
 
 const TodoListColor = styled.div`
@@ -147,7 +150,6 @@ const TodoListColor = styled.div`
 
 export {
   TodoComplete,
-  TodoColor,
   TodoTopSection,
   TodoBottomSection,
   TodoWrapper,
@@ -155,4 +157,5 @@ export {
   TextWrapper,
   TodoListColor,
   IconsWrapper,
+  Arrow,
 };

@@ -9,7 +9,7 @@ const TodoListWrapper = styled.div`
   margin: 10px auto 10px auto;
   box-shadow: ${({ theme }) => theme.boxShadow};
   background: ${({ theme, isLightTheme }) =>
-    isLightTheme ? theme.background : theme.primary};
+    isLightTheme ? theme.surface : theme.primary};
   border-radius: 10px;
   border: 2px solid ${({ color }) => (color ? color : null)};
   p {
@@ -39,6 +39,9 @@ const TodoListWrapper = styled.div`
     width: 60%;
     gap: 20px;
     padding: 20px;
+  }
+  @media (min-width: 1024px) {
+    width: 62%;
   }
 `;
 

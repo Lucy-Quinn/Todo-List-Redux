@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 const Button = styled.div`
+  width: 129px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-right: 10px;
+  font-size: 1rem;
   background: ${({ isSearchActive, theme, isLightTheme }) =>
     isSearchActive && isLightTheme
       ? theme.secondary
@@ -17,10 +20,11 @@ const Button = styled.div`
       ? theme.onPrimary
       : 'black'};
 
-  .search {
+  .search-icon {
     color: ${({ isSearchActive, theme, isLightTheme }) =>
       (!isSearchActive && isLightTheme && theme.secondary) ||
       (!isSearchActive && !isLightTheme && theme.secondary)};
+    padding-right: 5px;
   }
 `;
 

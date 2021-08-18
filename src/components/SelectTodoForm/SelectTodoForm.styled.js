@@ -8,6 +8,7 @@ const SelectTodoFormWrapper = styled.form`
   }
   select {
     width: 100%;
+    background: #fff;
   }
   .form-input {
     @media (min-width: 1024px) {

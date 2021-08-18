@@ -5,7 +5,6 @@ import { map, filter } from 'lodash';
 
 import { completeTodo } from '../../redux/actions/todoItems';
 import {
-  TodoColor,
   TodoWrapper,
   TodoTopSection,
   TodoBottomSection,
@@ -13,10 +12,11 @@ import {
   TextLink,
   TextWrapper,
   IconsWrapper,
+  Arrow,
 } from './TodoCard.styled';
 import { useTruncateText, useWindowSize } from '../../hooks';
 
-const TodoCard = ({ currentTodo, theme }) => {
+const TodoCard = ({ currentTodo, theme, isLightTheme }) => {
   const todoListsArr = useSelector((state) => state.todoListsReducer);
   const { text, id: todoId, isEdit, isFavorite, dueDate, note } = currentTodo;
   const dispatch = useDispatch();
@@ -39,45 +39,48 @@ const TodoCard = ({ currentTodo, theme }) => {
   const handleCompleteItem = () => {
     dispatch(completeTodo({ todoId }));
   };
-
   return (
-    <TodoColor todoListColors={todoListColors} theme={theme}>
-      <TodoWrapper theme={theme} currentTodo={currentTodo}>
-        <TodoTopSection currentTodo={currentTodo} theme={theme}>
-          {dueDate ? <p>Due {dueDate}</p> : null}
-          <IconsWrapper theme={theme}>
-            {isFavorite ? (
-              <i className="fas fa-star icons favorite-icon" />
-            ) : null}
-            {note.length ? (
-              <i className="fas fa-sticky-note note-icon" />
-            ) : null}
-          </IconsWrapper>
-        </TodoTopSection>
-        <TodoBottomSection>
-          <TodoComplete
-            onClick={handleCompleteItem}
-            theme={theme}
-            isEdit={isEdit}
-            currentTodo={currentTodo}
-          >
-            {currentTodo.isComplete ? <i className="fas fa-check"></i> : null}
-          </TodoComplete>
-          <TextLink to={`/todos/${currentTodo.id}`}>
-            <TextWrapper currentTodo={currentTodo} width={width}>
-              {truncateText}
-              {width >= 768 ? null : <span className="hover-text">{text}</span>}
-            </TextWrapper>
-          </TextLink>
-        </TodoBottomSection>
-      </TodoWrapper>
-    </TodoColor>
+    <TodoWrapper
+      theme={theme}
+      currentTodo={currentTodo}
+      todoListColors={todoListColors}
+    >
+      <TodoTopSection currentTodo={currentTodo} theme={theme}>
+        {dueDate ? <p>Due {dueDate}</p> : null}
+        <IconsWrapper theme={theme}>
+          {isFavorite ? (
+            <i className="fas fa-star icons favorite-icon" />
+          ) : null}
+          {note.length ? <i className="fas fa-sticky-note note-icon" /> : null}
+        </IconsWrapper>
+      </TodoTopSection>
+      <TodoBottomSection>
+        <TodoComplete
+          onClick={handleCompleteItem}
+          theme={theme}
+          isEdit={isEdit}
+          currentTodo={currentTodo}
+        >
+          {currentTodo.isComplete ? <i className="fas fa-check"></i> : null}
+        </TodoComplete>
+        <TextLink to={`/todos/${currentTodo.id}`}>
+          <TextWrapper currentTodo={currentTodo} width={width}>
+            {truncateText}
+            {width >= 768 ? null : <span className="hover-text">{text}</span>}
+          </TextWrapper>
+          <Arrow theme={theme} isLightTheme={isLightTheme}>
+            <i className="fas fa-chevron-right"></i>
+          </Arrow>
+        </TextLink>
+      </TodoBottomSection>
+    </TodoWrapper>
   );
 };
 
 TodoCard.propTypes = {
   currentTodo: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  isLightTheme: PropTypes.bool.isRequired,
 };
 
 export default TodoCard;

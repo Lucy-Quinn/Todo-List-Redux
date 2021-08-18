@@ -24,7 +24,7 @@ const SearchButton = ({
       {isSearchActive ? (
         <i className="fas fa-times"></i>
       ) : (
-        <i className="fas fa-search search"></i>
+        <i className="fas fa-search search-icon"></i>
       )}
     </Button>
   );

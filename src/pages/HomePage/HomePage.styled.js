@@ -16,6 +16,10 @@ const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  @media (min-width: 768px) {
+    width: 65%;
+    margin: 0 auto;
+  }
 `;
 
 export { TodoListCenter, TodoListWrapper, Buttons };

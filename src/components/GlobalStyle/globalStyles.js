@@ -93,8 +93,8 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     gap: 10px;
     box-shadow: ${({ theme }) => theme.boxShadow};
-    padding: 15px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 3px;
     margin-bottom: 15px;
     align-items: baseline;
     @media(min-width: 768px){
@@ -104,6 +104,9 @@ const GlobalStyle = createGlobalStyle`
         margin: 0 auto 15px;
         min-height: 45px;
     }
+    @media (min-width: 1024px) {
+    width: 62%;
+  }
   }
 
   .form-input{
@@ -111,11 +114,14 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     display: block;
     padding:10px;
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     width: 100%;
+    @media(min-width: 768px){
+      font-size: 1.2rem;
+    }
     @media(min-width: 1024px){
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
 
   }
@@ -147,8 +153,8 @@ const GlobalStyle = createGlobalStyle`
     box-shadow: ${({ theme }) => theme.boxShadow};
     font-size: 1.5rem;
     font-weight: 500;
-    width: 50px;
-    height: 45px;
+    width: 38px;
+    height: 38px;
     display: block;
     @media (min-width: 1024px) {
       font-size: 2.5rem;
@@ -162,7 +168,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     padding: 15px;
     border-radius: 30px;
-    min-width: 135px;
+    padding: 10px 15px;
+    box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     box-shadow: ${({ theme }) => theme.boxShadow};
     @media(min-width: 1024px){
@@ -170,7 +177,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
- 
   .favorite-icon, .note-icon{
     color: ${({ theme }) => theme.secondary};
   }

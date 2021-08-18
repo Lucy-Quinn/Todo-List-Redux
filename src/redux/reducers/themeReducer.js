@@ -7,7 +7,7 @@ const INITIALSTATE = {
       onPrimary: '#fff',
       secondary: '#60DBC7',
       onSecondary: '#fff',
-      background: '#fff',
+      background: '#F0F0F0',
       onBackground: 'black',
       surface: '#fff',
       onSurface: 'black',

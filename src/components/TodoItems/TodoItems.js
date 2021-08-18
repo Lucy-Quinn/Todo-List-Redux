@@ -5,9 +5,8 @@ import { map, orderBy } from 'lodash';
 
 import TodoCard from '../TodoCard';
 import { TodoListWrapper, NoTodos } from './TodoItems.styled';
-// import OrderTodos from '../OrderTodos';
 
-const TodoItems = ({ theme }) => {
+const TodoItems = ({ theme, isLightTheme }) => {
   const { todos, filtered, inputValue } = useSelector(
     (state) => state.todoItemsReducer
   );
@@ -17,13 +16,13 @@ const TodoItems = ({ theme }) => {
     <>
       {todos.length >= 1 ? (
         <TodoListWrapper theme={theme}>
-          {/* <OrderTodos /> */}
           {inputValue.length >= 1
             ? map(filtered, (currentFilteredTodo) => (
                 <TodoCard
                   key={currentFilteredTodo.id}
                   currentTodo={currentFilteredTodo}
                   theme={theme}
+                  isLightTheme={isLightTheme}
                 />
               ))
             : map(todosOrderedByMostRecent, (currentTodo) => (
@@ -31,6 +30,7 @@ const TodoItems = ({ theme }) => {
                   key={currentTodo.id}
                   currentTodo={currentTodo}
                   theme={theme}
+                  isLightTheme={isLightTheme}
                 />
               ))}
         </TodoListWrapper>
@@ -45,6 +45,7 @@ const TodoItems = ({ theme }) => {
 
 TodoItems.propTypes = {
   theme: PropTypes.object.isRequired,
+  isLightTheme: PropTypes.bool.isRequired,
 };
 
 export default TodoItems;

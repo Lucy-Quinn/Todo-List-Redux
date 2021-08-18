@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
 const TodoListItemsWrapper = styled.div`
-  background: ${({ theme }) => theme.surface};
-  box-shadow: ${({ theme }) => theme.boxShadow};
-  background: ${({ theme }) => theme.surface};
   border-radius: 10px;
-  padding: 20px;
   @media (min-width: 768px) {
-    width: 60%;
+    width: 65%;
     display: block;
     margin: 0 auto;
+  }
+  @media (min-width: 1024px) {
+    width: 66%;
+  }
+  @media (min-width: 1440px) {
+    width: 65%;
   }
 `;
 

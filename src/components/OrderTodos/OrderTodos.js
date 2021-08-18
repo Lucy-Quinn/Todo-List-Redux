@@ -61,20 +61,22 @@ const OrderTodos = ({ theme }) => {
 
   return (
     <OrderTodosWrapper theme={theme}>
-      <select
-        className="form-select"
-        value={sortAction}
-        onChange={handleOptionChange}
-      >
-        <option value="" hidden>
-          Order by
-        </option>
-        {map(ORDER_TODO_DATA, (element) => (
-          <option value={element.action} key={element.id}>
-            {element.action}
+      <div className="select">
+        <select
+          className="form-select select"
+          value={sortAction}
+          onChange={handleOptionChange}
+        >
+          <option value="" hidden>
+            Order by
           </option>
-        ))}
-      </select>
+          {map(ORDER_TODO_DATA, (element) => (
+            <option value={element.action} key={element.id}>
+              {element.action}
+            </option>
+          ))}
+        </select>
+      </div>
     </OrderTodosWrapper>
   );
 };

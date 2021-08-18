@@ -7,7 +7,6 @@ const FormWrapper = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
   background: ${({ theme }) => theme.surface};
   padding: 10px;
-  border-radius: 10px;
   margin: 10px 0 15px;
   @media (min-width: 768px) {
     flex-direction: row;
@@ -16,6 +15,9 @@ const FormWrapper = styled.div`
     margin: 0 auto;
     min-height: 45px;
     padding: 20px 20px 0;
+  }
+  @media (min-width: 1024px) {
+    width: 62%;
   }
 `;
 

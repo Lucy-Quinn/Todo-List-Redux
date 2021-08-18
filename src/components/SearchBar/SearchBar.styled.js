@@ -12,9 +12,15 @@ const SearchBarWrapper = styled.form`
   @media (min-width: 768px) {
     justify-content: center;
     padding: 20px;
-    width: 60%;
+    width: 61%;
     margin: 0 auto 15px;
     min-height: 45px;
+  }
+  @media (min-width: 1024px) {
+    width: 63%;
+  }
+  @media (min-width: 1440px) {
+    width: 64%;
   }
   input {
     align-self: center;
