@@ -35,7 +35,6 @@ const TodoCard = ({ currentTodo, theme, isLightTheme }) => {
     todoListCategoriesArr.includes(todoList.title)
   );
   const todoListColors = map(foundTodoLists, (todoList) => todoList.color)[0];
-
   const handleCompleteItem = () => {
     dispatch(completeTodo({ todoId }));
   };

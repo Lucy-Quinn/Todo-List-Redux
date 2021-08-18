@@ -18,6 +18,8 @@ const TodoWrapper = styled.div`
       return `${theme.boxShadow}, ${todoListColors} 10px 0 2px -2px inset`;
     } else if (currentTodo.isComplete) {
       return `none`;
+    } else {
+      return `${theme.boxShadow}`;
     }
   }};
   background: ${({ theme }) => theme.surface};

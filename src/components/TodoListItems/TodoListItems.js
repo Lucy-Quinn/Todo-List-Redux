@@ -6,7 +6,7 @@ import { map, filter, includes } from 'lodash';
 import TodoCard from '../../components/TodoCard';
 import { TodoListItemsWrapper } from './TodoListItems.styled';
 
-const TodoListItems = ({ currentTodoList, theme }) => {
+const TodoListItems = ({ currentTodoList, theme, isLightTheme }) => {
   const todosArr = useSelector((state) => state.todoItemsReducer.todos);
 
   const foundTodoItems = filter(todosArr, (todo) => {
@@ -18,7 +18,12 @@ const TodoListItems = ({ currentTodoList, theme }) => {
       <TodoListItemsWrapper theme={theme}>
         {map(foundTodoItems, (todoItem) => {
           return (
-            <TodoCard key={todoItem.id} currentTodo={todoItem} theme={theme} />
+            <TodoCard
+              key={todoItem.id}
+              currentTodo={todoItem}
+              theme={theme}
+              isLightTheme={isLightTheme}
+            />
           );
         })}
       </TodoListItemsWrapper>
@@ -29,6 +34,7 @@ const TodoListItems = ({ currentTodoList, theme }) => {
 TodoListItems.propTypes = {
   currentTodoList: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  isLightTheme: PropTypes.bool,
 };
 
 export default TodoListItems;
