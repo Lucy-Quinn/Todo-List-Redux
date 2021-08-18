@@ -2,11 +2,24 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const TodoWrapper = styled.div`
-  box-shadow: 10px 0 2px -2px ${({ todoListColors }) => (todoListColors ? todoListColors : 'transparent')};
   display: flex;
   margin-bottom: 10px;
-  padding: 15px 15px 25px;
-  box-shadow: ${({ theme }) => theme.boxShadow};
+  padding: 15px 15px 23px;
+  box-shadow: ${({ currentTodo, theme, todoListColors, isLightTheme }) => {
+    if (currentTodo.isComplete && todoListColors !== undefined) {
+      return `${todoListColors} 10px 0 2px -2px inset`;
+    } else if (
+      !currentTodo.isComplete &&
+      todoListColors !== undefined &&
+      !isLightTheme
+    ) {
+      return `${todoListColors} 10px 0 2px -2px inset`;
+    } else if (!currentTodo.isComplete && todoListColors !== undefined) {
+      return `${theme.boxShadow}, ${todoListColors} 10px 0 2px -2px inset`;
+    } else if (currentTodo.isComplete) {
+      return `none`;
+    }
+  }};
   background: ${({ theme }) => theme.surface};
   flex-direction: column;
   align-items: center;

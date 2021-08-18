@@ -6,7 +6,6 @@ const ToggleButtonWrapper = styled.div`
 
 const ToggleButtonIcon = styled.button`
   background: ${({ theme }) => theme.secondary};
-  box-shadow: ${({ theme }) => theme.boxShadow};
   padding: 8px;
   border-radius: 10px;
   border: none;

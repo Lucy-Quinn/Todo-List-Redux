@@ -26,7 +26,7 @@ const SingleTodoPage = ({ match }) => {
   const currentTodo = useSelector((state) =>
     find(state.todoItemsReducer.todos, (todo) => todo.id === todoId)
   );
-  const currentTodoText = currentTodo.text;
+  const currentTodoText = currentTodo?.text;
   const truncateText = useTruncateText(currentTodoText, 10, 'header');
   const { width } = useWindowSize();
 

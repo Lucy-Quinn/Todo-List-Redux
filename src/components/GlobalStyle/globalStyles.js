@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1{
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: black;
     @media(min-width: 768px){
         font-size: 2.5rem;
@@ -155,7 +155,9 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 500;
     width: 38px;
     height: 38px;
-    display: block;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
     @media (min-width: 1024px) {
       font-size: 2.5rem;
       height: 65px;
@@ -200,7 +202,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   .edit-icon{
-    font-size: 2rem;
+    font-size: 1.6rem;
     @media (min-width: 768px) {
       font-size: 2.1rem;
     }

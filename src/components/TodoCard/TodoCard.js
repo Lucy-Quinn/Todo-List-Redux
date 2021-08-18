@@ -44,6 +44,7 @@ const TodoCard = ({ currentTodo, theme, isLightTheme }) => {
       theme={theme}
       currentTodo={currentTodo}
       todoListColors={todoListColors}
+      isLightTheme={isLightTheme}
     >
       <TodoTopSection currentTodo={currentTodo} theme={theme}>
         {dueDate ? <p>Due {dueDate}</p> : null}
@@ -80,7 +81,7 @@ const TodoCard = ({ currentTodo, theme, isLightTheme }) => {
 TodoCard.propTypes = {
   currentTodo: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  isLightTheme: PropTypes.bool.isRequired,
+  isLightTheme: PropTypes.bool,
 };
 
 export default TodoCard;

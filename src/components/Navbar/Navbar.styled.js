@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const Nav = styled.nav`
   background: ${({ theme }) => theme.primary};
   padding: 0 20px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   padding: 15px;
   .navbar-header {
+    margin-right: 10px;
     @media (min-width: 768px) {
       width: 100%;
     }
@@ -23,8 +23,6 @@ const TodoAppHeader = styled.h1`
   color: #fff;
   margin: 0;
   padding: 0;
-  width: 193px;
-  margin-left: 20px;
   @media (min-width: 375px) {
     margin-left: 46px;
   }
@@ -35,16 +33,10 @@ const TodoAppHeader = styled.h1`
   @media (min-width: 768px) {
     width: 100%;
     margin: 0;
+    min-width: 400px;
   }
   @media (min-width: 1024px) {
     font-size: 3.3rem;
-  }
-`;
-
-const HeaderLinkWrapper = styled(Link)`
-  width: 193px;
-  @media (min-width: 768px) {
-    width: 100%;
   }
 `;
 
@@ -62,4 +54,4 @@ const ToggleThemeWrapper = styled.div`
   }
 `;
 
-export { Nav, TodoAppHeader, HeaderLinkWrapper, ToggleThemeWrapper };
+export { Nav, TodoAppHeader, ToggleThemeWrapper };
